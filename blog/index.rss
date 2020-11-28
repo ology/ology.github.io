@@ -8,12 +8,12 @@
         <generator>Statocles 0.097</generator>
         <item>
             <title>First Post</title>
-            <link>http://techn.ology.net/blog/2020/11/28/first-post/</link>
-            <guid>http://techn.ology.net/blog/2020/11/28/first-post/</guid>
+            <link>http://techn.ology.net/blog/2020/11/28/hello-world/</link>
+            <guid>http://techn.ology.net/blog/2020/11/28/hello-world/</guid>
             <description><![CDATA[
                 <h1>Welcome To Your Blog</h1>
 
-<p>This is your first post. To edit this post, open up /blog/2020/11/28/first-post/index.markdown
+<p>This is your first post. To edit this post, open up /blog/2020/11/28/hello-world/index.markdown
 in your text editor.</p>
 
 <p><a href="http://preaction.me/statocles/pod/Statocles/Help/Content">Check the documentation for how to write Statocles
