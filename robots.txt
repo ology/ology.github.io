@@ -1,0 +1,5 @@
+Sitemap: http://techn.ology.net/sitemap.xml
+User-Agent: *
+Disallow:
+
+
