@@ -18,10 +18,11 @@
 
 <p><a href="https://techn.ology.net/">techn.ology.net</a></p>
 
-<p><code>
-my $answer = 42;
-print &quot;Answer: $answer\n&quot;;
-</code></p>
+<p>```
+my $answer = 42;</p>
+
+<p>print &quot;Answer: $answer\n&quot;;
+```</p>
 
 
                 <p>Tags:
