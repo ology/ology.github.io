@@ -67,7 +67,7 @@
     </entry>
     <entry>
         <id>http://techn.ology.net/blog/2020/11/11/generating-musical-phrases/</id>
-        <title>Generating Musical Phrases - Round II</title>
+        <title>Generating Musical Phrases</title>
         <link href="http://techn.ology.net/blog/2020/11/11/generating-musical-phrases/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>After years of fiddling with algorithmic composition, I have come to reach for certain tools to craft melodies, bass-lines, solos, etc.  My latest generative composition program and output will illustrate...</p>
@@ -78,16 +78,13 @@
 
 <p>The code libraries that I love to use so much are:</p>
 
-<pre><code>- [Data::Dumper::Compact](https://metacpan.org/release/Data-Dumper-Compact) - For concisely displaying the data structures that embody programmed musical things.
-
-- [MIDI::Drummer::Tiny](https://metacpan.org/release/MIDI-Drummer-Tiny) - For adding beats to my projects.
-
-- [Music::Duration::Partition](https://metacpan.org/release/Music-Duration-Partition) - For generating quasi-random rhythmic phrases in a given duration.
-
-- [Music::Scales](https://metacpan.org/release/Music-Scales) - For providing the scale notes that are the atoms of music.
-
-- [Music::VoiceGen](https://metacpan.org/release/Music-VoiceGen) - For generating a smooth series of pitches.
-</code></pre>
+<ul>
+<li><a href="https://metacpan.org/release/Data-Dumper-Compact">Data::Dumper::Compact</a> - For concisely displaying the data structures that embody programmed musical things.</li>
+<li><a href="https://metacpan.org/release/MIDI-Drummer-Tiny">MIDI::Drummer::Tiny</a> - For adding beats to my projects.</li>
+<li><a href="https://metacpan.org/release/Music-Duration-Partition">Music::Duration::Partition</a> - For generating quasi-random rhythmic phrases in a given duration.</li>
+<li><a href="https://metacpan.org/release/Music-Scales">Music::Scales</a> - For providing the scale notes that are the atoms of music.</li>
+<li><a href="https://metacpan.org/release/Music-VoiceGen">Music::VoiceGen</a> - For generating a smooth series of pitches.</li>
+</ul>
 
 <p>(A couple are written by me, because they didn&#39;t exist yet!)</p>
 
