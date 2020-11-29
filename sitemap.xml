@@ -4,25 +4,43 @@
         <loc>http://techn.ology.net/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-28</lastmod>
+        <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/blog/2020/11/28/hello-world/</loc>
+        <loc>http://techn.ology.net/blog/2020/11/23/generating-musical-phrases-round-ii/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2020-11-28</lastmod>
+        <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/blog/tag/first/</loc>
+        <loc>http://techn.ology.net/blog/tag/generative/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-28</lastmod>
+        <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/blog/tag/post/</loc>
+        <loc>http://techn.ology.net/blog/tag/midi/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-28</lastmod>
+        <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/blog/tag/music/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/blog/tag/perl/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/blog/tag/software/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-23</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/page/</loc>

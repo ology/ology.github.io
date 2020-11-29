@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://techn.ology.net/blog/</id>
+    <id>http://techn.ology.net/blog/tag/midi/</id>
     <title>Gene Boggs</title>
     <updated>2020-11-23T00:00:00Z</updated>
-    <link href="http://techn.ology.net/blog/index.atom" rel="self" />
-    <link href="http://techn.ology.net/blog/" rel="alternate" />
+    <link href="http://techn.ology.net/blog/tag/midi.atom" rel="self" />
+    <link href="http://techn.ology.net/blog/tag/midi/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>

@@ -7,31 +7,58 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
-            <title>First Post</title>
-            <link>http://techn.ology.net/blog/2020/11/28/hello-world/</link>
-            <guid>http://techn.ology.net/blog/2020/11/28/hello-world/</guid>
+            <title>Generating Musical Phrases - Round II</title>
+            <link>http://techn.ology.net/blog/2020/11/23/generating-musical-phrases-round-ii/</link>
+            <guid>http://techn.ology.net/blog/2020/11/23/generating-musical-phrases-round-ii/</guid>
             <description><![CDATA[
-                <h1>Welcome to my journal!</h1>
+                <p>It seems I am always fiddling with algorithmic musical composition.  Most recently it is with the program, polygenic, which is a descendant of the program in the previous post on this subject.</p>
 
-<p>To edit this post, open up /blog/2020/11/28/hello-world/index.markdown in your text editor.</p>
+<p>~</p>
 
-<p><a href="https://techn.ology.net/">techn.ology.net</a></p>
+<p>For this program, first up is to declare our standard Perl preamble.  Then version 5.20 is required (in order to allow <a href="https://perldoc.perl.org/perlref#Postfix-Dereference-Syntax">&quot;post-deref&quot; syntax</a>), and some of my favorite music modules - well many!</p>
 
-<pre><code>my $answer = 42;
-print &quot;Answer: $answer\n&quot;;
-</code></pre>
+<p>Anyway, next the program either gets or sets defaults for its parameters.  (The &quot;getting&quot; is done via the command-line as arguments given to the program.)  For instance, the default generated composition will be in the key of A minor at 105 beats per minute.</p>
 
-<p>Hmmm...</p>
+<p>A <a href="https://metacpan.org/release/MIDI-Drummer-Tiny">drummer</a> is created.  This includes a handy score object.  The beat count is initialized at zero, the 3 parts are synchronized (i.e. played simultaneously), and the score is written to a MIDI file, which is set by the drummer and named after the program.</p>
+
+<p>Pretty simple, eh?  Haha!  (Well yes, to me, the author, it is.)</p>
+
+<p>The meat of this program lies in the two parts called &quot;top()&quot; and &quot;bottom()&quot; - Brilliant names, yes?  They are both extremely similar, but each have entirely different repeated phrases, and are in different octaves.</p>
+
+<p>Please see the source code if you are interested in the workings.  But here are a couple audio examples.  Both are in 5/4 (drums and bass), but the top parts are in 4/4.  Why 5/4?  Because I am fascinated with odd meters and polyrhythms.</p>
+
+<p>In the first, the top part is made with combinations of half, quarter and eighth notes.  The second adds triplet eighth notes to the mix.  I call this &quot;solo mode.&quot;  Haha.</p>
+
+<p><a href="https://www.ology.net/tech/wp-content/uploads/polygenic-10-Solo-mode.mp3">polygenic-10-Solo-mode.mp3</a></p>
+
+<p><a href="https://www.ology.net/tech/wp-content/uploads/polygenic-10-Solo-mode-1.mp3">polygenic-10-Solo-mode-1.mp3</a></p>
+
+<p>Ok. One more.  This has phrases with &quot;charming grace-notes&quot;, because the phrase generator produced one without proper triplets:</p>
+
+<p><a href="https://www.ology.net/tech/wp-content/uploads/polygenic-9-Charming-grace-notes.mp3">polygenic-9-Charming-grace-notes.mp3</a></p>
+
+<p><strong>UPDATE:</strong></p>
+
+<p>The <a href="https://github.com/ology/Music/blob/master/chordal">descendant program</a> that adds, what sound like chords:</p>
+
+<p><a href="https://www.ology.net/tech/wp-content/uploads/chordal-03.mp3">chordal-03.mp3</a></p>
+
+<p>Here is the same descendant program, but playing every other bar a whole note on top instead of the solo notes:</p>
+
+<p><a href="https://www.ology.net/tech/wp-content/uploads/chordal-04.mp3">chordal-04.mp3</a></p>
 
 
                     <p>Tags:
-                        <a href="http://techn.ology.net/blog/tag/post/">post</a>
-                        <a href="http://techn.ology.net/blog/tag/first/">first</a>
+                        <a href="http://techn.ology.net/blog/tag/music/">music</a>
+                        <a href="http://techn.ology.net/blog/tag/software/">software</a>
+                        <a href="http://techn.ology.net/blog/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/blog/tag/midi/">MIDI</a>
+                        <a href="http://techn.ology.net/blog/tag/generative/">generative</a>
                     </p>
 
             ]]></description>
             <pubDate>
-                Sat, 28 Nov 2020 00:00:00 +0000
+                Mon, 23 Nov 2020 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

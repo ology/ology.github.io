@@ -1,18 +1,17 @@
 <?xml version="1.0"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://techn.ology.net/blog/</id>
-    <title>Gene Boggs</title>
-    <updated>2020-11-23T00:00:00Z</updated>
-    <link href="http://techn.ology.net/blog/index.atom" rel="self" />
-    <link href="http://techn.ology.net/blog/" rel="alternate" />
-    <generator version="0.097">Statocles</generator>
-
-    <entry>
-        <id>http://techn.ology.net/blog/2020/11/23/generating-musical-phrases-round-ii/</id>
-        <title>Generating Musical Phrases - Round II</title>
-        <link href="http://techn.ology.net/blog/2020/11/23/generating-musical-phrases-round-ii/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>It seems I am always fiddling with algorithmic musical composition.  Most recently it is with the program, polygenic, which is a descendant of the program in the previous post on this subject.</p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Gene Boggs</title>
+        <link>http://techn.ology.net/blog/tag/midi/</link>
+        <atom:link href="http://techn.ology.net/blog/tag/midi.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Gene Boggs</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>Generating Musical Phrases - Round II</title>
+            <link>http://techn.ology.net/blog/2020/11/23/generating-musical-phrases-round-ii/</link>
+            <guid>http://techn.ology.net/blog/2020/11/23/generating-musical-phrases-round-ii/</guid>
+            <description><![CDATA[
+                <p>It seems I am always fiddling with algorithmic musical composition.  Most recently it is with the program, polygenic, which is a descendant of the program in the previous post on this subject.</p>
 
 <p>~</p>
 
@@ -49,21 +48,19 @@
 <p><a href="https://www.ology.net/tech/wp-content/uploads/chordal-04.mp3">chordal-04.mp3</a></p>
 
 
-                <p>Tags:
-                    <a href="http://techn.ology.net/blog/tag/music/">music</a>
-                    <a href="http://techn.ology.net/blog/tag/software/">software</a>
-                    <a href="http://techn.ology.net/blog/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/blog/tag/midi/">MIDI</a>
-                    <a href="http://techn.ology.net/blog/tag/generative/">generative</a>
-                </p>
+                    <p>Tags:
+                        <a href="http://techn.ology.net/blog/tag/music/">music</a>
+                        <a href="http://techn.ology.net/blog/tag/software/">software</a>
+                        <a href="http://techn.ology.net/blog/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/blog/tag/midi/">MIDI</a>
+                        <a href="http://techn.ology.net/blog/tag/generative/">generative</a>
+                    </p>
 
-        ]]></content>
-        <updated>2020-11-23T00:00:00Z</updated>
-        <category term="music" />
-        <category term="software" />
-        <category term="perl" />
-        <category term="MIDI" />
-        <category term="generative" />
-    </entry>
-</feed>
+            ]]></description>
+            <pubDate>
+                Mon, 23 Nov 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
 
