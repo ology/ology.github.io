@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Gene Boggs</title>
+        <link>http://techn.ology.net/blog/tag/first/</link>
+        <atom:link href="http://techn.ology.net/blog/tag/first.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Gene Boggs</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>First Post</title>
+            <link>http://techn.ology.net/blog/2020/11/28/hello-world/</link>
+            <guid>http://techn.ology.net/blog/2020/11/28/hello-world/</guid>
+            <description><![CDATA[
+                <h1>Welcome to my journal!</h1>
+
+<p>To edit this post, open up /blog/2020/11/28/hello-world/index.markdown in your text editor.</p>
+
+<p><a href="https://techn.ology.net/">techn.ology.net</a></p>
+
+<p>```
+my $answer = 42;</p>
+
+<p>print &quot;Answer: $answer\n&quot;;
+```</p>
+
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/blog/tag/post/">post</a>
+                        <a href="http://techn.ology.net/blog/tag/first/">first</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 28 Nov 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+
