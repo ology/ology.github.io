@@ -18,11 +18,11 @@
 
 <p><a href="https://techn.ology.net/">techn.ology.net</a></p>
 
-<p>`
-my $foo = 123;</p>
+<pre><code>my $answer = 42;
+print &quot;Answer: $answer\n&quot;;
+</code></pre>
 
-<p>print &quot;Foo: $foo\n&quot;;
-`</p>
+<p>Hmmm...</p>
 
 
                 <p>Tags:
