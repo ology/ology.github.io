@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://techn.ology.net/blog/tag/drums/</id>
+    <title>Gene Boggs</title>
+    <updated>2020-11-01T00:00:00Z</updated>
+    <link href="http://techn.ology.net/blog/tag/drums.atom" rel="self" />
+    <link href="http://techn.ology.net/blog/tag/drums/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>http://techn.ology.net/blog/2020/11/01/imitating-a-drum-circle/</id>
+        <title>Imitating a Drum Circle</title>
+        <link href="http://techn.ology.net/blog/2020/11/01/imitating-a-drum-circle/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="http://techn.ology.net/blog/2020/11/01/imitating-a-drum-circle/drum-circle.jpg">
+Ever been to the park and heard a tribe drumming in the distance?  This is a <a href="https://en.wikipedia.org/wiki/Drum_circle">drum circle</a>.
+Upon closer inspection, each drummer has a single instrument (or maybe a set of bongos).
+Each drummer keeps a steady beat in common and in syncopation with his or her fellow drummers.</p>
+
+<p>~</p>
+
+<p>I wondered if this could be simulated somehow?  There are of course decisions to be made - parts to this equation... How should the drummers enter? All at once or gradually?  How should a drum be chosen or selected?  And what phrase(s) should be played anyway?</p>
+
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/blog/tag/music/">music</a>
+                    <a href="http://techn.ology.net/blog/tag/software/">software</a>
+                    <a href="http://techn.ology.net/blog/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/blog/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/blog/tag/generative/">generative</a>
+                    <a href="http://techn.ology.net/blog/tag/drums/">drums</a>
+                </p>
+
+        ]]></content>
+        <updated>2020-11-01T00:00:00Z</updated>
+        <category term="music" />
+        <category term="software" />
+        <category term="perl" />
+        <category term="MIDI" />
+        <category term="generative" />
+        <category term="drums" />
+    </entry>
+</feed>
+
