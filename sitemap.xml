@@ -13,6 +13,18 @@
         <lastmod>2020-11-28</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/blog/tag/first/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-28</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/blog/tag/post/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-28</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>

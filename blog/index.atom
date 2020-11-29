@@ -19,9 +19,15 @@
 <p><a href="http://preaction.me/statocles/pod/Statocles/Help/Content">Check the documentation for how to write Statocles content</a></p>
 
 
+                <p>Tags:
+                    <a href="http://techn.ology.net/blog/tag/post/">post</a>
+                    <a href="http://techn.ology.net/blog/tag/first/">first</a>
+                </p>
 
         ]]></content>
         <updated>2020-11-28T00:00:00Z</updated>
+        <category term="post" />
+        <category term="first" />
     </entry>
 </feed>
 
