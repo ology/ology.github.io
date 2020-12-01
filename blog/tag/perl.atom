@@ -402,5 +402,184 @@ sub piano1 {
         <category term="MIDI" />
         <category term="generative" />
     </entry>
+    <entry>
+        <id>http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/</id>
+        <title>Musical Ngrams Round II</title>
+        <link href="http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-durations.png">
+What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="https://en.wikipedia.org/wiki/N-gram">ngrams</a> are basically groups of tokens.  These groups are of a certain given size - say phrases of three words.  If we consider notes as tokens we get musical ngrams!  We can count the number of occurrences of each ngram phrase, and thus know how many times a given phrase is repeated.  How often does Bach repeat himself, for instance?</p>
+
+<p>~</p>
+
+<p>This is a short story about refactoring and new results.</p>
+
+<p>After revisiting my <a href="https://metacpan.org/release/MIDI-Ngram">MIDI::Ngram</a> analysis module, I found that it was deeply broken with respect to multiples of things: channels, note durations and simultaneous events.  Naturally I had to fix it!</p>
+
+<p>First I discovered that only MIDI channel 0 was being considered.  Shocking!  I fixed that by refactoring the basic hash data-structure used to parse things, by just making it save to the channel being considered.  Voila.  Now the analysis of repetitions shows whatever channel you want to inspect.</p>
+
+<p>With this improved data-structure in hand, I focused my attention on tallying note durations.  That is, the time (in MIDI &quot;ticks&quot; not milliseconds) taken by each note, in the context of the tempo.   Now the analysis can show note duration repetition too.  Whew!</p>
+
+<p>Okay.  So the whole point of this module is to expose the number of times a musical phrase is repeated - not just note pitches alone and not just durations either - but both.</p>
+
+<p>For this I added pitch and duration events by start-time to the event data-structure, as mentioned above.  I process each with transliteration.  By this I mean that, in order to use the module <a href="https://metacpan.org/release/Lingua-EN-Ngram">Lingua::EN::Ngram</a> you need to encode the numerical note values.  I pass this transliterated string through Lingua::EN::Ngram to get the number of repeated phrases.  Now this module is made to ignore digits and punctuation.  But that is exactly what my constructed music strings are made of.  So by &quot;transliterate&quot; I mean apply this code to the music strings:</p>
+
+<pre><code>tr/0-9,*|/a-m/
+</code></pre>
+
+<p>You get out unpronounceable groups of alphabetical strings, but they can now be analyzed by Lingua::EN::Ngram.  To return to music strings, we just reverse this transliteration.  <em>Voila!</em></p>
+
+<p>Okay!  After fixing things, next up was to generate transition network graphs of note pitches, duration and the combination of the two.  This just involved looping over each event in order of start-time, and gathering the number of events to consider (the &quot;nodes&quot; of the graph).  This I chose to divide by the hyphen (&quot;dash&quot;) character.</p>
+
+<p>So here are the results of analyzing ngrams of size 2, with a minimum of 2 occurrences in the <a href="https://fastapi.metacpan.org/source/GENE/MIDI-Ngram-0.1804/eg/twinkle_twinkle.mid">&quot;Twinkle Twinkle Little Star&quot;</a> MIDI file included with the distribution:</p>
+
+<pre><code>$ perl eg/ngram-play --files eg/twinkle_twinkle.mid --size 2 --min 2 --out &#39;&#39;
+
+Durations: {
+    &#39;0&#39; =&gt; { &#39;hn qn&#39; =&gt; 5, &#39;qn hn&#39; =&gt; 6, &#39;qn qn&#39; =&gt; 30 },
+    &#39;1&#39; =&gt; { &#39;hn hn&#39; =&gt; 18, &#39;hn qn&#39; =&gt; 2, &#39;qn hn&#39; =&gt; 2, &#39;qn qn&#39; =&gt; 4 }, }
+}
+
+Duration network: {
+    &#39;0&#39; =&gt; {
+        &#39;hn qn-qn qn&#39; =&gt; 3,
+        &#39;qn hn-qn qn&#39; =&gt; 2,
+        &#39;qn qn-hn qn&#39; =&gt; 3,
+        &#39;qn qn-qn hn&#39; =&gt; 2,
+        &#39;qn qn-qn qn&#39; =&gt; 9,
+    },
+    &#39;1&#39; =&gt; { &#39;hn hn-hn hn&#39; =&gt; 8, &#39;hn hn-qn qn&#39; =&gt; 2 },
+}
+
+Notes: {
+    &#39;0&#39; =&gt; {
+        &#39;A4 A4&#39; =&gt; 2,
+        &#39;A4 G4&#39; =&gt; 2,
+        &#39;C4 C4&#39; =&gt; 2,
+        &#39;C4 G4&#39; =&gt; 3,
+        &#39;D4 C4&#39; =&gt; 3,
+        &#39;D4 D4&#39; =&gt; 2,
+        &#39;E4 D4&#39; =&gt; 4,
+        &#39;E4 E4&#39; =&gt; 4,
+        &#39;F4 E4&#39; =&gt; 4,
+        &#39;F4 F4&#39; =&gt; 4,
+        &#39;G4 A4&#39; =&gt; 2,
+        &#39;G4 F4&#39; =&gt; 4,
+        &#39;G4 G4&#39; =&gt; 4,
+    },
+    &#39;1&#39; =&gt; {
+        &#39;C3 E3&#39; =&gt; 3,
+        &#39;C3 F3&#39; =&gt; 2,
+        &#39;D3 C3&#39; =&gt; 2,
+        &#39;E3 D3&#39; =&gt; 2,
+        &#39;E3 F3&#39; =&gt; 4,
+        &#39;F3 E3&#39; =&gt; 2,
+        &#39;F3 G3&#39; =&gt; 4,
+        &#39;G3 C3&#39; =&gt; 2,
+        &#39;G3 E3&#39; =&gt; 2,
+        &#39;G3 G3&#39; =&gt; 2,
+    }
+}
+
+Note network: {
+    &#39;0&#39; =&gt; {
+        &#39;A4 A4-G4 F4&#39; =&gt; 2,
+        &#39;C4 C4-G4 G4&#39; =&gt; 2,
+        &#39;F4 E4-E4 D4&#39; =&gt; 3,
+        &#39;G4 F4-F4 E4&#39; =&gt; 3,
+        &#39;G4 G4-A4 A4&#39; =&gt; 2,
+    },
+    &#39;1&#39; =&gt; {
+        &#39;C3 E3-F3 E3&#39; =&gt; 2,
+        &#39;D3 C3-F3 G3&#39; =&gt; 2,
+        &#39;E3 F3-G3 G3&#39; =&gt; 2,
+        &#39;F3 E3-D3 C3&#39; =&gt; 2,
+    }
+}
+
+Durations*Notes: {
+    &#39;0&#39; =&gt; {
+        &#39;hn*G4 qn*F4&#39; =&gt; 2,
+        &#39;qn*A4 hn*G4&#39; =&gt; 2,
+        &#39;qn*A4 qn*A4&#39; =&gt; 2,
+        &#39;qn*C4 qn*C4&#39; =&gt; 2,
+        &#39;qn*C4 qn*G4&#39; =&gt; 2,
+        &#39;qn*D4 hn*C4&#39; =&gt; 2,
+        &#39;qn*D4 qn*D4&#39; =&gt; 2,
+        &#39;qn*E4 hn*D4&#39; =&gt; 2,
+        &#39;qn*E4 qn*D4&#39; =&gt; 2,
+        &#39;qn*E4 qn*E4&#39; =&gt; 4,
+        &#39;qn*F4 qn*E4&#39; =&gt; 4,
+        &#39;qn*F4 qn*F4&#39; =&gt; 4,
+        &#39;qn*G4 qn*A4&#39; =&gt; 2,
+        &#39;qn*G4 qn*F4&#39; =&gt; 2,
+        &#39;qn*G4 qn*G4&#39; =&gt; 4,
+    },
+    &#39;1&#39; =&gt; {
+        &#39;hn*C3 hn*E3&#39; =&gt; 2,
+        &#39;hn*C3 qn*F3&#39; =&gt; 2,
+        &#39;hn*D3 hn*C3&#39; =&gt; 2,
+        &#39;hn*E3 hn*D3&#39; =&gt; 2,
+        &#39;hn*E3 hn*F3&#39; =&gt; 4,
+        &#39;hn*F3 hn*E3&#39; =&gt; 2,
+        &#39;hn*F3 hn*G3&#39; =&gt; 2,
+        &#39;hn*G3 hn*G3&#39; =&gt; 2,
+        &#39;qn*F3 qn*G3&#39; =&gt; 2,
+    }
+}
+
+Duration*Note network: {
+    &#39;0&#39; =&gt; {
+        &#39;hn*G4 qn*F4-qn*F4 qn*E4&#39; =&gt; 2,
+        &#39;qn*A4 qn*A4-hn*G4 qn*F4&#39; =&gt; 2,
+        &#39;qn*C4 qn*C4-qn*G4 qn*G4&#39; =&gt; 2,
+        &#39;qn*F4 qn*E4-qn*E4 qn*D4&#39; =&gt; 2,
+        &#39;qn*G4 qn*G4-qn*A4 qn*A4&#39; =&gt; 2,
+    },
+    &#39;1&#39; =&gt; {
+        &#39;hn*C3 hn*E3-hn*F3 hn*E3&#39; =&gt; 2,
+        &#39;hn*D3 hn*C3-qn*F3 qn*G3&#39; =&gt; 2,
+        &#39;hn*E3 hn*F3-hn*G3 hn*G3&#39; =&gt; 2,
+        &#39;hn*F3 hn*E3-hn*D3 hn*C3&#39; =&gt; 2,
+    }
+}
+</code></pre>
+
+<p>And here are the graphs generated by this command:</p>
+
+<pre><code>$ perl eg/ngram-play --files eg/twinkle_twinkle.mid --size 2 --min 1 --out &#39;&#39; --image --chan 0
+</code></pre>
+
+<p>(Notice that the --min option is set to 1 this time.  This means consider all ngrams that repeat at least once.  Also --chan is 0 - the treble clef in this case.)</p>
+
+<p><img alt="" src="http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-durations.png">
+<img alt="" src="http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-notes.png">
+<img alt="" src="http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-duration_note.png"></p>
+
+<p>Here is the bass clef:</p>
+
+<p><img alt="" src="http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/Twinkle-1_ngram-analyze-durations.png">
+<img alt="" src="http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/Twinkle-1_ngram-analyze-notes.png">
+<img alt="" src="http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/Twinkle-1_ngram-analyze-duration_notes.png"></p>
+
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/blog/tag/music/">music</a>
+                    <a href="http://techn.ology.net/blog/tag/software/">software</a>
+                    <a href="http://techn.ology.net/blog/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/blog/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/blog/tag/analysis/">analysis</a>
+                    <a href="http://techn.ology.net/blog/tag/ngrams/">ngrams</a>
+                </p>
+
+        ]]></content>
+        <updated>2020-06-06T00:00:00Z</updated>
+        <category term="music" />
+        <category term="software" />
+        <category term="perl" />
+        <category term="MIDI" />
+        <category term="analysis" />
+        <category term="ngrams" />
+    </entry>
 </feed>
 

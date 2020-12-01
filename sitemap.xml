@@ -7,6 +7,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2020-06-06</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/blog/2020/10/18/imitating-steve-reich/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -31,6 +37,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/blog/tag/analysis/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-06-06</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/blog/tag/drums/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -53,6 +65,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/blog/tag/ngrams/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-06-06</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/blog/tag/perl/</loc>
