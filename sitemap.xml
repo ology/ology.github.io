@@ -7,6 +7,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/blog/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2020-03-03</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/blog/2020/06/06/musical-ngrams-round-ii/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -37,6 +43,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/blog/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/blog/tag/analysis/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -53,6 +65,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/blog/tag/machine-learning/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-03-03</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/blog/tag/midi/</loc>
@@ -79,10 +97,28 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/blog/tag/perl/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/blog/tag/software/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/blog/tag/software/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/blog/tag/star-trek/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-03-03</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/page/</loc>

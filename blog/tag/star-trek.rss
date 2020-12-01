@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>techn.ology.net</title>
+        <link>http://techn.ology.net/blog/tag/star-trek/</link>
+        <atom:link href="http://techn.ology.net/blog/tag/star-trek.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of techn.ology.net</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>Predicting Star Trek Characters with Naive Bayes</title>
+            <link>http://techn.ology.net/blog/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</link>
+            <guid>http://techn.ology.net/blog/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</guid>
+            <description><![CDATA[
+                <p><img alt="" src="http://techn.ology.net/blog/2020/03/03/predicting-star-trek-characters-with-naive-bayes/kirk-and-spock.jpg">
+I have been reading <a href="https://www.oreilly.com/library/view/data-science-from/9781492041122/">&quot;Data Science from Scratch&quot;</a> and porting the python code to perl.  In this episode, we use <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a> to predict whether the speaker of a line is either Kirk, Spock or McCoy, with my new, work-in-progress <a href="https://github.com/ology/Data-Science-FromScratch">data science library</a>.  tl;dr: <a href="https://github.com/ology/Data-Science-FromScratch/blob/master/eg/is-character.pl">is-character.pl</a></p>
+
+<p>~</p>
+
+<p>I will not dive into an explanation of the Naive Bayes classifier other than to say that it analyzes a set of words to see if they fall into predetermined categories like &quot;spam&quot; and &quot;not spam&quot; (&quot;ham&quot;).  There are many many explanations already out there!</p>
+
+<p>The data science library that I am using has &quot;spam&quot; and &quot;ham&quot; baked in, so we will consider the person of interest as spam and ham as everyone else.</p>
+
+<p>Before proceeding, we need the spoken lines.  I have collected these and uploaded <a href="https://github.com/ology/Machine-Learning/blob/master/Kirk-Spock-McCoy.zip">the zip file</a> to github.  Un-archive them on your local machine and update the $path line in the program parameter section in the code, below.</p>
+
+<p>Okay on with the example!  First up is the standard perl preamble and library module usage:</p>
+
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+use Data::MachineLearning::Elements;
+use File::Slurper qw(read_text);
+use Lingua::EN::Sentence qw(get_sentences);
+</code></pre>
+
+<p>Next are the crucial program parameters and their defaults:</p>
+
+<pre><code># Who are we interested in?
+my $who = shift || &#39;kirk&#39;;
+# How big should the training set be as a percent of the total?
+my $split = shift || 0.33;
+# Probability threshold (confidence) that the person of interest said it
+my $threshold = shift || 0.7;
+# Provide a custom statement to process
+my $statement = shift || &#39;To be or not to be. That is the question.&#39;;
+
+my @statements = (
+    &#39;Shall we pick some flowers, Doctor?&#39;, # Kirk
+    &#39;Vulcan has no moon, Miss Uhura.&#39;, # Spock
+    &#39;Is that how you get girls to like you, by bribing them?&#39;, # McCoy
+    &#39;Give me warp nine, Scotty.&#39;, # Fake Kirk
+    &#39;That is highly illogical.&#39;, # Fake Spock
+    &quot;He&#39;s dead, Jim.&quot;, # Fake McCoy
+);
+
+# Unziped Star Trek scripts in this location
+my $path = $ENV{HOME} . &#39;/Documents/lit/Kirk-Spock-McCoy/&#39;;
+</code></pre>
+
+<p>Here we have 1. who we are interested in, 2. how big the training set should be as a percentage of the total data size, 3. our threshold defining our confidence that a sentence is spoken by who we are interested in, 4. &amp; 5. the statements to analyze, and 6. the path where the Star Trek script files live.  Change this path to your unzipped location.</p>
+
+<p>So we need to gather and process the sentences of each character, classifying them as either &quot;spam&quot; (the person of interest) or &quot;not spam&quot; (everyone else):</p>
+
+<pre><code>print &quot;Gathering messages...\n&quot;;
+my @messages;
+
+# Process the lines of each file
+for my $i (qw(kirk spock mccoy)) {
+    my $file = $path . $i . &#39;.txt&#39;;
+
+    my $content = read_text($file);
+    my $sentences = get_sentences($content);
+
+    for my $sentence (@$sentences) {
+        $sentence =~ s/\(.+?\)//; # Remove action instructions
+
+        next if $sentence =~ /\(/; # Skip broken actions
+
+        $sentence =~ s/\n+/ /g; # Make the sentence a single line
+        $sentence =~ s/^\s*//; # Trim whitespace
+        $sentence =~ s/\s*$//; # Trim whitespace
+
+        next unless $sentence =~ /\w/;
+        #print $sentence, &quot;\n\n&quot;;
+
+        # The processed messages are a list of 2-key hashrefs
+        push @messages, { text =&gt; $sentence, is_spam =&gt; $i eq $who ? 1 : 0 };
+    }
+}
+</code></pre>
+
+<p>With the messages in hand we apply machine learning!</p>
+
+<pre><code># Invoke the data science library
+my $ml = Data::MachineLearning::Elements-&gt;new;
+
+my ($train, $test) = $ml-&gt;split_data($split, @messages);
+
+print &quot;Training on messages...\n&quot;;
+$ml-&gt;train(@$train);
+</code></pre>
+
+<p>After the classifier has been trained we use it to predict a handful of statements (given above in the program parameters section).</p>
+
+<pre><code>my $name = ucfirst $who;
+
+print &quot;$name said &quot;, $ml-&gt;spam_messages, &quot; sentences.\n&quot;;
+print &quot;Not-$name said &quot;, $ml-&gt;ham_messages, &quot; sentences.\n&quot;;
+
+print &quot;Probability that $name said,\n&quot;;
+for my $text (@statements) {
+    next unless $text;
+    my $prediction = $ml-&gt;nb_predict($text);
+    printf qq/\t%.4f = &quot;%s&quot;\n/, $prediction, $text;
+}
+</code></pre>
+
+<p>Ok. That&#39;s a bit of insight into the results that can be produced.  But how accurate is our classifier?  Here is the code to compute that:</p>
+
+<pre><code>print &quot;Computing accuracy, etc...\n&quot;;
+my ($tp, $fp, $fn, $tn) = (0,0,0,0);
+my %confusion_matrix;
+
+for my $i (@$test) {
+    my $predicted = $ml-&gt;nb_predict($i-&gt;{text});
+
+    my $true_pos  =  $i-&gt;{is_spam} &amp;&amp; $predicted &gt;= $threshold ? 1 : 0;
+    my $false_pos = !$i-&gt;{is_spam} &amp;&amp; $predicted &gt;= $threshold ? 1 : 0;
+    my $false_neg =  $i-&gt;{is_spam} &amp;&amp; $predicted &lt;  $threshold ? 1 : 0;
+    my $true_neg  = !$i-&gt;{is_spam} &amp;&amp; $predicted &lt;  $threshold ? 1 : 0;
+
+    $confusion_matrix{&quot;$true_pos,$false_pos,$false_neg,$true_neg&quot;}++;
+
+    $tp += $true_pos;
+    $fp += $false_pos;
+    $fn += $false_neg;
+    $tn += $true_neg;
+}
+
+print &quot;Confusion matrix (true_pos,false_pos,false_neg,true_neg):\n&quot;,
+    join(&quot;\n&quot;, map { &quot;\t$_ =&gt; $confusion_matrix{$_}&quot; } sort keys %confusion_matrix),
+    &quot;\n&quot;;
+printf &quot;Accuracy = %.4f\nPrecision = %.4f\nRecall = %.4f\nf1_score = %.4f\n&quot;,
+    $ml-&gt;accuracy($tp, $fp, $fn, $tn),
+    $ml-&gt;precision($tp, $fp, $fn, $tn),
+    $ml-&gt;recall($tp, $fp, $fn, $tn),
+    $ml-&gt;f1_score($tp, $fp, $fn, $tn);
+</code></pre>
+
+<p>The results for Kirk are:</p>
+
+<pre><code>&gt; time perl -Ilib is-character.pl kirk
+
+Gathering messages...
+Training on messages...
+Kirk said 5587 sentences.
+Not-Kirk said 3994 sentences.
+Probability that Kirk said,
+    0.7706 = &quot;Shall we pick some flowers, Doctor?&quot;
+    0.2317 = &quot;Vulcan has no moon, Miss Uhura.&quot;
+    0.6189 = &quot;Is that how you get girls to like you, by bribing them?&quot;
+    0.9611 = &quot;Give me warp nine, Scotty.&quot;
+    0.2352 = &quot;That is highly illogical.&quot;
+    0.0466 = &quot;He&#39;s dead, Jim.&quot;
+    0.2176 = &quot;To be or not to be. That is the question.&quot;
+Computing accuracy, etc...
+Confusion matrix (true_pos,false_pos,false_neg,true_neg):
+    0,0,0,1 =&gt; 5873
+    0,0,1,0 =&gt; 3939
+    0,1,0,0 =&gt; 2491
+    1,0,0,0 =&gt; 7151
+Accuracy = 0.6695
+Precision = 0.7417
+Recall = 0.6448
+f1_score = 0.6899
+
+real 5m50.978s
+</code></pre>
+
+<p>The &quot;f1_score&quot; is probably the best metric here.  And the classifier gets it right approximately 69% of the time.  Not the most fabulous results.  By the way, the number of sentences said by Kirk are based on the size of the training data (split at 33%) - not the total number of things he said.  Also, the program takes about six minutes to run on my older Macbook... YMMV.</p>
+
+<p>For Spock we get:</p>
+
+<pre><code>Spock said 2620 sentences.
+Not-Spock said 6961 sentences.
+Probability that Spock said,
+    0.5974 = &quot;Shall we pick some flowers, Doctor?&quot;
+    0.7845 = &quot;Vulcan has no moon, Miss Uhura.&quot;
+    0.0019 = &quot;Is that how you get girls to like you, by bribing them?&quot;
+    0.0051 = &quot;Give me warp nine, Scotty.&quot;
+    0.9170 = &quot;That is highly illogical.&quot;
+    0.0161 = &quot;He&#39;s dead, Jim.&quot;
+    0.5952 = &quot;To be or not to be. That is the question.&quot;
+Computing accuracy, etc...
+Confusion matrix (true_pos,false_pos,false_neg,true_neg):
+    0,0,0,1 =&gt; 12831
+    0,0,1,0 =&gt; 2858
+    0,1,0,0 =&gt; 1400
+    1,0,0,0 =&gt; 2365
+Accuracy = 0.7811
+Precision = 0.6282
+Recall = 0.4528
+f1_score = 0.5263
+</code></pre>
+
+<p>For McCoy this is:</p>
+
+<pre><code>Mccoy said 1491 sentences.
+Not-Mccoy said 8090 sentences.
+Probability that Mccoy said,
+    0.0342 = &quot;Shall we pick some flowers, Doctor?&quot;
+    0.0195 = &quot;Vulcan has no moon, Miss Uhura.&quot;
+    0.9982 = &quot;Is that how you get girls to like you, by bribing them?&quot;
+    0.0015 = &quot;Give me warp nine, Scotty.&quot;
+    0.0713 = &quot;That is highly illogical.&quot;
+    0.9791 = &quot;He&#39;s dead, Jim.&quot;
+    0.1675 = &quot;To be or not to be. That is the question.&quot;
+Computing accuracy, etc...
+Confusion matrix (true_pos,false_pos,false_neg,true_neg):
+    0,0,0,1 =&gt; 15237
+    0,0,1,0 =&gt; 2154
+    0,1,0,0 =&gt; 1193
+    1,0,0,0 =&gt; 870
+Accuracy = 0.8280
+Precision = 0.4217
+Recall = 0.2877
+f1_score = 0.3420
+</code></pre>
+
+<p>Not enough unique data for Bones to make an impact.</p>
+
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/blog/tag/machine-learning/">machine learning</a>
+                        <a href="http://techn.ology.net/blog/tag/star-trek/">Star Trek</a>
+                        <a href="http://techn.ology.net/blog/tag/software/">software</a>
+                        <a href="http://techn.ology.net/blog/tag/perl/">perl</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 03 Mar 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+
