@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://techn.ology.net/tag/scatter-plot/</id>
+    <title>techn.ology.net</title>
+    <updated>2020-05-03T00:00:00Z</updated>
+    <link href="http://techn.ology.net/tag/scatter-plot.atom" rel="self" />
+    <link href="http://techn.ology.net/tag/scatter-plot/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>http://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/</id>
+        <title>Ones vs Zeros in the Binary Primes</title>
+        <link href="http://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>What does the graph look like when you convert each prime to binary and plot the ones versus the zeros?</p>
+
+                <p><a href="http://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/r/">R</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="http://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                    <a href="http://techn.ology.net/tag/scatter-plot/">scatter plot</a>
+                </p>
+
+        ]]></content>
+        <updated>2020-05-03T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="R" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="prime numbers" />
+        <category term="scatter plot" />
+    </entry>
+</feed>
+
