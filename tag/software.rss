@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>techn.ology.net</title>
+        <link>http://techn.ology.net/tag/software/</link>
+        <atom:link href="http://techn.ology.net/tag/software.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of techn.ology.net</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>Generating Musical Phrases - Round II</title>
+            <link>http://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/</link>
+            <guid>http://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/</guid>
+            <description><![CDATA[
+                <p>It seems I am always fiddling with algorithmic musical composition.  Most recently it is with the program, polygenic, which is a descendant of the program in the previous post on this subject.</p>
+
+                    <p><a href="http://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/tag/music/">music</a>
+                        <a href="http://techn.ology.net/tag/software/">software</a>
+                        <a href="http://techn.ology.net/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                        <a href="http://techn.ology.net/tag/generative/">generative</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 23 Nov 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Generating Musical Phrases</title>
+            <link>http://techn.ology.net/2020/11/11/generating-musical-phrases/</link>
+            <guid>http://techn.ology.net/2020/11/11/generating-musical-phrases/</guid>
+            <description><![CDATA[
+                <p>After years of fiddling with algorithmic composition, I have come to reach for certain tools to craft melodies, bass-lines, solos, etc.  My latest generative composition program and output will illustrate...</p>
+
+                    <p><a href="http://techn.ology.net/2020/11/11/generating-musical-phrases/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/tag/music/">music</a>
+                        <a href="http://techn.ology.net/tag/software/">software</a>
+                        <a href="http://techn.ology.net/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                        <a href="http://techn.ology.net/tag/generative/">generative</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 11 Nov 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Imitating a Drum Circle</title>
+            <link>http://techn.ology.net/2020/11/01/imitating-a-drum-circle/</link>
+            <guid>http://techn.ology.net/2020/11/01/imitating-a-drum-circle/</guid>
+            <description><![CDATA[
+                <p><img alt="" src="http://techn.ology.net/2020/11/01/imitating-a-drum-circle/drum-circle.jpg">
+Ever been to the park and heard a tribe drumming in the distance?  This is a <a href="https://en.wikipedia.org/wiki/Drum_circle">drum circle</a>.
+Upon closer inspection, each drummer has a single instrument (or maybe a set of bongos).
+Each drummer keeps a steady beat in common and in syncopation with his or her fellow drummers.</p>
+
+                    <p><a href="http://techn.ology.net/2020/11/01/imitating-a-drum-circle/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/tag/music/">music</a>
+                        <a href="http://techn.ology.net/tag/software/">software</a>
+                        <a href="http://techn.ology.net/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                        <a href="http://techn.ology.net/tag/generative/">generative</a>
+                        <a href="http://techn.ology.net/tag/drums/">drums</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 01 Nov 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Imitating Steve Reich</title>
+            <link>http://techn.ology.net/2020/10/18/imitating-steve-reich/</link>
+            <guid>http://techn.ology.net/2020/10/18/imitating-steve-reich/</guid>
+            <description><![CDATA[
+                <p><img alt="" src="http://techn.ology.net/2020/10/18/imitating-steve-reich/Steve-Reich.jpg">
+Recently I was enjoying Steve Reich&#39;s <a href="https://www.youtube.com/watch?v=WgzQcDrX86M">&quot;Octet&quot; (Eight Lines)</a> and became curious if I could mimic the simple, staccato phrases with which he starts off his piece.</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/reichify">reichify</a></p>
+
+                    <p><a href="http://techn.ology.net/2020/10/18/imitating-steve-reich/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/tag/music/">music</a>
+                        <a href="http://techn.ology.net/tag/software/">software</a>
+                        <a href="http://techn.ology.net/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                        <a href="http://techn.ology.net/tag/generative/">generative</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 18 Oct 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Musical Ngrams Round II</title>
+            <link>http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</link>
+            <guid>http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</guid>
+            <description><![CDATA[
+                <p><img alt="" src="http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-durations.png">
+What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="https://en.wikipedia.org/wiki/N-gram">ngrams</a> are basically groups of tokens.  These groups are of a certain given size - say phrases of three words.  If we consider notes as tokens we get musical ngrams!  We can count the number of occurrences of each ngram phrase, and thus know how many times a given phrase is repeated.  How often does Bach repeat himself, for instance?</p>
+
+                    <p><a href="http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/tag/music/">music</a>
+                        <a href="http://techn.ology.net/tag/software/">software</a>
+                        <a href="http://techn.ology.net/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                        <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                        <a href="http://techn.ology.net/tag/ngrams/">ngrams</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 06 Jun 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

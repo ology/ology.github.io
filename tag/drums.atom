@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://techn.ology.net/tag/drums/</id>
+    <title>techn.ology.net</title>
+    <updated>2020-11-01T00:00:00Z</updated>
+    <link href="http://techn.ology.net/tag/drums.atom" rel="self" />
+    <link href="http://techn.ology.net/tag/drums/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>http://techn.ology.net/2020/11/01/imitating-a-drum-circle/</id>
+        <title>Imitating a Drum Circle</title>
+        <link href="http://techn.ology.net/2020/11/01/imitating-a-drum-circle/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="http://techn.ology.net/2020/11/01/imitating-a-drum-circle/drum-circle.jpg">
+Ever been to the park and heard a tribe drumming in the distance?  This is a <a href="https://en.wikipedia.org/wiki/Drum_circle">drum circle</a>.
+Upon closer inspection, each drummer has a single instrument (or maybe a set of bongos).
+Each drummer keeps a steady beat in common and in syncopation with his or her fellow drummers.</p>
+
+                <p><a href="http://techn.ology.net/2020/11/01/imitating-a-drum-circle/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/music/">music</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/generative/">generative</a>
+                    <a href="http://techn.ology.net/tag/drums/">drums</a>
+                </p>
+
+        ]]></content>
+        <updated>2020-11-01T00:00:00Z</updated>
+        <category term="music" />
+        <category term="software" />
+        <category term="perl" />
+        <category term="MIDI" />
+        <category term="generative" />
+        <category term="drums" />
+    </entry>
+</feed>
+
