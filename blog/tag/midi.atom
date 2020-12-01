@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://techn.ology.net/blog/tag/midi/</id>
-    <title>Gene Boggs</title>
+    <title>techn.ology.net</title>
     <updated>2020-11-23T00:00:00Z</updated>
     <link href="http://techn.ology.net/blog/tag/midi.atom" rel="self" />
     <link href="http://techn.ology.net/blog/tag/midi/" rel="alternate" />
@@ -209,6 +209,198 @@ Each drummer keeps a steady beat in common and in syncopation with his or her fe
         <category term="MIDI" />
         <category term="generative" />
         <category term="drums" />
+    </entry>
+    <entry>
+        <id>http://techn.ology.net/blog/2020/10/18/imitating-steve-reich/</id>
+        <title>Imitating Steve Reich</title>
+        <link href="http://techn.ology.net/blog/2020/10/18/imitating-steve-reich/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Recently I was enjoying Steve Reich&#39;s <a href="https://www.youtube.com/watch?v=WgzQcDrX86M">&quot;Octet&quot; (Eight Lines)</a> and became curious if I could mimic the simple, staccato phrases with which he starts off his piece.</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/reichify">reichify</a></p>
+
+<p>~</p>
+
+<p>Fortunately I have been immersed in algorithmic composition of late and had a fair idea what tools I would need.  Number one is <a href="https://www.perl.org/">Perl</a> and its vast ecosystem of modules - music ones in particular.  Let&#39;s go through the code!</p>
+
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use Data::Dumper::Compact qw(ddc);
+use List::Util qw(shuffle);
+use lib map { &quot;$ENV{HOME}/sandbox/$_/lib&quot; } qw(MIDI-Praxis-Variation MIDI-Util Music-Interval-Barycentric);
+use MIDI::Praxis::Variation qw(transposition);
+use MIDI::Util;
+use Music::Interval::Barycentric qw(cyclic_permutation);
+use Music::Scales qw(get_scale_MIDI);
+use Music::VoiceGen;
+</code></pre>
+
+<p>Here the standard perl preamble starts things off, followed by a handful of modules with methods and functions to use below.  Next up is to define a few crucial parameters (that can be provided on the command-line):</p>
+
+<pre><code>my $bars   = shift || 32;
+my $bpm    = shift || 180;
+my $note   = shift || &#39;B&#39;;
+my $scale  = shift || &#39;major&#39;;
+</code></pre>
+
+<p>Except for the number of bars, these are based on Reich&#39;s piece.</p>
+
+<p>So this program uses global variables throughout.  This is not a recommended practice for mission-critical, production software!  Anyway, one of these globals is a voice generator created from the excellent <a href="https://metacpan.org/pod/Music::VoiceGen">Music::VoiceGen</a> module:</p>
+
+<pre><code># Create a voice generator
+my $octave = 2;
+my @pitches = (
+    get_scale_MIDI($note, $octave, $scale),
+    get_scale_MIDI($note, $octave + 1, $scale),
+    get_scale_MIDI($note, $octave + 2, $scale),
+);
+my $voice = Music::VoiceGen-&gt;new(
+    pitches   =&gt; \@pitches,
+    intervals =&gt; [qw(-4 -3 -2 -1 1 2 3 4)],
+);
+</code></pre>
+
+<p>This allows a random pitch to be generated based on three octaves and the given legal interval jumps.  Next, a shuffled clarinet motif is defined and a clarinet note array declared:</p>
+
+<pre><code># Clarinet track globals
+my $cmotif = [shuffle qw(dhn en en en en)];
+my @cnotes;
+</code></pre>
+
+<p>These will be used below, in the clarinet phrase generators...  Next the notes for the piano tracks are generated with this code:</p>
+
+<pre><code># Generate notes for the piano tracks
+my $pmotif = [(&#39;en&#39;) x 10];
+my @pnotes;
+my @transp;
+for my $n (0 .. $#$pmotif) {
+    my $note = note_or_rest($n, $pmotif, \@pnotes);
+    push @pnotes, $note;
+    if ($note eq &#39;r&#39;) {
+        push @transp, &#39;r&#39;;
+    }
+    else {
+        my @transposed = transposition(-12, $note);
+        push @transp, $transposed[0];
+    }
+}
+</code></pre>
+
+<p>Here the piano motif is defined as ten eighth notes.  Notes are added to the <code>@pnotes</code> and <code>@transp</code> arrays in a loop over the <code>$pmotif</code> and the function <code>note_or_rest()</code> is called.  This function returns - you guessed it - either a note (as a MIDI pitch number) or a rest (as an &#39;r&#39; character).  This note is added to the <code>@pnotes</code> array, and a transposed version is added to the <code>@transp</code> array.</p>
+
+<p>Ok. With all those things defined and populated, the next thing is to setup the MIDI stuff:</p>
+
+<pre><code># Prepare the MIDI
+my $volume = 98;
+my $pan = 10; # control change #
+my $pan_left = 32;
+my $pan_right = 86;
+my $score = MIDI::Util::setup_score(
+    lead_in   =&gt; 0,
+    signature =&gt; &#39;5/4&#39;,
+    bpm       =&gt; $bpm,
+    volume    =&gt; $volume,
+);
+</code></pre>
+
+<p>And synchronize the piano, violin and clarinet parts to play:</p>
+
+<pre><code># Add each part to the score in parallel
+$score-&gt;synch(
+    \&amp;piano1,
+    \&amp;piano2,
+    \&amp;violin1,
+    \&amp;violin2,
+    \&amp;clarinet1,
+    \&amp;clarinet2,
+);
+</code></pre>
+
+<p>Finally, as far as the execution of the program goes, a MIDI file, named after the program, is written to disk:</p>
+
+<pre><code># Output the score as a MIDI file
+$score-&gt;write_score(&quot;$0.mid&quot;);
+</code></pre>
+
+<p>Now for the subroutines!  Let&#39;s consider the first one we encountered above, <code>note_or_rest()</code>:</p>
+
+<pre><code># Either return a note or a rest!
+sub note_or_rest {
+    my ($n, $motif, $notes) = @_;
+    if (
+        # We&#39;re at the end of the motif and the first note is a rest
+        ($n == $#$motif &amp;&amp; $notes-&gt;[0] eq &#39;r&#39;)
+        ||
+        # The previous note is a rest
+        (defined $notes-&gt;[$n - 1] &amp;&amp; $notes-&gt;[$n - 1] eq &#39;r&#39;)
+    ) {
+        $note = $voice-&gt;rand;
+    }
+    else {
+        $note = int(rand 10) &lt;= 3 ? &#39;r&#39; : $voice-&gt;rand;
+    }
+    return $note;
+}
+</code></pre>
+
+<p>Here, a note is generated so that two rests are not in a row.  That is what the if condition says basically.  Otherwise either a rest or a note is generated based on a probability (i.e. return a rest approximately 40% of the time).</p>
+
+<p>The companion to this function is the following, which actually adds either a rest or notes to the score:</p>
+
+<pre><code># Either play a note or a rest!
+sub play_note_or_rest {
+    my ($motif, $notes) = @_;
+    if ($notes-&gt;[0] eq &#39;r&#39;) {
+        $score-&gt;r($motif);
+    }
+    else {
+        $score-&gt;n($motif, @$notes);
+    }
+}
+</code></pre>
+
+<p>In the generation of piano notes, if the first is a rest, so is the second.  That is why this code only considers the first element.</p>
+
+<p>All that remains are the subroutines that play the pianos, violins and clarinets - which makes up the majority of the program actually.  The first piano looks like this:</p>
+
+<pre><code># Play the pre-computed piano notes
+sub piano1 {
+    MIDI::Util::set_chan_patch($score, 0, 0);
+    $score-&gt;control_change(0, $pan, $pan_left);
+    print &#39;Piano 1.1: &#39;, ddc(\@pnotes);
+    print &#39;Piano 1.2: &#39;, ddc(\@transp);
+    for my $i (1 .. $bars) {
+        for my $n (0 .. $#$pmotif) {
+            play_note_or_rest($pmotif-&gt;[$n], [$pnotes[$n], $transp[$n]]);
+        }
+    }
+}
+</code></pre>
+
+<p>Here, the MIDI channel and patch are both set to zero.  Then the pan is set to the defined left value.  The actual notes are shown (with the <code>ddc()</code> function of the also excellent <a href="https://metacpan.org/pod/Data::Dumper::Compact">Data::Dumper::Compact</a> module).  Next the computed notes (or rests) are added to the score in a loop over the defined number of <code>$bars</code>.  For each bar, a note or rest is played for each MIDI duration element of the motif.  <em>Voilà!</em></p>
+
+<p>The other subroutines defining the other instruments are each different.  This is so that the composition is not stale and redundant.  But they are left to the reader to explore in <a href="https://github.com/ology/Music/blob/master/reichify">the program</a>.</p>
+
+<p>Here is a composition based on three runs of very very many that I finally sort-of liked: <a href="http://techn.ology.net/blog/2020/10/18/imitating-steve-reich/Reichifed-IV.mp3">Reichified II</a></p>
+
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/blog/tag/music/">music</a>
+                    <a href="http://techn.ology.net/blog/tag/software/">software</a>
+                    <a href="http://techn.ology.net/blog/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/blog/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/blog/tag/generative/">generative</a>
+                </p>
+
+        ]]></content>
+        <updated>2020-10-18T00:00:00Z</updated>
+        <category term="music" />
+        <category term="software" />
+        <category term="perl" />
+        <category term="MIDI" />
+        <category term="generative" />
     </entry>
 </feed>
 
