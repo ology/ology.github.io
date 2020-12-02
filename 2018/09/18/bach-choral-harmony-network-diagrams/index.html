@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Bach Choral Harmony Network Diagrams - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/tag/automata.atom" rel="alternate" type="application/atom+xml">
-        <link href="/tag/automata.rss" rel="alternate" type="application/rss+xml">
+        <link href="/2019/03/19/halstead-software-complexity-of-perl-code/index.html" rel="prev">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         
     </head>
@@ -33,35 +32,42 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Bach Choral Harmony Network Diagrams</h1>
 
-<article>
-    <header>
-        <h1><a href="/2020/02/15/game-of-life-glider-audio-rendering/">Game of Life Glider Audio Rendering</a></h1>
+    <aside>
+        <time datetime="2018-09-18">
+            Posted on 2018-09-18
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2020-02-15">
-                Posted on 2020-02-15
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/midi/" rel="tag">MIDI</a>
-            <a href="/tag/audio/" rel="tag">audio</a>
-            <a href="/tag/automata/" rel="tag">automata</a>
-        </p>
-
-    </header>
-
-    <p><img alt="" src="/2020/02/15/game-of-life-glider-audio-rendering/glider.jpg">
-Yesterday I became curious about what <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway&#39;s Game of Life</a> structures might sound like on a grid of musical notes (&quot;note-space&quot;).</p>
+    <p class="tags">Tags:
+        <a href="/tag/music/" rel="tag">music</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/analysis/" rel="tag">analysis</a>
+    </p>
 
 
-        <p><a href="/2020/02/15/game-of-life-glider-audio-rendering/#section-2">Continue reading Game of Life Glider Audio Rendering...</a></p>
+</header>
+<section id="section-1">
+    <p>Today I decided to revisit the <a href="https://archive.ics.uci.edu/ml/datasets/Bach+Choral+Harmony">Bach Choral Harmony data set</a> and look at chord progression transitions.</p>
 
-</article>
+<p>In order to do this I wrote a small program that tallies the movement from one chord to another, and then outputs a <a href="https://graphviz.org/">Graphviz</a> dot file that can be turned into an image.</p>
+
+</section>
+<section id="section-2">
+    <p>The <a href="https://github.com/ology/Music/blob/master/bach-choral-network">code for this</a> is on github.  It accepts an identifier for a song (as given by the UCI dataset) to diagram.  The association between UCI ids and Bach BWV numbers can be looked-up in this file: <a href="titles.txt">titles.txt</a>.</p>
+
+<p><img alt="" src="bach-choral-network.png"></p>
+
+<p>The shown song diagram is for BWV 17.7 &quot;Nun lob, mein Seel, den Herren.&quot;  For reference, here is the MIDI file: <a href="BWV-17.7_001707b_.mid">BWV-17.7.mid</a> and here is the transcription: <a href="BWV-17.7_001707.pdf">BWV-17.7.pdf</a>  Also, I have rendered the transitions of this piece, as a meditation, to audio <a href="https://www.youtube.com/watch?v=01fAE1GqW1Q">on youtube</a>.</p>
+
+<p><strong>UPDATE:</strong> I have made a web GUI for displaying these diagrams for the chorales at UCI - <a href="https://github.com/ology/Bach-Chorales">https://github.com/ology/Bach-Chorales</a> - Woo!</p>
+
+<p><strong>UPDATE:</strong> I have made a module to compartmentalize the parsing of the UCI Bach data set at <a href="https://metacpan.org/pod/Music::BachChoralHarmony">Music::BachChoralHarmony</a>.</p>
+
+</section>
 
 <ul class="pager">
     <li class="prev">
@@ -70,12 +76,11 @@ Yesterday I became curious about what <a href="https://en.wikipedia.org/wiki/Con
             </button>
     </li>
     <li class="next">
-            <button disabled>
+            <a class="button button-primary" href="/2019/03/19/halstead-software-complexity-of-perl-code/index.html" rel="next">
                 Newer →
-            </button>
+            </a>
     </li>
 </ul>
-
 
 
 
@@ -112,20 +117,7 @@ Yesterday I became curious about what <a href="https://en.wikipedia.org/wiki/Con
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/tag/automata.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/tag/automata.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

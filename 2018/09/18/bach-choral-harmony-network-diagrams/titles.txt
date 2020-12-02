@@ -1,0 +1,64 @@
+# https://web.archive.org/web/20100626101009/http://www.jsbchorales.net/bwv.shtml
+
+UCI-ID	 BWV	Title
+
+000106b_ 1.6 	Wie schön leuchtet der Morgenstern
+000206b_ 2.6 	Ach Gott, vom Himmel sieh' darein
+000306b_ 3.6 	Herr Jesu Christ, meins Lebens Licht
+000408b_ 4.8	Christ lag in Todesbanden
+000507b_ 5.7 	Auf meinen lieben Gott
+000606b_ 6.6 	Erhalt uns, Herr, bei deinem Wort
+000707b_ 7.7 	Es woll uns Gott genädig sein 1
+000907b_ 9.7 	Es ist das Heil uns kommen her
+001007b_ 10.7 	Meine Seel erhebt den Herren
+001106b_ 11.6 	Ermuntre dich, mein schwacher Geist
+001207b_ 12.7 	Was Gott tut, das ist wohlgetan
+001306b_ 13.6 	O Welt, ich muß dich lassen
+001606b_ 16.6 	Helft mir Gotts Güte preisen
+001707b_ 17.7 	Nun lob, mein Seel, den Herren
+001805b_ 18.5	
+001907ch 19.7ch Wie nach einer Wasserquelle
+002406bs 
+002506b_ 25.6 	Wie nach einer Wasserquelle
+002806b_ 28.6 	Helft mir Gotts Güte preisen
+002908ch 29.8ch	
+003006b_ 30.6 	Wie nach einer Wasserquelle
+003109b_ 31.9 	Wenn mein Stündlein vorhanden ist 1
+003206b_ 32.6 	Wie nach einer Wasserquelle
+003306b_ 33.6 	Allein zu dir, Herr Jesu Christ
+003608b2 36(2).8 	Nun komm, der Heiden Heiland
+003806b_ 38.6	Aus tiefer Not schrei ich zu dir 1
+003907b_ 39.7 	Wie nach einer Wasserquelle
+003907bv 
+004006b_ 40.6	Schwing dich auf zu deinem Gott
+004008b_ 40.8 	Freuet euch, ihr Christen alle
+005708b_ 57.8 	Hast du denn, Liebster, dein Angesicht gänzlich verborgen
+012006b_ 120.6 	Herr Gott, dich loben wir, Herr Gott, wir danken dir
+012106b_ 121.6 	Christum wir sollen loben schon
+012206b_ 122.6 	Das neugeborne Kindelein
+012306b_ 123.6 	Liebster Immanuel, Herzog der Frommen
+012406b_ 124.6 	Meinen Jesum laß ich nicht, weil er sich für mich gegeben
+012506b_ 125.6 	Mit Fried und Freud ich fahr dahin
+012606b_ 126.6 	Verleih uns Frieden gnädiglich
+012606bv 
+012705b_ 127.5 	Wenn einer schon ein Haus aufbaut
+012805b_ 128.5 	Die Wollust dieser Welt
+013506b_ 135.6 	Herzlich tut mich verlangen
+013705ch 137.5ch	
+013906b_ 139.6 	Mach's mit mir, Gott, nach deiner Güt
+014007b_ 140.7 	Wachet auf, ruft uns die Stimme
+014403b_ 144.3 	Was Gott tut, das ist wohlgetan
+014406b_ 144.6 	Was mein Gott will, das g'scheh allzeit
+014500ba 145a	Jesus, meine Zuversicht
+014505b_ 145.5 	Am Sabbat früh Marien drei 2
+014505bv 
+014608b_ 146.8 	Werde munter, mein Gemüte
+014806b_ 148.6 	Auf meinen lieben Gott
+014806bv 
+015105b_ 151.5 	Kommt her, ihr lieben Schwesterlein
+015301b_ 153.1 	Ach Gott, vom Himmel sieh' darein
+015305b_ 153.5 	Herzlich tut mich verlangen
+015309b_ 153.9 	Herr Jesu Christ, meins Lebens Licht
+015403b_ 154.3 	Werde munter, mein Gemüte
+015408b_ 154.8 	Meinen Jesum laß ich nicht, weil er sich für mich gegeben
+015505b_ 155.5 	Es ist das Heil uns kommen her
