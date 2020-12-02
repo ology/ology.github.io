@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://techn.ology.net/tag/software/</id>
-    <title>techn.ology.net</title>
+    <title>Gene Boggs, Epistemologist-at-large</title>
     <updated>2020-11-23T00:00:00Z</updated>
     <link href="http://techn.ology.net/tag/software.atom" rel="self" />
     <link href="http://techn.ology.net/tag/software/" rel="alternate" />
