@@ -20,9 +20,7 @@
                     <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
                     <a href="http://techn.ology.net/tag/data/">data</a>
-                    <a href="http://techn.ology.net/tag/print/">print</a>
-                    <a href="http://techn.ology.net/tag/ink/">ink</a>
-                    <a href="http://techn.ology.net/tag/frequency/">frequency</a>
+                    <a href="http://techn.ology.net/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -30,9 +28,7 @@
         <category term="software" />
         <category term="perl" />
         <category term="data" />
-        <category term="print" />
-        <category term="ink" />
-        <category term="frequency" />
+        <category term="analysis" />
     </entry>
 </feed>
 
