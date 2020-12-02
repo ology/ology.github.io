@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>techn.ology.net</title>
+        <title>Prime Number Digit Frequencies - techn.ology.net</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/tag/prime-numbers.atom" rel="alternate" type="application/atom+xml">
-        <link href="/tag/prime-numbers.rss" rel="alternate" type="application/rss+xml">
+        <link href="/2019/06/02/iterated-prisoners-dilemma/index.html" rel="prev">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         
     </head>
@@ -33,62 +32,170 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Prime Number Digit Frequencies</h1>
 
-<article>
-    <header>
-        <h1><a href="/2020/05/03/ones-vs-zeros-in-the-binary-primes/">Ones vs Zeros in the Binary Primes</a></h1>
+    <aside>
+        <time datetime="2019-05-05">
+            Posted on 2019-05-05
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2020-05-03">
-                Posted on 2020-05-03
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/r/" rel="tag">R</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/mathematics/" rel="tag">mathematics</a>
-            <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
-            <a href="/tag/scatter-plot/" rel="tag">scatter plot</a>
-        </p>
-
-    </header>
-
-    <p>What does the graph look like when you convert each prime to binary and plot the ones versus the zeros?</p>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
+        <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
+    </p>
 
 
-        <p><a href="/2020/05/03/ones-vs-zeros-in-the-binary-primes/#section-2">Continue reading Ones vs Zeros in the Binary Primes...</a></p>
-
-</article>
-<article>
-    <header>
-        <h1><a href="/2019/05/05/prime-number-digit-frequencies/">Prime Number Digit Frequencies</a></h1>
-
-        <aside>
-            <time datetime="2019-05-05">
-                Posted on 2019-05-05
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/mathematics/" rel="tag">mathematics</a>
-            <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
-        </p>
-
-    </header>
-
+</header>
+<section id="section-1">
     <p>Today I became curious about the relative frequencies of the digits that appear in prime numbers (in base 10).</p>
 
 <p>Naturally, I wrote a little program to show the answer - <a href="https://github.com/ology/Math/blob/master/primes/digit-freq2">digit-freq2</a>:</p>
 
+</section>
+<section id="section-2">
+    <p>#!/usr/bin/env perl
+    use strict;
+    use warnings;</p>
 
-        <p><a href="/2019/05/05/prime-number-digit-frequencies/#section-2">Continue reading Prime Number Digit Frequencies...</a></p>
+<pre><code>use List::Util qw(sum0);
+use Math::BigRat;
+use Math::Prime::XS qw(primes);
 
-</article>
+my $min = shift // 10_000;
+my $max = shift || 10_000_000;
+
+my @primes = primes( $min, $max );
+#warn &quot;$min to $max is &quot;,scalar(@primes),&quot; primes from $primes[0] to $primes[-1]\n&quot;;
+
+# Count the number of times a digit is seen
+my %digits;
+for my $prime ( @primes ) {
+    my @parts = split //, $prime;
+    $digits{$_}++ for @parts;
+}
+
+# Find the total of all digits seen
+my $total = sum0 values %digits;
+
+# Compute the proportional frequencies
+for my $digit ( keys %digits ) {
+    $digits{$digit} = Math::BigRat-&gt;new(
+        Math::BigInt-&gt;new($digits{$digit}),
+        Math::BigInt-&gt;new($total)
+    );
+}
+
+# Output the frequencies in sorted order
+for my $digit ( sort { $digits{$a} &lt;=&gt; $digits{$b} || $a &lt;=&gt; $b } keys %digits ) {
+#    print &quot;$digit: &quot;, $digits{$digit}-&gt;as_float, &quot;\n&quot;;
+    printf &quot;%d: %.4f\n&quot;, $digit, $digits{$digit}-&gt;as_float;
+}
+</code></pre>
+
+<p>For primes up to 10 (4 of them) we get this:</p>
+
+<pre><code>2: 0.2500
+3: 0.2500
+5: 0.2500
+7: 0.2500
+</code></pre>
+
+<p>For primes up to 100 (25) we get:</p>
+
+<pre><code>6: 0.0435
+8: 0.0435
+2: 0.0652
+4: 0.0652
+5: 0.0652
+9: 0.1304
+1: 0.1957
+3: 0.1957
+7: 0.1957
+</code></pre>
+
+<p>For primes up to 1,000 (168) we get:</p>
+
+<pre><code>0: 0.0316
+8: 0.0632
+2: 0.0674
+5: 0.0695
+6: 0.0695
+4: 0.0716
+9: 0.1411
+3: 0.1579
+1: 0.1642
+7: 0.1642
+</code></pre>
+
+<p>At 10,000 (1,229) we get:</p>
+
+<pre><code>0: 0.0492
+8: 0.0744
+4: 0.0763
+5: 0.0763
+6: 0.0782
+2: 0.0829
+9: 0.1369
+7: 0.1382
+3: 0.1435
+1: 0.1443
+</code></pre>
+
+<p>At 100,000 (9,592) we get:</p>
+
+<pre><code>0: 0.0586
+8: 0.0793
+6: 0.0804
+4: 0.0811
+5: 0.0820
+2: 0.0839
+9: 0.1317
+7: 0.1326
+3: 0.1339
+1: 0.1365
+</code></pre>
+
+<p>At 1,000,000 (78,498) we get:</p>
+
+<pre><code>0: 0.0660
+8: 0.0838
+6: 0.0842
+5: 0.0846
+4: 0.0848
+2: 0.0860
+9: 0.1264
+7: 0.1268
+3: 0.1278
+1: 0.1296
+</code></pre>
+
+<p>For an increasing number of primes, the order of increasing frequency appears to stabilize at 0, 8, 6, 5, 4, 2, 9, 7, 3, 1.</p>
+
+<p>So for instance, at 10,000,000 (664,579) we get:</p>
+
+<pre><code>0: 0.0710
+8: 0.0864
+6: 0.0867
+5: 0.0868
+4: 0.0871
+2: 0.0878
+9: 0.1225
+7: 0.1228
+3: 0.1238
+1: 0.1250
+</code></pre>
+
+<p>For primes between 1,000,000 and 1,000,000,000 we get the same frequency order.</p>
+
+<p>Fascinating.</p>
+
+<p>(<a href="https://math.stackexchange.com/questions/1135027/does-every-digit-occur-with-equal-frequency-in-the-set-of-prime-numbers">This link</a> seems to indicate otherwise, but I haven&#39;t wrapped my head around it yet...)</p>
+
+</section>
 
 <ul class="pager">
     <li class="prev">
@@ -97,12 +204,11 @@
             </button>
     </li>
     <li class="next">
-            <button disabled>
+            <a class="button button-primary" href="/2019/06/02/iterated-prisoners-dilemma/index.html" rel="next">
                 Newer →
-            </button>
+            </a>
     </li>
 </ul>
-
 
 
 
@@ -142,20 +248,7 @@
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/tag/prime-numbers.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/tag/prime-numbers.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

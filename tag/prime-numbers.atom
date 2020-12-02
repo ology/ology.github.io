@@ -34,5 +34,30 @@
         <category term="prime numbers" />
         <category term="scatter plot" />
     </entry>
+    <entry>
+        <id>http://techn.ology.net/2019/05/05/prime-number-digit-frequencies/</id>
+        <title>Prime Number Digit Frequencies</title>
+        <link href="http://techn.ology.net/2019/05/05/prime-number-digit-frequencies/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Today I became curious about the relative frequencies of the digits that appear in prime numbers (in base 10).</p>
+
+<p>Naturally, I wrote a little program to show the answer - <a href="https://github.com/ology/Math/blob/master/primes/digit-freq2">digit-freq2</a>:</p>
+
+                <p><a href="http://techn.ology.net/2019/05/05/prime-number-digit-frequencies/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="http://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-05-05T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="prime numbers" />
+    </entry>
 </feed>
 
