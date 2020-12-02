@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>techn.ology.net</title>
+        <link>http://techn.ology.net/tag/frequency/</link>
+        <atom:link href="http://techn.ology.net/tag/frequency.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of techn.ology.net</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>How Much Ink Is Used For Each Letter?</title>
+            <link>http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/</link>
+            <guid>http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/</guid>
+            <description><![CDATA[
+                <p>Today I became curious about how much ink is needed to print each of the 26 letters of the English alphabet.  Naturally I wrote <a href="https://github.com/ology/Graphics/blob/master/detect-black.pl">a program</a> to tell me...</p>
+
+                    <p><a href="http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/tag/software/">software</a>
+                        <a href="http://techn.ology.net/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/tag/data/">data</a>
+                        <a href="http://techn.ology.net/tag/print/">print</a>
+                        <a href="http://techn.ology.net/tag/ink/">ink</a>
+                        <a href="http://techn.ology.net/tag/frequency/">frequency</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 07 Mar 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

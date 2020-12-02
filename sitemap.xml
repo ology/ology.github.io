@@ -13,6 +13,12 @@
         <lastmod>2020-03-03</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2020-03-07</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -85,6 +91,12 @@
         <lastmod>2020-03-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/tag/data/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-03-07</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/tag/drums/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -103,6 +115,12 @@
         <lastmod>2020-03-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/tag/frequency/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-03-07</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/tag/generative/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -113,6 +131,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/tag/ink/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-03-07</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/tag/machine-learning/</loc>
@@ -173,6 +197,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-05-03</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/tag/print/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-03-07</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/tag/r/</loc>

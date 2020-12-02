@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>How Much Ink Is Used For Each Letter? - techn.ology.net</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2020/03/23/hearing-an-image-one-pixel-at-a-time/index.html" rel="prev">
+        <link href="/2020/03/03/predicting-star-trek-characters-with-naive-bayes/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">techn.ology.net</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>How Much Ink Is Used For Each Letter?</h1>
+
+    <aside>
+        <time datetime="2020-03-07">
+            Posted on 2020-03-07
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/data/" rel="tag">data</a>
+        <a href="/tag/print/" rel="tag">print</a>
+        <a href="/tag/ink/" rel="tag">ink</a>
+        <a href="/tag/frequency/" rel="tag">frequency</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>Today I became curious about how much ink is needed to print each of the 26 letters of the English alphabet.  Naturally I wrote <a href="https://github.com/ology/Graphics/blob/master/detect-black.pl">a program</a> to tell me...</p>
+
+</section>
+<section id="section-2">
+    <p>I knew that with the Arial font, the letter &#39;I&#39; would take the least ink and the letter &#39;M&#39; would take the most.  But what is the exact breakdown?  Enter Perl!</p>
+
+<p>First comes the program preamble. I use the fabulous <a href="https://metacpan.org/pod/Imager">Imager</a> and handy <a href="https://metacpan.org/pod/Statistics::Frequency">Statistics::Frequency</a> modules:</p>
+
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use Imager;
+use Statistics::Frequency;
+</code></pre>
+
+<p>Next we declare the font to use (which can be given as a program argument), the image dimensions, and a bucket for our letter values:</p>
+
+<pre><code>my $file = shift || &#39;/Library/Fonts/Arial.ttf&#39;;
+
+my $font = Imager::Font-&gt;new(file =&gt; $file)
+    or die &quot;Cannot load $file: &quot;, Imager-&gt;errstr;
+
+# Image dimensions
+my ($x, $y) = (50, 50);
+
+my %letters;
+</code></pre>
+
+<p>And here is the meat of the program - a loop over each letter, collecting the number of black pixels:</p>
+
+<pre><code>for my $letter (&#39;A&#39; .. &#39;Z&#39;) {
+    # Create a blank, white canvas
+    my $img = Imager-&gt;new(xsize =&gt; $x, ysize =&gt; $y);
+
+    $img-&gt;box(
+        xmin   =&gt; 0,
+        ymin   =&gt; 0,
+        xmax   =&gt; $x - 1,
+        ymax   =&gt; $y - 1,
+        filled =&gt; 1,
+        color  =&gt; &#39;white&#39;,
+    );
+
+    # Add the letter
+    $img-&gt;string(
+        font  =&gt; $font,
+        text  =&gt; $letter,
+        x     =&gt; 10,
+        y     =&gt; 42,
+        size  =&gt; 50,
+        color =&gt; &#39;black&#39;,
+        aa    =&gt; 1,
+    );
+
+    # Detect black pixels
+    for my $i (0 .. $x - 1) {
+        for my $j (0 .. $y - 1) {
+            my $color = $img-&gt;getpixel(x =&gt; $i, y =&gt; $j);
+
+            my ($red, $green, $blue) = $color-&gt;rgba;
+
+            $letters{$letter}++
+                if $red == 0 &amp;&amp; $green == 0 &amp;&amp; $blue == 0;
+        }
+    }
+}
+</code></pre>
+
+<p>This produces and analyzes ephemeral images like this:</p>
+
+<p><img alt="" src="A.png"></p>
+
+<p>Lastly we compute the proportional frequencies given our letters:</p>
+
+<pre><code>my $freq = Statistics::Frequency-&gt;new;
+$freq-&gt;add_data(\%letters);
+my %prop = $freq-&gt;proportional_frequencies;
+
+for my $key (sort { $prop{$a} &lt;=&gt; $prop{$b} } keys %prop) {
+    print &quot;$key, $prop{$key}\n&quot;;
+}
+</code></pre>
+
+<p>Running this program produces this list:</p>
+
+<pre><code>I, 0.0176168338634695
+J, 0.0226327379495963
+Y, 0.0260582334230487
+L, 0.0264252507952043
+T, 0.0288720332762417
+V, 0.0293613897724492
+F, 0.0313188157572792
+C, 0.0330315634940054
+X, 0.0337655982383166
+U, 0.0373134328358209
+A, 0.0375581110839246
+S, 0.0387815023244434
+Z, 0.0392708588206508
+O, 0.0396378761928065
+P, 0.0398825544409102
+K, 0.0400048935649621
+G, 0.0428186934181551
+H, 0.0450207976510888
+Q, 0.0453878150232444
+W, 0.0455101541472963
+D, 0.0457548323954
+E, 0.0484462931245412
+R, 0.0500367017372156
+N, 0.0511377538536824
+B, 0.0517494494739418
+M, 0.0526058233423049
+</code></pre>
+
+<p>(The ASCII letters listed above are not the same as the anti-aliased Arial images produced by the code.)</p>
+
+<p>So if plotted (with the venerable program <a href="https://www.r-project.org/">R</a>), what does this look like?</p>
+
+<p><img alt="" src="letter-ink.png"></p>
+
+<p>The lowercase letter breakdown is this:</p>
+
+<pre><code>i, 0.0165167920719398
+l, 0.0198201504863278
+r, 0.0198201504863278
+j, 0.0227564690768948
+t, 0.0256927876674619
+v, 0.0282620664342081
+f, 0.0291796659937603
+c, 0.0321159845843274
+x, 0.0345017434391632
+y, 0.0352358230868049
+u, 0.0379886217654616
+s, 0.038172141677372
+n, 0.0387227014131033
+k, 0.0400073407964764
+o, 0.0400073407964764
+h, 0.04147550009176
+z, 0.0431271792989539
+p, 0.0455129381537897
+b, 0.0464305377133419
+a, 0.0482657368324463
+e, 0.0489998164800881
+q, 0.0491833363919985
+d, 0.0513855753349238
+w, 0.0521196549825656
+g, 0.0565241328684162
+m, 0.0581758120756102
+</code></pre>
+
+<p>And here are the digits:</p>
+
+<pre><code>1, 0.0554662379421222
+7, 0.079983922829582
+3, 0.0936495176848875
+4, 0.0996784565916399
+2, 0.104501607717042
+0, 0.107315112540193
+5, 0.109324758842444
+9, 0.112942122186495
+6, 0.118167202572347
+8, 0.118971061093248
+</code></pre>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2020/03/03/predicting-star-trek-characters-with-naive-bayes/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2020/03/23/hearing-an-image-one-pixel-at-a-time/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/drums/">drums</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/frequency/">frequency</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/ink/">ink</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/ngrams/">ngrams</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/print/">print</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/scatter-plot/">scatter plot</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/star-trek/">Star Trek</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
