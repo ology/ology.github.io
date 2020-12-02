@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Hearing an Image One Pixel at a Time - techn.ology.net</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2020/04/02/evolving-barycentric-chords/index.html" rel="prev">
+        <link href="/2020/03/03/predicting-star-trek-characters-with-naive-bayes/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">techn.ology.net</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Hearing an Image One Pixel at a Time</h1>
+
+    <aside>
+        <time datetime="2020-03-23">
+            Posted on 2020-03-23
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+        <a href="/tag/audio/" rel="tag">audio</a>
+        <a href="/tag/fractal/" rel="tag">fractal</a>
+        <a href="/tag/image/" rel="tag">image</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>Tonight I became curious as to what an image would sound like when &quot;played&quot; one pixel at a time.</p>
+
+<p>tl;dr: The <a href="https://github.com/ology/Music/blob/master/play-pixels">play-pixels</a> program.</p>
+
+</section>
+<section id="section-2">
+    <p>Now, if we are wanting to hear a picture in color (like a 24bit image), we could play a triad for each of the red, green, and blue values seen for a pixel.  This might sound horrid - but possibly fascinating, with chromatic tone clusters.  However, I am going to render gray-scale fractal images and play each pixel one quarter note at a time.</p>
+
+<p>With the very cool module, <a href="https://metacpan.org/pod/Math::Fractal::Noisemaker">Math::Fractal::Noisemaker</a>, you can generate a number of different types of fractal images.  Here is a 256x256 &quot;worley&quot; type:</p>
+
+<p><img alt="" src="worley.png"></p>
+
+<p>Playing each of 256 squared (=65,536) notes would take a very long time (~11 hours at 100 BPM).  Also, the score would not be very dynamic.  That is, smooth gradients and large areas of the same color might make a possibly boring soundtrack.  So I will play between 8x8 and 100x100 length scores.  These do not make for very dramatic images, but they are perfect for rendering to audio.  For instance, here is the &quot;worley&quot; type as a 16x16 image:</p>
+
+<p><img alt="" src="worley-sm.png"></p>
+
+<p>You can sort-of see a resemblance, but the above images are <em>not the same</em> image that has been scaled.  That is, each run of the program generates a fresh fractal image.</p>
+
+<p>Onward! First up is the standard Perl preamble and the modules that I will be using - <a href="https://metacpan.org/pod/Imager">Imager</a> and <a href="https://metacpan.org/pod/MIDI::Util">MIDI::Util</a>:</p>
+
+<h1>!/usr/bin/env perl</h1>
+
+<p>use strict;
+use warnings;</p>
+
+<pre><code># This requires https://metacpan.org/pod/Math::Fractal::Noisemaker
+
+use Imager;
+use Math::Utils &#39;:utility&#39;;
+use MIDI::Util;
+</code></pre>
+
+<p>Next up are the program variables to be used:</p>
+
+<pre><code>my $type = shift || &#39;worley&#39;; # Noisemaker type
+my $size = shift || 8; # Side width of Noisemaker image
+my $bpm  = shift || 100; # Beats per minute
+
+my $score = MIDI::Util::setup_score(bpm =&gt; $bpm, patch =&gt; 5);
+
+my $file = &#39;make-noise.png&#39;;
+</code></pre>
+
+<p>The meat of the code starts off by making a gray-scale fractal image with an external perl program called &quot;make-noise&quot; that you get when you install Math::Fractal::Noisemaker:</p>
+
+<pre><code>system(&#39;make-noise&#39;, &#39;-out&#39;, $file, &#39;-type&#39;, $type, &#39;-len&#39;, $size, &#39;-format&#39;, &#39;png&#39;) == 0
+    or die &quot;system failed: $?&quot;;
+</code></pre>
+
+<p>This produces an image file, as above.</p>
+
+<p>The next step is to open the image, read it into Imager, and then delete it:</p>
+
+<pre><code># Open the image
+my $img = Imager-&gt;new;
+$img-&gt;read(file =&gt; $file)
+    or die &quot;Can&#39;t read $file: &quot;, $img-&gt;errstr;
+
+# Remove the image file
+unlink $file;
+</code></pre>
+
+<p>Now the image is processed by looping over each pixel and inspecting its color.  Each is converted to a MIDI note number and written to the growing score.  After the loop, the score is written to disk as <a href="play-pixels.mid">&quot;play-pixels.mid&quot;</a>:</p>
+
+<pre><code>my $s_field = length $size;
+my $i_field = length($size * $size);
+
+my $i = 0;
+
+# Add a note to the score for each pixel color
+for my $y (0 .. $size - 1) {
+    for my $x (0 .. $size - 1) {
+        $i++;
+
+        my $color = $img-&gt;getpixel(x =&gt; $x, y =&gt; $y);
+        my ($red) = $color-&gt;rgba;
+
+        # Scale from grays range to MIDI note range
+        my $n = sprintf &#39;%.0f&#39;, uniform_scaling([0, 255], [60, 83], $red);
+
+        printf &quot;%*d. [%*d,%*d] %3d -&gt; %d\n&quot;,
+            $i_field, $i,
+            $s_field, $x, $s_field, $y,
+            $red, $n;
+
+        $score-&gt;n(&#39;qn&#39;, $n);
+    }
+}
+
+$score-&gt;write_score(&quot;$0.mid&quot;);
+</code></pre>
+
+<p>So what is this &quot;uniform_scaling()&quot; function all about?  When a color (a shade of gray) is found, it is converted to the range of MIDI note numbers with the <a href="https://metacpan.org/pod/Math::Utils#uniform_scaling">Math::Utils function</a>.</p>
+
+<p>So what does an example of one of these 8x8 fractals sound like?  I imported the generated MIDI file into my DAW, and this is it (with a bit of drums added):</p>
+
+<p><a href="Worley.mp3">Worley.mp3</a></p>
+
+<p>Extreme tedium!  <em>Not</em> a dance hit!  At a higher BPM this might sound like a zany roller-coaster ride...  And yes indeed it does.</p>
+
+<p>I uploaded the <a href="https://youtu.be/gPleJe-SoQk">33.3 minute audio</a> of a 100x100 simplex fractal at 300 BPM to YouTube.  (It uses a &quot;reversed electric piano&quot; patch, which gives it that spacey background delay.)  Use a program like <a href="http://timidity.sourceforge.net/">Timidity++</a> or <a href="https://www.videolan.org/vlc/index.html">VLC</a> to hear it.  And here is an example of a 100x100 simplex fractal:</p>
+
+<p><img alt="" src="simplex-100x100-1.png"></p>
+
+</section>
+<section id="section-3">
+    <p><strong>Update:</strong> Here is what a 16x20 colored image sounds like at 200BPM.  This was made with a variation of the above program, but called <a href="https://github.com/ology/Music/blob/master/play-color-pixels">play-color-pixels</a>:</p>
+
+<p><img alt="TP-oil-sm.jpg" src="TP-oil-sm.jpg"></p>
+
+<p><a href="Play-Colored-Pixels.mp3">Play-Colored-Pixels.mp3</a></p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2020/03/03/predicting-star-trek-characters-with-naive-bayes/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2020/04/02/evolving-barycentric-chords/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/drums/">drums</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/ngrams/">ngrams</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/scatter-plot/">scatter plot</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/star-trek/">Star Trek</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

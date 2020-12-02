@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://techn.ology.net/tag/audio/</id>
+    <title>techn.ology.net</title>
+    <updated>2020-03-23T00:00:00Z</updated>
+    <link href="http://techn.ology.net/tag/audio.atom" rel="self" />
+    <link href="http://techn.ology.net/tag/audio/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>http://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/</id>
+        <title>Hearing an Image One Pixel at a Time</title>
+        <link href="http://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Tonight I became curious as to what an image would sound like when &quot;played&quot; one pixel at a time.</p>
+
+<p>tl;dr: The <a href="https://github.com/ology/Music/blob/master/play-pixels">play-pixels</a> program.</p>
+
+                <p><a href="http://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/audio/">audio</a>
+                    <a href="http://techn.ology.net/tag/fractal/">fractal</a>
+                    <a href="http://techn.ology.net/tag/image/">image</a>
+                </p>
+
+        ]]></content>
+        <updated>2020-03-23T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="MIDI" />
+        <category term="audio" />
+        <category term="fractal" />
+        <category term="image" />
+    </entry>
+</feed>
+

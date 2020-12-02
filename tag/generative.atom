@@ -100,19 +100,19 @@ Recently I was enjoying Steve Reich&#39;s <a href="https://www.youtube.com/watch
                 <p><a href="http://techn.ology.net/2020/10/18/imitating-steve-reich/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/music/">music</a>
                     <a href="http://techn.ology.net/tag/generative/">generative</a>
                 </p>
 
         ]]></content>
         <updated>2020-10-18T00:00:00Z</updated>
-        <category term="music" />
-        <category term="software" />
         <category term="perl" />
+        <category term="software" />
         <category term="MIDI" />
+        <category term="music" />
         <category term="generative" />
     </entry>
 </feed>
