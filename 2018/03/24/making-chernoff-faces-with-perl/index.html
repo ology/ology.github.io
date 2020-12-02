@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Making Chernoff Faces with Perl - Gene Boggs</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2018/08/07/how-many-primes-are-in-a-slice-of-pi/index.html" rel="prev">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+        <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Making Chernoff Faces with Perl</h1>
+
+    <aside>
+        <time datetime="2018-03-24">
+            Posted on 2018-03-24
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
+        <a href="/tag/chernoff/" rel="tag">Chernoff</a>
+        <a href="/tag/data/" rel="tag">data</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>Today being a Saturday, I decided to noodle around with the <a href="https://metacpan.org/pod/GD::Simple">GD::Simple</a> module and constructed rudimentary <a href="https://en.wikipedia.org/wiki/Chernoff_face">Chernoff faces</a> - Cartoon data visualization.</p>
+
+</section>
+<section id="section-2">
+    <p><img alt="" src="chernoff-face.gif"></p>
+
+<p>The results are satisfying, but <a href="https://github.com/ology/Graphics/blob/master/chernoff-face">the code</a> needs some work to make it more generic... Click the image to see it animated.</p>
+
+<p>The program reads-in a text file of 5-dimensional comma separated values and builds a cartoon face having dimensions for head width, mouth width, eye spacing, eye size (diameter) and nose width, for each data row.</p>
+
+<p>Here is the data file that was used to make the accompanying animated image:</p>
+
+<pre><code>1,91,58,53,28
+22,60,33,65,42
+46,11,40,23,48
+85,26,1,32,59
+98,6,34,43,7
+69,19,49,49,16
+29,55,68,1,25
+51,26,72,69,33
+45,84,23,95,53
+4,43,31,41,48
+</code></pre>
+
+<p>And here are three reference images showing the data minimum, mid-point and maximum that were used to analyze the above data:</p>
+
+<p><img alt="" src="chernoff-face-0.png">
+<img alt="" src="chernoff-face-50.png">
+<img alt="" src="chernoff-face-100.png"></p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <button disabled>
+                ← Older
+            </button>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2018/08/07/how-many-primes-are-in-a-slice-of-pi/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/chernoff/">Chernoff</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/drums/">drums</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/ngrams/">ngrams</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/star-trek/">Star Trek</a></li>
+            <li><a href="/tag/strategy/">strategy</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://techn.ology.net/tag/data/</id>
-    <title>techn.ology.net</title>
+    <title>Gene Boggs</title>
     <updated>2020-03-07T00:00:00Z</updated>
     <link href="http://techn.ology.net/tag/data.atom" rel="self" />
     <link href="http://techn.ology.net/tag/data/" rel="alternate" />
@@ -29,6 +29,58 @@
         <category term="perl" />
         <category term="data" />
         <category term="analysis" />
+    </entry>
+    <entry>
+        <id>http://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/</id>
+        <title>Bach Choral Harmony Network Diagrams</title>
+        <link href="http://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Today I decided to revisit the <a href="https://archive.ics.uci.edu/ml/datasets/Bach+Choral+Harmony">Bach Choral Harmony data set</a> and look at chord progression transitions.</p>
+
+<p>In order to do this I wrote a small program that tallies the movement from one chord to another, and then outputs a <a href="https://graphviz.org/">Graphviz</a> dot file that can be turned into an image.</p>
+
+                <p><a href="http://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/music/">music</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/data/">data</a>
+                    <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-09-18T00:00:00Z</updated>
+        <category term="music" />
+        <category term="software" />
+        <category term="perl" />
+        <category term="data" />
+        <category term="analysis" />
+    </entry>
+    <entry>
+        <id>http://techn.ology.net/2018/03/24/making-chernoff-faces-with-perl/</id>
+        <title>Making Chernoff Faces with Perl</title>
+        <link href="http://techn.ology.net/2018/03/24/making-chernoff-faces-with-perl/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Today being a Saturday, I decided to noodle around with the <a href="https://metacpan.org/pod/GD::Simple">GD::Simple</a> module and constructed rudimentary <a href="https://en.wikipedia.org/wiki/Chernoff_face">Chernoff faces</a> - Cartoon data visualization.</p>
+
+                <p><a href="http://techn.ology.net/2018/03/24/making-chernoff-faces-with-perl/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="http://techn.ology.net/tag/chernoff/">Chernoff</a>
+                    <a href="http://techn.ology.net/tag/data/">data</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-03-24T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="Chernoff" />
+        <category term="data" />
     </entry>
 </feed>
 
