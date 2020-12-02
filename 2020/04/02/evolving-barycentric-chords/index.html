@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Evolving Barycentric Chords - techn.ology.net</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2020/05/03/ones-vs-zeros-in-the-binary-primes/index.html" rel="prev">
+        <link href="/2020/03/03/predicting-star-trek-characters-with-naive-bayes/index.html" rel="next">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">techn.ology.net</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Evolving Barycentric Chords</h1>
+
+    <aside>
+        <time datetime="2020-04-02">
+            Posted on 2020-04-02
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
+        <a href="/tag/music/" rel="tag">music</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+        <a href="/tag/evolutionary/" rel="tag">evolutionary</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>What do the fittest barycentric chords of an evolutionary generic algorithm sound like?  Bary- what?  Genetic what?</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/barycenter4">barycenter4</a></p>
+
+</section>
+<section id="section-2">
+    <p><img alt="" src="chord-in-space.png"></p>
+
+<p>A while ago I read a <a href="http://www.amazon.com/Geometry-Musical-Chords-Interval-Representation/dp/145022797X">thin book</a> about analyzing chords based on their &quot;barycenter.&quot;  That word comes from the world of astronomy and means &quot;the center of mass of two or more bodies that orbit one another and is the point about which the bodies orbit&quot;, <a href="https://en.wikipedia.org/wiki/Barycenter">according to Wikipedia</a>.</p>
+
+<p>While mathematical analysis of music is interesting in and of itself, being a musician I wanted to actually <em>hear</em> results.</p>
+
+<p>So in this iteration of my algorithmic musical foolery, I chose to investigate &quot;genetic&quot; methods of evolving artificial things.  In my case, these &quot;things&quot; are 3-note chords - triads.</p>
+
+<p>In the program, I decided to use the cool module, <a href="https://metacpan.org/release/AI-Genetic">AI::Genetic</a> in conjunction with <a href="https://metacpan.org/release/Music-Interval-Barycentric">Music::Interval::Barycentric</a>.  The first is an object oriented library with a few crucial methods and a few optional settings for evolving a population of individuals.  The second is used to compute the fitness of each evolved chord.</p>
+
+<p>Basically, I instantiate a new AI::Genetic object with standard settings; but also custom bits: A fitness function, and the type of chromosomes to use called, &quot;listvectors.&quot;  The fitness function determines the &quot;value of a chromosome&quot;, and is based on the barycentric &quot;evenness_index()&quot; function of the allowed chord.  The type of chromosomes are &quot;listvectors&quot;, because they are lists of vectors!  3 to be exact.  And these vectors are the pitch-class note numbers from 0 to 11.  So each chromosome is 3 each of one of these pitch-classes (making a triad).</p>
+
+<p>With the fittest chords in hand, I play phrases that are either 1. the chords played legato, 2. single notes played staccato, or 3. the chord broken in two parts - a leading tone followed by the remaining (two) notes.  These are played alternately and sound pretty crazy.  To actually render notes, I write to a <a href="https://en.wikipedia.org/wiki/MIDI">MIDI</a> file and, in this case, use <a href="https://www.videolan.org/vlc/index.html">VLC</a> to export to MP3:</p>
+
+<p><a href="Caffiene.mp3">Caffiene.mp3</a></p>
+
+<p>As you can tell, the chords go from &quot;random&quot; to progressively more pleasant.  That is, the piece starts of with dissonant sounding tone-clusters and slowly evolves into more consonant chords.</p>
+
+<p>After some fiddling, I re-worked the program into a more &quot;musical&quot; version with half-note wandering bassline and rhythmic phrases (a la <a href="https://metacpan.org/pod/Music::Duration::Partition">Music::Duration::Partition</a>) for the evolved chord progression.  It sounds like you were &quot;dropped into&quot; an ongoing tune...  Here are some more audio renderings:</p>
+
+<p><a href="Barycentric-III.mp3">Barycentric-III.mp3</a></p>
+
+<p><a href="Barycentric-IV.mp3">Barycentric-IV.mp3</a></p>
+
+<p>Ok. I find it hard to not tweak and fiddle about... Here is a longer piece made with yet another variation:</p>
+
+<p><a href="Barycentric-V.mp3">Barycentric-V.mp3</a></p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2020/03/03/predicting-star-trek-characters-with-naive-bayes/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2020/05/03/ones-vs-zeros-in-the-binary-primes/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/drums/">drums</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/ngrams/">ngrams</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/scatter-plot/">scatter plot</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/star-trek/">Star Trek</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
