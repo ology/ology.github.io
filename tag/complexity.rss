@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>techn.ology.net</title>
+        <link>http://techn.ology.net/tag/complexity/</link>
+        <atom:link href="http://techn.ology.net/tag/complexity.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of techn.ology.net</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>Halstead Software Complexity of Perl Code</title>
+            <link>http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</link>
+            <guid>http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</guid>
+            <description><![CDATA[
+                <p>The other day I stumbled across the Wikipedia entry for <a href="https://en.wikipedia.org/wiki/Halstead_complexity_measures">Halstead software complexity</a> and became curious about how the language <a href="https://www.perl.org/">Perl</a> would measure up.</p>
+
+<p>Now I knew the adage that &quot;only perl can parse perl&quot;, but I also knew about the <a href="https://metacpan.org/pod/PPI">PPI</a> set of modules on the <a href="https://metacpan.org/">CPAN</a>.  So I got to reading/experimenting...</p>
+
+                    <p><a href="http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/tag/software/">software</a>
+                        <a href="http://techn.ology.net/tag/complexity/">complexity</a>
+                        <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 19 Mar 2019 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

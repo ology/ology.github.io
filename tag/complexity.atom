@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://techn.ology.net/tag/complexity/</id>
+    <title>techn.ology.net</title>
+    <updated>2019-03-19T00:00:00Z</updated>
+    <link href="http://techn.ology.net/tag/complexity.atom" rel="self" />
+    <link href="http://techn.ology.net/tag/complexity/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</id>
+        <title>Halstead Software Complexity of Perl Code</title>
+        <link href="http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>The other day I stumbled across the Wikipedia entry for <a href="https://en.wikipedia.org/wiki/Halstead_complexity_measures">Halstead software complexity</a> and became curious about how the language <a href="https://www.perl.org/">Perl</a> would measure up.</p>
+
+<p>Now I knew the adage that &quot;only perl can parse perl&quot;, but I also knew about the <a href="https://metacpan.org/pod/PPI">PPI</a> set of modules on the <a href="https://metacpan.org/">CPAN</a>.  So I got to reading/experimenting...</p>
+
+                <p><a href="http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/complexity/">complexity</a>
+                    <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-03-19T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="complexity" />
+        <category term="analysis" />
+    </entry>
+</feed>
+

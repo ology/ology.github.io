@@ -22,7 +22,6 @@
                     <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
                     <a href="http://techn.ology.net/tag/prime-numbers/">prime numbers</a>
-                    <a href="http://techn.ology.net/tag/scatter-plot/">scatter plot</a>
                 </p>
 
         ]]></content>
@@ -32,7 +31,6 @@
         <category term="software" />
         <category term="mathematics" />
         <category term="prime numbers" />
-        <category term="scatter plot" />
     </entry>
     <entry>
         <id>http://techn.ology.net/2020/04/02/evolving-barycentric-chords/</id>

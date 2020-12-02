@@ -7,6 +7,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2019-03-19</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/2019/05/05/prime-number-digit-frequencies/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -119,6 +125,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-02-15</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/tag/complexity/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2019-03-19</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/tag/data/</loc>
@@ -248,12 +260,6 @@
     </url>
     <url>
         <loc>http://techn.ology.net/tag/r/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2020-05-03</lastmod>
-    </url>
-    <url>
-        <loc>http://techn.ology.net/tag/scatter-plot/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-05-03</lastmod>

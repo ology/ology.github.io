@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Halstead Software Complexity of Perl Code - techn.ology.net</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2019/05/05/prime-number-digit-frequencies/index.html" rel="prev">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">techn.ology.net</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Halstead Software Complexity of Perl Code</h1>
+
+    <aside>
+        <time datetime="2019-03-19">
+            Posted on 2019-03-19
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/complexity/" rel="tag">complexity</a>
+        <a href="/tag/analysis/" rel="tag">analysis</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>The other day I stumbled across the Wikipedia entry for <a href="https://en.wikipedia.org/wiki/Halstead_complexity_measures">Halstead software complexity</a> and became curious about how the language <a href="https://www.perl.org/">Perl</a> would measure up.</p>
+
+<p>Now I knew the adage that &quot;only perl can parse perl&quot;, but I also knew about the <a href="https://metacpan.org/pod/PPI">PPI</a> set of modules on the <a href="https://metacpan.org/">CPAN</a>.  So I got to reading/experimenting...</p>
+
+</section>
+<section id="section-2">
+    <p>After a bit of trial and error, I found that I could <em>dump out</em> the statements in a PPI document (i.e. a random blob of perl code) as a list of PPI::Tokens - basically &quot;types&quot; of the parts of the statements.  Then either skip them (like comments and POD) or identify the parts as either <em>operators</em> or <em>operands</em>.</p>
+
+<p>These identified operators and operands are the basis for Halstead&#39;s metrics.  As a simple example, the equation &quot;1 + 2 = 3&quot; has 2 operators (+ and =) and 3 operands (1, 2 and 3).  In real world perl programs there are a large number of each!</p>
+
+<p>The result of this PPI parsing turned into the module: <a href="https://metacpan.org/pod/Perl::Metrics::Halstead">Perl::Metrics::Halstead</a> which, besides parsing, just &quot;does the math.&quot;</p>
+
+<p>Now measuring a program in isolation can&#39;t really tell you anything.  The only metric with a dimension is the &quot;Time required to program&quot;, which is given in seconds.  And even this number should be taken with a big grain of salt!  All the other computed metrics (which can be read about in the Wikipedia article linked above) are dimensionless and thus &quot;relative.&quot;  That is, you can only judge a given number based on its relative distance from another number of the same metric.</p>
+
+<p>Also, <a href="https://www.compuware.com/hard-can-find-halstead-maintenance-effort-metric/">I read about</a> how the <em>effort</em> measure is the only meaningful stat of the lot.  But <em>difficulty</em> is a compelling word...  The two are directly related, but I chose those to plot.  So this can be thought of as a &quot;ruler&quot; measuring relative distances.</p>
+
+<p>So how does perl measure up?  To see, I used the Halstead module to analyze sets of packages from CPAN.  The result of my efforts is this program: <a href="https://github.com/ology/Modules/blob/master/halstead-metrics">halstead-metrics</a> included with the CPAN distribution.  Basically, it first collects the locally installed modules, including and excluding if requested.  It then gathers all the important PPI::Tokens (as either operators or operands) for each module, figures out the distinct ones and counts them for Halstead&#39;s equations into N1, N2, n1 and n2 (as described in the Wikipedia link above).  The metrics are computed for each module and put into a CSV file that is then fed to the program R for its visualization power and simplicity.  (The R commands to execute are listed under <code>__END__</code> at the bottom of the program.)</p>
+
+<p>On my system, I have 230 perl CPAN packages with the word &quot;Math&quot; in the name.  This is certainly not all there is on CPAN, but a fair accounting for my purposes.  When I run halstead-metrics over them, I get a CSV file that is rendered into this scatter-plot:</p>
+
+<p><img alt="" src="Halstead-Math.png"></p>
+
+<p>The next image shows the module names (visible for the higher valued data points):</p>
+
+<p><img alt="" src="Halstead-Math-labeled.png"></p>
+
+<p>Again, plot this is only to illustrate the <strong>relative</strong> effort/difficulty of code.  So who is the winner?  <a href="https://metacpan.org/pod/Math::BigFloat">Math::BigFloat</a>!</p>
+
+<p>Here is the sorted plot of effort over 142 installed packages with &quot;Mojo&quot; in the name:</p>
+
+<p><img alt="" src="Halstead-Mojolicious.png"></p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <button disabled>
+                ← Older
+            </button>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2019/05/05/prime-number-digit-frequencies/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/drums/">drums</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/frequency/">frequency</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/ink/">ink</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/ngrams/">ngrams</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/print/">print</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/star-trek/">Star Trek</a></li>
+            <li><a href="/tag/strategy/">strategy</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
