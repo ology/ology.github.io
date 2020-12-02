@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://techn.ology.net/tag/automata/</id>
+    <title>techn.ology.net</title>
+    <updated>2020-02-15T00:00:00Z</updated>
+    <link href="http://techn.ology.net/tag/automata.atom" rel="self" />
+    <link href="http://techn.ology.net/tag/automata/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>http://techn.ology.net/2020/02/15/game-of-life-glider-audio-rendering/</id>
+        <title>Game of Life Glider Audio Rendering</title>
+        <link href="http://techn.ology.net/2020/02/15/game-of-life-glider-audio-rendering/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="http://techn.ology.net/2020/02/15/game-of-life-glider-audio-rendering/glider.jpg">
+Yesterday I became curious about what <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway&#39;s Game of Life</a> structures might sound like on a grid of musical notes (&quot;note-space&quot;).</p>
+
+                <p><a href="http://techn.ology.net/2020/02/15/game-of-life-glider-audio-rendering/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/audio/">audio</a>
+                    <a href="http://techn.ology.net/tag/automata/">automata</a>
+                </p>
+
+        ]]></content>
+        <updated>2020-02-15T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="MIDI" />
+        <category term="audio" />
+        <category term="automata" />
+    </entry>
+</feed>
+

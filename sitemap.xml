@@ -7,6 +7,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/2020/02/15/game-of-life-glider-audio-rendering/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2020-02-15</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -79,6 +85,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/tag/analysis/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -89,6 +101,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/tag/automata/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-02-15</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/tag/data/</loc>
@@ -193,6 +211,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/tag/perl/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/tag/prime-numbers/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -224,6 +248,12 @@
     </url>
     <url>
         <loc>http://techn.ology.net/tag/software/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-11-23</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/tag/software/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
