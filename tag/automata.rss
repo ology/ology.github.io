@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Gene Boggs</title>
+        <title>techn.ology.net</title>
         <link>http://techn.ology.net/tag/automata/</link>
         <atom:link href="http://techn.ology.net/tag/automata.rss" rel="self" type="application/rss+xml" />
-        <description>Blog feed of Gene Boggs</description>
+        <description>Blog feed of techn.ology.net</description>
         <generator>Statocles 0.097</generator>
         <item>
             <title>Game of Life Glider Audio Rendering</title>
