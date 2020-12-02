@@ -51,6 +51,32 @@
                 Sun, 05 May 2019 00:00:00 +0000
             </pubDate>
         </item>
+        <item>
+            <title>How Many Primes Are In A Slice Of Pi?</title>
+            <link>http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/</link>
+            <guid>http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/</guid>
+            <description><![CDATA[
+                <p><strong>Questions:</strong></p>
+
+<pre><code>- What is the number of primes per n-slice of the decimal part of pi?
+- What does the graph look like?
+- Are there many overlapping primes (i.e. start at the same position in the slice)?
+</code></pre>
+
+                    <p><a href="http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/tag/python/">python</a>
+                        <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
+                        <a href="http://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                        <a href="http://techn.ology.net/tag/pi/">pi</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 07 Aug 2018 00:00:00 +0000
+            </pubDate>
+        </item>
     </channel>
 </rss>
 

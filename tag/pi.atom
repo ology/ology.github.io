@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://techn.ology.net/tag/pi/</id>
+    <title>Gene Boggs</title>
+    <updated>2018-08-07T00:00:00Z</updated>
+    <link href="http://techn.ology.net/tag/pi.atom" rel="self" />
+    <link href="http://techn.ology.net/tag/pi/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/</id>
+        <title>How Many Primes Are In A Slice Of Pi?</title>
+        <link href="http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><strong>Questions:</strong></p>
+
+<pre><code>- What is the number of primes per n-slice of the decimal part of pi?
+- What does the graph look like?
+- Are there many overlapping primes (i.e. start at the same position in the slice)?
+</code></pre>
+
+                <p><a href="http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/python/">python</a>
+                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="http://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                    <a href="http://techn.ology.net/tag/pi/">pi</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-08-07T00:00:00Z</updated>
+        <category term="python" />
+        <category term="mathematics" />
+        <category term="prime numbers" />
+        <category term="pi" />
+    </entry>
+</feed>
+
