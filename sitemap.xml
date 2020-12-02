@@ -7,6 +7,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2019-06-02</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/2020/02/15/game-of-life-glider-audio-rendering/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -76,7 +82,7 @@
         <loc>http://techn.ology.net/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2020-12-01</lastmod>
+        <lastmod>2020-12-02</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/page/2/</loc>
@@ -137,6 +143,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-07</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/tag/game-theory/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2019-06-02</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/tag/generative/</loc>
@@ -263,6 +275,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-03</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/tag/strategy/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2019-06-02</lastmod>
     </url>
 </urlset>
 

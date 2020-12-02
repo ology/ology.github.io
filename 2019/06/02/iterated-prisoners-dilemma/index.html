@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Iterated Prisoner's Dilemma - techn.ology.net</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2020/02/15/game-of-life-glider-audio-rendering/index.html" rel="prev">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">techn.ology.net</a>
+                    <ul>
+                        <li>
+                            <a href="/">Blog</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Iterated Prisoner&#39;s Dilemma</h1>
+
+    <aside>
+        <time datetime="2019-06-02">
+            Posted on 2019-06-02
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
+        <a href="/tag/game-theory/" rel="tag">game theory</a>
+        <a href="/tag/strategy/" rel="tag">strategy</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p><img alt="" src="game-theory.png">
+This weekend I watched <a href="http://www.hannahfry.co.uk/">Dr Hannah Fry&#39;s</a> <a href="https://www.bbc.co.uk/programmes/b0b9zsfb">documentary on game theory</a>, and was inspired by her discussion of <a href="https://en.wikipedia.org/wiki/Robert_Axelrod">Robert Axelrod&#39;s</a> tournament to simulate the iterated <a href="https://en.wikipedia.org/wiki/Prisoner%27s_dilemma">prisoner&#39;s dilemma</a> (IPD) for myself.</p>
+
+</section>
+<section id="section-2">
+    <p>In my version, an initial population of 20 players is used - two of each strategy.  Some are more cooperators, some are definitely defectors but some are a mixture of the two, like the Random strategy: 50-50 chance of either cooperating or defecting.</p>
+
+<p>As with Axelrod, 200 iterations of the game are played for each pair of strategies (among the combinations of all possible pairs).  In order to have strategies play themselves, I made the population have 2 of each player.  That is, two tit-for-tats, two defectors, etc.  So we have tit-for-tat vs tit-for-tat, tit-for-tat vs defector, and defector vs defector among the games.</p>
+
+<p>For the mechanics, I used the perl module <a href="https://metacpan.org/pod/Game::Theory::TwoPersonMatrix">Game::Theory::TwoPersonMatrix</a> and particularly the latest version of the <a href="https://github.com/ology/Game-Theory-TwoPersonMatrix/blob/master/eg/tournament">tournament program</a> that it comes with.  There is a bit of logic to wade through to explain and understand game theory and the prisoner&#39;s dilemma, not to mention my implementation of it!  So I&#39;m going to leave that as an exercise for the reader and get to the results:</p>
+
+<pre><code>Wins:
+    defector = 2470
+    reverse tit-for-tat = 2079
+    firm-but-fair = 1980
+    random = 1842
+    grim = 1567
+    aggressive tit-for-tat = 1219
+    tit-for-tat = 1100
+    generous tit-for-tat = 764
+    tit-for-two-tats = 389
+    cooperator = 0
+
+Scores:
+    grim = 21086
+    generous tit-for-tat = 19090
+    tit-for-tat = 18902
+    tit-for-two-tats = 18292
+    defector = 17480
+    aggressive tit-for-tat = 16537
+    random = 16504
+    reverse tit-for-tat = 16362
+    fair-but-firm = 16051
+    cooperator = 15546
+</code></pre>
+
+<p>The numbers by themselves say nothing, but the comparison says everything.  That is, the <a href="https://en.wikipedia.org/wiki/Grim_trigger">&quot;grim&quot;</a> strategy wins.  (This strategy says to cooperate until defected against, then hold a grudge forever.)  The player who always cooperates is the sucker who loses.  Remember that this is an &quot;adversarial population&quot;, where some players will defect.  If grim is removed, the &quot;generous tit-for-tat&quot; strategy is the winner - even in the face of two defectors, etc.</p>
+
+<p>What does this say in the larger context?  To me it says to play the grim strategy if up against a stranger.  If playing with your life partner, then generous tit-for-tat is your best choice to sort out prisoner&#39;s dilemma situations.</p>
+
+</section>
+<section id="section-3">
+    <p><strong>UPDATE:</strong> I added more strategies to the population, including one called &quot;soft majority&quot; that acts depending on all previous opponent moves.  This strategy actually beats &quot;generous tit-for-tat.&quot;  So I have to rethink my conclusions...</p>
+
+<p>For a more thorough treatment of the IPD, see <a href="https://github.com/Axelrod-Python/Axelrod">https://github.com/Axelrod-Python/Axelrod</a>.</p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <button disabled>
+                ← Older
+            </button>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2020/02/15/game-of-life-glider-audio-rendering/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/drums/">drums</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/frequency/">frequency</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/ink/">ink</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/ngrams/">ngrams</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/print/">print</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/scatter-plot/">scatter plot</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/star-trek/">Star Trek</a></li>
+            <li><a href="/tag/strategy/">strategy</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

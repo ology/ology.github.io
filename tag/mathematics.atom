@@ -95,5 +95,31 @@ Tonight I became curious as to what an image would sound like when &quot;played&
         <category term="fractal" />
         <category term="image" />
     </entry>
+    <entry>
+        <id>http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/</id>
+        <title>Iterated Prisoner&#39;s Dilemma</title>
+        <link href="http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/game-theory.png">
+This weekend I watched <a href="http://www.hannahfry.co.uk/">Dr Hannah Fry&#39;s</a> <a href="https://www.bbc.co.uk/programmes/b0b9zsfb">documentary on game theory</a>, and was inspired by her discussion of <a href="https://en.wikipedia.org/wiki/Robert_Axelrod">Robert Axelrod&#39;s</a> tournament to simulate the iterated <a href="https://en.wikipedia.org/wiki/Prisoner%27s_dilemma">prisoner&#39;s dilemma</a> (IPD) for myself.</p>
+
+                <p><a href="http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="http://techn.ology.net/tag/game-theory/">game theory</a>
+                    <a href="http://techn.ology.net/tag/strategy/">strategy</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-06-02T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="game theory" />
+        <category term="strategy" />
+    </entry>
 </feed>
 

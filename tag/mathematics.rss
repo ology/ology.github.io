@@ -81,6 +81,29 @@ Tonight I became curious as to what an image would sound like when &quot;played&
                 Mon, 23 Mar 2020 00:00:00 +0000
             </pubDate>
         </item>
+        <item>
+            <title>Iterated Prisoner&#39;s Dilemma</title>
+            <link>http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/</link>
+            <guid>http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/</guid>
+            <description><![CDATA[
+                <p><img alt="" src="http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/game-theory.png">
+This weekend I watched <a href="http://www.hannahfry.co.uk/">Dr Hannah Fry&#39;s</a> <a href="https://www.bbc.co.uk/programmes/b0b9zsfb">documentary on game theory</a>, and was inspired by her discussion of <a href="https://en.wikipedia.org/wiki/Robert_Axelrod">Robert Axelrod&#39;s</a> tournament to simulate the iterated <a href="https://en.wikipedia.org/wiki/Prisoner%27s_dilemma">prisoner&#39;s dilemma</a> (IPD) for myself.</p>
+
+                    <p><a href="http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://techn.ology.net/tag/perl/">perl</a>
+                        <a href="http://techn.ology.net/tag/software/">software</a>
+                        <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
+                        <a href="http://techn.ology.net/tag/game-theory/">game theory</a>
+                        <a href="http://techn.ology.net/tag/strategy/">strategy</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 02 Jun 2019 00:00:00 +0000
+            </pubDate>
+        </item>
     </channel>
 </rss>
 
