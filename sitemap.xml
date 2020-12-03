@@ -7,6 +7,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2018-03-04</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/2018/03/18/sonic-l-systems/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -118,7 +124,7 @@
         <loc>http://techn.ology.net/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2020-12-02</lastmod>
+        <lastmod>2020-12-03</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/page/2/</loc>
@@ -155,6 +161,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-02-15</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/tag/bible/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2018-03-04</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/tag/chernoff/</loc>

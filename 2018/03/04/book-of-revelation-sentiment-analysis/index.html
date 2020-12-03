@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Book of Revelation Sentiment Analysis - Gene Boggs</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2018/03/18/sonic-l-systems/index.html" rel="prev">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+        <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Book of Revelation Sentiment Analysis</h1>
+
+    <aside>
+        <time datetime="2018-03-04">
+            Posted on 2018-03-04
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/bible/" rel="tag">bible</a>
+        <a href="/tag/analysis/" rel="tag">analysis</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p><img alt="" src="barplot-Revelation-emotions-sm.png">
+I decided to write my own sentiment analysis library called <a href="https://metacpan.org/release/Lingua-EN-Opinion">Lingua::EN::Opinion</a> and use it to investigate the KJV Bible Book of Revelation.</p>
+
+</section>
+<section id="section-2">
+    <p>First up is the colored bar chart. It is made with <a href="https://github.com/ology/Lingua-EN-Opinion/blob/master/eg/nrc-bars">this code</a>. It shows the amount of the 8 specific emotions (tallied by the <a href="https://saifmohammad.com/WebPages/lexicons.html">NRC Lexicon</a>) by sentence. The curious thing about this chart is the dominating amount of “trust” in Revelation. This is the same with the entire KJV Bible – trust is the dominating emotion throughout. The second highest emotion is “fear”, which makes perfect sense for this dark book.</p>
+
+<p><img alt="" src="barplot-Revelation-emotions.png"></p>
+
+<p>If the total positive and negative range of the full book is graphed (with [this code](https://github.com/ology/Lingua-EN-Opinion/blob/master/eg/plot this code)), where each sentence is a data point, the fluctuating line looks like this:</p>
+
+<p><a href="Revelation-1-bins.png"><img alt="" src="Revelation-1-bins-sm.png"></a></p>
+
+<p>The higher the line, the more positive the statement and vice-versa.</p>
+
+<p>On the top and bottom of this graph are the the most positive and most negative sentences. They can be found with <a href="https://github.com/ology/Lingua-EN-Opinion/blob/master/eg/opinion">this code</a>, and are:</p>
+
+<pre><code>66:021:011 Having the glory of God: and her light was like unto a stone
+           most precious, even like a jasper stone, clear as crystal;
+
+66:021:008 But the fearful, and unbelieving, and the abominable, and
+           murderers, and whoremongers, and sorcerers, and idolaters, and
+           all liars, shall have their part in the lake which burneth
+           with fire and brimstone: which is the second death.
+</code></pre>
+
+<p>A curious thing – both sentences in the very same verse!</p>
+
+<p>This graph can be viewed with less &quot;noise&quot; by binning the sentences into chunks and averaging the emotional content for each bin. This shows the average contour of the chart. Here is the same graph but in chunks of 10 sentences:</p>
+
+<p><a href="Revelation-10-bins.png"><img alt="" src="Revelation-10-bins-sm.png"></a></p>
+
+<p>There are 459 sentences in the Book of Revelation, so this divides the book into 459/10 ~ 46 discrete bins.</p>
+
+<p>How about showing the occurrence of a term, like &quot;love&quot; in the text? That is done with [https://github.com/ology/Lingua-EN-Opinion/blob/master/eg/lines-term this code] and looks like:</p>
+
+<p><a href="Revelation-love.png"><img alt="" src="Revelation-love-sm.png"></a></p>
+
+<p>And here is the graph showing the term &quot;beast&quot;:</p>
+
+<p><a href="Revelation-beast.png"><img alt="" src="Revelation-beast-sm.png"></a></p>
+
+<p>Okay. What about the amount of each of the 8 NRC emotions (anger, anticipation, disgust, fear, joy, sadness, surprise, and trust)? Let’s plot them (with [https://github.com/ology/Lingua-EN-Opinion/blob/master/eg/nrc-plot this code])!</p>
+
+<p>Anger:</p>
+
+<p><a href="anger-Revelation.png"><img alt="" src="anger-Revelation.png"></a></p>
+
+<p>Anticipation:</p>
+
+<p><a href="anticipation-Revelation.png"><img alt="" src="anticipation-Revelation.png"></a></p>
+
+<p>Disgust:</p>
+
+<p><a href="disgust-Revelation.png"><img alt="" src="disgust-Revelation.png"></a></p>
+
+<p>Fear:</p>
+
+<p><a href="fear-Revelation.png"><img alt="" src="fear-Revelation.png"></a></p>
+
+<p>Joy:</p>
+
+<p><a href="joy-Revelation.png"><img alt="" src="joy-Revelation.png"></a></p>
+
+<p>Sadness:</p>
+
+<p><a href="sadness-Revelation.png"><img alt="" src="sadness-Revelation.png"></a></p>
+
+<p>Surprise:</p>
+
+<p><a href="surprise-Revelation.png"><img alt="" src="surprise-Revelation.png"></a></p>
+
+<p>Trust:</p>
+
+<p><a href="trust-Revelation.png"><img alt="" src="trust-Revelation-sm.png"></a></p>
+
+<p>And as with the above “opinion” code, but using “[https://github.com/ology/Lingua-EN-Opinion/blob/master/eg/nrc-opinion nrc-opinion],” you can see what the most emotional sentence is, for each of these emotions. The most emotional sentences are these:</p>
+
+<p>Sentence with the most anger:</p>
+
+<pre><code>66:020:010 And the devil that deceived them was cast into the lake of
+           fire and brimstone, where the beast and the false prophet are,
+           and shall be tormented day and night for ever and ever.
+
+Sentence with the most anticipation:
+
+66:019:007 Let us be glad and rejoice, and give honour to him: for the
+           marriage of the Lamb is come, and his wife hath made herself
+           ready.
+</code></pre>
+
+<p>Sentence with the most disgust:</p>
+
+<pre><code>66:019:018 That ye may eat the flesh of kings, and the flesh of captains,
+           and the flesh of mighty men, and the flesh of horses, and of
+           them that sit on them, and the flesh of all men, both free and
+           bond, both small and great.
+</code></pre>
+
+<p>Sentence with the most fear:</p>
+
+<pre><code>66:004:007 And the first beast was like a lion, and the second beast like
+           a calf, and the third beast had a face as a man, and the
+           fourth beast was like a flying eagle.
+</code></pre>
+
+<p>Sentence with the most joy:</p>
+
+<pre><code>66:022:002 In the midst of the street of it, and on either side of the
+           river, was there the tree of life, which bare twelve manner of
+           fruits, and yielded her fruit every month: and the leaves of
+           the tree were for the healing of the nations.
+</code></pre>
+
+<p>Sentence with the most negative:</p>
+
+<pre><code>66:016:021 And there fell upon men a great hail out of heaven, every
+           stone about the weight of a talent: and men blasphemed God
+           because of the plague of the hail; for the plague thereof was
+           exceeding great.
+</code></pre>
+
+<p>Sentence with the most positive:</p>
+
+<pre><code>66:004:006 And before the throne there was a sea of glass like unto
+           crystal: and in the midst of the throne, and round about the
+           throne, were four beasts full of eyes before and behind.
+</code></pre>
+
+<p>Sentence with the most sadness:</p>
+
+<pre><code>66:021:004 And God shall wipe away all tears from their eyes; and there
+           shall be no more death, neither sorrow, nor crying, neither
+           shall there be any more pain: for the former things are passed
+           away.
+</code></pre>
+
+<p>Sentence with the most surprise:</p>
+
+<pre><code>66:016:013 And I saw three unclean spirits like frogs come out of the
+           mouth of the dragon, and out of the mouth of the beast, and
+           out of the mouth of the false prophet.
+</code></pre>
+
+<p>Sentence with the most trust:</p>
+
+<pre><code>66:003:014 And unto the angel of the church of the Laodiceans write;
+           These things saith the Amen, the faithful and true witness,
+           the beginning of the creation of God;
+</code></pre>
+
+<p><strong>UPDATE</strong>: Here is the <a href="https://github.com/ology/Bible-Sentiment">Web GUI</a>! Screenshot:</p>
+
+<p><a href="Web-GUI-Revelation-love.png"><img alt="" src="Web-GUI-Revelation-love-sm.png"></a></p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <button disabled>
+                ← Older
+            </button>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2018/03/18/sonic-l-systems/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/chernoff/">Chernoff</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/drums/">drums</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/ngrams/">ngrams</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/star-trek/">Star Trek</a></li>
+            <li><a href="/tag/strategy/">strategy</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

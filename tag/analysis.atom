@@ -110,5 +110,29 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="data" />
         <category term="analysis" />
     </entry>
+    <entry>
+        <id>http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/</id>
+        <title>Book of Revelation Sentiment Analysis</title>
+        <link href="http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/barplot-Revelation-emotions-sm.png">
+I decided to write my own sentiment analysis library called <a href="https://metacpan.org/release/Lingua-EN-Opinion">Lingua::EN::Opinion</a> and use it to investigate the KJV Bible Book of Revelation.</p>
+
+                <p><a href="http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/bible/">bible</a>
+                    <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-03-04T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="bible" />
+        <category term="analysis" />
+    </entry>
 </feed>
 
