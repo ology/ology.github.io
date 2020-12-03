@@ -7,6 +7,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>http://techn.ology.net/2018/02/24/bible-books-cosine-similarity/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2018-02-24</lastmod>
+    </url>
+    <url>
         <loc>http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -146,6 +152,12 @@
     </url>
     <url>
         <loc>http://techn.ology.net/tag/analysis/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-06-06</lastmod>
+    </url>
+    <url>
+        <loc>http://techn.ology.net/tag/analysis/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-06-06</lastmod>
