@@ -65,5 +65,106 @@ Yesterday I became curious about what <a href="https://en.wikipedia.org/wiki/Con
         <category term="audio" />
         <category term="automata" />
     </entry>
+    <entry>
+        <id>http://techn.ology.net/2018/03/18/sonic-l-systems/</id>
+        <title>Sonic L-Systems</title>
+        <link href="http://techn.ology.net/2018/03/18/sonic-l-systems/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="http://techn.ology.net/2018/03/18/sonic-l-systems/Serpinski_Lsystem.png">
+In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lindenmayer</a> introduced &quot;<a href="https://en.wikipedia.org/wiki/L-system">L-systems</a>&quot; to the world. Basically, this is an iterative rewriting system of rules that operates on a string beginning with an &quot;axiom&quot; or initial string.</p>
+
+<p>Using <a href="https://en.wikipedia.org/wiki/Turtle_graphics">turtle graphics</a> it is possible to draw all manner of fractal &quot;pathological curves&quot; with this technique.</p>
+
+<p>Being a music nerd, I thought, &quot;Why not make this play notes instead of draw lines?&quot; And so the program [https://github.com/ology/Music/blob/master/lindenmayer-midi lindenmayer-midi] was born.</p>
+
+<p>The program is short but has a few parts. The first is the preamble that says we are a perl program and that we will be fooling with MIDI things:</p>
+
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use MIDI::Util;
+</code></pre>
+
+<p>Next, the program takes arguments from the command-line user:</p>
+
+<pre><code>my $rule       = shift || 2,
+my $iterations = shift || 4;
+my $string     = shift || &#39;F&#39;;
+my $distance   = shift || &#39;qn&#39;;
+my $theta      = shift || 1;
+</code></pre>
+
+<p>These variables specify the rule to use (shown below), the number of iterations to perform, the initial string (axiom), the &quot;distance&quot; – a musical duration like the quarter note, and theta – the amount to increase/decrease the current note value by.</p>
+
+<p>Next up is to define the actual re-write rules to use:</p>
+
+<pre><code>my %rules = (
+    ...
+    # Sierpinski arrowhead curve: start=F
+    5 =&gt; {
+        F =&gt; &#39;G-F-G&#39;,
+        G =&gt; &#39;F+G+F&#39;,
+    },
+    ...
+);
+</code></pre>
+
+<p>The program then initializes a MIDI score and sets the initial note to middle C (MIDI note 60):</p>
+
+<pre><code>my $score = MIDIUtil::setup_midi( patch =&gt; 0, bpm =&gt; 300 );
+my $note = 60;
+</code></pre>
+
+<p>Ok. Now for the meat of the program – a dispatch table of MIDI and note events, re-writing the string according to the given rules, and finally translating each string symbol into a dispatched command:</p>
+
+<pre><code>my %translate = (
+    &#39;f&#39; =&gt; sub { $score-&gt;r($distance) },
+    &#39;F&#39; =&gt; sub { $score-&gt;n( $distance, $note ) },
+    &#39;G&#39; =&gt; sub { $score-&gt;n( $distance, $note ) },
+    &#39;-&#39; =&gt; sub { $note -= $theta },
+    &#39;+&#39; =&gt; sub { $note += $theta },
+);
+
+for ( 1 .. $iterations ) {
+    $string =~ s/(.)/defined($rules{$rule}{$1}) ? $rules{$rule}{$1} : $1/eg;
+}
+warn &quot;$string\n&quot;;
+
+for my $command ( split //, $string ) {
+    $translate{$command}-&gt;() if exists $translate{$command};
+}
+</code></pre>
+
+<p>Lastly, the program writes the MIDI file that was created.</p>
+
+<pre><code>$score-&gt;write_score( $0 . &#39;.mid&#39; );
+</code></pre>
+
+<p>Here are some examples. They are decidedly not music; more like Metroid on crack.</p>
+
+<p>MIDI files: <a href="https://www.ology.net/tech/wp-content/uploads/Sierpinski.mid">Sierpinski</a> and <a href="https://www.ology.net/tech/wp-content/uploads/Koch-islands-and-lakes.mid">Koch-islands-and-lakes</a>. And here is an MP3 rendering of the former:</p>
+
+<p><a href="http://techn.ology.net/2018/03/18/sonic-l-systems/Sierpinski.mp3">Sierpinski.mp3</a></p>
+
+<p>(On YouTube: <a href="https://www.youtube.com/watch?v=v6dTNOsfAUY">Binary</a>, <a href="https://www.youtube.com/watch?v=K_PqVZGScJQ">Koch Curve</a>, <a href="https://www.youtube.com/watch?v=LUr_3Hfrinc">Lindenmayer</a>, <a href="https://www.youtube.com/watch?v=Gt8NYdsdidU">Sierpinski Triangle</a>)</p>
+
+<p>Not the easiest to dance to…</p>
+
+
+                <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/audio/">audio</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-03-18T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="MIDI" />
+        <category term="audio" />
+    </entry>
 </feed>
 
