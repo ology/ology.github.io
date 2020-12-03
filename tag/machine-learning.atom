@@ -20,18 +20,18 @@ I have been reading <a href="https://www.oreilly.com/library/view/data-science-f
                 <p><a href="http://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
+                    <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/machine-learning/">machine learning</a>
                     <a href="http://techn.ology.net/tag/star-trek/">Star Trek</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
                 </p>
 
         ]]></content>
         <updated>2020-03-03T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
         <category term="machine learning" />
         <category term="Star Trek" />
-        <category term="software" />
-        <category term="perl" />
     </entry>
 </feed>
 

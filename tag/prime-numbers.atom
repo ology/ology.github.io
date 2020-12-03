@@ -74,6 +74,7 @@
 
                 <p>Tags:
                     <a href="http://techn.ology.net/tag/python/">python</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
                     <a href="http://techn.ology.net/tag/prime-numbers/">prime numbers</a>
                     <a href="http://techn.ology.net/tag/pi/">pi</a>
@@ -82,6 +83,7 @@
         ]]></content>
         <updated>2018-08-07T00:00:00Z</updated>
         <category term="python" />
+        <category term="software" />
         <category term="mathematics" />
         <category term="prime numbers" />
         <category term="pi" />

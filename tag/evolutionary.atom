@@ -22,9 +22,9 @@
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
                     <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
                     <a href="http://techn.ology.net/tag/evolutionary/">evolutionary</a>
+                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/music/">music</a>
                 </p>
 
         ]]></content>
@@ -32,9 +32,9 @@
         <category term="perl" />
         <category term="software" />
         <category term="mathematics" />
-        <category term="music" />
-        <category term="MIDI" />
         <category term="evolutionary" />
+        <category term="MIDI" />
+        <category term="music" />
     </entry>
 </feed>
 

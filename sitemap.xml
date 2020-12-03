@@ -199,12 +199,6 @@
         <lastmod>2020-03-07</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/drums/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2020-11-01</lastmod>
-    </url>
-    <url>
         <loc>http://techn.ology.net/tag/evolutionary/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -275,12 +269,6 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
-    </url>
-    <url>
-        <loc>http://techn.ology.net/tag/ngrams/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2020-06-06</lastmod>
     </url>
     <url>
         <loc>http://techn.ology.net/tag/perl/</loc>

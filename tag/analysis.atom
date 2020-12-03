@@ -18,22 +18,20 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
                 <p><a href="http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/music/">music</a>
                     <a href="http://techn.ology.net/tag/analysis/">analysis</a>
-                    <a href="http://techn.ology.net/tag/ngrams/">ngrams</a>
                 </p>
 
         ]]></content>
         <updated>2020-06-06T00:00:00Z</updated>
-        <category term="music" />
-        <category term="software" />
         <category term="perl" />
+        <category term="software" />
         <category term="MIDI" />
+        <category term="music" />
         <category term="analysis" />
-        <category term="ngrams" />
     </entry>
     <entry>
         <id>http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/</id>
@@ -45,16 +43,16 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
                 <p><a href="http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/data/">data</a>
                     <a href="http://techn.ology.net/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
         <updated>2020-03-07T00:00:00Z</updated>
-        <category term="software" />
         <category term="perl" />
+        <category term="software" />
         <category term="data" />
         <category term="analysis" />
     </entry>
@@ -95,18 +93,18 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
                 <p><a href="http://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/music/">music</a>
                     <a href="http://techn.ology.net/tag/data/">data</a>
                     <a href="http://techn.ology.net/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
         <updated>2018-09-18T00:00:00Z</updated>
-        <category term="music" />
-        <category term="software" />
         <category term="perl" />
+        <category term="software" />
+        <category term="music" />
         <category term="data" />
         <category term="analysis" />
     </entry>

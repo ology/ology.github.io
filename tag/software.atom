@@ -17,20 +17,20 @@
                 <p><a href="http://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/generative/">generative</a>
+                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/music/">music</a>
                 </p>
 
         ]]></content>
         <updated>2020-11-23T00:00:00Z</updated>
-        <category term="music" />
-        <category term="software" />
         <category term="perl" />
-        <category term="MIDI" />
+        <category term="software" />
         <category term="generative" />
+        <category term="MIDI" />
+        <category term="music" />
     </entry>
     <entry>
         <id>http://techn.ology.net/2020/11/11/generating-musical-phrases/</id>
@@ -42,20 +42,20 @@
                 <p><a href="http://techn.ology.net/2020/11/11/generating-musical-phrases/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/generative/">generative</a>
+                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/music/">music</a>
                 </p>
 
         ]]></content>
         <updated>2020-11-11T00:00:00Z</updated>
-        <category term="music" />
-        <category term="software" />
         <category term="perl" />
-        <category term="MIDI" />
+        <category term="software" />
         <category term="generative" />
+        <category term="MIDI" />
+        <category term="music" />
     </entry>
     <entry>
         <id>http://techn.ology.net/2020/11/01/imitating-a-drum-circle/</id>
@@ -70,22 +70,20 @@ Each drummer keeps a steady beat in common and in syncopation with his or her fe
                 <p><a href="http://techn.ology.net/2020/11/01/imitating-a-drum-circle/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/generative/">generative</a>
-                    <a href="http://techn.ology.net/tag/drums/">drums</a>
+                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/music/">music</a>
                 </p>
 
         ]]></content>
         <updated>2020-11-01T00:00:00Z</updated>
-        <category term="music" />
-        <category term="software" />
         <category term="perl" />
-        <category term="MIDI" />
+        <category term="software" />
         <category term="generative" />
-        <category term="drums" />
+        <category term="MIDI" />
+        <category term="music" />
     </entry>
     <entry>
         <id>http://techn.ology.net/2020/10/18/imitating-steve-reich/</id>
@@ -102,18 +100,18 @@ Recently I was enjoying Steve Reich&#39;s <a href="https://www.youtube.com/watch
                 <p>Tags:
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
                     <a href="http://techn.ology.net/tag/software/">software</a>
+                    <a href="http://techn.ology.net/tag/generative/">generative</a>
                     <a href="http://techn.ology.net/tag/midi/">MIDI</a>
                     <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/generative/">generative</a>
                 </p>
 
         ]]></content>
         <updated>2020-10-18T00:00:00Z</updated>
         <category term="perl" />
         <category term="software" />
+        <category term="generative" />
         <category term="MIDI" />
         <category term="music" />
-        <category term="generative" />
     </entry>
     <entry>
         <id>http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</id>
@@ -126,22 +124,20 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
                 <p><a href="http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/perl/">perl</a>
+                    <a href="http://techn.ology.net/tag/software/">software</a>
                     <a href="http://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="http://techn.ology.net/tag/music/">music</a>
                     <a href="http://techn.ology.net/tag/analysis/">analysis</a>
-                    <a href="http://techn.ology.net/tag/ngrams/">ngrams</a>
                 </p>
 
         ]]></content>
         <updated>2020-06-06T00:00:00Z</updated>
-        <category term="music" />
-        <category term="software" />
         <category term="perl" />
+        <category term="software" />
         <category term="MIDI" />
+        <category term="music" />
         <category term="analysis" />
-        <category term="ngrams" />
     </entry>
 </feed>
 
