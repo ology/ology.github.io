@@ -1,28 +1,28 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://techn.ology.net/tag/analysis/</id>
+    <id>https://techn.ology.net/tag/analysis/</id>
     <title>Gene Boggs</title>
     <updated>2020-06-06T00:00:00Z</updated>
-    <link href="http://techn.ology.net/tag/analysis.atom" rel="self" />
-    <link href="http://techn.ology.net/tag/analysis/" rel="alternate" />
+    <link href="https://techn.ology.net/tag/analysis.atom" rel="self" />
+    <link href="https://techn.ology.net/tag/analysis/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>
-        <id>http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</id>
+        <id>https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</id>
         <title>Musical Ngrams Round II</title>
-        <link href="http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/" rel="alternate" />
+        <link href="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="" src="http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-durations.png">
+            <p><img alt="" src="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-durations.png">
 What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="https://en.wikipedia.org/wiki/N-gram">ngrams</a> are basically groups of tokens.  These groups are of a certain given size - say phrases of three words.  If we consider notes as tokens we get musical ngrams!  We can count the number of occurrences of each ngram phrase, and thus know how many times a given phrase is repeated.  How often does Bach repeat himself, for instance?</p>
 
-                <p><a href="http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="https://techn.ology.net/tag/music/">music</a>
+                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -34,19 +34,19 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="analysis" />
     </entry>
     <entry>
-        <id>http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/</id>
+        <id>https://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/</id>
         <title>How Much Ink Is Used For Each Letter?</title>
-        <link href="http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/" rel="alternate" />
+        <link href="https://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Today I became curious about how much ink is needed to print each of the 26 letters of the English alphabet.  Naturally I wrote <a href="https://github.com/ology/Graphics/blob/master/detect-black.pl">a program</a> to tell me...</p>
 
-                <p><a href="http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/data/">data</a>
-                    <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/data/">data</a>
+                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -57,21 +57,21 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="analysis" />
     </entry>
     <entry>
-        <id>http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</id>
+        <id>https://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</id>
         <title>Halstead Software Complexity of Perl Code</title>
-        <link href="http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/" rel="alternate" />
+        <link href="https://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>The other day I stumbled across the Wikipedia entry for <a href="https://en.wikipedia.org/wiki/Halstead_complexity_measures">Halstead software complexity</a> and became curious about how the language <a href="https://www.perl.org/">Perl</a> would measure up.</p>
 
 <p>Now I knew the adage that &quot;only perl can parse perl&quot;, but I also knew about the <a href="https://metacpan.org/pod/PPI">PPI</a> set of modules on the <a href="https://metacpan.org/">CPAN</a>.  So I got to reading/experimenting...</p>
 
-                <p><a href="http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/complexity/">complexity</a>
-                    <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/complexity/">complexity</a>
+                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -82,22 +82,22 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="analysis" />
     </entry>
     <entry>
-        <id>http://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/</id>
+        <id>https://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/</id>
         <title>Bach Choral Harmony Network Diagrams</title>
-        <link href="http://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/" rel="alternate" />
+        <link href="https://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Today I decided to revisit the <a href="https://archive.ics.uci.edu/ml/datasets/Bach+Choral+Harmony">Bach Choral Harmony data set</a> and look at chord progression transitions.</p>
 
 <p>In order to do this I wrote a small program that tallies the movement from one chord to another, and then outputs a <a href="https://graphviz.org/">Graphviz</a> dot file that can be turned into an image.</p>
 
-                <p><a href="http://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/music/">music</a>
-                    <a href="http://techn.ology.net/tag/data/">data</a>
-                    <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/music/">music</a>
+                    <a href="https://techn.ology.net/tag/data/">data</a>
+                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -109,19 +109,19 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="analysis" />
     </entry>
     <entry>
-        <id>http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/</id>
+        <id>https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/</id>
         <title>Book of Revelation Sentiment Analysis</title>
-        <link href="http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/" rel="alternate" />
+        <link href="https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>I decided to write my own sentiment analysis library called <a href="https://metacpan.org/release/Lingua-EN-Opinion">Lingua::EN::Opinion</a> and use it to investigate the KJV Bible Book of Revelation.</p>
 
-                <p><a href="http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/bible/">bible</a>
-                    <a href="http://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/bible/">bible</a>
+                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>

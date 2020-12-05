@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://techn.ology.net/tag/prime-numbers/</id>
+    <id>https://techn.ology.net/tag/prime-numbers/</id>
     <title>Gene Boggs</title>
     <updated>2020-05-03T00:00:00Z</updated>
-    <link href="http://techn.ology.net/tag/prime-numbers.atom" rel="self" />
-    <link href="http://techn.ology.net/tag/prime-numbers/" rel="alternate" />
+    <link href="https://techn.ology.net/tag/prime-numbers.atom" rel="self" />
+    <link href="https://techn.ology.net/tag/prime-numbers/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>
-        <id>http://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/</id>
+        <id>https://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/</id>
         <title>Ones vs Zeros in the Binary Primes</title>
-        <link href="http://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/" rel="alternate" />
+        <link href="https://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>What does the graph look like when you convert each prime to binary and plot the ones versus the zeros?</p>
 
-                <p><a href="http://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/r/">R</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
-                    <a href="http://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/r/">R</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="https://techn.ology.net/tag/prime-numbers/">prime numbers</a>
                 </p>
 
         ]]></content>
@@ -33,21 +33,21 @@
         <category term="prime numbers" />
     </entry>
     <entry>
-        <id>http://techn.ology.net/2019/05/05/prime-number-digit-frequencies/</id>
+        <id>https://techn.ology.net/2019/05/05/prime-number-digit-frequencies/</id>
         <title>Prime Number Digit Frequencies</title>
-        <link href="http://techn.ology.net/2019/05/05/prime-number-digit-frequencies/" rel="alternate" />
+        <link href="https://techn.ology.net/2019/05/05/prime-number-digit-frequencies/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Today I became curious about the relative frequencies of the digits that appear in prime numbers (in base 10).</p>
 
 <p>Naturally, I wrote a little program to show the answer - <a href="https://github.com/ology/Math/blob/master/primes/digit-freq2">digit-freq2</a>:</p>
 
-                <p><a href="http://techn.ology.net/2019/05/05/prime-number-digit-frequencies/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2019/05/05/prime-number-digit-frequencies/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
-                    <a href="http://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="https://techn.ology.net/tag/prime-numbers/">prime numbers</a>
                 </p>
 
         ]]></content>
@@ -58,9 +58,9 @@
         <category term="prime numbers" />
     </entry>
     <entry>
-        <id>http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/</id>
+        <id>https://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/</id>
         <title>How Many Primes Are In A Slice Of Pi?</title>
-        <link href="http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/" rel="alternate" />
+        <link href="https://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><strong>Questions:</strong></p>
 
@@ -70,14 +70,14 @@
 <li>Are there many overlapping primes (i.e. start at the same position in the slice)?</li>
 </ul>
 
-                <p><a href="http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/python/">python</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
-                    <a href="http://techn.ology.net/tag/prime-numbers/">prime numbers</a>
-                    <a href="http://techn.ology.net/tag/pi/">pi</a>
+                    <a href="https://techn.ology.net/tag/python/">python</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="https://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                    <a href="https://techn.ology.net/tag/pi/">pi</a>
                 </p>
 
         ]]></content>

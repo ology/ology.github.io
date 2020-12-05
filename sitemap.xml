@@ -1,355 +1,355 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://techn.ology.net/</loc>
+        <loc>https://techn.ology.net/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2018/02/24/bible-books-cosine-similarity/</loc>
+        <loc>https://techn.ology.net/2018/02/24/bible-books-cosine-similarity/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2018-02-24</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/</loc>
+        <loc>https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2018-03-04</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2018/03/18/sonic-l-systems/</loc>
+        <loc>https://techn.ology.net/2018/03/18/sonic-l-systems/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2018-03-18</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2018/03/24/making-chernoff-faces-with-perl/</loc>
+        <loc>https://techn.ology.net/2018/03/24/making-chernoff-faces-with-perl/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2018-03-24</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/</loc>
+        <loc>https://techn.ology.net/2018/08/07/how-many-primes-are-in-a-slice-of-pi/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2018-08-07</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/</loc>
+        <loc>https://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2018-09-18</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</loc>
+        <loc>https://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2019-03-19</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2019/05/05/prime-number-digit-frequencies/</loc>
+        <loc>https://techn.ology.net/2019/05/05/prime-number-digit-frequencies/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2019-05-05</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/</loc>
+        <loc>https://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2019-06-02</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/02/15/game-of-life-glider-audio-rendering/</loc>
+        <loc>https://techn.ology.net/2020/02/15/game-of-life-glider-audio-rendering/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-02-15</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</loc>
+        <loc>https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-03-03</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/</loc>
+        <loc>https://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-03-07</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/</loc>
+        <loc>https://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-03-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/04/02/evolving-barycentric-chords/</loc>
+        <loc>https://techn.ology.net/2020/04/02/evolving-barycentric-chords/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-04-02</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/</loc>
+        <loc>https://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-05-03</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</loc>
+        <loc>https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-06-06</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/10/18/imitating-steve-reich/</loc>
+        <loc>https://techn.ology.net/2020/10/18/imitating-steve-reich/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-10-18</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/11/01/imitating-a-drum-circle/</loc>
+        <loc>https://techn.ology.net/2020/11/01/imitating-a-drum-circle/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-11-01</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/11/11/generating-musical-phrases/</loc>
+        <loc>https://techn.ology.net/2020/11/11/generating-musical-phrases/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-11-11</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/</loc>
+        <loc>https://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/page/</loc>
+        <loc>https://techn.ology.net/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2020-12-05</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/page/2/</loc>
+        <loc>https://techn.ology.net/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/page/3/</loc>
+        <loc>https://techn.ology.net/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/page/4/</loc>
+        <loc>https://techn.ology.net/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/analysis/</loc>
+        <loc>https://techn.ology.net/tag/analysis/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-06-06</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/analysis/page/2/</loc>
+        <loc>https://techn.ology.net/tag/analysis/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-06-06</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/audio/</loc>
+        <loc>https://techn.ology.net/tag/audio/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/automata/</loc>
+        <loc>https://techn.ology.net/tag/automata/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-02-15</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/bible/</loc>
+        <loc>https://techn.ology.net/tag/bible/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2018-03-04</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/chernoff/</loc>
+        <loc>https://techn.ology.net/tag/chernoff/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2018-03-24</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/complexity/</loc>
+        <loc>https://techn.ology.net/tag/complexity/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2019-03-19</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/data/</loc>
+        <loc>https://techn.ology.net/tag/data/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-07</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/evolutionary/</loc>
+        <loc>https://techn.ology.net/tag/evolutionary/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-04-02</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/fractal/</loc>
+        <loc>https://techn.ology.net/tag/fractal/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/game-theory/</loc>
+        <loc>https://techn.ology.net/tag/game-theory/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2019-06-02</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/generative/</loc>
+        <loc>https://techn.ology.net/tag/generative/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/image/</loc>
+        <loc>https://techn.ology.net/tag/image/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/machine-learning/</loc>
+        <loc>https://techn.ology.net/tag/machine-learning/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-03</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/mathematics/</loc>
+        <loc>https://techn.ology.net/tag/mathematics/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-05-03</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/mathematics/page/2/</loc>
+        <loc>https://techn.ology.net/tag/mathematics/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-05-03</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/midi/</loc>
+        <loc>https://techn.ology.net/tag/midi/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/midi/page/2/</loc>
+        <loc>https://techn.ology.net/tag/midi/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/music/</loc>
+        <loc>https://techn.ology.net/tag/music/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/music/page/2/</loc>
+        <loc>https://techn.ology.net/tag/music/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/perl/</loc>
+        <loc>https://techn.ology.net/tag/perl/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/perl/page/2/</loc>
+        <loc>https://techn.ology.net/tag/perl/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/perl/page/3/</loc>
+        <loc>https://techn.ology.net/tag/perl/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/perl/page/4/</loc>
+        <loc>https://techn.ology.net/tag/perl/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/pi/</loc>
+        <loc>https://techn.ology.net/tag/pi/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2018-08-07</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/prime-numbers/</loc>
+        <loc>https://techn.ology.net/tag/prime-numbers/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-05-03</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/python/</loc>
+        <loc>https://techn.ology.net/tag/python/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2018-08-07</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/r/</loc>
+        <loc>https://techn.ology.net/tag/r/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-05-03</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/software/</loc>
+        <loc>https://techn.ology.net/tag/software/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/software/page/2/</loc>
+        <loc>https://techn.ology.net/tag/software/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/software/page/3/</loc>
+        <loc>https://techn.ology.net/tag/software/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/software/page/4/</loc>
+        <loc>https://techn.ology.net/tag/software/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/star-trek/</loc>
+        <loc>https://techn.ology.net/tag/star-trek/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-03-03</lastmod>
     </url>
     <url>
-        <loc>http://techn.ology.net/tag/strategy/</loc>
+        <loc>https://techn.ology.net/tag/strategy/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2019-06-02</lastmod>

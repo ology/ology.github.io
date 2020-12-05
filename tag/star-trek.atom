@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://techn.ology.net/tag/star-trek/</id>
+    <id>https://techn.ology.net/tag/star-trek/</id>
     <title>Gene Boggs</title>
     <updated>2020-03-03T00:00:00Z</updated>
-    <link href="http://techn.ology.net/tag/star-trek.atom" rel="self" />
-    <link href="http://techn.ology.net/tag/star-trek/" rel="alternate" />
+    <link href="https://techn.ology.net/tag/star-trek.atom" rel="self" />
+    <link href="https://techn.ology.net/tag/star-trek/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>
-        <id>http://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</id>
+        <id>https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</id>
         <title>Predicting Star Trek Characters with Naive Bayes</title>
-        <link href="http://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/" rel="alternate" />
+        <link href="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="" src="http://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/kirk-and-spock.jpg">
+            <p><img alt="" src="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/kirk-and-spock.jpg">
 I have been reading <a href="https://www.oreilly.com/library/view/data-science-from/9781492041122/">&quot;Data Science from Scratch&quot;</a> and porting the python code to perl.  In this episode, we use <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a> to predict whether the speaker of a line is either Kirk, Spock or McCoy, with my new, work-in-progress <a href="https://github.com/ology/Data-Science-FromScratch">data science library</a>.</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Data-Science-FromScratch/blob/master/eg/is-character.pl">is-character.pl</a></p>
 
-                <p><a href="http://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/machine-learning/">machine learning</a>
-                    <a href="http://techn.ology.net/tag/star-trek/">Star Trek</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/machine-learning/">machine learning</a>
+                    <a href="https://techn.ology.net/tag/star-trek/">Star Trek</a>
                 </p>
 
         ]]></content>

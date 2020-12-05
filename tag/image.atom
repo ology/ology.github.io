@@ -1,32 +1,32 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://techn.ology.net/tag/image/</id>
+    <id>https://techn.ology.net/tag/image/</id>
     <title>Gene Boggs</title>
     <updated>2020-03-23T00:00:00Z</updated>
-    <link href="http://techn.ology.net/tag/image.atom" rel="self" />
-    <link href="http://techn.ology.net/tag/image/" rel="alternate" />
+    <link href="https://techn.ology.net/tag/image.atom" rel="self" />
+    <link href="https://techn.ology.net/tag/image/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>
-        <id>http://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/</id>
+        <id>https://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/</id>
         <title>Hearing an Image One Pixel at a Time</title>
-        <link href="http://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/" rel="alternate" />
+        <link href="https://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="" src="http://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/simplex-100x100-1.png">
+            <p><img alt="" src="https://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/simplex-100x100-1.png">
 Tonight I became curious as to what an image would sound like when &quot;played&quot; one pixel at a time.</p>
 
 <p>tl;dr: The <a href="https://github.com/ology/Music/blob/master/play-pixels">play-pixels</a> program.</p>
 
-                <p><a href="http://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2020/03/23/hearing-an-image-one-pixel-at-a-time/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/mathematics/">mathematics</a>
-                    <a href="http://techn.ology.net/tag/fractal/">fractal</a>
-                    <a href="http://techn.ology.net/tag/image/">image</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
-                    <a href="http://techn.ology.net/tag/audio/">audio</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="https://techn.ology.net/tag/fractal/">fractal</a>
+                    <a href="https://techn.ology.net/tag/image/">image</a>
+                    <a href="https://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="https://techn.ology.net/tag/audio/">audio</a>
                 </p>
 
         ]]></content>

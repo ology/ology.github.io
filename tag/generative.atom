@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://techn.ology.net/tag/generative/</id>
+    <id>https://techn.ology.net/tag/generative/</id>
     <title>Gene Boggs</title>
     <updated>2020-11-23T00:00:00Z</updated>
-    <link href="http://techn.ology.net/tag/generative.atom" rel="self" />
-    <link href="http://techn.ology.net/tag/generative/" rel="alternate" />
+    <link href="https://techn.ology.net/tag/generative.atom" rel="self" />
+    <link href="https://techn.ology.net/tag/generative/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>
-        <id>http://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/</id>
+        <id>https://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/</id>
         <title>Generating Musical Phrases - Round II</title>
-        <link href="http://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/" rel="alternate" />
+        <link href="https://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>It seems I am always fiddling with algorithmic musical composition.  Most recently it is with the program, <a href="https://github.com/ology/Music/blob/master/polygenic">polygenic</a>, which is a descendant of the program in the previous post on this subject.</p>
 
-                <p><a href="http://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/generative/">generative</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
-                    <a href="http://techn.ology.net/tag/music/">music</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/generative/">generative</a>
+                    <a href="https://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="https://techn.ology.net/tag/music/">music</a>
                 </p>
 
         ]]></content>
@@ -33,20 +33,20 @@
         <category term="music" />
     </entry>
     <entry>
-        <id>http://techn.ology.net/2020/11/11/generating-musical-phrases/</id>
+        <id>https://techn.ology.net/2020/11/11/generating-musical-phrases/</id>
         <title>Generating Musical Phrases</title>
-        <link href="http://techn.ology.net/2020/11/11/generating-musical-phrases/" rel="alternate" />
+        <link href="https://techn.ology.net/2020/11/11/generating-musical-phrases/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>After years of fiddling with algorithmic composition, I have come to reach for certain tools to craft melodies, bass-lines, solos, etc.  My latest generative composition program and output will illustrate...</p>
 
-                <p><a href="http://techn.ology.net/2020/11/11/generating-musical-phrases/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2020/11/11/generating-musical-phrases/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/generative/">generative</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
-                    <a href="http://techn.ology.net/tag/music/">music</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/generative/">generative</a>
+                    <a href="https://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="https://techn.ology.net/tag/music/">music</a>
                 </p>
 
         ]]></content>
@@ -58,23 +58,23 @@
         <category term="music" />
     </entry>
     <entry>
-        <id>http://techn.ology.net/2020/11/01/imitating-a-drum-circle/</id>
+        <id>https://techn.ology.net/2020/11/01/imitating-a-drum-circle/</id>
         <title>Imitating a Drum Circle</title>
-        <link href="http://techn.ology.net/2020/11/01/imitating-a-drum-circle/" rel="alternate" />
+        <link href="https://techn.ology.net/2020/11/01/imitating-a-drum-circle/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="" src="http://techn.ology.net/2020/11/01/imitating-a-drum-circle/drum-circle.jpg">
+            <p><img alt="" src="https://techn.ology.net/2020/11/01/imitating-a-drum-circle/drum-circle.jpg">
 Ever been to the park and heard a tribe drumming in the distance?  This is a <a href="https://en.wikipedia.org/wiki/Drum_circle">drum circle</a>.
 Upon closer inspection, each drummer has a single instrument (or maybe a set of bongos).
 Each drummer keeps a steady beat in common and in syncopation with his or her fellow drummers.</p>
 
-                <p><a href="http://techn.ology.net/2020/11/01/imitating-a-drum-circle/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2020/11/01/imitating-a-drum-circle/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/generative/">generative</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
-                    <a href="http://techn.ology.net/tag/music/">music</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/generative/">generative</a>
+                    <a href="https://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="https://techn.ology.net/tag/music/">music</a>
                 </p>
 
         ]]></content>
@@ -86,23 +86,23 @@ Each drummer keeps a steady beat in common and in syncopation with his or her fe
         <category term="music" />
     </entry>
     <entry>
-        <id>http://techn.ology.net/2020/10/18/imitating-steve-reich/</id>
+        <id>https://techn.ology.net/2020/10/18/imitating-steve-reich/</id>
         <title>Imitating Steve Reich</title>
-        <link href="http://techn.ology.net/2020/10/18/imitating-steve-reich/" rel="alternate" />
+        <link href="https://techn.ology.net/2020/10/18/imitating-steve-reich/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="" src="http://techn.ology.net/2020/10/18/imitating-steve-reich/Steve-Reich.jpg">
+            <p><img alt="" src="https://techn.ology.net/2020/10/18/imitating-steve-reich/Steve-Reich.jpg">
 Recently I was enjoying Steve Reich&#39;s <a href="https://www.youtube.com/watch?v=WgzQcDrX86M">&quot;Octet&quot; (Eight Lines)</a> and became curious if I could mimic the simple, staccato phrases with which he starts off his piece.</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Music/blob/master/reichify">reichify</a></p>
 
-                <p><a href="http://techn.ology.net/2020/10/18/imitating-steve-reich/#section-2">Continue reading...</a></p>
+                <p><a href="https://techn.ology.net/2020/10/18/imitating-steve-reich/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://techn.ology.net/tag/perl/">perl</a>
-                    <a href="http://techn.ology.net/tag/software/">software</a>
-                    <a href="http://techn.ology.net/tag/generative/">generative</a>
-                    <a href="http://techn.ology.net/tag/midi/">MIDI</a>
-                    <a href="http://techn.ology.net/tag/music/">music</a>
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/generative/">generative</a>
+                    <a href="https://techn.ology.net/tag/midi/">MIDI</a>
+                    <a href="https://techn.ology.net/tag/music/">music</a>
                 </p>
 
         ]]></content>
