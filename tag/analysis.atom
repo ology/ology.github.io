@@ -57,6 +57,34 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="analysis" />
     </entry>
     <entry>
+        <id>https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</id>
+        <title>Predicting Star Trek Characters with Naive Bayes</title>
+        <link href="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/kirk-and-spock.jpg">
+I have been reading <a href="https://www.oreilly.com/library/view/data-science-from/9781492041122/">&quot;Data Science from Scratch&quot;</a> and porting the python code to perl.  In this episode, we use <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a> to predict whether the speaker of a line is either Kirk, Spock or McCoy, with my new, work-in-progress <a href="https://github.com/ology/Data-Science-FromScratch">data science library</a>.</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Data-Science-FromScratch/blob/master/eg/is-character.pl">is-character.pl</a></p>
+
+                <p><a href="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/machine-learning/">machine learning</a>
+                    <a href="https://techn.ology.net/tag/nlp/">NLP</a>
+                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                </p>
+
+        ]]></content>
+        <updated>2020-03-03T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="machine learning" />
+        <category term="NLP" />
+        <category term="analysis" />
+    </entry>
+    <entry>
         <id>https://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</id>
         <title>Halstead Software Complexity of Perl Code</title>
         <link href="https://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/" rel="alternate" />
@@ -106,29 +134,6 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="software" />
         <category term="music" />
         <category term="data" />
-        <category term="analysis" />
-    </entry>
-    <entry>
-        <id>https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/</id>
-        <title>Book of Revelation Sentiment Analysis</title>
-        <link href="https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>I decided to write my own sentiment analysis library called <a href="https://metacpan.org/release/Lingua-EN-Opinion">Lingua::EN::Opinion</a> and use it to investigate the KJV Bible Book of Revelation.</p>
-
-                <p><a href="https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/bible/">bible</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-03-04T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="bible" />
         <category term="analysis" />
     </entry>
 </feed>
