@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://techn.ology.net/tag/machine-learning/</id>
+    <id>https://techn.ology.net/tag/nlp/</id>
     <title>Gene Boggs</title>
     <updated>2020-03-03T00:00:00Z</updated>
-    <link href="https://techn.ology.net/tag/machine-learning.atom" rel="self" />
-    <link href="https://techn.ology.net/tag/machine-learning/" rel="alternate" />
+    <link href="https://techn.ology.net/tag/nlp.atom" rel="self" />
+    <link href="https://techn.ology.net/tag/nlp/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>

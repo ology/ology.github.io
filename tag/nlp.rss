@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Gene Boggs</title>
-        <link>https://techn.ology.net/tag/machine-learning/</link>
-        <atom:link href="https://techn.ology.net/tag/machine-learning.rss" rel="self" type="application/rss+xml" />
+        <link>https://techn.ology.net/tag/nlp/</link>
+        <atom:link href="https://techn.ology.net/tag/nlp.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>

@@ -283,6 +283,12 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>https://techn.ology.net/tag/nlp/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-03-03</lastmod>
+    </url>
+    <url>
         <loc>https://techn.ology.net/tag/perl/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -359,12 +365,6 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-12-06</lastmod>
-    </url>
-    <url>
-        <loc>https://techn.ology.net/tag/star-trek/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2020-03-03</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/strategy/</loc>
