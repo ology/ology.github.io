@@ -66,7 +66,7 @@ The other day I decided that I didn&#39;t like the &quot;bare links&quot; to my 
 
 <p>But at first, I <strong>did</strong> write a little script that inspected every <code>*.html</code> file on my site.  This translated any anchor (<code>a</code>) link with an audio file <code>href</code>, like an MP3 or OGG, to an <code>audio</code> element with the audio file as the <code>src</code>.  But like I say, I wanted something that was <em>part of</em> Statocles to do this for me instead of a separate program.</p>
 
-<p>So I read a bit and asked on the <a href="#irc://irc.perl.org/#statocles">#statocles IRC channel</a> and came up with a rudimentary solution, based on a code snip from <a href="https://metacpan.org/author/PREACTION">preaction</a>.</p>
+<p>So I read a bit and asked on the #statocles IRC channel (on irc.perl.org) and came up with a rudimentary solution, based on a code snip from <a href="https://metacpan.org/author/PREACTION">preaction</a>.</p>
 
 <p>First up, give the plugin a proper name:</p>
 
@@ -129,7 +129,7 @@ with &#39;Statocles::Plugin&#39;;
 
 <p>And that&#39;s it!  Now instead of an ugly <code>&lt;a href=&quot;...&quot;&gt;...&lt;/a&gt;</code> link to an audio clip, now I have this:</p>
 
-<p><img alt="" src="/2020/11/23/generating-musical-phrases-round-ii/chordal-04.mp3"></p>
+<p><audio controls><source src="/2020/11/23/generating-musical-phrases-round-ii/chordal-04.mp3" type="audio/mp3"></audio></p>
 
 <p>Excellent!</p>
 
