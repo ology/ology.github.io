@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Visualize Move, Protection and Threat Status in Chess - Gene Boggs</title>
+        <title>Time-Successive Old Faithful Eruption Durations - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/2016/03/11/alternatives-to-the-logistic-equation/index.html" rel="prev">
-        <link href="/2014/07/21/time-successive-old-faithful-eruption-durations/index.html" rel="next">
+        <link href="/2015/09/03/visualize-move-protection-and-threat-status-in-chess/index.html" rel="prev">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         
         <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
@@ -40,57 +39,67 @@
                 <div class="nine columns">
                     <main>
                         <header>
-    <h1>Visualize Move, Protection and Threat Status in Chess</h1>
+    <h1>Time-Successive Old Faithful Eruption Durations</h1>
 
     <aside>
-        <time datetime="2015-09-03">
-            Posted on 2015-09-03
+        <time datetime="2014-07-21">
+            Posted on 2014-07-21
         </time>
     </aside>
 
     <p class="tags">Tags:
         <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/r/" rel="tag">R</a>
         <a href="/tag/software/" rel="tag">software</a>
-        <a href="/tag/web/" rel="tag">web</a>
+        <a href="/tag/data/" rel="tag">data</a>
+        <a href="/tag/image/" rel="tag">image</a>
     </p>
 
 
 </header>
 <section id="section-1">
-    <p>When I was a kid, my younger brother became a chess master and would regularly thrash me in the game.  Invariably this seemed to be because I would do something dumb like leaving my queen threatened and unattended.</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Chess-Inspector">Chess::Inspector</a></p>
+    <p><a href="successive-faithful-eruptions.png"><img alt="" src="successive-faithful-eruptions-sm.png"></a>
+Because of the observed data, a four group clustering emerges when successive eruption durations of the famous geyser are plotted.  The x axis is the first eruption and y is the next.</p>
 
 </section>
 <section id="section-2">
-    <p>As with many budding CS students, I devised my own chess playing program, but in this case, it was for the purpose of making me a better player.  In fact I devised a chess program in every language I decided to learn...</p>
+    <p>There appear to be four kinds of eruption pairs: 1. two short eruptions (the bottom-left, small cluster), 2. a short eruption followed by a long eruption, and the respective opposites (long-long and long-short).</p>
 
-<p>Cut to the present and check out my Dancer web-app written in Perl, at the above URL.  Even though its a &quot;web-app&quot; it is most useful (to me) to run on my local machine to study games, rather than on a public server.  But it is built to work in any environment!</p>
+<p>Because the <a href="https://en.wikipedia.org/wiki/Old_Faithful">Old Faithful</a> eruption data comes built into R, the code for this is just a single line:</p>
 
-<p>Each move may be shown, forward or reverse, with handy &quot;tape recorder&quot; buttons.</p>
+<pre><code>plot( faithful$eruptions[1:length(faithful$eruptions)-1], faithful$eruptions[2:length(faithful$eruptions)], xlab=&quot;Previous Duration&quot;, ylab=&quot;Next Duration&quot;, main=&quot;Eruption Pairs&quot; )
+</code></pre>
 
-<p><img alt="" src="https://raw.githubusercontent.com/ology/Chess-Inspector/master/public/images/Chess-Inspector.png"></p>
+<p>A line graph shows the state transitions.  Notice that there are no bottom-left to top-right transitions. Curious!</p>
 
-<p>Here are the working parts:</p>
+<p><img alt="" src="successive-faithful-eruptions-transitions.png"></p>
 
-<p>The excellent <a href="https://metacpan.org/pod/Chess::Rep">Chess::Rep</a> module represents chess positions and generates a list of legal moves for a piece.  This module allows me to compute every possible move for every piece of a chess game.</p>
+<p><strong>[UPDATE]</strong> We can sample a subset of the Old Faithful eruption data and add arrows from previous to next observation.  Here is the R code:</p>
 
-<p>My handy <a href="https://metacpan.org/pod/Chess::Rep::Coverage">Chess::Rep::Coverage</a> module computes the potential energy of a chessboard, given by move, threat and protection status.  This is a very tedious process.</p>
+<pre><code>z &lt;- sample( faithful$eruptions, 50 )
+x &lt;- z[ 1 : length(z) - 1 ]
+y &lt;- z[ 2 : length(z) ]
+plot( x, y, xlab = &quot;Previous Duration&quot;, ylab = &quot;Next Duration&quot;, main = &quot;Eruption Pairs&quot; )
+s &lt;- seq( length(x) - 1 )  # one shorter than data
+arrows( x[s], y[s], x[ s + 1 ], y[ s + 1 ], length = 0.2, angle = 20, col = &quot;gray&quot; )
+</code></pre>
 
-<p>The <a href="https://metacpan.org/pod/Chess::Pgn">Chess::Pgn</a> module for reading and parsing chess &quot;PGN&quot; game file &quot;meta-data&quot; - result, event, date, etc.</p>
+<p>And here is the plot:</p>
 
-<p>Perl <a href="https://metacpan.org/pod/Dancer">Dancer</a> for UI display and control.</p>
+<p><img alt="" src="duration-arrows.png"></p>
+
+<p>And here is a <a href="https://shiny.rstudio.com/">Shiny</a> webapp: <a href="https://github.com/ology/Geyser">Geyser</a></p>
 
 </section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/2014/07/21/time-successive-old-faithful-eruption-durations/index.html" rel="prev">
+            <button disabled>
                 ← Older
-            </a>
+            </button>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/2016/03/11/alternatives-to-the-logistic-equation/index.html" rel="next">
+            <a class="button button-primary" href="/2015/09/03/visualize-move-protection-and-threat-status-in-chess/index.html" rel="next">
                 Newer →
             </a>
     </li>

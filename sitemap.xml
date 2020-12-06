@@ -7,6 +7,12 @@
         <lastmod>2020-12-06</lastmod>
     </url>
     <url>
+        <loc>https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2014-07-21</lastmod>
+    </url>
+    <url>
         <loc>https://techn.ology.net/2015/09/03/visualize-move-protection-and-threat-status-in-chess/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -182,6 +188,12 @@
     </url>
     <url>
         <loc>https://techn.ology.net/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-12-06</lastmod>
+    </url>
+    <url>
+        <loc>https://techn.ology.net/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-12-06</lastmod>
@@ -392,6 +404,12 @@
     </url>
     <url>
         <loc>https://techn.ology.net/tag/software/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-12-06</lastmod>
+    </url>
+    <url>
+        <loc>https://techn.ology.net/tag/software/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-12-06</lastmod>

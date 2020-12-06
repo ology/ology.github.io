@@ -52,6 +52,29 @@ Yesterday, I decided to plot the <a href="https://en.wikipedia.org/wiki/Logistic
                 Fri, 11 Mar 2016 00:00:00 +0000
             </pubDate>
         </item>
+        <item>
+            <title>Time-Successive Old Faithful Eruption Durations</title>
+            <link>https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/</link>
+            <guid>https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/</guid>
+            <description><![CDATA[
+                <p><a href="https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/successive-faithful-eruptions.png"><img alt="" src="https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/successive-faithful-eruptions-sm.png"></a>
+Because of the observed data, a four group clustering emerges when successive eruption durations of the famous geyser are plotted.  The x axis is the first eruption and y is the next.</p>
+
+                    <p><a href="https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://techn.ology.net/tag/perl/">perl</a>
+                        <a href="https://techn.ology.net/tag/r/">R</a>
+                        <a href="https://techn.ology.net/tag/software/">software</a>
+                        <a href="https://techn.ology.net/tag/data/">data</a>
+                        <a href="https://techn.ology.net/tag/image/">image</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 21 Jul 2014 00:00:00 +0000
+            </pubDate>
+        </item>
     </channel>
 </rss>
 
