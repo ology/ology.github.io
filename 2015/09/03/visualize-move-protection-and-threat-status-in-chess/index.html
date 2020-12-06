@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Visualize Move, Protection and Threat Status in Chess - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/tag/music.atom" rel="alternate" type="application/atom+xml">
-        <link href="/tag/music.rss" rel="alternate" type="application/rss+xml">
-        <link href="/tag/music/" rel="prev">
+        <link href="/2016/03/11/alternatives-to-the-logistic-equation/index.html" rel="prev">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         
         <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
@@ -40,65 +38,49 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Visualize Move, Protection and Threat Status in Chess</h1>
 
-<article>
-    <header>
-        <h1><a href="/2020/04/02/evolving-barycentric-chords/">Evolving Barycentric Chords</a></h1>
+    <aside>
+        <time datetime="2015-09-03">
+            Posted on 2015-09-03
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2020-04-02">
-                Posted on 2020-04-02
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/mathematics/" rel="tag">mathematics</a>
-            <a href="/tag/evolutionary/" rel="tag">evolutionary</a>
-            <a href="/tag/midi/" rel="tag">MIDI</a>
-            <a href="/tag/music/" rel="tag">music</a>
-        </p>
-
-    </header>
-
-    <p>What do the fittest barycentric chords of an evolutionary generic algorithm sound like?  Bary- what?  Genetic what?</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/barycenter4">barycenter4</a></p>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/web/" rel="tag">web</a>
+    </p>
 
 
-        <p><a href="/2020/04/02/evolving-barycentric-chords/#section-2">Continue reading Evolving Barycentric Chords...</a></p>
+</header>
+<section id="section-1">
+    <p>When I was a kid, my younger brother became a chess master and would regularly thrash me in the game.  Invariably this seemed to be because I would do something dumb like leaving my queen threatened and unattended.</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2018/09/18/bach-choral-harmony-network-diagrams/">Bach Choral Harmony Network Diagrams</a></h1>
+<p>tl;dr: <a href="https://github.com/ology/Chess-Inspector">Chess::Inspector</a></p>
 
-        <aside>
-            <time datetime="2018-09-18">
-                Posted on 2018-09-18
-            </time>
-        </aside>
+</section>
+<section id="section-2">
+    <p>As with many budding CS students, I devised my own chess playing program, but in this case, it was for the purpose of making me a better player.  In fact I devised a chess program in every language I decided to learn...</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/music/" rel="tag">music</a>
-            <a href="/tag/data/" rel="tag">data</a>
-            <a href="/tag/analysis/" rel="tag">analysis</a>
-        </p>
+<p>Cut to the present and check out my Dancer web-app written in Perl, at the above URL.  Even though its a &quot;web-app&quot; it is most useful (to me) to run on my local machine to study games, rather than on a public server.  But it is built to work in any environment!</p>
 
-    </header>
+<p>Each move may be shown, forward or reverse, with handy &quot;tape recorder&quot; buttons.</p>
 
-    <p>Today I decided to revisit the <a href="https://archive.ics.uci.edu/ml/datasets/Bach+Choral+Harmony">Bach Choral Harmony data set</a> and look at chord progression transitions.</p>
+<p><a href="https://raw.githubusercontent.com/ology/Chess-Inspector/master/public/images/Chess-Inspector.png"><img alt="" src="https://raw.githubusercontent.com/ology/Chess-Inspector/master/public/images/Chess-Inspector.png"></a></p>
 
-<p>In order to do this I wrote a small program that tallies the movement from one chord to another, and then outputs a <a href="https://graphviz.org/">Graphviz</a> dot file that can be turned into an image.</p>
+<p>Here are the working parts:</p>
 
+<p>The excellent <a href="https://metacpan.org/pod/Chess::Rep">Chess::Rep</a> module represents chess positions and generates a list of legal moves for a piece.  This module allows me to compute every possible move for every piece of a chess game.</p>
 
-        <p><a href="/2018/09/18/bach-choral-harmony-network-diagrams/#section-2">Continue reading Bach Choral Harmony Network Diagrams...</a></p>
+<p>My handy <a href="https://metacpan.org/pod/Chess::Rep::Coverage">Chess::Rep::Coverage</a> module computes the potential energy of a chessboard, given by move, threat and protection status.  This is a very tedious process.</p>
 
-</article>
+<p>The <a href="https://metacpan.org/pod/Chess::Pgn">Chess::Pgn</a> module for reading and parsing chess &quot;PGN&quot; game file &quot;meta-data&quot; - result, event, date, etc.</p>
+
+<p>Perl <a href="https://metacpan.org/pod/Dancer">Dancer</a> for UI display and control.</p>
+
+</section>
 
 <ul class="pager">
     <li class="prev">
@@ -107,12 +89,11 @@
             </button>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/tag/music/" rel="next">
+            <a class="button button-primary" href="/2016/03/11/alternatives-to-the-logistic-equation/index.html" rel="next">
                 Newer →
             </a>
     </li>
 </ul>
-
 
 
 
@@ -151,20 +132,7 @@
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/tag/music.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/tag/music.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

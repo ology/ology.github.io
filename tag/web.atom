@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://techn.ology.net/tag/web/</id>
+    <title>Gene Boggs</title>
+    <updated>2015-09-03T00:00:00Z</updated>
+    <link href="https://techn.ology.net/tag/web.atom" rel="self" />
+    <link href="https://techn.ology.net/tag/web/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://techn.ology.net/2015/09/03/visualize-move-protection-and-threat-status-in-chess/</id>
+        <title>Visualize Move, Protection and Threat Status in Chess</title>
+        <link href="https://techn.ology.net/2015/09/03/visualize-move-protection-and-threat-status-in-chess/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>When I was a kid, my younger brother became a chess master and would regularly thrash me in the game.  Invariably this seemed to be because I would do something dumb like leaving my queen threatened and unattended.</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Chess-Inspector">Chess::Inspector</a></p>
+
+                <p><a href="https://techn.ology.net/2015/09/03/visualize-move-protection-and-threat-status-in-chess/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/web/">web</a>
+                </p>
+
+        ]]></content>
+        <updated>2015-09-03T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="web" />
+    </entry>
+</feed>
+

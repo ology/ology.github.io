@@ -7,6 +7,12 @@
         <lastmod>2020-12-06</lastmod>
     </url>
     <url>
+        <loc>https://techn.ology.net/2015/09/03/visualize-move-protection-and-threat-status-in-chess/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2015-09-03</lastmod>
+    </url>
+    <url>
         <loc>https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -389,6 +395,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-12-06</lastmod>
+    </url>
+    <url>
+        <loc>https://techn.ology.net/tag/web/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2015-09-03</lastmod>
     </url>
 </urlset>
 
