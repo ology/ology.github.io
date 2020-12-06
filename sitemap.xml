@@ -7,6 +7,12 @@
         <lastmod>2020-12-06</lastmod>
     </url>
     <url>
+        <loc>https://techn.ology.net/2017/11/24/bach-note-transition-frequency-music/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-11-24</lastmod>
+    </url>
+    <url>
         <loc>https://techn.ology.net/2018/02/24/bible-books-cosine-similarity/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -308,6 +314,12 @@
     </url>
     <url>
         <loc>https://techn.ology.net/tag/perl/page/4/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-12-06</lastmod>
+    </url>
+    <url>
+        <loc>https://techn.ology.net/tag/perl/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-12-06</lastmod>

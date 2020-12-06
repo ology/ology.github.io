@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Bach Note Transition Frequency "Music" - Gene Boggs</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2018/02/24/bible-books-cosine-similarity/index.html" rel="prev">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+        <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Bach Note Transition Frequency &quot;Music&quot;</h1>
+
+    <aside>
+        <time datetime="2017-11-24">
+            Posted on 2017-11-24
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+        <a href="/tag/analysis/" rel="tag">analysis</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>What are the note frequencies of music by Bach?  That is, &quot;How often does an F follow a C?&quot; etc.  What does it sound like if you &quot;reconstruct&quot; playable music from these frequencies?</p>
+
+<p>Let&#39;s see!</p>
+
+</section>
+<section id="section-2">
+    <p>First, we find some Bach MIDI.  I chose to use <a href="bach_jesu_joy_with_piano.mid">Jesu Joy of Mans Desiring</a>.</p>
+
+<p>Next, we feed that to my <a href="https://github.com/ology/Music/blob/master/note-transition">note-transition</a> program:</p>
+
+<pre><code>&gt; perl note-transition /Users/gene/Downloads/bach_jesu_joy_with_piano.mid
+</code></pre>
+
+<p>This produces a file called &quot;note-transition.dat&quot; that is a collection of the MIDI note numbers and their proportional frequencies of one track.  Here is part of Jesu:</p>
+
+<pre><code>67 =&gt; {
+    69 =&gt; 0.4,
+    71 =&gt; 0.6
+},
+69 =&gt; {
+    67 =&gt; 0.230769230769231,
+    69 =&gt; 0.153846153846154,
+    72 =&gt; 0.0769230769230769,
+    71 =&gt; 0.538461538461538
+},
+71 =&gt; {
+    69 =&gt; 0.476190476190476,
+    72 =&gt; 0.523809523809524
+},
+72 =&gt; {
+    71 =&gt; 0.444444444444444,
+    74 =&gt; 0.444444444444444,
+    72 =&gt; 0.111111111111111
+},
+74 =&gt; {
+    72 =&gt; 0.307692307692308,
+    74 =&gt; 0.230769230769231,
+    71 =&gt; 0.307692307692308,
+    76 =&gt; 0.153846153846154
+},
+76 =&gt; {
+    77 =&gt; 0.333333333333333,
+    76 =&gt; 0.333333333333333,
+    74 =&gt; 0.333333333333333
+},
+77 =&gt; {
+    74 =&gt; 1
+}
+</code></pre>
+
+<p>This says, for instance, that MIDI pitch number 67 transitions to pitch 69 40% of the time, and pitch 71 60% of the time.</p>
+
+<p>Next we feed that result file to my <a href="https://github.com/ology/Music/blob/master/stat-walk">stat-walk</a> program, asking for 128 notes:</p>
+
+<pre><code>&gt; perl stat-walk note-transition.dat 128
+</code></pre>
+
+<p>This program is very simple.  Each note gets a quarter note value and there are no dynamics like velocity changes.  Anyway, the above command produces a MIDI file called &quot;stat-walk.mid&quot; which you can hear with a handy program like <a href="http://timidity.sourceforge.net/">timidity</a>:</p>
+
+<pre><code>&gt; timidity stat-walk.mid
+</code></pre>
+
+<p>But I took the liberty of enhancing it a bit with my DAW and came up with this:</p>
+
+<p><audio controls><source src="note-transition-stat-walk.mp3" type="audio/mp3"></audio>
+ 
+<strong>Update:</strong> I made copies of the programs that honor multiple tracks.  The output is spartan - a simultaneous quarter note for each track of notes. YMMV: <a href="https://github.com/ology/Music/blob/master/note-transition-sync">note-transition-sync</a> and <a href="https://github.com/ology/Music/blob/master/stat-walk-sync">stat-walk-sync</a>.  Here is our Bach:</p>
+
+<p><audio controls><source src="stat-walk-sync-jesu.mp3" type="audio/mp3"></audio>
+ 
+And here is a very different Beethoven Moonlight Sonata:</p>
+
+<p><audio controls><source src="stat-walk-sync-moonlight.mp3" type="audio/mp3"></audio>
+ </p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <button disabled>
+                ← Older
+            </button>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2018/02/24/bible-books-cosine-similarity/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/chernoff/">Chernoff</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/strategy/">strategy</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                |
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
