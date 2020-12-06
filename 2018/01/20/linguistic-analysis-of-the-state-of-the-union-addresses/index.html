@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Linguistic Analysis of the State of the Union Addresses - Gene Boggs</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2018/02/24/bible-books-cosine-similarity/index.html" rel="prev">
+        <link href="/2017/11/24/bach-note-transition-frequency-music/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+        <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Linguistic Analysis of the State of the Union Addresses</h1>
+
+    <aside>
+        <time datetime="2018-01-20">
+            Posted on 2018-01-20
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
+        <a href="/tag/nlp/" rel="tag">NLP</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>This weekend I harvested 231 State of the Union addresses up to 2017 and put them through NLP processing.</p>
+
+</section>
+<section id="section-2">
+    <p>Here are the unigram <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">TF-IDF</a> values, generated with <a href="https://github.com/ology/Text-TFIDF-Ngram/blob/master/eg/analyze">this code</a> of mine (full output: <a href="sotu-1-gram.txt">sotu-1-gram</a>).  Each file is named with &quot;YYYYMMDD-Name&quot; format.</p>
+
+<pre><code>1. 17900108-Washington.txt
+  1. licentiousness = 0.0045366833
+  2. intimating = 0.0045366833
+2. 17901208-Washington.txt
+  1. misemployed = 0.0036363261
+  2. empowers = 0.0036363261
+  3. residuary = 0.0036363261
+...
+230. 20160112-Obama.txt
+  1. isil = 0.0058471495
+  2. retrain = 0.0016751325
+  3. rigged = 0.0013369885
+  4. brothers = 0.0012484422
+  5. online = 0.0012484422
+  6. automated = 0.0008375663
+  7. cop = 0.0008375663
+  8. peddling = 0.0008375663
+  9. clocked = 0.0008375663
+  10. spilling = 0.0008375663
+231. 20170228-Trump.txt
+  1. obamacare = 0.0043560855
+  2. oliver = 0.0034848684
+  3. megan = 0.0034848684
+  4. susan = 0.0034848684
+  5. megan&#39;s = 0.0034848684
+  6. jenna = 0.0034848684
+  7. jamiel = 0.0034848684
+  8. jessica = 0.0026136513
+  9. denisha = 0.0026136513
+  10. shaw = 0.0017424342
+</code></pre>
+
+<p>And here are the bigrams (full output - sotu-2-gram):</p>
+
+<pre><code>1. 17900108-Washington.txt
+  1. work allowed = 0.0161891231
+  2. inviolable respect = 0.0161891231
+  3. fund designated = 0.0161891231
+  4. punish aggressors = 0.0161891231
+  5. learning already = 0.0161891231
+  6. though arduous = 0.0161891231
+  7. also render = 0.0161891231
+  8. government receive = 0.0161891231
+  9. competent fund = 0.0161891231
+  10. particularly recommended = 0.0161891231
+2. 17901208-Washington.txt
+  1. case submitted = 0.0132045362
+  2. national impressions = 0.0132045362
+  3. northwest side = 0.0132045362
+  4. shall cause = 0.0132045362
+  5. attention seems = 0.0132045362
+  6. uniform process = 0.0132045362
+  7. peculiarly shocking = 0.0132045362
+  8. stock abroad = 0.0132045362
+  9. friendly indulgence = 0.0132045362
+  10. us abundant = 0.0132045362
+...
+230. 20160112-Obama.txt
+  1. pass muster = 0.0050289617
+  2. big question = 0.0050289617
+  3. unarmed truth = 0.0050289617
+  4. unconditional love = 0.0050289617
+  5. respects us = 0.0050289617
+  6. many issues = 0.0043884723
+  7. economy contracts = 0.0025144808
+  8. everybody willing = 0.0025144808
+  9. new terrorist = 0.0025144808
+  10. offering every = 0.0025144808
+231. 20170228-Trump.txt
+  1. joining us = 0.0098689435
+  2. american child = 0.0064590250
+  3. th year = 0.0049649083
+  4. rare disease = 0.0049344718
+  5. incredible young = 0.0049344718
+  6. megan&#39;s life = 0.0049344718
+  7. jamiel shaw = 0.0049344718
+  8. recent threats = 0.0049344718
+  9. jessica davis = 0.0049344718
+  10. republican president = 0.0049344718
+</code></pre>
+
+<p>The lexical diversity is shown in the following graph:</p>
+
+<p><a href="SOTU-Lexical-Diversity.png"><img alt="" src="SOTU-Lexical-Diversity.png"></a></p>
+
+<pre><code>R&gt; df$file[ which( df$div == max(df$div) ) ]
+[1] &quot;17901208-Washington.txt&quot;
+
+R&gt; df$file[ which( df$div == min(df$div) ) ]
+[1] &quot;19460121-Truman.txt&quot;
+</code></pre>
+
+<p>The reading level has steadily declined, as shown in this graph:</p>
+
+<p><a href="SOTU-FOG.png"><img alt="" src="SOTU-FOG.png"></a></p>
+
+<pre><code>R&gt; sotu$Name[ which( sotu$FOG == max(sotu$FOG) ) ]
+[1] 18151205-Madison
+
+R&gt; sotu$Name[ which( sotu$FOG == min(sotu$FOG) ) ]
+[1] 19920128-Bush
+</code></pre>
+
+<p>(And here are two excellent sites with their own analysis: http://www.presidency.ucsb.edu/sou.php &amp; http://stateoftheunion.onetwothree.net/)</p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2017/11/24/bach-note-transition-frequency-music/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2018/02/24/bible-books-cosine-similarity/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/chernoff/">Chernoff</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/strategy/">strategy</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                |
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

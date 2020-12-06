@@ -30,6 +30,27 @@ I have been reading <a href="https://www.oreilly.com/library/view/data-science-f
                 Tue, 03 Mar 2020 00:00:00 +0000
             </pubDate>
         </item>
+        <item>
+            <title>Linguistic Analysis of the State of the Union Addresses</title>
+            <link>https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/</link>
+            <guid>https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/</guid>
+            <description><![CDATA[
+                <p>This weekend I harvested 231 State of the Union addresses up to 2017 and put them through NLP processing.</p>
+
+                    <p><a href="https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://techn.ology.net/tag/perl/">perl</a>
+                        <a href="https://techn.ology.net/tag/software/">software</a>
+                        <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
+                        <a href="https://techn.ology.net/tag/nlp/">NLP</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 20 Jan 2018 00:00:00 +0000
+            </pubDate>
+        </item>
     </channel>
 </rss>
 

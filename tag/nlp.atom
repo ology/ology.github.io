@@ -33,5 +33,28 @@ I have been reading <a href="https://www.oreilly.com/library/view/data-science-f
         <category term="machine learning" />
         <category term="NLP" />
     </entry>
+    <entry>
+        <id>https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/</id>
+        <title>Linguistic Analysis of the State of the Union Addresses</title>
+        <link href="https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>This weekend I harvested 231 State of the Union addresses up to 2017 and put them through NLP processing.</p>
+
+                <p><a href="https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="https://techn.ology.net/tag/nlp/">NLP</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-01-20T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="NLP" />
+    </entry>
 </feed>
 
