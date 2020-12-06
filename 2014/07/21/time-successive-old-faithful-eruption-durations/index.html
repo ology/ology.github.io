@@ -75,7 +75,7 @@ Because of the observed data, a four group clustering emerges when successive e
 
 <p><img alt="" src="successive-faithful-eruptions-transitions.png"></p>
 
-<p><strong>[UPDATE]</strong> We can sample a subset of the Old Faithful eruption data and add arrows from previous to next observation.  Here is the R code:</p>
+<p>We can sample a subset of the Old Faithful eruption data and add arrows from previous to next observation.  Here is the R code:</p>
 
 <pre><code>z &lt;- sample( faithful$eruptions, 50 )
 x &lt;- z[ 1 : length(z) - 1 ]
