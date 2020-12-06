@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Musical Deltahedra - Gene Boggs</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2013/10/29/primes-gaps-and-gaps-of-gaps/index.html" rel="prev">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+        <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Musical Deltahedra</h1>
+
+    <aside>
+        <time datetime="2013-07-05">
+            Posted on 2013-07-05
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/music/" rel="tag">music</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p><img alt="" src="1-6.png">
+One day I became curious about musical triads (three note chords) as geometric triangles. I speculated about the actual sizes of the sides, given the intervals between the notes at the corners. Then, in no time, I was off day-dreaming about wobbling, vibrating triangles and string theory...</p>
+
+</section>
+<section id="section-2">
+    <p>When I returned from the imaginary physics world to the idealized, Euclidean world, I began to wonder about the musical possibilities of triangle-faced polyhedra (deltahedra). Could chords of three notes fit together nicely, around a (triangle-faced) Platonic solid? How many chords? In what orders? Did Pythagoras ask himself these questions? How about the volume of solids defined by Pythagorean tuning vs equal temperament? And how many notes before chord inversion? 7? 8? 12? What about using the entire scale versus just the notes of the key? How many possible deltahedra are there anyway? Etc until my head exploded.</p>
+
+<p>Then, after picking up the pieces, and in order to get a grip on the issues, I researched interval ratios and scale temperament and wrote the programs, &quot;intervals&quot; and &quot;inversion&quot; at http://github.com/ology/Music.</p>
+
+<p>I knew that diatonic chords marched up and down the staff sharing two notes with two other chords: I-vi, ii-vii, iii-I, IV-ii, V-iii, vi-IV, vii-V. In the key of C, I is C major, ii is D minor, iii is E minor, etc. So, I-vi would be the root and its relative minor, sharing the 1st and 3rd notes of the scale.</p>
+
+<p>As you can see from this ribbon of triangles representing the seven diatonic chords, linked by two notes left and right, odd cycles make Möbius strips. This was not part of my investigation - just cool in itself.</p>
+
+<p>Anyway, I concluded that the simplest Platonic solid, the <a href="http://en.wikipedia.org/wiki/Tetrahedron">tetrahedron</a>, could represent this &quot;relative chord&quot; relationship. Its vertexes would be four notes, making the two other faces &quot;odd&quot; chords.</p>
+
+<p><img alt="" src="Rotating-Tetrahedron.gif"></p>
+
+<p>Would these &quot;odd&quot; chords be transitional or substitution chords in some song structure? Would &quot;composing&quot; music with four sided dice be interesting?</p>
+
+<p>Curiosity may or may not have killed <a href="http://en.wikipedia.org/wiki/Schr%C3%B6dinger%27s_cat">Schrödinger&#39;s cat</a>.</p>
+
+<p>There are a lot of scholarly papers on geometric music and the underlying math. These are (mostly) all fascinating in themselves.</p>
+
+<p>I decided to focus on a simple yet meaningful set of notes: <em>c, d, e, f, g, a</em> and <em>b</em>. Since that is seven, I knew I was in for some disjoint subsets, given that the deltahedral Platonic solids have an even number of faces. Fortunately, I embrace odd-meter and polyrhythm and I was prepared.</p>
+
+<p>Check out the 7 net diagrams of my &quot;4 notes defining 4 chords&quot; tetrahedra. (The outer notes are all the same and fold back to touch and make the four sided, rotating figure above.)</p>
+
+<p><img alt="" src="1-6.png">
+<img alt="" src="2-7.png">
+<img alt="" src="3-1.png">
+<img alt="" src="4-2.png">
+<img alt="" src="5-3.png">
+<img alt="" src="6-4.png">
+<img alt="" src="7-5.png"></p>
+
+<p>The faces are chords, within the key of C major tonality. The &quot;outside&quot; note (&quot;a&quot; in the first diagram) is connected to the inner triangle, which is I or &quot;C major&quot;, and makes vi or &quot;A minor&quot;, in the first diagram. The chords come from the program, &quot;inversion&quot; above.</p>
+
+<p>So ok, seven notes is not great for making chords. You have to start inverting when you get to the middle of the scale. Having more notes in your bag is musically better. This means that we need a lot more &quot;real estate&quot; on our deltahedra - more triangles.</p>
+
+<p>More questions: Contiguous chords (i.e. with my chord ribbon above) are fine but what other chord patterns with shared notes are there and how can they be mapped to deltahedra? What are the parameters and limits? And what about tesselation and space-filling?</p>
+
+<p>Next: Mapping musical triads to deltahedra of more than four faces!</p>
+
+<p>(Regarding this: My tiny brain could not juggle the vertex-linked geometric possibilities, I am not a combinatorics whiz and wanted tangibility. So I bought a few <a href="http://www.polydron.co.uk/polydron-frameworks.html">Polydron Frameworks</a> geometry sets. Ha.)
+ </p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <button disabled>
+                ← Older
+            </button>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2013/10/29/primes-gaps-and-gaps-of-gaps/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/chernoff/">Chernoff</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                |
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
