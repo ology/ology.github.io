@@ -86,5 +86,33 @@ Because of the observed data, a four group clustering emerges when successive e
         <category term="image" />
         <category term="web" />
     </entry>
+    <entry>
+        <id>https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/</id>
+        <title>Fibonacci v Primes: Cage Match!</title>
+        <link href="https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31.png"><img alt="" src="https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31-sm.png"></a>
+Today I decided to more deeply investigate this curious math thing I discovered (for myself) - Plotting the Fibonacci numbers by Prime numbers each by a given modulo.  &quot;Fibo-what? Mod-what? So what!&quot;, you say. <em>:p</em></p>
+
+<p>tldr code: <a href="https://github.com/ology/Math/blob/master/slice-seq">slice-seq</a> and <a href="https://github.com/ology/Math/blob/master/slice-seq.R">slice-seq.R</a></p>
+
+                <p><a href="https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/r/">R</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="https://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                </p>
+
+        ]]></content>
+        <updated>2014-07-06T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="R" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="prime numbers" />
+    </entry>
 </feed>
 

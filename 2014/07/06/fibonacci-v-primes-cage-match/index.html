@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Fibonacci v Primes: Cage Match! - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/tag/software.atom" rel="alternate" type="application/atom+xml">
-        <link href="/tag/software.rss" rel="alternate" type="application/rss+xml">
-        <link href="/tag/software/page/5/" rel="prev">
+        <link href="/2014/07/21/time-successive-old-faithful-eruption-durations/index.html" rel="prev">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         
         <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
@@ -40,65 +38,68 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Fibonacci v Primes: Cage Match!</h1>
 
-<article>
-    <header>
-        <h1><a href="/2014/07/21/time-successive-old-faithful-eruption-durations/">Time-Successive Old Faithful Eruption Durations</a></h1>
+    <aside>
+        <time datetime="2014-07-06">
+            Posted on 2014-07-06
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2014-07-21">
-                Posted on 2014-07-21
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/r/" rel="tag">R</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/data/" rel="tag">data</a>
-            <a href="/tag/image/" rel="tag">image</a>
-            <a href="/tag/web/" rel="tag">web</a>
-        </p>
-
-    </header>
-
-    <p><a href="/2014/07/21/time-successive-old-faithful-eruption-durations/successive-faithful-eruptions.png"><img alt="" src="/2014/07/21/time-successive-old-faithful-eruption-durations/successive-faithful-eruptions-sm.png"></a>
-Because of the observed data, a four group clustering emerges when successive eruption durations of the famous geyser are plotted.  The x axis is the first eruption and y is the next.</p>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/r/" rel="tag">R</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
+        <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
+    </p>
 
 
-        <p><a href="/2014/07/21/time-successive-old-faithful-eruption-durations/#section-2">Continue reading Time-Successive Old Faithful Eruption Durations...</a></p>
-
-</article>
-<article>
-    <header>
-        <h1><a href="/2014/07/06/fibonacci-v-primes-cage-match/">Fibonacci v Primes: Cage Match!</a></h1>
-
-        <aside>
-            <time datetime="2014-07-06">
-                Posted on 2014-07-06
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/r/" rel="tag">R</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/mathematics/" rel="tag">mathematics</a>
-            <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
-        </p>
-
-    </header>
-
-    <p><a href="/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31.png"><img alt="" src="/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31-sm.png"></a>
+</header>
+<section id="section-1">
+    <p><a href="plot-200-31.png"><img alt="" src="plot-200-31-sm.png"></a>
 Today I decided to more deeply investigate this curious math thing I discovered (for myself) - Plotting the Fibonacci numbers by Prime numbers each by a given modulo.  &quot;Fibo-what? Mod-what? So what!&quot;, you say. <em>:p</em></p>
 
 <p>tldr code: <a href="https://github.com/ology/Math/blob/master/slice-seq">slice-seq</a> and <a href="https://github.com/ology/Math/blob/master/slice-seq.R">slice-seq.R</a></p>
 
+</section>
+<section id="section-2">
+    <p>For the mechanics, I use Perl to produce the data and R to visualize it.</p>
 
-        <p><a href="/2014/07/06/fibonacci-v-primes-cage-match/#section-2">Continue reading Fibonacci v Primes: Cage Match!...</a></p>
+<p>The first is the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...  The primes are of course: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, ...  If you plot them on a graph, each sky-rockets because they are both sequences of bigger and bigger numbers.</p>
 
-</article>
+<p>What I have been interested in is &quot;boxing in&quot; an infinitely long sequence.</p>
+
+<p>I use modulo (or &quot;clock&quot;) arithmetic to keep all numbers within a given range.  For example, the friendly 12 hour clock has a &quot;range&quot; of 12, so &quot;13 o&#39;clock&quot; is equal to 1 o&#39;clock and 23:00 == 11PM, etc.  My clocks are rectangular...</p>
+
+<p>So for each prime number p(n), I find where it would be on the clock, and then do the same for the Fibonacci number <strong>of</strong> that prime, F(p(n)).  Then I make a point and connect it to the previous point.  This makes a pattern that grows inside the clock-face box.  Some are crazy and random; some are curiously predictable.</p>
+
+<p>Here are the first number pattern pictures, for modulo 2 through 10, with primes below 100 (i.e. 25 primes) plotted:</p>
+
+<p><a href="plot-100-02.png"><img alt="" src="plot-100-02-sm.png"></a>
+<a href="plot-100-03.png"><img alt="" src="plot-100-03-sm.png"></a>
+<a href="plot-100-04.png"><img alt="" src="plot-100-04-sm.png"></a>
+<a href="plot-100-05.png"><img alt="" src="plot-100-05-sm.png"></a>
+<a href="plot-100-06.png"><img alt="" src="plot-100-06-sm.png"></a>
+<a href="plot-100-07.png"><img alt="" src="plot-100-07-sm.png"></a>
+<a href="plot-100-08.png"><img alt="" src="plot-100-08-sm.png"></a>
+<a href="plot-100-09.png"><img alt="" src="plot-100-09-sm.png"></a>
+<a href="plot-100-10.png"><img alt="" src="plot-100-10-sm.png"></a></p>
+
+<p>Here are a few pattern pictures for prime number 31.  Each chart shows the &quot;primes below&quot; an increasingly higher number.  The first shows primes below 10, then 20, 30, 40, 50, 1000 and the last chart shows primes below 10,000.</p>
+
+<p><a href="plot-010-31.png"><img alt="" src="plot-010-31-sm.png"></a>
+<a href="plot-020-31.png"><img alt="" src="plot-020-31-sm.png"></a>
+<a href="plot-030-31.png"><img alt="" src="plot-030-31-sm.png"></a>
+<a href="plot-040-31.png"><img alt="" src="plot-040-31-sm.png"></a>
+<a href="plot-050-31.png"><img alt="" src="plot-050-31-sm.png"></a>
+<a href="plot-1000-31.png"><img alt="" src="plot-1000-31-sm.png"></a>
+<a href="plot-10000-31.png"><img alt="" src="plot-10000-31-sm.png"></a></p>
+
+<p>These might make a cool &quot;flip-book&quot; PNG animation for math geeks.  Maybe I&#39;ll do that...</p>
+
+</section>
 
 <ul class="pager">
     <li class="prev">
@@ -107,12 +108,11 @@ Today I decided to more deeply investigate this curious math thing I discovered 
             </button>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/tag/software/page/5/" rel="next">
+            <a class="button button-primary" href="/2014/07/21/time-successive-old-faithful-eruption-durations/index.html" rel="next">
                 Newer →
             </a>
     </li>
 </ul>
-
 
 
 
@@ -151,20 +151,7 @@ Today I decided to more deeply investigate this curious math thing I discovered 
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/tag/software.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/tag/software.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>
