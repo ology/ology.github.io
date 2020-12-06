@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Bach Note Transition Frequency "Music" - Gene Boggs</title>
+        <title>Alternatives to the Logistic Equation - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/index.html" rel="prev">
-        <link href="/2016/03/11/alternatives-to-the-logistic-equation/index.html" rel="next">
+        <link href="/2017/11/24/bach-note-transition-frequency-music/index.html" rel="prev">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         
         <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
@@ -40,108 +39,107 @@
                 <div class="nine columns">
                     <main>
                         <header>
-    <h1>Bach Note Transition Frequency &quot;Music&quot;</h1>
+    <h1>Alternatives to the Logistic Equation</h1>
 
     <aside>
-        <time datetime="2017-11-24">
-            Posted on 2017-11-24
+        <time datetime="2016-03-11">
+            Posted on 2016-03-11
         </time>
     </aside>
 
     <p class="tags">Tags:
-        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/r/" rel="tag">R</a>
         <a href="/tag/software/" rel="tag">software</a>
-        <a href="/tag/midi/" rel="tag">MIDI</a>
-        <a href="/tag/analysis/" rel="tag">analysis</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
     </p>
 
 
 </header>
 <section id="section-1">
-    <p>What are the note frequencies of music by Bach?  That is, &quot;How often does an F follow a C?&quot; etc.  What does it sound like if you &quot;reconstruct&quot; playable music from these frequencies?</p>
+    <p><a href="bifurcation-01.png"><img alt="" src="bifurcation-01-sm.png"></a>
+Yesterday, I decided to plot the <a href="https://en.wikipedia.org/wiki/Logistic_map">bifurcation diagram</a> of the logistic equation.  This is a famous plot from the 70s, with which many geeks will be familiar.  It shows that simple systems can switch into &quot;chaos mode&quot; and begin to bifurcate wildly.</p>
 
-<p>Let&#39;s see!</p>
+<p>tl;dr: <a href="https://github.com/ology/Math/blob/master/bifurcation.R">bifurcation.R</a></p>
 
 </section>
 <section id="section-2">
-    <p>First, we find some Bach MIDI.  I chose to use <a href="bach_jesu_joy_with_piano.mid">Jesu Joy of Mans Desiring</a>.</p>
+    <p>To produce the graph, we use code in the R programming language.  Following that is an exploration into using alternative equations to get different graphs.</p>
 
-<p>Next, we feed that to my <a href="https://github.com/ology/Music/blob/master/note-transition">note-transition</a> program:</p>
+<p>First off, we set the range and maximum iterations for the plot:</p>
 
-<pre><code>&gt; perl note-transition /Users/gene/Downloads/bach_jesu_joy_with_piano.mid
+<pre><code># Set the range of the r values
+r_range &lt;- seq( 1, 4, 0.01 )
+
+# Set the maximum number of x iterations
+x_max &lt;- 30
 </code></pre>
 
-<p>This produces a file called &quot;note-transition.dat&quot; that is a collection of the MIDI note numbers and their proportional frequencies of one track.  Here is part of Jesu:</p>
+<p>Next we initialize the vector to hold our points:</p>
 
-<pre><code>67 =&gt; {
-    69 =&gt; 0.4,
-    71 =&gt; 0.6
-},
-69 =&gt; {
-    67 =&gt; 0.230769230769231,
-    69 =&gt; 0.153846153846154,
-    72 =&gt; 0.0769230769230769,
-    71 =&gt; 0.538461538461538
-},
-71 =&gt; {
-    69 =&gt; 0.476190476190476,
-    72 =&gt; 0.523809523809524
-},
-72 =&gt; {
-    71 =&gt; 0.444444444444444,
-    74 =&gt; 0.444444444444444,
-    72 =&gt; 0.111111111111111
-},
-74 =&gt; {
-    72 =&gt; 0.307692307692308,
-    74 =&gt; 0.230769230769231,
-    71 =&gt; 0.307692307692308,
-    76 =&gt; 0.153846153846154
-},
-76 =&gt; {
-    77 =&gt; 0.333333333333333,
-    76 =&gt; 0.333333333333333,
-    74 =&gt; 0.333333333333333
-},
-77 =&gt; {
-    74 =&gt; 1
+<pre><code># Initialize the bucket of x&#39;s
+v &lt;- c()
+</code></pre>
+
+<p>Here are the guts of the program that collects the points to plot:</p>
+
+<pre><code># For each r, find the x values...
+for ( r in r_range ) {
+    # Start at a low x value
+    x &lt;- 0.1
+    # Repeat x_max times...
+    for ( i in 0 : x_max ) {
+        # The logistic equation
+        x &lt;- r * x * ( 1 - x )
+        # Hopefully we have stabilized
+        if ( i &gt; x_max / 2 ) {
+            v &lt;- c( v, x )
+        }
+    }
 }
 </code></pre>
 
-<p>This says, for instance, that MIDI pitch number 67 transitions to pitch 69 40% of the time, and pitch 71 60% of the time.</p>
+<p>The crucial bit, to keep in mind, is the line with the iterating logistic equation.</p>
 
-<p>Next we feed that result file to my <a href="https://github.com/ology/Music/blob/master/stat-walk">stat-walk</a> program, asking for 128 notes:</p>
+<p>Lastly we plot the points and save the graph!</p>
 
-<pre><code>&gt; perl stat-walk note-transition.dat 128
+<pre><code>png(file = &#39;bifurcation.png&#39;)
+plot(
+    seq( 1, 4, length.out = length(v) ),
+    v,
+    type = &#39;p&#39;,
+    cex  = 0.1,
+    xlab = &#39;r&#39;,
+    ylab = &#39;x&#39;
+)
+dev.off()
 </code></pre>
 
-<p>This program is very simple.  Each note gets a quarter note value and there are no dynamics like velocity changes.  Anyway, the above command produces a MIDI file called &quot;stat-walk.mid&quot; which you can hear with a handy program like <a href="http://timidity.sourceforge.net/">timidity</a>:</p>
+<p>OK.  Now that we have our traditional logistic equation bifurcation diagram, what can we do next?  How about finding other equations which produce bifurcation diagrams?  Check these out:</p>
 
-<pre><code>&gt; timidity stat-walk.mid
-</code></pre>
+<p>The equation, <code>x &lt;- r * x ** (1 - x)</code> generates this plot:</p>
 
-<p>But I took the liberty of enhancing it a bit with my <a href="https://www.apple.com/logic-pro/">DAW</a> and came up with this:</p>
+<p><a href="bifurcation-02.png"><img alt="" src="bifurcation-02.png"></a></p>
 
-<p><audio controls><source src="note-transition-stat-walk.mp3" type="audio/mp3"></audio></p>
+<p>The equation, <code>x &lt;- r * cos(x) - sin(x)</code> generates this plot:</p>
 
-<p><strong>Update:</strong> I made copies of the programs that honor multiple tracks.  The output is spartan - a simultaneous quarter note for each track of notes. YMMV: <a href="https://github.com/ology/Music/blob/master/note-transition-sync">note-transition-sync</a> and <a href="https://github.com/ology/Music/blob/master/stat-walk-sync">stat-walk-sync</a>.  Here is our Bach:</p>
+<p><a href="bifurcation-04.png"><img alt="" src="bifurcation-04.png"></a></p>
 
-<p><audio controls><source src="stat-walk-sync-jesu.mp3" type="audio/mp3"></audio></p>
+<p>The equation, <code>x &lt;- r * exp(x) * (1 - exp(x))</code> generates this plot:</p>
 
-<p>And here is a very different Beethoven Moonlight Sonata:</p>
+<p><a href="bifurcation-05.png"><img alt="" src="bifurcation-05.png"></a></p>
 
-<p><audio controls><source src="stat-walk-sync-moonlight.mp3" type="audio/mp3"></audio></p>
+<p>More alternative equations: <code>r - x ** 2</code>  or  <code>r ** cos(1 - x)</code>  or  <code>r * cos(x) * (1 - sin(x))</code> ...</p>
 
 </section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/2016/03/11/alternatives-to-the-logistic-equation/index.html" rel="prev">
+            <button disabled>
                 ← Older
-            </a>
+            </button>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/index.html" rel="next">
+            <a class="button button-primary" href="/2017/11/24/bach-note-transition-frequency-music/index.html" rel="next">
                 Newer →
             </a>
     </li>
