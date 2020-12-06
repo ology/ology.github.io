@@ -39,5 +39,31 @@ Tonight I became curious as to what an image would sound like when &quot;played&
         <category term="MIDI" />
         <category term="audio" />
     </entry>
+    <entry>
+        <id>https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/</id>
+        <title>Alternatives to the Logistic Equation</title>
+        <link href="https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/bifurcation-01.png"><img alt="" src="https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/bifurcation-01-sm.png"></a>
+Yesterday, I decided to plot the <a href="https://en.wikipedia.org/wiki/Logistic_map">bifurcation diagram</a> of the logistic equation.  This is a famous plot from the 70s, with which many geeks will be familiar.  It shows that simple systems can switch into &quot;chaos mode&quot; and begin to bifurcate wildly.</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Math/blob/master/bifurcation.R">bifurcation.R</a></p>
+
+                <p><a href="https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://techn.ology.net/tag/r/">R</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="https://techn.ology.net/tag/image/">image</a>
+                </p>
+
+        ]]></content>
+        <updated>2016-03-11T00:00:00Z</updated>
+        <category term="R" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="image" />
+    </entry>
 </feed>
 
