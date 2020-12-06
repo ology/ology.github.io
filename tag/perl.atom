@@ -13,7 +13,7 @@
         <link href="https://techn.ology.net/2020/12/06/making-a-statocles-plugin/" rel="alternate" />
         <content type="html"><![CDATA[
             <p><img alt="" src="https://techn.ology.net/2020/12/06/making-a-statocles-plugin/statocles.png">
-The other day I decided that I didn&#39;t like the &quot;bare links&quot; to my audio clips.  The HTML5 <code>audio</code> element is far superior!</p>
+The other day I decided that I didn&#39;t like the ugly <code>a href</code> links to my audio clips.  The HTML5 <code>audio</code> element is far superior!</p>
 
 <p>I build this online journal with the excellent perl module, <a href="https://metacpan.org/pod/Statocles">Statocles</a>, so I wanted something built-in to do the job.</p>
 
