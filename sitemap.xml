@@ -7,6 +7,12 @@
         <lastmod>2020-12-06</lastmod>
     </url>
     <url>
+        <loc>https://techn.ology.net/2013/10/29/primes-gaps-and-gaps-of-gaps/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2013-10-29</lastmod>
+    </url>
+    <url>
         <loc>https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -301,6 +307,12 @@
         <lastmod>2020-05-03</lastmod>
     </url>
     <url>
+        <loc>https://techn.ology.net/tag/mathematics/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-05-03</lastmod>
+    </url>
+    <url>
         <loc>https://techn.ology.net/tag/midi/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
@@ -356,6 +368,12 @@
     </url>
     <url>
         <loc>https://techn.ology.net/tag/perl/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-12-06</lastmod>
+    </url>
+    <url>
+        <loc>https://techn.ology.net/tag/perl/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-12-06</lastmod>

@@ -116,5 +116,31 @@ Today I decided to more deeply investigate this curious math thing I discovered 
         <category term="mathematics" />
         <category term="prime numbers" />
     </entry>
+    <entry>
+        <id>https://techn.ology.net/2013/10/29/primes-gaps-and-gaps-of-gaps/</id>
+        <title>Primes, Gaps and Gaps of Gaps</title>
+        <link href="https://techn.ology.net/2013/10/29/primes-gaps-and-gaps-of-gaps/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>The prime number sequence fascinates me.  I am not sure why but exposing properties in it is exciting.  Even if they are mundane and &quot;obvious to everyone else&quot;, the fact that I can answer questions visually, sometimes thrills me.</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Math/blob/master/primes/gaps-of-gaps">gaps-of-gaps</a>
+ </p>
+
+                <p><a href="https://techn.ology.net/2013/10/29/primes-gaps-and-gaps-of-gaps/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
+                    <a href="https://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                </p>
+
+        ]]></content>
+        <updated>2013-10-29T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="prime numbers" />
+    </entry>
 </feed>
 
