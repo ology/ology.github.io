@@ -4,7 +4,7 @@
         <loc>https://techn.ology.net/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/2018/02/24/bible-books-cosine-similarity/</loc>
@@ -127,28 +127,40 @@
         <lastmod>2020-11-23</lastmod>
     </url>
     <url>
+        <loc>https://techn.ology.net/2020/12/06/making-a-statocles-plugin/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2020-12-06</lastmod>
+    </url>
+    <url>
         <loc>https://techn.ology.net/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2020-12-05</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
+    </url>
+    <url>
+        <loc>https://techn.ology.net/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/analysis/</loc>
@@ -274,25 +286,25 @@
         <loc>https://techn.ology.net/tag/perl/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/perl/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/perl/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/perl/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/pi/</loc>
@@ -322,25 +334,31 @@
         <loc>https://techn.ology.net/tag/software/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/software/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/software/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/software/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-11-23</lastmod>
+        <lastmod>2020-12-06</lastmod>
+    </url>
+    <url>
+        <loc>https://techn.ology.net/tag/software/page/5/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2020-12-06</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/star-trek/</loc>

@@ -2,11 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://techn.ology.net/tag/software/</id>
     <title>Gene Boggs</title>
-    <updated>2020-11-23T00:00:00Z</updated>
+    <updated>2020-12-06T00:00:00Z</updated>
     <link href="https://techn.ology.net/tag/software.atom" rel="self" />
     <link href="https://techn.ology.net/tag/software/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
+    <entry>
+        <id>https://techn.ology.net/2020/12/06/making-a-statocles-plugin/</id>
+        <title>Making a Statocles Plugin</title>
+        <link href="https://techn.ology.net/2020/12/06/making-a-statocles-plugin/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="https://techn.ology.net/2020/12/06/making-a-statocles-plugin/statocles.png">
+The other day I decided that I didn&#39;t like the &quot;bare links&quot; to my audio clips.  The HTML5 <code>audio</code> element is far superior!</p>
+
+<p>I build my online journal with the excellent perl module, <a href="https://metacpan.org/pod/Statocles">Statocles</a>, so I wanted something built-in to do the job.</p>
+
+                <p><a href="https://techn.ology.net/2020/12/06/making-a-statocles-plugin/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://techn.ology.net/tag/perl/">perl</a>
+                    <a href="https://techn.ology.net/tag/software/">software</a>
+                </p>
+
+        ]]></content>
+        <updated>2020-12-06T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+    </entry>
     <entry>
         <id>https://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/</id>
         <title>Generating Musical Phrases - Round II</title>
@@ -112,32 +134,6 @@ Recently I was enjoying Steve Reich&#39;s <a href="https://www.youtube.com/watch
         <category term="generative" />
         <category term="MIDI" />
         <category term="music" />
-    </entry>
-    <entry>
-        <id>https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</id>
-        <title>Musical Ngrams Round II</title>
-        <link href="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><img alt="" src="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-durations.png">
-What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="https://en.wikipedia.org/wiki/N-gram">ngrams</a> are basically groups of tokens.  These groups are of a certain given size - say phrases of three words.  If we consider notes as tokens we get musical ngrams!  We can count the number of occurrences of each ngram phrase, and thus know how many times a given phrase is repeated.  How often does Bach repeat himself, for instance?</p>
-
-                <p><a href="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/midi/">MIDI</a>
-                    <a href="https://techn.ology.net/tag/music/">music</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
-                </p>
-
-        ]]></content>
-        <updated>2020-06-06T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="MIDI" />
-        <category term="music" />
-        <category term="analysis" />
     </entry>
 </feed>
 

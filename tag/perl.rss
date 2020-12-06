@@ -7,6 +7,28 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
+            <title>Making a Statocles Plugin</title>
+            <link>https://techn.ology.net/2020/12/06/making-a-statocles-plugin/</link>
+            <guid>https://techn.ology.net/2020/12/06/making-a-statocles-plugin/</guid>
+            <description><![CDATA[
+                <p><img alt="" src="https://techn.ology.net/2020/12/06/making-a-statocles-plugin/statocles.png">
+The other day I decided that I didn&#39;t like the &quot;bare links&quot; to my audio clips.  The HTML5 <code>audio</code> element is far superior!</p>
+
+<p>I build my online journal with the excellent perl module, <a href="https://metacpan.org/pod/Statocles">Statocles</a>, so I wanted something built-in to do the job.</p>
+
+                    <p><a href="https://techn.ology.net/2020/12/06/making-a-statocles-plugin/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://techn.ology.net/tag/perl/">perl</a>
+                        <a href="https://techn.ology.net/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 06 Dec 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Generating Musical Phrases - Round II</title>
             <link>https://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/</link>
             <guid>https://techn.ology.net/2020/11/23/generating-musical-phrases-round-ii/</guid>
@@ -98,29 +120,6 @@ Recently I was enjoying Steve Reich&#39;s <a href="https://www.youtube.com/watch
             ]]></description>
             <pubDate>
                 Sun, 18 Oct 2020 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Musical Ngrams Round II</title>
-            <link>https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</link>
-            <guid>https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</guid>
-            <description><![CDATA[
-                <p><img alt="" src="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-durations.png">
-What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="https://en.wikipedia.org/wiki/N-gram">ngrams</a> are basically groups of tokens.  These groups are of a certain given size - say phrases of three words.  If we consider notes as tokens we get musical ngrams!  We can count the number of occurrences of each ngram phrase, and thus know how many times a given phrase is repeated.  How often does Bach repeat himself, for instance?</p>
-
-                    <p><a href="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://techn.ology.net/tag/perl/">perl</a>
-                        <a href="https://techn.ology.net/tag/software/">software</a>
-                        <a href="https://techn.ology.net/tag/midi/">MIDI</a>
-                        <a href="https://techn.ology.net/tag/music/">music</a>
-                        <a href="https://techn.ology.net/tag/analysis/">analysis</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sat, 06 Jun 2020 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

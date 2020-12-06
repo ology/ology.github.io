@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Making a Statocles Plugin - Gene Boggs</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2020/11/23/generating-musical-phrases-round-ii/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+        <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Making a Statocles Plugin</h1>
+
+    <aside>
+        <time datetime="2020-12-06">
+            Posted on 2020-12-06
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p><img alt="" src="statocles.png">
+The other day I decided that I didn&#39;t like the &quot;bare links&quot; to my audio clips.  The HTML5 <code>audio</code> element is far superior!</p>
+
+<p>I build my online journal with the excellent perl module, <a href="https://metacpan.org/pod/Statocles">Statocles</a>, so I wanted something built-in to do the job.</p>
+
+</section>
+<section id="section-2">
+    <p>To see this in action, check out any post on this site tagged with &quot;music.&quot;</p>
+
+<p>But aat first, I <strong>did</strong> write a little script that inspected every <code>*.html</code> file on my site.  This translated any anchor (<code>a</code>) link with an audio file <code>href</code>, like an MP3 or OGG, to an <code>audio</code> element with the audio file as the <code>src</code>.  But like I say, I wanted something that was <em>part of</em> Statocles to do this for me instead of a separate program.</p>
+
+<p>So I read a bit and asked on the <a href="#irc://irc.perl.org/#statocles">#statocles IRC channel</a> and came up with a rudimentary solution, based on a code snip from <a href="https://metacpan.org/author/PREACTION">preaction</a>.</p>
+
+<p>First up, give the plugin a proper name:</p>
+
+<pre><code>package Statocles::Plugin::AudioTag;
+</code></pre>
+
+<p>Next, provide an &quot;ABSTRACT&quot; comment that briefly describes the purpose of the plugin:</p>
+
+<pre><code># ABSTRACT: Change audio file anchors to audio elements
+</code></pre>
+
+<p>Give the plugin a version:</p>
+
+<pre><code>our $VERSION = &#39;0.0200&#39;;
+</code></pre>
+
+<p>Specify the minimum perl we can run this with, based on modern syntax:</p>
+
+<pre><code>use v5.20.0;
+</code></pre>
+
+<p>Now import the Statocles functionality:</p>
+
+<pre><code>use Statocles::Base &#39;Class&#39;;
+with &#39;Statocles::Plugin&#39;;
+</code></pre>
+
+<p>Give the program plenty of documentation.  Code without any docs is basically impossible to know how to use without diving into the source, itself.</p>
+
+<p>The module has a single attribute, the <code>file_type</code> which tells the module what kind of links to look for and replace.</p>
+
+<p>Now onto the meat of the plugin in which the audio bits of a <a href="https://metacpan.org/pod/Statocles::Page">Statocles::Page</a> are processed.</p>
+
+<pre><code>sub audio_tag {
+    my ($self, $page) = @_;
+    if ($page-&gt;has_dom) {
+        $page-&gt;dom-&gt;find(&#39;a[href$=.&#39;. $self-&gt;file_type .&#39;]&#39; )-&gt;each(sub {
+            my ($el) = @_;
+            $el-&gt;replace(sprintf &#39;&lt;audio controls&gt;&lt;source type=&quot;audio/%s&quot; src=&quot;%s&quot;&gt;&lt;/audio&gt;&#39;, $self-&gt;file_type, $el-&gt;attr(&#39;href&#39;));
+        });
+    }
+    return $page;
+}
+</code></pre>
+
+<p>This method takes a page and looks through its contents (&quot;down the DOM&quot;) for any <code>a</code> audio link elements.  If it finds any, they are each converted to an <code>audio</code> element.  Finally the page is returned to the caller.</p>
+
+<p>In this case, the caller is the <code>register</code> method that is the essential method of <a href="https://metacpan.org/pod/Statocles::Plugin">Statocles::Plugin</a>.  This registers the plugin with Statocles.  And if it is listed in the <code>site.yml</code> configuration file (as in the plugin <a href="https://metacpan.org/pod/Statocles::Plugin::AudioTag#SYNOPSIS">SYNOPSIS</a>), it will be executed when the site is built or deployed.</p>
+
+<pre><code>sub register {
+    my ($self, $site) = @_;
+    $site-&gt;on(build =&gt; sub {
+        my ($event) = @_;
+        for my $page ($event-&gt;pages-&gt;@*) {
+            $page = $self-&gt;audio_tag($page);
+        }
+    });
+}
+</code></pre>
+
+<p>And that&#39;s it!  Now instead of an ugly <code>&lt;a href=&quot;...&quot;&gt;...&lt;/a&gt;</code> link to an audio clip, now I have this:</p>
+
+<p><img alt="" src="/2020/11/23/generating-musical-phrases-round-ii/chordal-04.mp3"></p>
+
+<p>Excellent!</p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2020/11/23/generating-musical-phrases-round-ii/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/chernoff/">Chernoff</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/star-trek/">Star Trek</a></li>
+            <li><a href="/tag/strategy/">strategy</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="http://preaction.me/statocles">Made with Statocles</a><br>
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
