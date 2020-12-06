@@ -127,6 +127,8 @@ with &#39;Statocles::Plugin&#39;;
 }
 </code></pre>
 
+<p>(So I <em>actually</em> had the meat of the code <em>in</em> the <code>register</code> method.  But I discovered that this did not let me test that the thing was working!  So I broke-out the <code>audio_tag</code> method and added it to the <a href="https://metacpan.org/source/GENE/Statocles-Plugin-AudioTag-0.0200/t%2F01-methods.t">test</a>. Yay!)</p>
+
 <p>And that&#39;s it!  Now instead of an ugly <code>&lt;a href=&quot;...&quot;&gt;...&lt;/a&gt;</code> link to an audio clip, now I have this:</p>
 
 <p><audio controls><source src="/2020/11/23/generating-musical-phrases-round-ii/chordal-04.mp3" type="audio/mp3"></audio></p>
