@@ -1,7 +1,9 @@
 $(document).ready(function() {
     console.log("Ready!");
-    $("#search").click(function() {
-        var v = $("#query").val();
-        alert("Query:" + v);
+    $("#query").on('keypress', function(e) {
+        if(e.which == 13) {
+            var v = $("#query").val();
+            alert("Query:" + v);
+        }
     });
 });
