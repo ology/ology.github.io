@@ -1,4 +1,7 @@
 $(document).ready(function() {
-    alert("ready!");
-    console.log("ready!");
+    console.log("Ready!");
+    $("search").click(function() {
+        var v = $("query").value();
+        alert("Query:" + v);
+    });
 });
