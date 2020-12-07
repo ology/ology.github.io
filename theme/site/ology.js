@@ -3,7 +3,7 @@ $(document).ready(function() {
     $("#query").on('keypress', function(e) {
         if(e.which == 13) {
             var v = $("#query").val();
-            alert("Query:" + v);
+            window.location.replace("https://www.google.com/search?q=site%3Aology.github.io+" + v);
         }
     });
 });
