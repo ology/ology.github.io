@@ -49,6 +49,12 @@
         <lastmod>2017-11-24</lastmod>
     </url>
     <url>
+        <loc>https://techn.ology.net/2017/12/19/dimensional-personality-disorder-assessment/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-12-19</lastmod>
+    </url>
+    <url>
         <loc>https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -395,6 +401,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-05-03</lastmod>
+    </url>
+    <url>
+        <loc>https://techn.ology.net/tag/psychology/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-19</lastmod>
     </url>
     <url>
         <loc>https://techn.ology.net/tag/python/</loc>

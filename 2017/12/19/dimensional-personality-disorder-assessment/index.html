@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Dimensional Personality Disorder Assessment - Gene Boggs</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/index.html" rel="prev">
+        <link href="/2017/11/24/bach-note-transition-frequency-music/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        
+        <link href="/theme/css/ology.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Dimensional Personality Disorder Assessment</h1>
+
+    <aside>
+        <time datetime="2017-12-19">
+            Posted on 2017-12-19
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/psychology/" rel="tag">psychology</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p><img alt="" src="tim.jpg">
+<a href="http://obits.oregonlive.com/obituaries/oregon/obituary.aspx?pid=160646732">Timothy W. Butcher</a> and I collaborated on a number of diverse projects.  One was a personality disorder quiz that he devised while taking an abnormal psychology university course.</p>
+
+</section>
+<section id="section-2">
+    <p>Since 1999, when we made it, the quiz and the anonymous data and chart history has been lost to time.  But recently I found and resurrected <a href="http://dev.ology.net:8050/overview">the quiz itself</a>!</p>
+
+<p>It is <strong>196</strong> questions long - Whew!  But that is what it takes for an accurate questionnaire about multiple personality disorders.</p>
+
+<p>Unfortunately, a number of the questions are difficult in their wording.  I wish Tim was still around to discuss, clarify, and refine them...</p>
+
+<p>Back then, my part was to make it interactive and &quot;on-line.&quot;  Briefly, here is how it works, underneath the hood.  (And here is <a href="https://github.com/ology/DPDA">the code</a>.)</p>
+
+<p>For a user interface this time around, I chose <a href="https://metacpan.org/pod/Dancer2">Dancer2</a> as a web framework.  Also, I need to chart the results and for that I chose to use the <a href="https://metacpan.org/pod/GD::Graph::Data">GD::Graph::Data</a> module.</p>
+
+<p>There are a few routes (&quot;web addresses that are understood by the app&quot;), but the most important ones are for question/response and final result computation.</p>
+
+<p>To keep track of the question/answer history for a quiz taker, I use a simple cookie.  This allows multiple questionnaires to be running concurrently.  Also, this allows a person to take a break from the quiz (as long as they don&#39;t clear their browser cookies).</p>
+
+<p>For the question route, I first get our quiz progress and then handle the history.   This is done by clearing the history <strong>if</strong> we are on question number one, and to transform it into an array and hash reference for later use, otherwise.</p>
+
+<p>Next we load the quiz questions and get a random, unseen one.</p>
+
+<p>Ok.  When a response has been made to a question, by submitting on the web, the quiz route is invoked.</p>
+
+<p>Next, a &quot;question|answer&quot; item added to the history, and the progress is incremented.  If we are past the last question, then go to the finalize chart route, otherwise, ask another question!</p>
+
+<p>And what is that last step?  Well, I defer to the code itself.  Again, if Tim were here, I would ask him for the statistical formulae being used, so that I could say succinctly what is being computed: In the final &quot;/chart&quot; route, the history is handled as above, and the quiz is loaded to access the metadata for each question - &quot;category&quot; and &quot;polarity.&quot;  Next, the results are calculated, the categories ordered, the average responses calculated, the &quot;discord&quot; (&quot;dishonesty&quot;, &quot;ambivalence&quot;) calculated and finally a bar chart is rendered.</p>
+
+<p>Now to test that the quiz results were accurate, I wrote a little <a href="https://github.com/ology/DPDA/blob/master/bin/mech-test">Test::WWW::Mechanize script</a> to test the boundaries.  You can see the results of having every disorder to having none of the disorders, on the quiz <a href="http://dev.ology.net:8050/sample">Sample Results</a> page.</p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2017/11/24/bach-note-transition-frequency-music/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <a class="button button-primary" href="/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/index.html" rel="next">
+                Newer →
+            </a>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/chernoff/">Chernoff</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                |
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
