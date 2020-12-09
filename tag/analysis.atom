@@ -1,28 +1,28 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://techn.ology.net/tag/analysis/</id>
+    <id>https://ology.github.io/tag/analysis/</id>
     <title>Gene Boggs</title>
     <updated>2020-06-06T00:00:00Z</updated>
-    <link href="https://techn.ology.net/tag/analysis.atom" rel="self" />
-    <link href="https://techn.ology.net/tag/analysis/" rel="alternate" />
+    <link href="https://ology.github.io/tag/analysis.atom" rel="self" />
+    <link href="https://ology.github.io/tag/analysis/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>
-        <id>https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/</id>
+        <id>https://ology.github.io/2020/06/06/musical-ngrams-round-ii/</id>
         <title>Musical Ngrams Round II</title>
-        <link href="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/" rel="alternate" />
+        <link href="https://ology.github.io/2020/06/06/musical-ngrams-round-ii/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="" src="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-durations.png">
+            <p><img alt="" src="https://ology.github.io/2020/06/06/musical-ngrams-round-ii/twinkle_ngram-play-durations.png">
 What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="https://en.wikipedia.org/wiki/N-gram">ngrams</a> are basically groups of tokens.  These groups are of a certain given size - say phrases of three words.  If we consider notes as tokens we get musical ngrams!  We can count the number of occurrences of each ngram phrase, and thus know how many times a given phrase is repeated.  How often does Bach repeat himself, for instance?</p>
 
-                <p><a href="https://techn.ology.net/2020/06/06/musical-ngrams-round-ii/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2020/06/06/musical-ngrams-round-ii/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/midi/">MIDI</a>
-                    <a href="https://techn.ology.net/tag/music/">music</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                    <a href="https://ology.github.io/tag/music/">music</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -34,19 +34,19 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="analysis" />
     </entry>
     <entry>
-        <id>https://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/</id>
+        <id>https://ology.github.io/2020/03/07/how-much-ink-is-used-for-each-letter/</id>
         <title>How Much Ink Is Used For Each Letter?</title>
-        <link href="https://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/" rel="alternate" />
+        <link href="https://ology.github.io/2020/03/07/how-much-ink-is-used-for-each-letter/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Today I became curious about how much ink is needed to print each of the 26 letters of the English alphabet.  Naturally I wrote <a href="https://github.com/ology/Graphics/blob/master/detect-black.pl">a program</a> to tell me...</p>
 
-                <p><a href="https://techn.ology.net/2020/03/07/how-much-ink-is-used-for-each-letter/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2020/03/07/how-much-ink-is-used-for-each-letter/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/data/">data</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/data/">data</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -57,23 +57,23 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="analysis" />
     </entry>
     <entry>
-        <id>https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</id>
+        <id>https://ology.github.io/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</id>
         <title>Predicting Star Trek Characters with Naive Bayes</title>
-        <link href="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/" rel="alternate" />
+        <link href="https://ology.github.io/2020/03/03/predicting-star-trek-characters-with-naive-bayes/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="" src="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/kirk-and-spock.jpg">
+            <p><img alt="" src="https://ology.github.io/2020/03/03/predicting-star-trek-characters-with-naive-bayes/kirk-and-spock.jpg">
 I have been reading <a href="https://www.oreilly.com/library/view/data-science-from/9781492041122/">&quot;Data Science from Scratch&quot;</a> and porting the python code to perl.  In this episode, we use <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a> to predict whether the speaker of a line is either Kirk, Spock or McCoy, with my new, work-in-progress <a href="https://github.com/ology/Data-Science-FromScratch">data science library</a>.</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Data-Science-FromScratch/blob/master/eg/is-character.pl">is-character.pl</a></p>
 
-                <p><a href="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2020/03/03/predicting-star-trek-characters-with-naive-bayes/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/machine-learning/">machine learning</a>
-                    <a href="https://techn.ology.net/tag/nlp/">NLP</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/machine-learning/">machine learning</a>
+                    <a href="https://ology.github.io/tag/nlp/">NLP</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -85,21 +85,21 @@ I have been reading <a href="https://www.oreilly.com/library/view/data-science-f
         <category term="analysis" />
     </entry>
     <entry>
-        <id>https://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/</id>
+        <id>https://ology.github.io/2019/03/19/halstead-software-complexity-of-perl-code/</id>
         <title>Halstead Software Complexity of Perl Code</title>
-        <link href="https://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/" rel="alternate" />
+        <link href="https://ology.github.io/2019/03/19/halstead-software-complexity-of-perl-code/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>The other day I stumbled across the Wikipedia entry for <a href="https://en.wikipedia.org/wiki/Halstead_complexity_measures">Halstead software complexity</a> and became curious about how the language <a href="https://www.perl.org/">Perl</a> would measure up.</p>
 
 <p>Now I knew the adage that &quot;only perl can parse perl&quot;, but I also knew about the <a href="https://metacpan.org/pod/PPI">PPI</a> set of modules on the <a href="https://metacpan.org/">CPAN</a>.  So I got to reading/experimenting...</p>
 
-                <p><a href="https://techn.ology.net/2019/03/19/halstead-software-complexity-of-perl-code/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2019/03/19/halstead-software-complexity-of-perl-code/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/complexity/">complexity</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/complexity/">complexity</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -110,22 +110,22 @@ I have been reading <a href="https://www.oreilly.com/library/view/data-science-f
         <category term="analysis" />
     </entry>
     <entry>
-        <id>https://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/</id>
+        <id>https://ology.github.io/2018/09/18/bach-choral-harmony-network-diagrams/</id>
         <title>Bach Choral Harmony Network Diagrams</title>
-        <link href="https://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/" rel="alternate" />
+        <link href="https://ology.github.io/2018/09/18/bach-choral-harmony-network-diagrams/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>Today I decided to revisit the <a href="https://archive.ics.uci.edu/ml/datasets/Bach+Choral+Harmony">Bach Choral Harmony data set</a> and look at chord progression transitions.</p>
 
 <p>In order to do this I wrote a small program that tallies the movement from one chord to another, and then outputs a <a href="https://graphviz.org/">Graphviz</a> dot file that can be turned into an image.</p>
 
-                <p><a href="https://techn.ology.net/2018/09/18/bach-choral-harmony-network-diagrams/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2018/09/18/bach-choral-harmony-network-diagrams/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/music/">music</a>
-                    <a href="https://techn.ology.net/tag/data/">data</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/music/">music</a>
+                    <a href="https://ology.github.io/tag/data/">data</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>

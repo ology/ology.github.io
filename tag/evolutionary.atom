@@ -1,30 +1,30 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://techn.ology.net/tag/evolutionary/</id>
+    <id>https://ology.github.io/tag/evolutionary/</id>
     <title>Gene Boggs</title>
     <updated>2020-04-02T00:00:00Z</updated>
-    <link href="https://techn.ology.net/tag/evolutionary.atom" rel="self" />
-    <link href="https://techn.ology.net/tag/evolutionary/" rel="alternate" />
+    <link href="https://ology.github.io/tag/evolutionary.atom" rel="self" />
+    <link href="https://ology.github.io/tag/evolutionary/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>
-        <id>https://techn.ology.net/2020/04/02/evolving-barycentric-chords/</id>
+        <id>https://ology.github.io/2020/04/02/evolving-barycentric-chords/</id>
         <title>Evolving Barycentric Chords</title>
-        <link href="https://techn.ology.net/2020/04/02/evolving-barycentric-chords/" rel="alternate" />
+        <link href="https://ology.github.io/2020/04/02/evolving-barycentric-chords/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>What do the fittest barycentric chords of an evolutionary generic algorithm sound like?  Bary- what?  Genetic what?</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Music/blob/master/barycenter4">barycenter4</a></p>
 
-                <p><a href="https://techn.ology.net/2020/04/02/evolving-barycentric-chords/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2020/04/02/evolving-barycentric-chords/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
-                    <a href="https://techn.ology.net/tag/evolutionary/">evolutionary</a>
-                    <a href="https://techn.ology.net/tag/midi/">MIDI</a>
-                    <a href="https://techn.ology.net/tag/music/">music</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                    <a href="https://ology.github.io/tag/evolutionary/">evolutionary</a>
+                    <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                    <a href="https://ology.github.io/tag/music/">music</a>
                 </p>
 
         ]]></content>

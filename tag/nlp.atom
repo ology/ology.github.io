@@ -1,30 +1,30 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://techn.ology.net/tag/nlp/</id>
+    <id>https://ology.github.io/tag/nlp/</id>
     <title>Gene Boggs</title>
     <updated>2020-03-03T00:00:00Z</updated>
-    <link href="https://techn.ology.net/tag/nlp.atom" rel="self" />
-    <link href="https://techn.ology.net/tag/nlp/" rel="alternate" />
+    <link href="https://ology.github.io/tag/nlp.atom" rel="self" />
+    <link href="https://ology.github.io/tag/nlp/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>
-        <id>https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</id>
+        <id>https://ology.github.io/2020/03/03/predicting-star-trek-characters-with-naive-bayes/</id>
         <title>Predicting Star Trek Characters with Naive Bayes</title>
-        <link href="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/" rel="alternate" />
+        <link href="https://ology.github.io/2020/03/03/predicting-star-trek-characters-with-naive-bayes/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="" src="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/kirk-and-spock.jpg">
+            <p><img alt="" src="https://ology.github.io/2020/03/03/predicting-star-trek-characters-with-naive-bayes/kirk-and-spock.jpg">
 I have been reading <a href="https://www.oreilly.com/library/view/data-science-from/9781492041122/">&quot;Data Science from Scratch&quot;</a> and porting the python code to perl.  In this episode, we use <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a> to predict whether the speaker of a line is either Kirk, Spock or McCoy, with my new, work-in-progress <a href="https://github.com/ology/Data-Science-FromScratch">data science library</a>.</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Data-Science-FromScratch/blob/master/eg/is-character.pl">is-character.pl</a></p>
 
-                <p><a href="https://techn.ology.net/2020/03/03/predicting-star-trek-characters-with-naive-bayes/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2020/03/03/predicting-star-trek-characters-with-naive-bayes/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/machine-learning/">machine learning</a>
-                    <a href="https://techn.ology.net/tag/nlp/">NLP</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/machine-learning/">machine learning</a>
+                    <a href="https://ology.github.io/tag/nlp/">NLP</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -36,20 +36,20 @@ I have been reading <a href="https://www.oreilly.com/library/view/data-science-f
         <category term="analysis" />
     </entry>
     <entry>
-        <id>https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/</id>
+        <id>https://ology.github.io/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/</id>
         <title>Linguistic Analysis of the State of the Union Addresses</title>
-        <link href="https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/" rel="alternate" />
+        <link href="https://ology.github.io/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>This weekend I harvested 231 State of the Union addresses up to 2017 and put them through NLP processing.</p>
 
-                <p><a href="https://techn.ology.net/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
-                    <a href="https://techn.ology.net/tag/nlp/">NLP</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                    <a href="https://ology.github.io/tag/nlp/">NLP</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>

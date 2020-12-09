@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Gene Boggs</title>
-        <link>https://techn.ology.net/tag/r/</link>
-        <atom:link href="https://techn.ology.net/tag/r.rss" rel="self" type="application/rss+xml" />
+        <link>https://ology.github.io/tag/r/</link>
+        <atom:link href="https://ology.github.io/tag/r.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
             <title>Ones vs Zeros in the Binary Primes</title>
-            <link>https://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/</link>
-            <guid>https://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/</guid>
+            <link>https://ology.github.io/2020/05/03/ones-vs-zeros-in-the-binary-primes/</link>
+            <guid>https://ology.github.io/2020/05/03/ones-vs-zeros-in-the-binary-primes/</guid>
             <description><![CDATA[
                 <p>What does the graph look like when you convert each prime to binary and plot the ones versus the zeros?</p>
 
-                    <p><a href="https://techn.ology.net/2020/05/03/ones-vs-zeros-in-the-binary-primes/#section-2">Continue reading...</a></p>
+                    <p><a href="https://ology.github.io/2020/05/03/ones-vs-zeros-in-the-binary-primes/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://techn.ology.net/tag/perl/">perl</a>
-                        <a href="https://techn.ology.net/tag/r/">R</a>
-                        <a href="https://techn.ology.net/tag/software/">software</a>
-                        <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
-                        <a href="https://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/r/">R</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                        <a href="https://ology.github.io/tag/prime-numbers/">prime numbers</a>
                     </p>
 
             ]]></description>
@@ -30,21 +30,21 @@
         </item>
         <item>
             <title>Alternatives to the Logistic Equation</title>
-            <link>https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/</link>
-            <guid>https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/</guid>
+            <link>https://ology.github.io/2016/03/11/alternatives-to-the-logistic-equation/</link>
+            <guid>https://ology.github.io/2016/03/11/alternatives-to-the-logistic-equation/</guid>
             <description><![CDATA[
-                <p><a href="https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/bifurcation-01.png"><img alt="" src="https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/bifurcation-01-sm.png"></a>
+                <p><a href="https://ology.github.io/2016/03/11/alternatives-to-the-logistic-equation/bifurcation-01.png"><img alt="" src="https://ology.github.io/2016/03/11/alternatives-to-the-logistic-equation/bifurcation-01-sm.png"></a>
 Yesterday, I decided to plot the <a href="https://en.wikipedia.org/wiki/Logistic_map">bifurcation diagram</a> of the logistic equation.  This is a famous plot from the 70s, with which many geeks will be familiar.  It shows that simple systems can switch into &quot;chaos mode&quot; and begin to bifurcate wildly.</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Math/blob/master/bifurcation.R">bifurcation.R</a></p>
 
-                    <p><a href="https://techn.ology.net/2016/03/11/alternatives-to-the-logistic-equation/#section-2">Continue reading...</a></p>
+                    <p><a href="https://ology.github.io/2016/03/11/alternatives-to-the-logistic-equation/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://techn.ology.net/tag/r/">R</a>
-                        <a href="https://techn.ology.net/tag/software/">software</a>
-                        <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
-                        <a href="https://techn.ology.net/tag/image/">image</a>
+                        <a href="https://ology.github.io/tag/r/">R</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                        <a href="https://ology.github.io/tag/image/">image</a>
                     </p>
 
             ]]></description>
@@ -54,21 +54,21 @@ Yesterday, I decided to plot the <a href="https://en.wikipedia.org/wiki/Logistic
         </item>
         <item>
             <title>Time-Successive Old Faithful Eruption Durations</title>
-            <link>https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/</link>
-            <guid>https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/</guid>
+            <link>https://ology.github.io/2014/07/21/time-successive-old-faithful-eruption-durations/</link>
+            <guid>https://ology.github.io/2014/07/21/time-successive-old-faithful-eruption-durations/</guid>
             <description><![CDATA[
-                <p><a href="https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/successive-faithful-eruptions.png"><img alt="" src="https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/successive-faithful-eruptions-sm.png"></a>
+                <p><a href="https://ology.github.io/2014/07/21/time-successive-old-faithful-eruption-durations/successive-faithful-eruptions.png"><img alt="" src="https://ology.github.io/2014/07/21/time-successive-old-faithful-eruption-durations/successive-faithful-eruptions-sm.png"></a>
 Because of the observed data, a four group clustering emerges when successive eruption durations of the famous geyser are plotted.  The x axis is the first eruption and y is the next.</p>
 
-                    <p><a href="https://techn.ology.net/2014/07/21/time-successive-old-faithful-eruption-durations/#section-2">Continue reading...</a></p>
+                    <p><a href="https://ology.github.io/2014/07/21/time-successive-old-faithful-eruption-durations/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://techn.ology.net/tag/perl/">perl</a>
-                        <a href="https://techn.ology.net/tag/r/">R</a>
-                        <a href="https://techn.ology.net/tag/software/">software</a>
-                        <a href="https://techn.ology.net/tag/data/">data</a>
-                        <a href="https://techn.ology.net/tag/image/">image</a>
-                        <a href="https://techn.ology.net/tag/web/">web</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/r/">R</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/data/">data</a>
+                        <a href="https://ology.github.io/tag/image/">image</a>
+                        <a href="https://ology.github.io/tag/web/">web</a>
                     </p>
 
             ]]></description>
@@ -78,22 +78,22 @@ Because of the observed data, a four group clustering emerges when successive e
         </item>
         <item>
             <title>Fibonacci v Primes: Cage Match!</title>
-            <link>https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/</link>
-            <guid>https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/</guid>
+            <link>https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/</link>
+            <guid>https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/</guid>
             <description><![CDATA[
-                <p><a href="https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31.png"><img alt="" src="https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31-sm.png"></a>
+                <p><a href="https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31.png"><img alt="" src="https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31-sm.png"></a>
 Today I decided to more deeply investigate this curious math thing I discovered (for myself) - Plotting the Fibonacci numbers by Prime numbers each by a given modulo.  &quot;Fibo-what? Mod-what? So what!&quot;, you say. <em>:p</em></p>
 
 <p>tldr code: <a href="https://github.com/ology/Math/blob/master/slice-seq">slice-seq</a> and <a href="https://github.com/ology/Math/blob/master/slice-seq.R">slice-seq.R</a></p>
 
-                    <p><a href="https://techn.ology.net/2014/07/06/fibonacci-v-primes-cage-match/#section-2">Continue reading...</a></p>
+                    <p><a href="https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://techn.ology.net/tag/perl/">perl</a>
-                        <a href="https://techn.ology.net/tag/r/">R</a>
-                        <a href="https://techn.ology.net/tag/software/">software</a>
-                        <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
-                        <a href="https://techn.ology.net/tag/prime-numbers/">prime numbers</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/r/">R</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                        <a href="https://ology.github.io/tag/prime-numbers/">prime numbers</a>
                     </p>
 
             ]]></description>

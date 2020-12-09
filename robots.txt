@@ -1,4 +1,4 @@
-Sitemap: https://techn.ology.net/sitemap.xml
+Sitemap: https://ology.github.io/sitemap.xml
 User-Agent: *
 Disallow:
 

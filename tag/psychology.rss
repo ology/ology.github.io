@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Gene Boggs</title>
-        <link>https://techn.ology.net/tag/psychology/</link>
-        <atom:link href="https://techn.ology.net/tag/psychology.rss" rel="self" type="application/rss+xml" />
+        <link>https://ology.github.io/tag/psychology/</link>
+        <atom:link href="https://ology.github.io/tag/psychology.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
             <title>Dimensional Personality Disorder Assessment</title>
-            <link>https://techn.ology.net/2017/12/19/dimensional-personality-disorder-assessment/</link>
-            <guid>https://techn.ology.net/2017/12/19/dimensional-personality-disorder-assessment/</guid>
+            <link>https://ology.github.io/2017/12/19/dimensional-personality-disorder-assessment/</link>
+            <guid>https://ology.github.io/2017/12/19/dimensional-personality-disorder-assessment/</guid>
             <description><![CDATA[
-                <p><img alt="" src="https://techn.ology.net/2017/12/19/dimensional-personality-disorder-assessment/tim.jpg">
+                <p><img alt="" src="https://ology.github.io/2017/12/19/dimensional-personality-disorder-assessment/tim.jpg">
 <a href="http://obits.oregonlive.com/obituaries/oregon/obituary.aspx?pid=160646732">Timothy W. Butcher</a> and I collaborated on a number of diverse projects.  One was a personality disorder quiz that he devised while taking an abnormal psychology university course.</p>
 
-                    <p><a href="https://techn.ology.net/2017/12/19/dimensional-personality-disorder-assessment/#section-2">Continue reading...</a></p>
+                    <p><a href="https://ology.github.io/2017/12/19/dimensional-personality-disorder-assessment/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://techn.ology.net/tag/perl/">perl</a>
-                        <a href="https://techn.ology.net/tag/psychology/">psychology</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/psychology/">psychology</a>
                     </p>
 
             ]]></description>

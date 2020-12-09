@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Gene Boggs</title>
-        <link>https://techn.ology.net/tag/game-theory/</link>
-        <atom:link href="https://techn.ology.net/tag/game-theory.rss" rel="self" type="application/rss+xml" />
+        <link>https://ology.github.io/tag/game-theory/</link>
+        <atom:link href="https://ology.github.io/tag/game-theory.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
             <title>Iterated Prisoner&#39;s Dilemma</title>
-            <link>https://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/</link>
-            <guid>https://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/</guid>
+            <link>https://ology.github.io/2019/06/02/iterated-prisoners-dilemma/</link>
+            <guid>https://ology.github.io/2019/06/02/iterated-prisoners-dilemma/</guid>
             <description><![CDATA[
-                <p><img alt="" src="https://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/game-theory.png">
+                <p><img alt="" src="https://ology.github.io/2019/06/02/iterated-prisoners-dilemma/game-theory.png">
 This weekend I watched <a href="http://www.hannahfry.co.uk/">Dr Hannah Fry&#39;s</a> <a href="https://www.bbc.co.uk/programmes/b0b9zsfb">documentary on game theory</a>, and was inspired by her discussion of <a href="https://en.wikipedia.org/wiki/Robert_Axelrod">Robert Axelrod&#39;s</a> tournament to simulate the iterated <a href="https://en.wikipedia.org/wiki/Prisoner%27s_dilemma">prisoner&#39;s dilemma</a> (IPD) for myself.</p>
 
-                    <p><a href="https://techn.ology.net/2019/06/02/iterated-prisoners-dilemma/#section-2">Continue reading...</a></p>
+                    <p><a href="https://ology.github.io/2019/06/02/iterated-prisoners-dilemma/#section-2">Continue reading...</a></p>
 
                     <p>Tags:
-                        <a href="https://techn.ology.net/tag/perl/">perl</a>
-                        <a href="https://techn.ology.net/tag/software/">software</a>
-                        <a href="https://techn.ology.net/tag/mathematics/">mathematics</a>
-                        <a href="https://techn.ology.net/tag/game-theory/">game theory</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                        <a href="https://ology.github.io/tag/game-theory/">game theory</a>
                     </p>
 
             ]]></description>

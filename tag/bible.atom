@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://techn.ology.net/tag/bible/</id>
+    <id>https://ology.github.io/tag/bible/</id>
     <title>Gene Boggs</title>
     <updated>2018-03-04T00:00:00Z</updated>
-    <link href="https://techn.ology.net/tag/bible.atom" rel="self" />
-    <link href="https://techn.ology.net/tag/bible/" rel="alternate" />
+    <link href="https://ology.github.io/tag/bible.atom" rel="self" />
+    <link href="https://ology.github.io/tag/bible/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
     <entry>
-        <id>https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/</id>
+        <id>https://ology.github.io/2018/03/04/book-of-revelation-sentiment-analysis/</id>
         <title>Book of Revelation Sentiment Analysis</title>
-        <link href="https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/" rel="alternate" />
+        <link href="https://ology.github.io/2018/03/04/book-of-revelation-sentiment-analysis/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>I decided to write my own sentiment analysis library called <a href="https://metacpan.org/release/Lingua-EN-Opinion">Lingua::EN::Opinion</a> and use it to investigate the KJV Bible Book of Revelation.</p>
 
-                <p><a href="https://techn.ology.net/2018/03/04/book-of-revelation-sentiment-analysis/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2018/03/04/book-of-revelation-sentiment-analysis/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/bible/">bible</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/bible/">bible</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
@@ -31,21 +31,21 @@
         <category term="analysis" />
     </entry>
     <entry>
-        <id>https://techn.ology.net/2018/02/24/bible-books-cosine-similarity/</id>
+        <id>https://ology.github.io/2018/02/24/bible-books-cosine-similarity/</id>
         <title>Bible Books Cosine Similarity</title>
-        <link href="https://techn.ology.net/2018/02/24/bible-books-cosine-similarity/" rel="alternate" />
+        <link href="https://ology.github.io/2018/02/24/bible-books-cosine-similarity/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>How do the books of the KJV Bible compare to each other word for word?  Are Old Testament books more similar to other Old Testament books?  Same for the New Testament?  What about the Greek (Nestle-Aland 26th/27th edition) translation of the New Testament?</p>
 
 <p>Naturally, I wrote a little perl program of the classic <a href="https://en.wikipedia.org/wiki/Natural-language_processing">NLP</a> measure to tell me: <a href="https://github.com/ology/Lex/blob/master/cosine-similarity">cosine-similarity</a>.  It is not the most efficient but it works perfectly!</p>
 
-                <p><a href="https://techn.ology.net/2018/02/24/bible-books-cosine-similarity/#section-2">Continue reading...</a></p>
+                <p><a href="https://ology.github.io/2018/02/24/bible-books-cosine-similarity/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="https://techn.ology.net/tag/perl/">perl</a>
-                    <a href="https://techn.ology.net/tag/software/">software</a>
-                    <a href="https://techn.ology.net/tag/bible/">bible</a>
-                    <a href="https://techn.ology.net/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/bible/">bible</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
                 </p>
 
         ]]></content>
