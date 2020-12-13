@@ -12,7 +12,7 @@
         <title>Enter Music::Chord::Progression</title>
         <link href="https://ology.github.io/2020/12/13/enter-music-chord-progression/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><img alt="" src="https://ology.github.io/2020/12/13/enter-music-chord-progression/state-machine-sm.png">
+            <p><img alt="" src="https://ology.github.io/2020/12/13/enter-music-chord-progression/state-machine.png">
 This weekend I saw this diagram and thought, &quot;I can do that!&quot;</p>
 
 <p>tl;dr: <a href="https://metacpan.org/release/Music-Chord-Progression">Music::Chord::Progression</a></p>
