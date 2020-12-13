@@ -83,10 +83,10 @@ This weekend I saw this diagram and thought, &quot;I can do that!&quot;</p>
 <pre><code>my ($self) = @_;
 </code></pre>
 
-<p>We bail out if the chord transition network (<code>net</code>) doesn&#39;t match-up with the chord list attribute that we have defined (<code>chords</code>):</p>
+<p>We bail out if the chord transition network (<code>net</code>) doesn&#39;t match-up with the <code>chord_map</code> attribute that we have defined:</p>
 
-<pre><code>croak &#39;chords length must equal number of net keys&#39;
-    unless @{ $self-&gt;chords } == keys %{ $self-&gt;net };
+<pre><code>croak &#39;chord_map length must equal number of net keys&#39;
+    unless @{ $self-&gt;chord_map } == keys %{ $self-&gt;net };
 </code></pre>
 
 <p>The first part of the algorithm is to create a random progression:</p>
@@ -103,11 +103,11 @@ for my $n (1 .. $self-&gt;max) {
 
 <p>Next, it is time to perform jazz chord substitution (if requested in the constructor):</p>
 
-<pre><code>my @chords = @{ $self-&gt;chords };
+<pre><code>my @chord_map = @{ $self-&gt;chord_map };
 
 if ($self-&gt;substitute) {
     my $i = 0;
-    for my $chord (@chords) {
+    for my $chord (@chord_map) {
         my $substitute = $self-&gt;sub_cond-&gt;() ? $self-&gt;substitution($chord) : $chord;
         if ($substitute eq $chord &amp;&amp; $i &lt; @progression &amp;&amp; $self-&gt;sub_cond-&gt;()) {
             $progression[$i] .= &#39;t&#39;; # Indicate that we should tritone substitute
@@ -117,10 +117,10 @@ if ($self-&gt;substitute) {
     }
 }
 
-my @phrase = map { $self-&gt;_tt_sub(\@chords, $_) } @progression;
+my @phrase = map { $self-&gt;_tt_sub(\@chord_map, $_) } @progression;
 </code></pre>
 
-<p>This bit is a bit complicated.  Basically it transforms the object <code>chords</code> into dominants or extended chords.  Also it determines if a scale note in the progression should be substituted with its tritone.</p>
+<p>This bit is a bit complicated.  Basically it transforms the object <code>chord_map</code> into dominants or extended chords.  Also it determines if a scale note in the progression should be substituted with its tritone.</p>
 
 <p>We&#39;re almost done, but we need to attach octaves to actual notes in order to render them to audio:</p>
 
@@ -146,7 +146,7 @@ for my $chord (@phrase) {
         &#39;A#&#39; =&gt; &#39;Bb&#39;,
         &#39;B#&#39; =&gt; &#39;C&#39;,
     );
-    for my $chord (@notes) {
+    for my $chord (@chords) {
         for my $note (@$chord) {
             $note =~ s/^([A-G]#)(\d+)$/$equiv{$1}$2/ if $note =~ /#/;
         }
@@ -156,9 +156,9 @@ for my $chord (@phrase) {
 
 <p>This uses a reqular expression substitution to change sharped notes to their flat equivalents.</p>
 
-<p>Lastly, we return the transformed notes:</p>
+<p>Lastly, we return the transformed chords:</p>
 
-<pre><code>return \@notes;
+<pre><code>return \@chords;
 </code></pre>
 
 <p>Ok great.  So what kind of things does this produce?  Here is the basic output when modulated over <code>E D A D</code> in major (made by the program <a href="https://github.com/ology/Music-Chord-Progression/blob/main/eg/moduation">moduation</a>):</p>
