@@ -7,6 +7,30 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
+            <title>Enter Music::Chord::Progression</title>
+            <link>https://ology.github.io/2020/12/13/enter-music-chord-progression/</link>
+            <guid>https://ology.github.io/2020/12/13/enter-music-chord-progression/</guid>
+            <description><![CDATA[
+                <p><img alt="" src="https://ology.github.io/2020/12/13/enter-music-chord-progression/state-machine-sm.png">
+This weekend I saw this diagram and thought, &quot;I can do that!&quot;</p>
+
+<p>tl;dr: <a href="https://metacpan.org/release/Music-Chord-Progression">Music::Chord::Progression</a></p>
+
+                    <p><a href="https://ology.github.io/2020/12/13/enter-music-chord-progression/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/generative/">generative</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 13 Dec 2020 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Making a Statocles Plugin</title>
             <link>https://ology.github.io/2020/12/06/making-a-statocles-plugin/</link>
             <guid>https://ology.github.io/2020/12/06/making-a-statocles-plugin/</guid>
@@ -95,31 +119,6 @@ Each drummer keeps a steady beat in common and in syncopation with his or her fe
             ]]></description>
             <pubDate>
                 Sun, 01 Nov 2020 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Imitating Steve Reich</title>
-            <link>https://ology.github.io/2020/10/18/imitating-steve-reich/</link>
-            <guid>https://ology.github.io/2020/10/18/imitating-steve-reich/</guid>
-            <description><![CDATA[
-                <p><img alt="" src="https://ology.github.io/2020/10/18/imitating-steve-reich/Steve-Reich.jpg">
-Recently I was enjoying Steve Reich&#39;s <a href="https://www.youtube.com/watch?v=WgzQcDrX86M">&quot;Octet&quot; (Eight Lines)</a> and became curious if I could mimic the simple, staccato phrases with which he starts off his piece.</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/reichify">reichify</a></p>
-
-                    <p><a href="https://ology.github.io/2020/10/18/imitating-steve-reich/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                        <a href="https://ology.github.io/tag/generative/">generative</a>
-                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sun, 18 Oct 2020 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

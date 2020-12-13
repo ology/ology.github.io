@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Enter Music::Chord::Progression - Gene Boggs</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2020/12/06/making-a-statocles-plugin/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
+
+        <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <script src="/theme/site/ology.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Enter Music::Chord::Progression</h1>
+
+    <aside>
+        <time datetime="2020-12-13">
+            Posted on 2020-12-13
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/generative/" rel="tag">generative</a>
+        <a href="/tag/music/" rel="tag">music</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p><img alt="" src="state-machine-sm.png">
+This weekend I saw this diagram and thought, &quot;I can do that!&quot;</p>
+
+<p>tl;dr: <a href="https://metacpan.org/release/Music-Chord-Progression">Music::Chord::Progression</a></p>
+
+</section>
+<section id="section-2">
+    <p><img alt="" src="state-machine.png"></p>
+
+<p>For me, programming is an iterative process.  First I get a glimmer of an idea.  Then I work out both in my head and in perl a <a href="https://en.wikipedia.org/wiki/Minimal_working_example">&quot;Minimal working example&quot;</a>.  This usually reveals the rudimentary data stuctures and algorithms necessary, and allows whatever it is that I am curious about to be seen in action.</p>
+
+<p>If still curious, I&#39;ll next craft a more fully featured program using these ideas but made generic with various parameters (like musical scale parts).  Fiddle about, rinse, repeat... And <em>sometimes</em>, if the program has enough parametric variation and could be &quot;generically usefull&quot;, I will decide it can be made into a module!</p>
+
+<p>This is exciting to me because I love building APIs for some reason.</p>
+
+<p>Ok. On with the show!</p>
+
+<p>The above module has a <strong>lot</strong> of attributes that control the execution of the single method called <code>generate</code>.  I will let the reader check those out.  The documentation explaines each.</p>
+
+<p>The meat of the code is this <code>generate</code> method, which according to the documentation generates &quot;a fresh chord progression.&quot;  Let&#39;s dive in!</p>
+
+<p>The first thing is to assign our object variable:</p>
+
+<pre><code>my ($self) = @_;
+</code></pre>
+
+<p>We bail out if the chord transition network (<code>net</code>) doesn&#39;t match-up with the chord list attribute that we have defined (<code>chords</code>):</p>
+
+<pre><code>croak &#39;chords length must equal number of net keys&#39;
+    unless @{ $self-&gt;chords } == keys %{ $self-&gt;net };
+</code></pre>
+
+<p>The first part of the algorithm is to create a random progression:</p>
+
+<pre><code>my @progression;
+my $v; # Vertex
+for my $n (1 .. $self-&gt;max) {
+    $v = $self-&gt;_next_successor($n, $v);
+    push @progression, $v;
+}
+</code></pre>
+
+<p>This uses the <code>graph</code> attribute object (as well as the <code>tonic</code> and <code>resolve</code> attributes) to determine the next numbered key of the <code>net</code>.</p>
+
+<p>Next, it is time to perform jazz chord substitution (if requested in the constructor):</p>
+
+<pre><code>my @chords = @{ $self-&gt;chords };
+
+if ($self-&gt;substitute) {
+    my $i = 0;
+    for my $chord (@chords) {
+        my $substitute = $self-&gt;sub_cond-&gt;() ? $self-&gt;substitution($chord) : $chord;
+        if ($substitute eq $chord &amp;&amp; $i &lt; @progression &amp;&amp; $self-&gt;sub_cond-&gt;()) {
+            $progression[$i] .= &#39;t&#39;; # Indicate that we should tritone substitute
+        }
+        $chord = $substitute;
+        $i++;
+    }
+}
+
+my @phrase = map { $self-&gt;_tt_sub(\@chords, $_) } @progression;
+</code></pre>
+
+<p>This bit is a bit complicated.  Basically it transforms the object <code>chords</code> into dominants or extended chords.  Also it determines if a scale note in the progression should be substituted with its tritone.</p>
+
+<p>We&#39;re almost done, but we need to attach octaves to actual notes in order to render them to audio:</p>
+
+<pre><code>my $mcn = Music::Chord::Note-&gt;new;
+my @notes;
+for my $chord (@phrase) {
+    my @chord = $mcn-&gt;chord_with_octave($chord, $self-&gt;octave);
+    push @notes, \@chord;
+}
+</code></pre>
+
+<p>Here, the handy <a href="https://metacpan.org/release/Music-Chord-Note">Music::Chord::Note</a> module is used to translate our phrase of chords to playable notes.</p>
+
+<p>We may have requested that the sharp notes be made flat.  In that case we perform these gymnastics:</p>
+
+<pre><code>if ($self-&gt;flat) {
+    my %equiv = (
+        &#39;C#&#39; =&gt; &#39;Db&#39;,
+        &#39;D#&#39; =&gt; &#39;Eb&#39;,
+        &#39;E#&#39; =&gt; &#39;F&#39;,
+        &#39;F#&#39; =&gt; &#39;Gb&#39;,
+        &#39;G#&#39; =&gt; &#39;Ab&#39;,
+        &#39;A#&#39; =&gt; &#39;Bb&#39;,
+        &#39;B#&#39; =&gt; &#39;C&#39;,
+    );
+    for my $chord (@notes) {
+        for my $note (@$chord) {
+            $note =~ s/^([A-G]#)(\d+)$/$equiv{$1}$2/ if $note =~ /#/;
+        }
+    }
+}
+</code></pre>
+
+<p>This uses a reqular expression substitution to change sharped noted to the flat equivalents.</p>
+
+<p>Lastly, we return the transformed notes:</p>
+
+<pre><code>return \@notes;
+</code></pre>
+
+<p>Ok great.  So what kind of things does this produce?  Here is the basic output when modulated over <code>E D A D</code> in major:</p>
+
+<p><audio controls><source src="moduation.mp3" type="audio/mp3"></audio></p>
+
+<p>And here is one with a chord progression, bass and a single note top line:</p>
+
+<p><audio controls><source src="progressive-01.mp3" type="audio/mp3"></audio></p>
+
+<p>Sounds almost human, but is entirely auto-generated.</p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2020/12/06/making-a-statocles-plugin/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                |
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
