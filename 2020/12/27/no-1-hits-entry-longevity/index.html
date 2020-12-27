@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>No. 1 Hits - Entry & Longevity - Gene Boggs</title>
+        <meta content="Statocles 0.097" name="generator">
+        <link href="/2020/12/23/algorithmic-composition-wiki/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
+
+<script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <script src="/theme/site/ology.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>No. 1 Hits - Entry &amp; Longevity</h1>
+
+    <aside>
+        <time datetime="2020-12-27">
+            Posted on 2020-12-27
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/music/" rel="tag">music</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>If you plot the number one charting hits (entry position vs weeks on chart) for three decades, what does it reveal?  Is there a trend?</p>
+
+</section>
+<section id="section-2">
+    <p>Here is what must be harvested:</p>
+
+<p><img alt="" src="html-table.png"></p>
+
+<p>And here is the Perl program that answers this question:</p>
+
+<pre><code>#!/usr/bin/perl
+use strict;
+use warnings;
+
+use Chart::LinesPoints;
+use Data::Dumper::Compact qw(ddc);
+use Mojo::DOM;
+use Mojo::UserAgent;
+</code></pre>
+
+<p>This is the standard perl preamble along with the programming libraries to use.</p>
+
+<pre><code>my $base = &#39;http://www.REDACTED.com/&#39;;
+
+my $url = $base . &#39;default.asp?Lang=English&amp;Chart=D&amp;ChDay=01&amp;ChMonth=01&amp;ChYear=1970&amp;ChBand=&amp;ChSong=&#39;;
+
+my $ua  = Mojo::UserAgent-&gt;new;
+</code></pre>
+
+<p>Here the first of the URLs is fetched with <a href="https://metacpan.org/pod/Mojo::UserAgent">Mojo::UserAgent</a>.</p>
+
+<p>Next, we need a bucket for the number one hits that we see, for each page inspected:</p>
+
+<pre><code>my %seen;
+</code></pre>
+
+<p>And here is the meat of the program - a loop over 3 decades by week:</p>
+
+<pre><code>for my $i (1 .. 52 * 10 * 3) {
+</code></pre>
+
+<p>The first thing in the loop is that we play nice and pause before fetching a new URL:</p>
+
+<pre><code>    sleep 5 unless $i == 1;
+
+    print &quot;$i. $url\n&quot;;
+    my $tx = $ua-&gt;get($url);
+</code></pre>
+
+<p>Then we assign the content of the page body to <a href="https://metacpan.org/pod/Mojo::DOM">Mojo::DOM</a>, and find the &quot;Next Chart&quot; link, for the next iteration:</p>
+
+<pre><code>    my $dom = Mojo::DOM-&gt;new($tx-&gt;res-&gt;body);
+
+    $url = $base . $dom-&gt;find(&#39;a[href$=ChMode=N]&#39;)-&gt;[0]-&gt;attr(&#39;href&#39;);
+</code></pre>
+
+<p>But for this iteration we want to grab the last (nested) table on the page, which holds the information we care about:</p>
+
+<pre><code>    my @data = $dom-&gt;find(&#39;table &gt; tr &gt; td:last-child &gt; table &gt; tr&#39;)
+                   -&gt;map(&#39;all_text&#39;)
+                   -&gt;each;
+</code></pre>
+
+<p>Now upon inspection of this data, we find that there are literal &quot;\n&quot;, &quot;\r&quot;, and &quot;\t&quot; characters in each row.  Yuck!  So we make individual, escaped strings to discard:</p>
+
+<pre><code>    my $n = quotemeta(&#39;\\n&#39;);
+    my $r = quotemeta(&#39;\\r&#39;);
+    my $t = quotemeta(&#39;\\t&#39;);
+</code></pre>
+
+<p>Here is the part of the loop that sanitizes the data by row, so that we cave clean data with which to work:</p>
+
+<pre><code>    my @lines;
+    for my $d (@data) {
+        $d =~ s/$n//g;
+        $d =~ s/$r//g;
+        $d =~ s/$t//g;
+
+        my @row = split /[\n\r\t]+/, $d;
+
+        my @partial;
+        for my $r (@row) {
+            $r =~ s/\s+/ /g;
+            $r =~ s/^\s+//;
+            $r =~ s/\s+$//;
+            next if $r =~ /^\s*$/;
+            push @partial, $r;
+        }
+        push @lines, \@partial;
+    }
+</code></pre>
+
+<p>It <strong>is</strong> a bit of gymnastics, but fortunately this is one thing perl really excels at - processing text.</p>
+
+<p>The next code strips off the lines that do not have song data (those with a number starting the line data):</p>
+
+<pre><code>    my @records;
+    for my $line (@lines) {
+        next unless $line-&gt;[0] =~ /^\d+$/;
+        push @records, $line;
+    }
+</code></pre>
+
+<p>And here is the final purpose of this loop - to save the first record (member 0) by name, entry position and number of weeks spent on the chart.</p>
+
+<pre><code>    $seen{ $records[0][4] } = [ $records[0][6], $records[0][8] ]
+        unless $seen{ $records[0][4] };
+}
+
+print ddc(\%seen); # Show the harvested songs
+</code></pre>
+
+<p>A picture is worth a thousand words.  So even though we have the results, they are in the form of numbers without context.</p>
+
+<p>Enter the <a href="https://metacpan.org/pod/distribution/Chart/Chart.pod">Chart</a> module which we will use to make a line-plot of our records:</p>
+
+<pre><code>my $chart = Chart::LinesPoints-&gt;new(500, 500);
+$chart-&gt;set(
+    legend       =&gt; &#39;none&#39;,
+    title        =&gt; &#39;Start Position vs Chart Weeks&#39;,
+    x_label      =&gt; &#39;Position&#39;,
+    y_label      =&gt; &#39;Weeks&#39;,
+    include_zero =&gt; &#39;false&#39;,
+    precision    =&gt; 2,
+    skip_x_ticks =&gt; 4,
+    brush_size   =&gt; 2,
+    pt_size      =&gt; 4,
+    y_grid_lines =&gt; &#39;true&#39;,
+);
+</code></pre>
+
+<p>Okay.  This bit may be a bit confusing.  The first call to <code>-&gt;add_dataset</code> establishes the x-axis data.  The second sets the y-axis.  Each is sorted by the x-axis data so that the x and y points will match-up:</p>
+
+<pre><code>$chart-&gt;add_dataset(map { $seen{$_}[0] } sort { $seen{$a}[0] &lt;=&gt; $seen{$b}[0] } keys %seen);
+$chart-&gt;add_dataset(map { $seen{$_}[1] } sort { $seen{$a}[0] &lt;=&gt; $seen{$b}[0] } keys %seen);
+</code></pre>
+
+<p>Finally the chart is printed to a graphics file:</p>
+
+<pre><code>$chart-&gt;png(&quot;$0.png&quot;);
+</code></pre>
+
+<p>And what does this look like?</p>
+
+<p><img alt="" src="mojo-harvest-billboard.png"></p>
+
+<p>It appears that there is no trend at all.  Interesting.</p>
+
+<p>By the way, here is an example of a record that is processed into the chart:</p>
+
+<pre><code>&#39;Bridge Over Troubled Water SIMON AND GARFUNKEL&#39; =&gt; [49, 14]
+</code></pre>
+
+<p>That says, &quot;Bridge Over Troubled Water&quot; entered the chart at position 49 and stayed in the charts for 14 weeks.</p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2020/12/23/algorithmic-composition-wiki/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    <input id="query" placeholder="Search" type="text">
+
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                |
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
