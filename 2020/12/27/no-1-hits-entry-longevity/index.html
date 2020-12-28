@@ -160,6 +160,7 @@ my $ua  = Mojo::UserAgent-&gt;new;
     for my $line (@lines) {
         next unless $line-&gt;[0] =~ /^\d+$/;
         push @records, $line;
+        last;
     }
 </code></pre>
 
@@ -204,9 +205,9 @@ $chart-&gt;add_dataset(map { $seen{$_}[1] } sort { $seen{$a}[0] &lt;=&gt; $seen{
 
 <p>And what does this look like?</p>
 
-<p><img alt="" src="mojo-harvest-billboard.png"></p>
+<p><img alt="" src="position-x-chart-weeks.png"></p>
 
-<p>It appears that there is no trend at all.  Interesting.  It might be more interesting to compare the time spent at the number one position...</p>
+<p>It appears that there is no trend at all.  Okay.  It might be more interesting to compare the time spent at the number one position... (See the update below.)</p>
 
 <p>By the way, here is an example of a record that is processed into the chart:</p>
 
@@ -214,6 +215,16 @@ $chart-&gt;add_dataset(map { $seen{$_}[1] } sort { $seen{$a}[0] &lt;=&gt; $seen{
 </code></pre>
 
 <p>That says, &quot;Bridge Over Troubled Water&quot; entered the chart at position 49 and stayed in the charts for 14 weeks.</p>
+
+</section>
+<section id="section-3">
+    <p><strong>Update:</strong></p>
+
+<p>I added logic to the code to count the number of weeks a song is at number one.</p>
+
+<p><img alt="" src="chart-x-no1-weeks.png"></p>
+
+<p>This shows that ... there is no trend either.  Ok.</p>
 
 </section>
 
