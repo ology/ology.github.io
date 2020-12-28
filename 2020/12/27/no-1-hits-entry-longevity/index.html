@@ -220,11 +220,16 @@ $chart-&gt;add_dataset(map { $seen{$_}[1] } sort { $seen{$a}[0] &lt;=&gt; $seen{
 <section id="section-3">
     <p><strong>Update:</strong></p>
 
-<p>I added logic to the code to count the number of weeks a song is at number one.</p>
+<p>I added logic to the code to also count the number of weeks a song is at number one.</p>
+
+<p>So this means having a third member:</p>
+
+<pre><code>&#39;Bridge Over Troubled Water SIMON AND GARFUNKEL&#39; =&gt; [49, 14, 6]
+</code></pre>
 
 <p><img alt="" src="chart-x-no1-weeks.png"></p>
 
-<p>This shows that ... there is really no trend either.  But maybe you could say that the longer a hit song is number one, the longer it stays in the charts.  This is not earth shattering news, by any means.</p>
+<p>Anyway, this shows that ... there is really no trend either.  But maybe you could say that the longer a hit song is number one, the longer it stays in the charts.  This is not earth shattering news, by any means.</p>
 
 <p>For what it&#39;s worth, here is a 3D plot (made with <a href="https://www.r-project.org/">R</a>):</p>
 
