@@ -7,9 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>First Steps... - Gene Boggs</title>
+        <title>Inspecting American Inaugural Addresses with Perl and R - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/2020/12/27/no-1-hits-entry-longevity/index.html" rel="next">
+        <link href="/2021/01/13/first-steps/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -43,33 +43,86 @@
                 <div class="nine columns">
                     <main>
                         <header>
-    <h1>First Steps...</h1>
+    <h1>Inspecting American Inaugural Addresses with Perl and R</h1>
 
     <aside>
-        <time datetime="2021-01-13">
-            Posted on 2021-01-13
+        <time datetime="2021-01-21">
+            Posted on 2021-01-21
         </time>
     </aside>
 
     <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/r/" rel="tag">R</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/nlp/" rel="tag">NLP</a>
+        <a href="/tag/analysis/" rel="tag">analysis</a>
     </p>
 
 
 </header>
 <section id="section-1">
-    <p>Today I decided to hunt down the first &quot;computer&quot; I ever had...</p>
+    <p>Given all the inaugural addresses of American presidents, what are the readability stats?</p>
 
 </section>
 <section id="section-2">
-    <p>At first I thought it was a Texas Instruments <a href="https://en.wikipedia.org/wiki/Programmable_calculator">programmable calculator</a>.  But after much searching I came up empty-handed.  Then I thought hard, &quot;What else could it have been?&quot;  On a whim, I looked up Tandy programmable calculators from the 80s.  And lo!  There it was, the <a href="https://en.wikipedia.org/wiki/Tandy_Pocket_Computer">Tandy PC-6</a> on a wikipedia page.  Whew.  Mission accomplished.</p>
+    <p>As is often the case, I reach for <a href="https://www.perl.org/">perl</a> to acquire and format data, and then explore it with <a href="https://www.r-project.org/">R</a>.</p>
 
-<p>Next year I bought the venerable <a href="https://en.wikipedia.org/wiki/HP-28_series">HP28 programmable calculator</a>.  Then an <a href="https://en.wikipedia.org/wiki/HP_48_series">HP48G</a>.  Those were the good ol&#39; days...</p>
+<p>The code, <a href="https://github.com/ology/Lex/blob/master/fathom">fathom</a> reads and analyzes a collection of text documents.  It is based on the handy module <a href="https://metacpan.org/pod/Lingua::EN::Fathom">Lingua::EN::Fathom</a>.</p>
+
+<p>So given my folder of inaugural addresses, I type this into the console:</p>
+
+<pre><code>perl fathom ~/Documents/lit/US/Inaugural-Addresses &gt; ~/tmp/Inaugural-Address-stats.txt
+</code></pre>
+
+<p>And the tab-delimited, generated stats look like this:</p>
+
+<pre><code>Chars   Words   Complex Sentences   SylW    WpS FOG Flesch  Kincaid Name
+8606    1429    20.15   24  1.68    59.54   31.88   4.37    27.44   1789-Washington
+785 135 21.48   4   1.65    33.75   22.09   32.83   17.06   1793-Washington
+13850   2318    19.33   37  1.67    62.65   32.79   1.75    28.58   1797-Adams
+10121   1726    15.35   41  1.55    42.10   22.98   32.99   19.12   1801-Jefferson
+12879   2166    16.99   44  1.59    49.23   26.49   22.27   22.38   1805-Jefferson
+...
+</code></pre>
+
+<p>Then in R, we read-in this data as so:</p>
+
+<pre><code>inaugural &lt;- read.table(&#39;~/tmp/Inaugural-Address-stats.txt&#39;, header = TRUE, sep = &quot;\t&quot;, quote = &#39;&#39;)
+</code></pre>
+
+<p>Mostly, I just want to plot the measures over time to see if there is an upward or downward trend.  Here is a function for this:</p>
+
+<pre><code>abplot &lt;- function (data, title) {
+    plot(data, type=&#39;l&#39;, main = title, xaxt = &#39;n&#39;)
+    years &lt;- seq(1789, 2021, by = 4)
+    axis(1, 1 : length(years), years)
+    abline(lsfit(1 : length(data), data))
+}
+</code></pre>
+
+<p>Then we call this function for each column of data that we care about:</p>
+
+<pre><code>abplot(inaugural$Words, &#39;Number of Words&#39;)
+abplot(inaugural$Sentences, &#39;Number of Sentences&#39;)
+abplot(inaugural$WpS, &#39;Words per Sentence&#39;)
+abplot(inaugural$FOG, &#39;FOG Readability&#39;)
+abplot(inaugural$Flesch, &#39;Flesch Readability&#39;)
+</code></pre>
+
+<p>And here are the produced graphs:</p>
+
+<p><a href="inaugural-Words.png"><img alt="Words" src="inaugural-Words-sm.png"></a>
+<a href="inaugural-Sentences.png"><img alt="Sentences" src="inaugural-Sentences-sm.png"></a>
+<a href="inaugural-WpS.png"><img alt="WpS" src="inaugural-WpS-sm.png"></a>
+<a href="inaugural-FOG.png"><img alt="FOG" src="inaugural-FOG-sm.png"></a>
+<a href="inaugural-Flesch.png"><img alt="Flesch" src="inaugural-Flesch-sm.png"></a></p>
 
 </section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/2020/12/27/no-1-hits-entry-longevity/index.html" rel="prev">
+            <a class="button button-primary" href="/2021/01/13/first-steps/index.html" rel="prev">
                 ← Older
             </a>
     </li>
