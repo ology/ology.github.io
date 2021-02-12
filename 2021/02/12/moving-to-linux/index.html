@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>First Steps... - Gene Boggs</title>
+        <title>Moving to Linux - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/2021/02/12/moving-to-linux/index.html" rel="prev">
-        <link href="/2020/12/27/no-1-hits-entry-longevity/index.html" rel="next">
+        <link href="/2021/01/13/first-steps/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -44,42 +43,116 @@
                 <div class="nine columns">
                     <main>
                         <header>
-    <h1>First Steps...</h1>
+    <h1>Moving to Linux</h1>
 
     <aside>
-        <time datetime="2021-01-13">
-            Posted on 2021-01-13
+        <time datetime="2021-02-12">
+            Posted on 2021-02-12
         </time>
     </aside>
 
     <p class="tags">Tags:
+        <a href="/tag/software/" rel="tag">software</a>
     </p>
 
 
 </header>
 <section id="section-1">
-    <p>Today I decided to hunt down the first &quot;computer&quot; I ever had...</p>
+    <p>My Macbook was growing old in the tooth and the safety of my data, if it just gave up one day, was too much to stress over.</p>
+
+<p>So I bought a new laptop with Mint Linux preinstalled!</p>
 
 </section>
 <section id="section-2">
-    <p>At first I thought it was a Texas Instruments <a href="https://en.wikipedia.org/wiki/Programmable_calculator">programmable calculator</a>.  But after much searching I came up empty-handed.  Then I thought hard, &quot;What else could it have been?&quot;  On a whim, I looked up Tandy programmable calculators from the 80s.  And lo!  There it was, the <a href="https://en.wikipedia.org/wiki/Tandy_Pocket_Computer">Tandy PC-6</a> on a wikipedia page.  Whew.  Mission accomplished.</p>
+    <p>As opposed to Macs where everything is setup for you by the Apple Overlords and you just have to install apps, Linux is about customization.</p>
 
-<p><img alt="Tandy PC-6" src="Tandy_PC-6_Pocket_Computer.jpg"></p>
+<p>With that in mind, I wanted my machine to startup in a usable state - with apps ready to go.  Here is a bash script that I run under the Mint Startup Applications:</p>
 
-<p>Next year I bought the venerable <a href="https://en.wikipedia.org/wiki/HP-28_series">HP28 programmable calculator</a>.  Then an <a href="https://en.wikipedia.org/wiki/HP_48_series">HP48G</a>.  Those were the good ol&#39; days...</p>
+<pre><code>#!/bin/bash
+
+sleep 5s
+
+wmctrl -s 0
+gnome-terminal
+#x-terminal-emulator -e ssh-add ~/.ssh/id_rsa-github
+sleep 5s
+
+gpaste-client ui
+sleep 5s
+
+wmctrl -s 1
+# https://www.cyberciti.biz/faq/howto-run-firefox-from-the-command-line/
+firefox --search &quot;gene.boggs@gmail.com&quot; &amp;
+sleep 5s
+
+wmctrl -s 2
+google-chrome &amp;
+sleep 5s
+
+wmctrl -s 3
+xdg-open .
+sleep 5s
+
+vlc &amp;
+</code></pre>
+
+<p>Pretty cool!  It starts applications on one of four window manager workspaces with <code>wmctrl</code>.</p>
+
+<p>What about those default gnome-terminal tabs that look almost identical?  I searched and searched and finally found some CSS of all things!</p>
+
+<pre><code>notebook tab {
+    /* background-color: #222; */
+    padding: 0.4em;
+    border: 0;
+    border-color: #444;
+    border-style: solid;
+    border-width: 1px;
+}
+
+notebook tab:checked {
+    /* background-color: #000; */
+    background-image: none;
+    border-color: #76C802;
+}
+
+notebook tab:checked label {
+    color: #76C802;
+    font-weight: 500;
+}
+
+notebook tab button {
+    padding: 0;
+    background-color: transparent;
+    color: #ccc;
+}
+
+notebook tab button:hover {
+  border: 0;
+  background-image: none;
+  border-color: #444;
+  border-style: solid;
+  border-width: 1px;
+}
+</code></pre>
+
+<p><img alt="" src="gnome-terminal.png"></p>
+
+<p>There are other tweaks like reassigning the useless media keys (top row) to my media player, <a href="https://www.videolan.org/vlc/index.html">VLC</a>.  And then turning off the media key hijacking that Firefox and Chrome do... WHEW.</p>
+
+<p>Anyway, I am a happy camper now.  No need for Apple anymore (other than <a href="https://www.apple.com/logic-pro/">Logic Pro X</a>, which I can&#39;t live without it seems).</p>
 
 </section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/2020/12/27/no-1-hits-entry-longevity/index.html" rel="prev">
+            <a class="button button-primary" href="/2021/01/13/first-steps/index.html" rel="prev">
                 ← Older
             </a>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/2021/02/12/moving-to-linux/index.html" rel="next">
+            <button disabled>
                 Newer →
-            </a>
+            </button>
     </li>
 </ul>
 

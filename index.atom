@@ -2,11 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/</id>
     <title>Gene Boggs</title>
-    <updated>2021-01-13T00:00:00Z</updated>
+    <updated>2021-02-12T00:00:00Z</updated>
     <link href="https://ology.github.io/index.atom" rel="self" />
     <link href="https://ology.github.io/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2021/02/12/moving-to-linux/</id>
+        <title>Moving to Linux</title>
+        <link href="https://ology.github.io/2021/02/12/moving-to-linux/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>My Macbook was growing old in the tooth and the safety of my data, if it just gave up one day, was too much to stress over.</p>
+
+<p>So I bought a new laptop with Mint Linux preinstalled!</p>
+
+                <p><a href="https://ology.github.io/2021/02/12/moving-to-linux/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                </p>
+
+        ]]></content>
+        <updated>2021-02-12T00:00:00Z</updated>
+        <category term="software" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2021/01/13/first-steps/</id>
         <title>First Steps...</title>
@@ -91,28 +110,6 @@ This weekend I saw this diagram and thought, &quot;I can do that!&quot;</p>
         <category term="software" />
         <category term="generative" />
         <category term="music" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2020/12/06/making-a-statocles-plugin/</id>
-        <title>Making a Statocles Plugin</title>
-        <link href="https://ology.github.io/2020/12/06/making-a-statocles-plugin/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><img alt="" src="https://ology.github.io/2020/12/06/making-a-statocles-plugin/statocles.png">
-The other day I decided that I didn&#39;t like the ugly <code>a href</code> links to my audio clips.  The HTML5 <code>audio</code> element is far superior!</p>
-
-<p>I build this online journal with the excellent perl module, <a href="https://metacpan.org/pod/Statocles">Statocles</a>, so I wanted something built-in to do the job.</p>
-
-                <p><a href="https://ology.github.io/2020/12/06/making-a-statocles-plugin/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                </p>
-
-        ]]></content>
-        <updated>2020-12-06T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
     </entry>
 </feed>
 
