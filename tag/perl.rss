@@ -7,6 +7,29 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
+            <title>Books of the Bible TF-IDF</title>
+            <link>https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/</link>
+            <guid>https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/</guid>
+            <description><![CDATA[
+                <p>What are the &quot;most unique phrases&quot; in the Bible?  Let&#39;s find out!</p>
+
+                    <p><a href="https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/bible/">bible</a>
+                        <a href="https://ology.github.io/tag/nlp/">NLP</a>
+                        <a href="https://ology.github.io/tag/data/">data</a>
+                        <a href="https://ology.github.io/tag/analysis/">analysis</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 15 Feb 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>No. 1 Hits - Entry &amp; Longevity</title>
             <link>https://ology.github.io/2020/12/27/no-1-hits-entry-longevity/</link>
             <guid>https://ology.github.io/2020/12/27/no-1-hits-entry-longevity/</guid>
@@ -94,28 +117,6 @@ The other day I decided that I didn&#39;t like the ugly <code>a href</code> link
             ]]></description>
             <pubDate>
                 Sun, 06 Dec 2020 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Generating Musical Phrases - Round II</title>
-            <link>https://ology.github.io/2020/11/23/generating-musical-phrases-round-ii/</link>
-            <guid>https://ology.github.io/2020/11/23/generating-musical-phrases-round-ii/</guid>
-            <description><![CDATA[
-                <p>It seems I am always fiddling with algorithmic musical composition.  Most recently it is with the program, <a href="https://github.com/ology/Music/blob/master/polygenic">polygenic</a>, which is a descendant of the program in the previous post on this subject.</p>
-
-                    <p><a href="https://ology.github.io/2020/11/23/generating-musical-phrases-round-ii/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                        <a href="https://ology.github.io/tag/generative/">generative</a>
-                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Mon, 23 Nov 2020 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
