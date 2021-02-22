@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
+            <title>US Inaugural Address Reading Level</title>
+            <link>https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/</link>
+            <guid>https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/</guid>
+            <description><![CDATA[
+                <p>What does the graph of the (Kincaid) reading level of the US inaugural addresses look like?</p>
+
+                    <p><a href="https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/r/">R</a>
+                        <a href="https://ology.github.io/tag/nlp/">NLP</a>
+                        <a href="https://ology.github.io/tag/data/">data</a>
+                        <a href="https://ology.github.io/tag/analysis/">analysis</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 21 Feb 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Ones vs Zeros in the Binary Primes</title>
             <link>https://ology.github.io/2020/05/03/ones-vs-zeros-in-the-binary-primes/</link>
             <guid>https://ology.github.io/2020/05/03/ones-vs-zeros-in-the-binary-primes/</guid>

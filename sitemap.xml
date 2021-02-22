@@ -4,7 +4,7 @@
         <loc>https://ology.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/2013/07/05/musical-deltahedra/</loc>
@@ -223,64 +223,76 @@
         <lastmod>2021-02-15</lastmod>
     </url>
     <url>
+        <loc>https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2021-02-21</lastmod>
+    </url>
+    <url>
         <loc>https://ology.github.io/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/7/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/8/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/analysis/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/analysis/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://ology.github.io/tag/analysis/page/3/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/audio/</loc>
@@ -310,7 +322,13 @@
         <loc>https://ology.github.io/tag/data/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
+    </url>
+    <url>
+        <loc>https://ology.github.io/tag/data/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/evolutionary/</loc>
@@ -406,7 +424,7 @@
         <loc>https://ology.github.io/tag/nlp/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/perl/</loc>
@@ -478,7 +496,7 @@
         <loc>https://ology.github.io/tag/r/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2020-05-03</lastmod>
+        <lastmod>2021-02-21</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/software/</loc>

@@ -2,11 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/analysis/</id>
     <title>Gene Boggs</title>
-    <updated>2021-02-15T00:00:00Z</updated>
+    <updated>2021-02-21T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/analysis.atom" rel="self" />
     <link href="https://ology.github.io/tag/analysis/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/</id>
+        <title>US Inaugural Address Reading Level</title>
+        <link href="https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>What does the graph of the (Kincaid) reading level of the US inaugural addresses look like?</p>
+
+                <p><a href="https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/r/">R</a>
+                    <a href="https://ology.github.io/tag/nlp/">NLP</a>
+                    <a href="https://ology.github.io/tag/data/">data</a>
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
+                </p>
+
+        ]]></content>
+        <updated>2021-02-21T00:00:00Z</updated>
+        <category term="R" />
+        <category term="NLP" />
+        <category term="data" />
+        <category term="analysis" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/</id>
         <title>Books of the Bible TF-IDF</title>
@@ -109,31 +132,6 @@ I have been reading <a href="https://www.oreilly.com/library/view/data-science-f
         <category term="software" />
         <category term="machine learning" />
         <category term="NLP" />
-        <category term="analysis" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2019/03/19/halstead-software-complexity-of-perl-code/</id>
-        <title>Halstead Software Complexity of Perl Code</title>
-        <link href="https://ology.github.io/2019/03/19/halstead-software-complexity-of-perl-code/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>The other day I stumbled across the Wikipedia entry for <a href="https://en.wikipedia.org/wiki/Halstead_complexity_measures">Halstead software complexity</a> and became curious about how the language <a href="https://www.perl.org/">Perl</a> would measure up.</p>
-
-<p>Now I knew the adage that &quot;only perl can parse perl&quot;, but I also knew about the <a href="https://metacpan.org/pod/PPI">PPI</a> set of modules on the <a href="https://metacpan.org/">CPAN</a>.  So I got to reading/experimenting...</p>
-
-                <p><a href="https://ology.github.io/2019/03/19/halstead-software-complexity-of-perl-code/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/complexity/">complexity</a>
-                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
-                </p>
-
-        ]]></content>
-        <updated>2019-03-19T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="complexity" />
         <category term="analysis" />
     </entry>
 </feed>
