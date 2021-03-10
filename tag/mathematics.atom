@@ -2,11 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/mathematics/</id>
     <title>Gene Boggs</title>
-    <updated>2020-05-03T00:00:00Z</updated>
+    <updated>2021-03-09T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/mathematics.atom" rel="self" />
     <link href="https://ology.github.io/tag/mathematics/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2021/03/09/hearing-the-primes/</id>
+        <title>Hearing the Primes</title>
+        <link href="https://ology.github.io/2021/03/09/hearing-the-primes/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>There are many interpretations of what the prime numbers &quot;sound like.&quot;  Mine plays them at two speeds and in bass and treble octaves.</p>
+
+                <p><a href="https://ology.github.io/2021/03/09/hearing-the-primes/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                    <a href="https://ology.github.io/tag/prime-numbers/">prime numbers</a>
+                </p>
+
+        ]]></content>
+        <updated>2021-03-09T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="prime numbers" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2020/05/03/ones-vs-zeros-in-the-binary-primes/</id>
         <title>Ones vs Zeros in the Binary Primes</title>
@@ -116,31 +139,6 @@ This weekend I watched <a href="http://www.hannahfry.co.uk/">Dr Hannah Fry&#39;s
         <category term="software" />
         <category term="mathematics" />
         <category term="game theory" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2019/05/05/prime-number-digit-frequencies/</id>
-        <title>Prime Number Digit Frequencies</title>
-        <link href="https://ology.github.io/2019/05/05/prime-number-digit-frequencies/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Today I became curious about the relative frequencies of the digits that appear in prime numbers (in base 10).</p>
-
-<p>Naturally, I wrote a little program to show the answer - <a href="https://github.com/ology/Math/blob/master/primes/digit-freq2">digit-freq2</a>:</p>
-
-                <p><a href="https://ology.github.io/2019/05/05/prime-number-digit-frequencies/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
-                    <a href="https://ology.github.io/tag/prime-numbers/">prime numbers</a>
-                </p>
-
-        ]]></content>
-        <updated>2019-05-05T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="mathematics" />
-        <category term="prime numbers" />
     </entry>
 </feed>
 

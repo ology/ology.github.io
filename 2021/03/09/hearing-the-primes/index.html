@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Hearing the Primes - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/index.atom" rel="alternate" type="application/atom+xml">
-        <link href="/index.rss" rel="alternate" type="application/rss+xml">
-        <link href="/page/2/" rel="next">
+        <link href="/2021/02/21/us-inaugural-address-reading-level/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -44,134 +42,81 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Hearing the Primes</h1>
 
-<article>
-    <header>
-        <h1><a href="/2021/03/09/hearing-the-primes/">Hearing the Primes</a></h1>
+    <aside>
+        <time datetime="2021-03-09">
+            Posted on 2021-03-09
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2021-03-09">
-                Posted on 2021-03-09
-            </time>
-        </aside>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
+        <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
+    </p>
 
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/mathematics/" rel="tag">mathematics</a>
-            <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
-        </p>
 
-    </header>
-
+</header>
+<section id="section-1">
     <p>There are many interpretations of what the prime numbers &quot;sound like.&quot;  Mine plays them at two speeds and in bass and treble octaves.</p>
 
+</section>
+<section id="section-2">
+    <p>Also the program, called <a href="https://github.com/ology/Music/blob/master/primes-layered">primes-layered</a>, allows you to specify a few parameters to achieve a couple different effects.</p>
 
-        <p><a href="/2021/03/09/hearing-the-primes/#section-2">Continue reading Hearing the Primes...</a></p>
+<p>Basically the program does this:</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2021/02/21/us-inaugural-address-reading-level/">US Inaugural Address Reading Level</a></h1>
+<ul>
+<li><p>The prime numbers up to a given <code>limit</code> are gathered in an array.</p></li>
+<li><p>A musical score is created.</p></li>
+<li><p>Then the top and bottom phrases are computed and played simultaneously.</p></li>
+<li><p>Finally a MIDI file is created and named after the program.</p></li>
+</ul>
 
-        <aside>
-            <time datetime="2021-02-21">
-                Posted on 2021-02-21
-            </time>
-        </aside>
+<p>&quot;So how are these top and bottom phrases computed?&quot; you ask!</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/r/" rel="tag">R</a>
-            <a href="/tag/nlp/" rel="tag">NLP</a>
-            <a href="/tag/data/" rel="tag">data</a>
-            <a href="/tag/analysis/" rel="tag">analysis</a>
-        </p>
+<p>Well, first an appropriate patch is assigned.  The defaults are a synth for the bottom and an electric piano up top.</p>
 
-    </header>
+<p>Then a scale in <code>C</code> is created according to the top <strong>octave</strong> (and one above it), and the name of the <strong>scale</strong>.  By default the octave is <code>4</code> and the scale is <code>major</code>.</p>
 
-    <p>What does the graph of the (Kincaid) reading level of the US inaugural addresses look like?</p>
+<p>The next thing to do is loop over the primes starting with 2, 3, 5, 7, 11, ...  And for each prime we modulo with the number of notes in the scale, and then get that note!</p>
 
+<p>For the &quot;top&quot; part (in <code>C major</code>) the first 10 look like:</p>
 
-        <p><a href="/2021/02/21/us-inaugural-address-reading-level/#section-2">Continue reading US Inaugural Address Reading Level...</a></p>
+<p>P: 2, Mod: 2, Note: 64
+  P: 3, Mod: 3, Note: 65
+  P: 5, Mod: 5, Note: 69
+  P: 7, Mod: 7, Note: 72
+  P: 11, Mod: 11, Note: 79
+  P: 13, Mod: 13, Note: 83
+  P: 17, Mod: 3, Note: 65
+  P: 19, Mod: 5, Note: 69
+  P: 23, Mod: 9, Note: 76
+  P: 29, Mod: 1, Note: 62
+  ...</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2021/02/15/books-of-the-bible-tf-idf/">Books of the Bible TF-IDF</a></h1>
+<p>Where <code>P</code> is the prime number, <code>Mod</code> is the prime mapped to the number of scale notes, and <code>Note</code> is the MIDI pitch number.</p>
 
-        <aside>
-            <time datetime="2021-02-15">
-                Posted on 2021-02-15
-            </time>
-        </aside>
+<p>The &quot;top&quot; part plays two octaves (14 notes).  Consequently prime number 17 modulo maps to the number three, as above.</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/bible/" rel="tag">bible</a>
-            <a href="/tag/nlp/" rel="tag">NLP</a>
-            <a href="/tag/data/" rel="tag">data</a>
-            <a href="/tag/analysis/" rel="tag">analysis</a>
-        </p>
+<p>The &quot;top&quot; and &quot;bottom&quot; parts do exactly the same thing - loop over the primes, but at different speeds and in different octaves.  The &quot;top&quot; plays eighth notes in the 4th and 5th octaves.  The &quot;bottom&quot; part plays the primes as whole notes in the 3rd octave.  So there are eight notes per bottom note.</p>
 
-    </header>
+<p>Here is a version with the defaults:</p>
 
-    <p>What are the &quot;most unique phrases&quot; in the Bible?  Let&#39;s find out!</p>
+<p><audio controls><source src="primes-layered-01.mp3" type="audio/mp3"></audio></p>
 
+<p>And here is a version at 300 BPM with piano on top and flute on the bottom:</p>
 
-        <p><a href="/2021/02/15/books-of-the-bible-tf-idf/#section-2">Continue reading Books of the Bible TF-IDF...</a></p>
+<p><audio controls><source src="primes-layered-02.mp3" type="audio/mp3"></audio></p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2021/02/12/moving-to-linux/">Moving to Linux</a></h1>
-
-        <aside>
-            <time datetime="2021-02-12">
-                Posted on 2021-02-12
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
-
-    </header>
-
-    <p>My Macbook was growing old in the tooth and the safety of my data, if it just gave up one day, was too much to stress over.</p>
-
-<p>So I bought a new laptop with Mint Linux preinstalled!</p>
-
-
-        <p><a href="/2021/02/12/moving-to-linux/#section-2">Continue reading Moving to Linux...</a></p>
-
-</article>
-<article>
-    <header>
-        <h1><a href="/2021/01/13/first-steps/">First Steps...</a></h1>
-
-        <aside>
-            <time datetime="2021-01-13">
-                Posted on 2021-01-13
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-        </p>
-
-    </header>
-
-    <p>Today I decided to hunt down the first &quot;computer&quot; I ever had...</p>
-
-
-        <p><a href="/2021/01/13/first-steps/#section-2">Continue reading First Steps......</a></p>
-
-</article>
+</section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/page/2/" rel="prev">
+            <a class="button button-primary" href="/2021/02/21/us-inaugural-address-reading-level/index.html" rel="prev">
                 ← Older
             </a>
     </li>
@@ -181,7 +126,6 @@
             </button>
     </li>
 </ul>
-
 
 
 
@@ -221,20 +165,7 @@
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/index.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/index.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

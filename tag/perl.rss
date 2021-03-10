@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
+            <title>Hearing the Primes</title>
+            <link>https://ology.github.io/2021/03/09/hearing-the-primes/</link>
+            <guid>https://ology.github.io/2021/03/09/hearing-the-primes/</guid>
+            <description><![CDATA[
+                <p>There are many interpretations of what the prime numbers &quot;sound like.&quot;  Mine plays them at two speeds and in bass and treble octaves.</p>
+
+                    <p><a href="https://ology.github.io/2021/03/09/hearing-the-primes/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                        <a href="https://ology.github.io/tag/prime-numbers/">prime numbers</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 09 Mar 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Books of the Bible TF-IDF</title>
             <link>https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/</link>
             <guid>https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/</guid>
@@ -95,28 +116,6 @@ This weekend I saw this diagram and thought, &quot;I can do that!&quot;</p>
             ]]></description>
             <pubDate>
                 Sun, 13 Dec 2020 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Making a Statocles Plugin</title>
-            <link>https://ology.github.io/2020/12/06/making-a-statocles-plugin/</link>
-            <guid>https://ology.github.io/2020/12/06/making-a-statocles-plugin/</guid>
-            <description><![CDATA[
-                <p><img alt="" src="https://ology.github.io/2020/12/06/making-a-statocles-plugin/statocles.png">
-The other day I decided that I didn&#39;t like the ugly <code>a href</code> links to my audio clips.  The HTML5 <code>audio</code> element is far superior!</p>
-
-<p>I build this online journal with the excellent perl module, <a href="https://metacpan.org/pod/Statocles">Statocles</a>, so I wanted something built-in to do the job.</p>
-
-                    <p><a href="https://ology.github.io/2020/12/06/making-a-statocles-plugin/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sun, 06 Dec 2020 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

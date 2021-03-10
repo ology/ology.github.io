@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
+            <title>Hearing the Primes</title>
+            <link>https://ology.github.io/2021/03/09/hearing-the-primes/</link>
+            <guid>https://ology.github.io/2021/03/09/hearing-the-primes/</guid>
+            <description><![CDATA[
+                <p>There are many interpretations of what the prime numbers &quot;sound like.&quot;  Mine plays them at two speeds and in bass and treble octaves.</p>
+
+                    <p><a href="https://ology.github.io/2021/03/09/hearing-the-primes/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                        <a href="https://ology.github.io/tag/prime-numbers/">prime numbers</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 09 Mar 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Ones vs Zeros in the Binary Primes</title>
             <link>https://ology.github.io/2020/05/03/ones-vs-zeros-in-the-binary-primes/</link>
             <guid>https://ology.github.io/2020/05/03/ones-vs-zeros-in-the-binary-primes/</guid>
@@ -102,30 +123,6 @@ Today I decided to more deeply investigate this curious math thing I discovered 
             ]]></description>
             <pubDate>
                 Sun, 06 Jul 2014 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Primes, Gaps and Gaps of Gaps</title>
-            <link>https://ology.github.io/2013/10/29/primes-gaps-and-gaps-of-gaps/</link>
-            <guid>https://ology.github.io/2013/10/29/primes-gaps-and-gaps-of-gaps/</guid>
-            <description><![CDATA[
-                <p>The <a href="http://en.wikipedia.org/wiki/Prime_numbers">prime number sequence</a> fascinates me.  I am not sure why but exposing properties in it is exciting.  Even if they are mundane and &quot;obvious to everyone else&quot;, the fact that I can answer questions visually, sometimes thrills me.</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Math/blob/master/primes/gaps-of-gaps">gaps-of-gaps</a>
- </p>
-
-                    <p><a href="https://ology.github.io/2013/10/29/primes-gaps-and-gaps-of-gaps/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                        <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
-                        <a href="https://ology.github.io/tag/prime-numbers/">prime numbers</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Tue, 29 Oct 2013 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
