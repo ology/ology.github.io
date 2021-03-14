@@ -82,12 +82,12 @@
 cd ~/repos
 </code></pre>
 
-<p>Setup Dist::Zilla (optionally with your PAUSE id and password):</p>
+<p>Setup <a href="https://metacpan.org/pod/Dist::Zilla">Dist::Zilla</a> (optionally with your PAUSE id and password):</p>
 
 <pre><code>dzil setup
 </code></pre>
 
-<p>Make a new distribution:</p>
+<p>Make a new distribution for your module:</p>
 
 <pre><code>dzil new -P Starter::Git Your::Module::Name
 cd Your-Module-Name
@@ -131,7 +131,7 @@ regenerate = LICENSE
 <pre><code>cp -R ~/sandbox/Your-Module-Name/t .
 </code></pre>
 
-<p>Merge your module with the generated one (again with an editor like <code>vim</code>):</p>
+<p>Merge your module with the generated one (with an editor like <a href="https://www.vim.org/">vim</a>):</p>
 
 <pre><code>vimdiff ~/sandbox/Your-Module-Name/lib/Your/Module/Name.pm lib/Your/Module/Name.pm
 </code></pre>
