@@ -128,6 +128,16 @@ regenerate = LICENSE
 [AutoPrereqs]
 </code></pre>
 
+<p>Add your module tests:</p>
+
+<pre><code>cp -R ~/sandbox/Your-Module-Name/t .
+</code></pre>
+
+<p>Merge your module with the generated one:</p>
+
+<pre><code>vimdiff ~/sandbox/Your-Module-Name/lib/Your/Module/Name.pm lib/Your/Module/Name.pm
+</code></pre>
+
 <p>Install the dependencies for your module:</p>
 
 <pre><code>dzil installdeps
