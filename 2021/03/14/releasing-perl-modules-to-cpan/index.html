@@ -59,7 +59,7 @@
 
 </header>
 <section id="section-1">
-    <p>These steps assume that your module and tests are located in <code>~/sandbox/Your-Module-Name</code>.</p>
+    <p>These steps assume that your module and tests are located in <code>~/sandbox/Your-Module-Name</code> and that you are friends with the command line.</p>
 
 </section>
 <section id="section-2">
@@ -108,7 +108,7 @@ The description of your module...
     - Minted by Dist::Zilla.
 </code></pre>
 
-<p>Open the <code>dist.ini</code> file and make it look like this:</p>
+<p>Open the <code>dist.ini</code> file in your favorite editor, and make it look like this:</p>
 
 <pre><code>name    = Your-Module-Name
 author  = Your Name &lt;your_pause_id@cpan.org&gt;
@@ -131,7 +131,7 @@ regenerate = LICENSE
 <pre><code>cp -R ~/sandbox/Your-Module-Name/t .
 </code></pre>
 
-<p>Merge your module with the generated one:</p>
+<p>Merge your module with the generated one (again with an editor like <code>vim</code>):</p>
 
 <pre><code>vimdiff ~/sandbox/Your-Module-Name/lib/Your/Module/Name.pm lib/Your/Module/Name.pm
 </code></pre>
@@ -151,7 +151,7 @@ regenerate = LICENSE
 <pre><code>git add .
 git commit -a -m &#39;Initial commit&#39;
 git remote add origin git@github.com:your_github_id/Your-Module-Name.git
-git push origin main
+git push -u origin main
 </code></pre>
 
 <p>Test your distribution:</p>
@@ -168,6 +168,8 @@ dzil clean
 <p>You will soon get a couple email messages (hopefully) saying that your distribution has been accepted.</p>
 
 <p>Check <a href="https://metacpan.org/recent">MetaCPAN</a> for your new release.</p>
+
+<p>And to know all about it, check out <a href="https://metacpan.org/pod/Dist::Zilla::Starter">Dist::Zilla::Starter</a> - Thanks <a href="https://metacpan.org/author/DBOOK">Grinnz</a> :-)</p>
 
 </section>
 

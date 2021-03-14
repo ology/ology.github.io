@@ -11,7 +11,7 @@
             <link>https://ology.github.io/2021/03/14/releasing-perl-modules-to-cpan/</link>
             <guid>https://ology.github.io/2021/03/14/releasing-perl-modules-to-cpan/</guid>
             <description><![CDATA[
-                <p>These steps assume that your module and tests are located in <code>~/sandbox/Your-Module-Name</code>.</p>
+                <p>These steps assume that your module and tests are located in <code>~/sandbox/Your-Module-Name</code> and that you are friends with the command line.</p>
 
                     <p><a href="https://ology.github.io/2021/03/14/releasing-perl-modules-to-cpan/#section-2">Continue reading...</a></p>
 
