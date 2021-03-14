@@ -80,7 +80,7 @@ git clone git@github.com:BD3i/Your-Module-Name.git
 
 <p>Install the necessary Perl modules to build a distribution:</p>
 
-<pre><code>cpanm Dist::Zilla Dist::Zilla::MintingProfile::Starter Dist::Zilla::Plugin::GithubMeta Dist::Zilla::Plugin::NextRelease Dist::Zilla::Plugin::VersionFromMainModule
+<pre><code>cpanm Dist::Zilla Dist::Zilla::MintingProfile::Starter::Git Dist::Zilla::App::Command::installdeps Dist::Zilla::Plugin::NextRelease
 </code></pre>
 
 <p>Make a new Dist::Zilla distribution:</p>
@@ -93,6 +93,7 @@ dzil new -P Starter Your::Module::Name
 <p>Move your new distribution to the git directory for <code>Your-Module-Name</code>:</p>
 
 <pre><code>mv Your-Module-Name/* repos/Your-Module-Name/
+mv Your-Module-Name/.* repos/Your-Module-Name/
 rm -rf Your-Module-Name
 cd repos/Your-Module-Name
 </code></pre>
@@ -113,22 +114,27 @@ license = Artistic_2_0
 copyright_holder = Your Name
 copyright_year   = 2021
 
-[VersionFromMainModule]
-
-[@Starter]
+[@Starter::Git]
 revision = 5
+managed_versions = 1
+regenerate = LICENSE
 
 [NextRelease]
 format = %v %{yyyy-MM-dd HH:mm:ss}d
 
 [GithubMeta]
+
+[AutoPrereqs]
+</code></pre>
+
+<p>Install the dependencies for your module:</p>
+
+<pre><code>dzil installdeps
 </code></pre>
 
 <p>Generate a license file:</p>
 
-<pre><code>dzil build
-cp Your-Module-Name/LICENSE .
-dzil clean
+<pre><code>dzil regenerate
 </code></pre>
 
 <p>Add your tests:</p>
