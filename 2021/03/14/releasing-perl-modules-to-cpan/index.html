@@ -149,8 +149,6 @@ done_testing();
 <p>Add your files to the <code>git</code> repository:</p>
 
 <pre><code>git add *
-git commit -a -m &#39;Initial commit&#39;
-git push
 </code></pre>
 
 <p>Install the dependencies for your module:</p>
@@ -158,12 +156,12 @@ git push
 <pre><code>dzil installdeps
 </code></pre>
 
-<p>Generate a license file and commit it to github:</p>
+<p>Generate a license file and commit everything to github:</p>
 
 <pre><code>dzil regenerate
 
 git add LICENSE
-git commit -m &#39;Initial commit&#39; LICENSE
+git commit -a -m &#39;Initial commit&#39;
 git push
 </code></pre>
 
