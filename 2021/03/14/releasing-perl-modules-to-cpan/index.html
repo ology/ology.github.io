@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Hearing the Primes - Gene Boggs</title>
+        <title>Releasing Perl Modules to CPAN - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/2021/03/14/releasing-perl-modules-to-cpan/index.html" rel="prev">
-        <link href="/2021/02/21/us-inaugural-address-reading-level/index.html" rel="next">
+        <link href="/2021/03/09/hearing-the-primes/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -44,86 +43,118 @@
                 <div class="nine columns">
                     <main>
                         <header>
-    <h1>Hearing the Primes</h1>
+    <h1>Releasing Perl Modules to CPAN</h1>
 
     <aside>
-        <time datetime="2021-03-09">
-            Posted on 2021-03-09
+        <time datetime="2021-03-14">
+            Posted on 2021-03-14
         </time>
     </aside>
 
     <p class="tags">Tags:
         <a href="/tag/perl/" rel="tag">perl</a>
         <a href="/tag/software/" rel="tag">software</a>
-        <a href="/tag/mathematics/" rel="tag">mathematics</a>
-        <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
     </p>
 
 
 </header>
 <section id="section-1">
-    <p>There are many interpretations of what the prime numbers &quot;sound like.&quot;  Mine plays them at two speeds and in bass and treble octaves.</p>
+    <p>These steps assume that you do <em>not</em> have a local <code>git</code> repository for your module yet, <em>but</em> that your module and tests are located in <code>~/sandbox/Your-Module-Name</code>.</p>
 
 </section>
 <section id="section-2">
-    <p>The program, called <a href="https://github.com/ology/Music/blob/master/primes-layered">primes-layered</a>, allows you to specify a few parameters to achieve a couple different effects.  And basically the program does this:</p>
+    <ol>
+<li><p>Have the programs <code>git</code>, and of course <code>perl</code> and friends, installed on your machine.</p></li>
+<li><p>Make a <a href="https://pause.perl.org/pause/query?ACTION=request_id">PAUSE account</a> for uploading to <a href="https://www.cpan.org/">CPAN</a>.</p></li>
+<li><p>Make a <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">github account</a> to house your modules.</p></li>
+<li><p>Make a <a href="https://github.com/new">github repository</a> for <code>Your-Module-Name</code> with a readme file, but without .gitignore or license files.</p></li>
+<li><p>Make a local directory for your module.  From your <code>~</code> home directory do this:</p>
 
-<ul>
-<li><p>The prime numbers up to a given <code>limit</code> are gathered in an array.</p></li>
-<li><p>A musical score is created.</p></li>
-<li><p>Then the top and bottom phrases are computed and played simultaneously.</p></li>
-<li><p>Finally a MIDI file is created and named after the program.</p></li>
-</ul>
+<p>mkdir repos;
+cd repos;
+git clone git@github.com:BD3i/Your-Module-Name.git</p></li>
+<li><p>Install the necessary Perl modules to build a distribution:</p>
 
-<p>&quot;So how are these top and bottom phrases computed?&quot; you ask!</p>
+<p>cpanm Dist::Zilla Dist::Zilla::MintingProfile::Starter           Dist::Zilla::Plugin::GithubMeta           Dist::Zilla::Plugin::NextRelease           Dist::Zilla::Plugin::VersionFromMainModule</p></li>
+<li><p>Make a new Dist::Zilla distribution:</p>
 
-<p>Well, first an appropriate patch is assigned.  The defaults are a synth for the bottom and an electric piano up top.</p>
+<p>cd # Go back to ~
+dzil setup
+dzil new -P Starter Your::Module::Name</p></li>
+<li><p>Move your new distribution to the git directory for <code>Your-Module-Name</code>:</p>
 
-<p>Then two scales in <code>C</code> are created according to the top and bottom octaves, and the name of the scale.  By default the scale is <code>major</code>, the top octaves are <code>4</code> and <code>5</code> and the bottom is <code>3</code>.</p>
+<p>mv Your-Module-Name/* repos/Your-Module-Name/
+rm -rf Your-Module-Name
+cd repos/Your-Module-Name</p></li>
+<li><p>Add this as a new <code>Changes</code> file:</p>
 
-<p>The next thing to do is loop over the primes starting with 2, 3, 5, 7, 11, ...  And for each prime we modulo with the number of notes in the scale, and then get that note!</p>
+<p>Revision history for Your-Module-Name</p>
 
-<p>For the &quot;top&quot; part (in <code>C major</code>) the first 10 look like:</p>
+<p>{{$NEXT}}
+    - Minted by Dist::Zilla.</p></li>
+<li><p>Fix-up your <code>dist.ini</code> file to look like this:</p>
 
-<pre><code>P: 2, Mod: 2, Note: 64
-P: 3, Mod: 3, Note: 65
-P: 5, Mod: 5, Note: 69
-P: 7, Mod: 7, Note: 72
-P: 11, Mod: 11, Note: 79
-P: 13, Mod: 13, Note: 83
-P: 17, Mod: 3, Note: 65
-P: 19, Mod: 5, Note: 69
-P: 23, Mod: 9, Note: 76
-P: 29, Mod: 1, Note: 62
-...
-</code></pre>
+<p>name    = Your-Module-Name
+author  = Your Name <a href="mailto:you@cpan.org">you@cpan.org</a>
+license = Artistic_2_0
+copyright_holder = Your Name
+copyright_year   = 2021</p>
 
-<p>Where <code>P</code> is the prime number, <code>Mod</code> is the prime mapped to the number of scale notes, and <code>Note</code> is the MIDI pitch number.</p>
+<p>[VersionFromMainModule]</p>
 
-<p>The &quot;top&quot; part plays two octaves (14 notes).  Consequently prime number 17 modulo maps to the number three, as above.  The &quot;bottom&quot; part only uses a single octave for its notes.</p>
+<p>[@Starter]
+revision = 5</p>
 
-<p>The &quot;top&quot; and &quot;bottom&quot; parts do exactly the same thing - loop over the primes, but at different speeds and in different octaves.  The &quot;top&quot; plays eighth notes in the 4th and 5th octaves.  The &quot;bottom&quot; part plays the primes as whole notes in the 3rd octave.  So there are eight notes per bottom note.</p>
+<p>[NextRelease]
+format = %v %{yyyy-MM-dd HH:mm:ss}d</p>
 
-<p>Here is a version with the defaults:</p>
+<p>[GithubMeta]</p></li>
+<li><p>Generate a license file:</p>
 
-<p><audio controls><source src="primes-layered-01.mp3" type="audio/mp3"></audio></p>
+<p>dzil build
+cp Your-Module-Name/LICENSE .
+dzil clean</p></li>
+<li><p>Add your tests:</p>
 
-<p>And here is a version at 300 BPM with piano on top and flute on the bottom:</p>
+<p>cp ~/sandbox/Your-Module-Name/t .</p></li>
+<li><p>But if you have none, start with this as <code>t/01-functions.t</code> (or <code>01-methods.t</code> if OO):</p>
 
-<p><audio controls><source src="primes-layered-02.mp3" type="audio/mp3"></audio></p>
+<p>use Test::More;</p>
+
+<p>use_ok &#39;Foo::Bar&#39;;</p>
+
+<p>done_testing();</p></li>
+<li><p>Merge your module code with the generated module:</p>
+
+<p>vimdiff ~/sandbox/Your-Module-Name/lib/Your/Module/Name.pm lib/Your/Module/Name.pm</p></li>
+<li><p>Add your files to the <code>git</code> repository:</p>
+
+<p>git add *
+git commit -a -m &#39;Initial commit&#39;
+git push</p></li>
+<li><p>Test your distribution:</p>
+
+<p>dzil test</p></li>
+<li><p>If everything is ok, and if you have recieved confirmation of your PAUSE account, then upload:</p>
+
+<p>dzil release
+dzil clean</p></li>
+<li><p>You will soon get a couple email messages saying that (hopefully) your distribution has been accepted.</p></li>
+<li><p>Check <a href="https://metacpan.org/recent">MetaCPAN</a> for your new release.</p></li>
+</ol>
 
 </section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/2021/02/21/us-inaugural-address-reading-level/index.html" rel="prev">
+            <a class="button button-primary" href="/2021/03/09/hearing-the-primes/index.html" rel="prev">
                 ← Older
             </a>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/2021/03/14/releasing-perl-modules-to-cpan/index.html" rel="next">
+            <button disabled>
                 Newer →
-            </a>
+            </button>
     </li>
 </ul>
 
