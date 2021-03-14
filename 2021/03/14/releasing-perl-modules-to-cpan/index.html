@@ -65,7 +65,7 @@
 <section id="section-2">
     <p>Have the programs <code>git</code>, and of course <code>perl</code> and friends, installed on your machine.</p>
 
-<p>Make a <a href="https://pause.perl.org/pause/query?ACTION=request_id">PAUSE account</a> for uploading to <a href="https://www.cpan.org/">CPAN</a>.</p>
+<p>Make a <a href="https://pause.perl.org/pause/query?ACTION=request_id">PAUSE account</a> for uploading to <a href="https://www.cpan.org/">CPAN</a>.  This is not instant and may take a few days.</p>
 
 <p>Make a <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">github account</a> to house your module(s).</p>
 
@@ -82,10 +82,14 @@
 cd ~/repos
 </code></pre>
 
-<p>Make a new distribution:</p>
+<p>Setup Dist::Zilla (optionally with your PAUSE id and password):</p>
 
 <pre><code>dzil setup
-dzil new -P Starter::Git Your::Module::Name
+</code></pre>
+
+<p>Make a new distribution:</p>
+
+<pre><code>dzil new -P Starter::Git Your::Module::Name
 cd Your-Module-Name
 </code></pre>
 
