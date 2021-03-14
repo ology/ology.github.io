@@ -89,12 +89,6 @@ dzil new -P Starter::Git Your::Module::Name
 cd Your-Module-Name
 </code></pre>
 
-<p>Setup your repository with github:</p>
-
-<pre><code>git remote add origin git@github.com:your_github_id/Your-Module-Name.git
-git push origin main
-</code></pre>
-
 <p>Add this as a <code>README.md</code> file:</p>
 
 <pre><code># Your-Module-Name
@@ -143,12 +137,16 @@ regenerate = LICENSE
 <pre><code>dzil installdeps
 </code></pre>
 
-<p>Generate a license file and commit everything to github:</p>
+<p>Generate a license file:</p>
 
 <pre><code>dzil regenerate
+</code></pre>
 
-git add .
+<p>Commit everything to github:</p>
+
+<pre><code>git add .
 git commit -a -m &#39;Initial commit&#39;
+git remote add origin git@github.com:your_github_id/Your-Module-Name.git
 git push origin main
 </code></pre>
 
