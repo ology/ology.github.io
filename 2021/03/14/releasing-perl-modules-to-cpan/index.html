@@ -69,13 +69,25 @@
 
 <p>Make a <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">github account</a> to house your module(s).</p>
 
-<p>Make a <a href="https://github.com/new">github repository</a> for <code>Your-Module-Name</code> with a readme file, but without .gitignore or license files.</p>
+<p>Make a <a href="https://github.com/new">github repository</a> for <code>Your-Module-Name</code> without readme, .gitignore or license files.</p>
 
-<p>Make a local directory for your module.  From your <code>~</code> home directory do this:</p>
+<p>Setup your module for use with <code>git</code>:</p>
 
-<pre><code>mkdir repos;
-cd repos;
-git clone git@github.com:you/Your-Module-Name.git
+<pre><code>cd ~/sandbox/Your-Module-Name
+git init -b main
+git add .
+git commit -a -m &#39;Initial commit&#39;
+</code></pre>
+
+<p>Add this single line as a new <code>README.md</code> file:</p>
+
+<pre><code># Your-Module-Name
+</code></pre>
+
+<p>Setup your repository with github:</p>
+
+<pre><code>git remote add origin git@github.com:your_github_id/Your-Module-Name.git
+git push origin main
 </code></pre>
 
 <p>Install the necessary Perl modules to build a distribution:</p>
@@ -83,19 +95,13 @@ git clone git@github.com:you/Your-Module-Name.git
 <pre><code>cpanm Dist::Zilla Dist::Zilla::MintingProfile::Starter::Git Dist::Zilla::App::Command::installdeps
 </code></pre>
 
-<p>Make a new Dist::Zilla distribution:</p>
+<p>Make a new distribution:</p>
 
-<pre><code>cd # Go back to ~
-dzil setup
+<pre><code>dzil setup
 dzil new -P Starter::Git Your::Module::Name
-</code></pre>
-
-<p>Move your new distribution to the git directory for <code>Your-Module-Name</code>:</p>
-
-<pre><code>mv Your-Module-Name/* repos/Your-Module-Name/
-mv Your-Module-Name/.* repos/Your-Module-Name/ # &quot;No&quot; to all questions
+cp Your-Module-Name/dist.ini .
+cp Your-Module-Name/.gitignore .
 rm -rf Your-Module-Name
-cd repos/Your-Module-Name
 </code></pre>
 
 <p>Add this as a new <code>Changes</code> file:</p>
@@ -106,10 +112,10 @@ cd repos/Your-Module-Name
     - Minted by Dist::Zilla.
 </code></pre>
 
-<p>Fix-up your <code>dist.ini</code> file to look like this:</p>
+<p>Add this as a new <code>dist.ini</code> file:</p>
 
 <pre><code>name    = Your-Module-Name
-author  = Your Name &lt;you@cpan.org&gt;
+author  = Your Name &lt;your_pause_id@cpan.org&gt;
 license = Artistic_2_0
 copyright_holder = Your Name
 copyright_year   = 2021
@@ -127,30 +133,6 @@ format = %v %{yyyy-MM-dd HH:mm:ss}d
 [AutoPrereqs]
 </code></pre>
 
-<p>Add your tests:</p>
-
-<pre><code>cp ~/sandbox/Your-Module-Name/t .
-</code></pre>
-
-<p>But if you have none, start with this as <code>t/01-functions.t</code> (or <code>01-methods.t</code> if OO):</p>
-
-<pre><code>use Test::More;
-
-use_ok &#39;Your::Module::Name&#39;;
-
-done_testing();
-</code></pre>
-
-<p>Merge your module code with the generated module:</p>
-
-<pre><code>vimdiff ~/sandbox/Your-Module-Name/lib/Your/Module/Name.pm lib/Your/Module/Name.pm
-</code></pre>
-
-<p>Add your files to the <code>git</code> repository:</p>
-
-<pre><code>git add *
-</code></pre>
-
 <p>Install the dependencies for your module:</p>
 
 <pre><code>dzil installdeps
@@ -160,7 +142,7 @@ done_testing();
 
 <pre><code>dzil regenerate
 
-git add LICENSE
+git add .
 git commit -a -m &#39;Initial commit&#39;
 git push
 </code></pre>
