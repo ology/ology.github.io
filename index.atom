@@ -12,7 +12,7 @@
         <title>Releasing Perl Modules to CPAN</title>
         <link href="https://ology.github.io/2021/03/14/releasing-perl-modules-to-cpan/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>These steps assume that you do <em>not</em> have a local <code>git</code> repository for your module yet, <em>but</em> that your module and tests are located in <code>~/sandbox/Your-Module-Name</code>.</p>
+            <p>These steps assume that your module and tests are located in <code>~/sandbox/Your-Module-Name</code>.</p>
 
                 <p><a href="https://ology.github.io/2021/03/14/releasing-perl-modules-to-cpan/#section-2">Continue reading...</a></p>
 
