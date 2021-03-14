@@ -71,21 +71,22 @@
 
 <p>Make a <a href="https://github.com/new">github repository</a> for <code>Your-Module-Name</code> without readme, .gitignore or license files.</p>
 
-<p>Change to your module directory:</p>
+<p>Install the necessary Perl modules to build a distribution:</p>
 
-<pre><code>cd ~/sandbox/Your-Module-Name
+<pre><code>cpanm Dist::Zilla Dist::Zilla::MintingProfile::Starter::Git Dist::Zilla::App::Command::installdeps
 </code></pre>
 
-<p>Add this single line file as <code>README.md</code>:</p>
+<p>Make a repository directory for your distribution:</p>
 
-<pre><code># Your-Module-Name
+<pre><code>mkdir ~/repos
+cd ~/repos
 </code></pre>
 
-<p>Setup your module for use with <code>git</code> (if not already a repository):</p>
+<p>Make a new distribution:</p>
 
-<pre><code>git init -b main
-git add .
-git commit -a -m &#39;Initial commit&#39;
+<pre><code>dzil setup
+dzil new -P Starter::Git Your::Module::Name
+cd Your-Module-Name
 </code></pre>
 
 <p>Setup your repository with github:</p>
@@ -94,18 +95,11 @@ git commit -a -m &#39;Initial commit&#39;
 git push origin main
 </code></pre>
 
-<p>Install the necessary Perl modules to build a distribution:</p>
+<p>Add this as a <code>README.md</code> file:</p>
 
-<pre><code>cpanm Dist::Zilla Dist::Zilla::MintingProfile::Starter::Git Dist::Zilla::App::Command::installdeps
-</code></pre>
-
-<p>Make new distribution configuration files:</p>
-
-<pre><code>dzil setup
-dzil new -P Starter::Git Your::Module::Name
-cp Your-Module-Name/dist.ini .
-cp Your-Module-Name/.gitignore .
-rm -rf Your-Module-Name
+<pre><code># Your-Module-Name
+---
+The description of your module...
 </code></pre>
 
 <p>Add this as a new <code>Changes</code> file:</p>
