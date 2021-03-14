@@ -63,114 +63,85 @@
 
 </section>
 <section id="section-2">
-    <p>Have the programs <code>git</code>, and of course <code>perl</code> and friends, installed on your machine.</p>
+    <ul>
+<li><p>Have the programs <code>git</code>, and of course <code>perl</code> and friends, installed on your machine.</p></li>
+<li><p>Make a <a href="https://pause.perl.org/pause/query?ACTION=request_id">PAUSE account</a> for uploading to <a href="https://www.cpan.org/">CPAN</a>.</p></li>
+<li><p>Make a <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">github account</a> to house your module(s).</p></li>
+<li><p>Make a <a href="https://github.com/new">github repository</a> for <code>Your-Module-Name</code> with a readme file, but without .gitignore or license files.</p></li>
+<li><p>Make a local directory for your module.  From your <code>~</code> home directory do this:</p>
 
-<p>Make a <a href="https://pause.perl.org/pause/query?ACTION=request_id">PAUSE account</a> for uploading to <a href="https://www.cpan.org/">CPAN</a>.</p>
-
-<p>Make a <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">github account</a> to house your modules.</p>
-
-<p>Make a <a href="https://github.com/new">github repository</a> for <code>Your-Module-Name</code> with a readme file, but without .gitignore or license files.</p>
-
-<p>Make a local directory for your module.  From your <code>~</code> home directory do this:</p>
-
-<pre><code>mkdir repos;
+<p>mkdir repos;
 cd repos;
-git clone git@github.com:BD3i/Your-Module-Name.git
-</code></pre>
+git clone git@github.com:BD3i/Your-Module-Name.git</p></li>
+<li><p>Install the necessary Perl modules to build a distribution:</p>
 
-<p>Install the necessary Perl modules to build a distribution:</p>
+<p>cpanm Dist::Zilla Dist::Zilla::MintingProfile::Starter Dist::Zilla::Plugin::GithubMeta Dist::Zilla::Plugin::NextRelease Dist::Zilla::Plugin::VersionFromMainModule</p></li>
+<li><p>Make a new Dist::Zilla distribution:</p>
 
-<pre><code>cpanm Dist::Zilla Dist::Zilla::MintingProfile::Starter           Dist::Zilla::Plugin::GithubMeta           Dist::Zilla::Plugin::NextRelease           Dist::Zilla::Plugin::VersionFromMainModule
-</code></pre>
-
-<p>Make a new Dist::Zilla distribution:</p>
-
-<pre><code>cd # Go back to ~
+<p>cd # Go back to ~
 dzil setup
-dzil new -P Starter Your::Module::Name
-</code></pre>
+dzil new -P Starter Your::Module::Name</p></li>
+<li><p>Move your new distribution to the git directory for <code>Your-Module-Name</code>:</p>
 
-<p>Move your new distribution to the git directory for <code>Your-Module-Name</code>:</p>
-
-<pre><code>mv Your-Module-Name/* repos/Your-Module-Name/
+<p>mv Your-Module-Name/* repos/Your-Module-Name/
 rm -rf Your-Module-Name
-cd repos/Your-Module-Name
-</code></pre>
+cd repos/Your-Module-Name</p></li>
+<li><p>Add this as a new <code>Changes</code> file:</p>
 
-<p>Add this as a new <code>Changes</code> file:</p>
+<p>Revision history for Your-Module-Name</p>
 
-<pre><code>Revision history for Your-Module-Name
+<p>{{$NEXT}}
+    - Minted by Dist::Zilla.</p></li>
+<li><p>Fix-up your <code>dist.ini</code> file to look like this:</p>
 
-{{$NEXT}}
-    - Minted by Dist::Zilla.
-</code></pre>
-
-<p>Fix-up your <code>dist.ini</code> file to look like this:</p>
-
-<pre><code>name    = Your-Module-Name
-author  = Your Name &lt;you@cpan.org&gt;
+<p>name    = Your-Module-Name
+author  = Your Name <a href="mailto:you@cpan.org">you@cpan.org</a>
 license = Artistic_2_0
 copyright_holder = Your Name
-copyright_year   = 2021
+copyright_year   = 2021</p>
 
-[VersionFromMainModule]
+<p>[VersionFromMainModule]</p>
 
-[@Starter]
-revision = 5
+<p>[@Starter]
+revision = 5</p>
 
-[NextRelease]
-format = %v %{yyyy-MM-dd HH:mm:ss}d
+<p>[NextRelease]
+format = %v %{yyyy-MM-dd HH:mm:ss}d</p>
 
-[GithubMeta]
-</code></pre>
+<p>[GithubMeta]</p></li>
+<li><p>Generate a license file:</p>
 
-<p>Generate a license file:</p>
-
-<pre><code>dzil build
+<p>dzil build
 cp Your-Module-Name/LICENSE .
-dzil clean
-</code></pre>
+dzil clean</p></li>
+<li><p>Add your tests:</p>
 
-<p>Add your tests:</p>
+<p>cp ~/sandbox/Your-Module-Name/t .</p></li>
+<li><p>But if you have none, start with this as <code>t/01-functions.t</code> (or <code>01-methods.t</code> if OO):</p>
 
-<pre><code>cp ~/sandbox/Your-Module-Name/t .
-</code></pre>
+<p>use Test::More;</p>
 
-<p>But if you have none, start with this as <code>t/01-functions.t</code> (or <code>01-methods.t</code> if OO):</p>
+<p>use_ok &#39;Foo::Bar&#39;;</p>
 
-<pre><code>use Test::More;
+<p>done_testing();</p></li>
+<li><p>Merge your module code with the generated module:</p>
 
-use_ok &#39;Foo::Bar&#39;;
+<p>vimdiff ~/sandbox/Your-Module-Name/lib/Your/Module/Name.pm lib/Your/Module/Name.pm</p></li>
+<li><p>Add your files to the <code>git</code> repository:</p>
 
-done_testing();
-</code></pre>
-
-<p>Merge your module code with the generated module:</p>
-
-<pre><code>vimdiff ~/sandbox/Your-Module-Name/lib/Your/Module/Name.pm lib/Your/Module/Name.pm
-</code></pre>
-
-<p>Add your files to the <code>git</code> repository:</p>
-
-<pre><code>git add *
+<p>git add *
 git commit -a -m &#39;Initial commit&#39;
-git push
-</code></pre>
+git push</p></li>
+<li><p>Test your distribution:</p>
 
-<p>Test your distribution:</p>
+<p>dzil test</p></li>
+<li><p>If everything is ok, and if you have recieved confirmation of your PAUSE account, then upload:</p>
 
-<pre><code>dzil test
-</code></pre>
-
-<p>If everything is ok, and if you have recieved confirmation of your PAUSE account, then upload:</p>
-
-<pre><code>dzil release
-dzil clean
-</code></pre>
-
-<p>You will soon get a couple email messages saying that (hopefully) your distribution has been accepted.</p>
-
-<p>Check <a href="https://metacpan.org/recent">MetaCPAN</a> for your new release.</p>
+<p>dzil release
+dzil clean</p></li>
+<li><p>You will soon get a couple email messages saying that (hopefully) your distribution has been accepted.</p></li>
+<li><p>Check <a href="https://metacpan.org/recent">MetaCPAN</a> for your new release.</p></li>
+</ul>
 
 </section>
 
