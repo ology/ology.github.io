@@ -93,7 +93,7 @@ dzil new -P Starter::Git Your::Module::Name
 <p>Move your new distribution to the git directory for <code>Your-Module-Name</code>:</p>
 
 <pre><code>mv Your-Module-Name/* repos/Your-Module-Name/
-mv Your-Module-Name/.* repos/Your-Module-Name/
+mv Your-Module-Name/.* repos/Your-Module-Name/ # &quot;No&quot; to all questions
 rm -rf Your-Module-Name
 cd repos/Your-Module-Name
 </code></pre>
@@ -127,16 +127,6 @@ format = %v %{yyyy-MM-dd HH:mm:ss}d
 [AutoPrereqs]
 </code></pre>
 
-<p>Install the dependencies for your module:</p>
-
-<pre><code>dzil installdeps
-</code></pre>
-
-<p>Generate a license file:</p>
-
-<pre><code>dzil regenerate
-</code></pre>
-
 <p>Add your tests:</p>
 
 <pre><code>cp ~/sandbox/Your-Module-Name/t .
@@ -160,6 +150,20 @@ done_testing();
 
 <pre><code>git add *
 git commit -a -m &#39;Initial commit&#39;
+git push
+</code></pre>
+
+<p>Install the dependencies for your module:</p>
+
+<pre><code>dzil installdeps
+</code></pre>
+
+<p>Generate a license file and commit it to github:</p>
+
+<pre><code>dzil regenerate
+
+git add LICENSE
+git commit -m &#39;Initial commit&#39; LICENSE
 git push
 </code></pre>
 
