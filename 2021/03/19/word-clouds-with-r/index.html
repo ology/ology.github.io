@@ -91,7 +91,6 @@ library(&#39;wordcloud&#39;)
 docs &lt;- tm_map(docs, removePunctuation)
 docs &lt;- tm_map(docs, content_transformer(tolower))
 docs &lt;- tm_map(docs, removeWords, stopwords(&#39;english&#39;))
-docs &lt;- tm_map(docs, stripWhitespace) 
 </code></pre>
 
 <p>Set the color palette to use:</p>
