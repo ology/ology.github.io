@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/</id>
     <title>Gene Boggs</title>
-    <updated>2021-03-19T00:00:00Z</updated>
+    <updated>2021-03-20T00:00:00Z</updated>
     <link href="https://ology.github.io/index.atom" rel="self" />
     <link href="https://ology.github.io/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2021/03/20/tape-loop-simulation-with-midi-perl/</id>
+        <title>Tape-loop Simulation with MIDI-Perl</title>
+        <link href="https://ology.github.io/2021/03/20/tape-loop-simulation-with-midi-perl/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Recently I was inspired by the Brian Eno section of https://teropa.info/loop/#/airports (right arrow or space-bar moves ahead in the presentation).  This describes Eno&#39;s tape-loop setup.</p>
+
+                <p><a href="https://ology.github.io/2021/03/20/tape-loop-simulation-with-midi-perl/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/music/">music</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                </p>
+
+        ]]></content>
+        <updated>2021-03-20T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="music" />
+        <category term="software" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2021/03/19/word-clouds-with-r/</id>
         <title>Word-clouds with R</title>
@@ -90,33 +111,6 @@ These steps assume that your module and tests are located in <code>~/sandbox/You
         ]]></content>
         <updated>2021-02-21T00:00:00Z</updated>
         <category term="R" />
-        <category term="NLP" />
-        <category term="data" />
-        <category term="analysis" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/</id>
-        <title>Books of the Bible TF-IDF</title>
-        <link href="https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>What are the &quot;most unique phrases&quot; in the Bible?  Let&#39;s find out!</p>
-
-                <p><a href="https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/bible/">bible</a>
-                    <a href="https://ology.github.io/tag/nlp/">NLP</a>
-                    <a href="https://ology.github.io/tag/data/">data</a>
-                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
-                </p>
-
-        ]]></content>
-        <updated>2021-02-15T00:00:00Z</updated>
-        <category term="software" />
-        <category term="perl" />
-        <category term="bible" />
         <category term="NLP" />
         <category term="data" />
         <category term="analysis" />
