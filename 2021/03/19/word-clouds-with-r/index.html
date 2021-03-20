@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Releasing Perl Modules to CPAN - Gene Boggs</title>
+        <title>Word Clouds with R - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/2021/03/19/word-clouds-with-r/index.html" rel="prev">
-        <link href="/2021/03/09/hearing-the-primes/index.html" rel="next">
+        <link href="/2021/03/14/releasing-perl-modules-to-cpan/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -44,149 +43,111 @@
                 <div class="nine columns">
                     <main>
                         <header>
-    <h1>Releasing Perl Modules to CPAN</h1>
+    <h1>Word Clouds with R</h1>
 
     <aside>
-        <time datetime="2021-03-14">
-            Posted on 2021-03-14
+        <time datetime="2021-03-19">
+            Posted on 2021-03-19
         </time>
     </aside>
 
     <p class="tags">Tags:
-        <a href="/tag/perl/" rel="tag">perl</a>
         <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/r/" rel="tag">R</a>
+        <a href="/tag/nlp/" rel="tag">NLP</a>
     </p>
 
 
 </header>
 <section id="section-1">
-    <p><img alt="perl-to-cpan" src="perl-to-cpan.png">
-These steps assume that your module and tests are located in <code>~/sandbox/Your-Module-Name</code> and that you are friends with the command line.</p>
+    <p>What are the most used words in Sherlock Holmes?  Let&#39;s make word-clouds and find out!</p>
 
 </section>
 <section id="section-2">
-    <p>Have the programs <code>git</code>, and of course <code>perl</code>, installed on your machine.</p>
+    <p>So I must admit that at first I tried this with the perl module <a href="https://metacpan.org/pod/Image::WordCloud">Image::WordCloud</a>.  And it does ...ok, but not enough to be worthy of a journal post.</p>
 
-<p>Make a <a href="https://pause.perl.org/pause/query?ACTION=request_id">PAUSE account</a> for uploading to <a href="https://www.cpan.org/">CPAN</a>.  This is not instant and may take a few days.</p>
+<p>Enter the excellent language <a href="https://www.r-project.org/">R</a>!</p>
 
-<p>Make a <a href="https://github.com/join?ref_cta=Sign+up&amp;ref_loc=header+logged+out&amp;ref_page=%2F&amp;source=header-home">github account</a> to house your module(s).</p>
+<p>I installed it with my operating system package manager.  To make word-clouds, we need a couple additional libraries: &quot;tm&quot; (text mining) and &quot;wordcloud&quot; of course:</p>
 
-<p>Make a <a href="https://github.com/new">github repository</a> for <code>Your-Module-Name</code> without readme, .gitignore or license files.</p>
-
-<p>Install the necessary Perl modules to build a distribution:</p>
-
-<pre><code>cpanm Dist::Zilla Dist::Zilla::MintingProfile::Starter::Git Dist::Zilla::App::Command::installdeps
+<pre><code>install.packages(&#39;tm&#39;)
+install.packages(&#39;wordcloud&#39;)
 </code></pre>
 
-<p>Optionally, make a repository directory for your distribution:</p>
+<p>To load them up, ready for use, do this:</p>
 
-<pre><code>mkdir ~/repos
-cd ~/repos
+<pre><code>library(&#39;tm&#39;)
+library(&#39;wordcloud&#39;)
 </code></pre>
 
-<p>Setup <a href="https://metacpan.org/pod/Dist::Zilla">Dist::Zilla</a> (optionally with your PAUSE id and password):</p>
+<p>Read-in our text files as a corpus of documents:</p>
 
-<pre><code>dzil setup
+<pre><code>docs &lt;- Corpus(DirSource(&#39;~/Documents/lit/Sherlock-Holmes&#39;))
 </code></pre>
 
-<p>Make a new distribution for your module:</p>
+<p>Sanitize the text:</p>
 
-<pre><code>dzil new -P Starter::Git Your::Module::Name
-cd Your-Module-Name
+<pre><code>docs &lt;- tm_map(docs, removeNumbers)
+docs &lt;- tm_map(docs, removePunctuation)
+docs &lt;- tm_map(docs, content_transformer(tolower))
+docs &lt;- tm_map(docs, removeWords, stopwords(&#39;english&#39;))
+docs &lt;- tm_map(docs, stripWhitespace) 
 </code></pre>
 
-<p>Add this as a <code>README.md</code> file:</p>
+<p>Set the color palette to use:</p>
 
-<pre><code># Your-Module-Name
----
-The description of your module...
+<pre><code>pal &lt;- brewer.pal(9, &#39;YlGnBu&#39;)
+pal &lt;- pal[-(1:4)]
 </code></pre>
 
-<p>Add this as a new <code>Changes</code> file:</p>
+<p>Set the randomizer:</p>
 
-<pre><code>Revision history for Your-Module-Name
-
-{{$NEXT}}
-    - Minted by Dist::Zilla.
+<pre><code>set.seed(123)
 </code></pre>
 
-<p>Open the <code>dist.ini</code> file in your favorite editor, and make it look something like this:</p>
+<p>Set the filename to use:</p>
 
-<pre><code>name    = Your-Module-Name
-author  = Your Name &lt;your_pause_id@cpan.org&gt;
-license = Artistic_2_0
-copyright_holder = Your Name
-copyright_year   = 2021
-
-[@Starter::Git]
-revision = 5
-managed_versions = 1
-regenerate = LICENSE
-
-[GithubMeta]
-
-[AutoPrereqs]
+<pre><code>png(file = &#39;Sherlock-wordcloud.png&#39;)
 </code></pre>
 
-<p>You can choose to use a different license, of course. Check out <a href="https://metacpan.org/pod/Software::License#SEE-ALSO">Software::License</a> for the others.</p>
+<p>Create the cloud:</p>
 
-<p>Add your module tests:</p>
-
-<pre><code>cp -R ~/sandbox/Your-Module-Name/t .
+<pre><code>wordcloud(
+    words = docs,
+    scale = c(5, 0.1),
+    max.words = 100,
+    random.order = FALSE,
+    rot.per = 0.35,
+    use.r.layout = FALSE,
+    colors = pal
+)
 </code></pre>
 
-<p>Merge your module with the generated one (with an editor like <a href="https://www.vim.org/">vim</a> or <a href="https://code.visualstudio.com/">vscode</a>):</p>
+<p>Close the graphics device:</p>
 
-<pre><code>vim -O ~/sandbox/Your-Module-Name/lib/Your/Module/Name.pm lib/Your/Module/Name.pm
+<pre><code>dev.off()
 </code></pre>
 
-<p>Install the dependencies for your module:</p>
+<p>And what is the result?</p>
 
-<pre><code>dzil installdeps
-</code></pre>
+<p><img alt="Sherlock-wordcloud" src="Sherlock-wordcloud.png"></p>
 
-<p>Generate a license file:</p>
+<p>How about we just look at one book, &quot;The Hound of the Baskervilles&quot;:</p>
 
-<pre><code>dzil regenerate
-</code></pre>
-
-<p>Commit everything to github:</p>
-
-<pre><code>git add .
-git commit -a -m &#39;Initial commit&#39;
-git remote add origin git@github.com:your_github_id/Your-Module-Name.git
-git push -u origin main
-</code></pre>
-
-<p>Test your distribution:</p>
-
-<pre><code>dzil test
-</code></pre>
-
-<p>If everything is ok, and if you have recieved confirmation of your PAUSE account, then upload:</p>
-
-<pre><code>dzil release
-dzil clean
-</code></pre>
-
-<p>You will soon get a couple email messages (hopefully) saying that your distribution has been accepted.</p>
-
-<p>Check <a href="https://metacpan.org/recent">MetaCPAN</a> for your new release.</p>
-
-<p>And to know all about it, check out <a href="https://metacpan.org/pod/Dist::Zilla::Starter">Dist::Zilla::Starter</a> - Thanks <a href="https://metacpan.org/author/DBOOK">Grinnz</a> :-)</p>
+<p><img alt="Baskervilles-wordcloud" src="Baskervilles-wordcloud.png"></p>
 
 </section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/2021/03/09/hearing-the-primes/index.html" rel="prev">
+            <a class="button button-primary" href="/2021/03/14/releasing-perl-modules-to-cpan/index.html" rel="prev">
                 ← Older
             </a>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/2021/03/19/word-clouds-with-r/index.html" rel="next">
+            <button disabled>
                 Newer →
-            </a>
+            </button>
     </li>
 </ul>
 

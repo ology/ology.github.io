@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/software/</id>
     <title>Gene Boggs</title>
-    <updated>2021-03-14T00:00:00Z</updated>
+    <updated>2021-03-19T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/software.atom" rel="self" />
     <link href="https://ology.github.io/tag/software/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2021/03/19/word-clouds-with-r/</id>
+        <title>Word Clouds with R</title>
+        <link href="https://ology.github.io/2021/03/19/word-clouds-with-r/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>What are the most used words in Sherlock Holmes?  Let&#39;s make word-clouds and find out!</p>
+
+                <p><a href="https://ology.github.io/2021/03/19/word-clouds-with-r/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/r/">R</a>
+                    <a href="https://ology.github.io/tag/nlp/">NLP</a>
+                </p>
+
+        ]]></content>
+        <updated>2021-03-19T00:00:00Z</updated>
+        <category term="software" />
+        <category term="R" />
+        <category term="NLP" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2021/03/14/releasing-perl-modules-to-cpan/</id>
         <title>Releasing Perl Modules to CPAN</title>
@@ -95,27 +116,6 @@ These steps assume that your module and tests are located in <code>~/sandbox/You
         ]]></content>
         <updated>2021-02-12T00:00:00Z</updated>
         <category term="software" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2020/12/27/no-1-hits-entry-longevity/</id>
-        <title>No. 1 Hits - Entry &amp; Longevity</title>
-        <link href="https://ology.github.io/2020/12/27/no-1-hits-entry-longevity/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>If you plot the number one charting hits (entry position vs weeks on chart) for three decades, what does it reveal?  Is there a trend?</p>
-
-                <p><a href="https://ology.github.io/2020/12/27/no-1-hits-entry-longevity/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/music/">music</a>
-                </p>
-
-        ]]></content>
-        <updated>2020-12-27T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="music" />
     </entry>
 </feed>
 

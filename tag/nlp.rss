@@ -7,6 +7,26 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.097</generator>
         <item>
+            <title>Word Clouds with R</title>
+            <link>https://ology.github.io/2021/03/19/word-clouds-with-r/</link>
+            <guid>https://ology.github.io/2021/03/19/word-clouds-with-r/</guid>
+            <description><![CDATA[
+                <p>What are the most used words in Sherlock Holmes?  Let&#39;s make word-clouds and find out!</p>
+
+                    <p><a href="https://ology.github.io/2021/03/19/word-clouds-with-r/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/r/">R</a>
+                        <a href="https://ology.github.io/tag/nlp/">NLP</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 19 Mar 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>US Inaugural Address Reading Level</title>
             <link>https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/</link>
             <guid>https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/</guid>

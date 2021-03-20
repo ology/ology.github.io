@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/r/</id>
     <title>Gene Boggs</title>
-    <updated>2021-02-21T00:00:00Z</updated>
+    <updated>2021-03-19T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/r.atom" rel="self" />
     <link href="https://ology.github.io/tag/r/" rel="alternate" />
     <generator version="0.097">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2021/03/19/word-clouds-with-r/</id>
+        <title>Word Clouds with R</title>
+        <link href="https://ology.github.io/2021/03/19/word-clouds-with-r/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>What are the most used words in Sherlock Holmes?  Let&#39;s make word-clouds and find out!</p>
+
+                <p><a href="https://ology.github.io/2021/03/19/word-clouds-with-r/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/r/">R</a>
+                    <a href="https://ology.github.io/tag/nlp/">NLP</a>
+                </p>
+
+        ]]></content>
+        <updated>2021-03-19T00:00:00Z</updated>
+        <category term="software" />
+        <category term="R" />
+        <category term="NLP" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2021/02/21/us-inaugural-address-reading-level/</id>
         <title>US Inaugural Address Reading Level</title>
@@ -108,34 +129,6 @@ Because of the observed data, a four group clustering emerges when successive e
         <category term="data" />
         <category term="image" />
         <category term="web" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/</id>
-        <title>Fibonacci v Primes: Cage Match!</title>
-        <link href="https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31.png"><img alt="" src="https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31-sm.png"></a>
-Today I decided to more deeply investigate this curious math thing I discovered (for myself) - Plotting the Fibonacci numbers by Prime numbers each by a given modulo.  &quot;Fibo-what? Mod-what? So what!&quot;, you say. <em>:p</em></p>
-
-<p>tldr code: <a href="https://github.com/ology/Math/blob/master/slice-seq">slice-seq</a> and <a href="https://github.com/ology/Math/blob/master/slice-seq.R">slice-seq.R</a></p>
-
-                <p><a href="https://ology.github.io/2014/07/06/fibonacci-v-primes-cage-match/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/r/">R</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
-                    <a href="https://ology.github.io/tag/prime-numbers/">prime numbers</a>
-                </p>
-
-        ]]></content>
-        <updated>2014-07-06T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="R" />
-        <category term="software" />
-        <category term="mathematics" />
-        <category term="prime numbers" />
     </entry>
 </feed>
 
