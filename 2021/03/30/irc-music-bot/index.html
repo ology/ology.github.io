@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>IRC Music Bot - Gene Boggs</title>
         <meta content="Statocles 0.097" name="generator">
-        <link href="/tag/software.atom" rel="alternate" type="application/atom+xml">
-        <link href="/tag/software.rss" rel="alternate" type="application/rss+xml">
-        <link href="/tag/software/page/7/" rel="prev">
+        <link href="/2021/03/20/tape-loop-simulation-with-midi-perl/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -44,79 +42,132 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>IRC Music Bot</h1>
 
-<article>
-    <header>
-        <h1><a href="/2014/07/06/fibonacci-v-primes-cage-match/">Fibonacci v Primes: Cage Match!</a></h1>
+    <aside>
+        <time datetime="2021-03-30">
+            Posted on 2021-03-30
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2014-07-06">
-                Posted on 2014-07-06
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/r/" rel="tag">R</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/mathematics/" rel="tag">mathematics</a>
-            <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
-        </p>
-
-    </header>
-
-    <p><a href="/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31.png"><img alt="" src="/2014/07/06/fibonacci-v-primes-cage-match/plot-200-31-sm.png"></a>
-Today I decided to more deeply investigate this curious math thing I discovered (for myself) - Plotting the Fibonacci numbers by Prime numbers each by a given modulo.  &quot;Fibo-what? Mod-what? So what!&quot;, you say. <em>:p</em></p>
-
-<p>tl;dr code: <a href="https://github.com/ology/Math/blob/master/slice-seq">slice-seq</a> and <a href="https://github.com/ology/Math/blob/master/slice-seq.R">slice-seq.R</a></p>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/music/" rel="tag">music</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
 
 
-        <p><a href="/2014/07/06/fibonacci-v-primes-cage-match/#section-2">Continue reading Fibonacci v Primes: Cage Match!...</a></p>
+</header>
+<section id="section-1">
+    <p>Sometimes I hang out in an IRC channel with fellow musicians.  So I wrote a handy bot that does a couple musical things...</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2013/10/29/primes-gaps-and-gaps-of-gaps/">Primes, Gaps and Gaps of Gaps</a></h1>
+<p>tl;dr: <a href="https://github.com/ology/Miscellaneous/blob/master/irc-bot">irc-bot</a></p>
 
-        <aside>
-            <time datetime="2013-10-29">
-                Posted on 2013-10-29
-            </time>
-        </aside>
+</section>
+<section id="section-2">
+    <h3>Ingredients:</h3>
 
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/mathematics/" rel="tag">mathematics</a>
-            <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
-        </p>
+<ul>
+<li><a href="https://metacpan.org/pod/Mojo::IRC">Mojo::IRC</a></li>
+</ul>
 
-    </header>
+<p>To drive the whole thing!</p>
 
-    <p>The <a href="http://en.wikipedia.org/wiki/Prime_numbers">prime number sequence</a> fascinates me.  I am not sure why but exposing properties in it is exciting.  Even if they are mundane and &quot;obvious to everyone else&quot;, the fact that I can answer questions visually, sometimes thrills me.</p>
+<ul>
+<li><a href="https://metacpan.org/pod/distribution/YAML-LibYAML/lib/YAML/XS.pod">YAML::XS</a></li>
+</ul>
 
-<p>tl;dr: <a href="https://github.com/ology/Math/blob/master/primes/gaps-of-gaps">gaps-of-gaps</a>
- </p>
+<p>To import the configuration variables</p>
 
+<ul>
+<li><a href="https://metacpan.org/pod/App::MusicTools">App::MusicTools</a></li>
+</ul>
 
-        <p><a href="/2013/10/29/primes-gaps-and-gaps-of-gaps/#section-2">Continue reading Primes, Gaps and Gaps of Gaps...</a></p>
+<p>For the <code>vov</code> program</p>
 
-</article>
+<ul>
+<li><a href="https://metacpan.org/pod/Music::Scales">Music::Scales</a></li>
+</ul>
+
+<p>Used to select random scale notes for the <em>motif</em> command</p>
+
+<ul>
+<li><a href="https://metacpan.org/pod/Music::Chord::Note">Music::Chord::Note</a></li>
+</ul>
+
+<p>Print out a note list given a chord name for the <em>chord</em> command</p>
+
+<ul>
+<li><a href="https://metacpan.org/pod/Music::Chord::Namer">Music::Chord::Namer</a></li>
+</ul>
+
+<p>Print out a chord name of the given notes for the <em>notes</em> command</p>
+
+<ul>
+<li><a href="https://metacpan.org/pod/Music::Duration::Partition">Music::Duration::Partition</a></li>
+</ul>
+
+<p>Generate a randomized phrase of <code>pitch.duration</code> elements for the number of given quarter-notes</p>
+
+<h3>Commands:</h3>
+
+<ul>
+<li><em>leave</em></li>
+</ul>
+
+<p>Causes the bot to /quit the network entirely</p>
+
+<ul>
+<li><em>help</em></li>
+</ul>
+
+<p>Prints a brief command string with examples</p>
+
+<ul>
+<li><em>source</em></li>
+</ul>
+
+<p>Prints the github URL of the code for this bot</p>
+
+<ul>
+<li><em>motif</em> number</li>
+</ul>
+
+<p>Prints a randomized phrase with notes in the key of <code>C</code> with durations</p>
+
+<ul>
+<li><em>vov</em> Roman numeral phrase</li>
+</ul>
+
+<p>Prints chords in the key of <code>C</code>, representing the given Roman numeral phrase</p>
+
+<ul>
+<li><em>notes</em> C C# D D# ... B</li>
+</ul>
+
+<p>Prints a chord name given the notes</p>
+
+<ul>
+<li><em>chord</em> C [C7|CM7|...]</li>
+</ul>
+
+<p>Prints the notes of a given named chord</p>
+
+</section>
 
 <ul class="pager">
     <li class="prev">
-            <button disabled>
+            <a class="button button-primary" href="/2021/03/20/tape-loop-simulation-with-midi-perl/index.html" rel="prev">
                 ← Older
-            </button>
-    </li>
-    <li class="next">
-            <a class="button button-primary" href="/tag/software/page/7/" rel="next">
-                Newer →
             </a>
     </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
 </ul>
-
 
 
 
@@ -156,20 +207,7 @@ Today I decided to more deeply investigate this curious math thing I discovered 
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/tag/software.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/tag/software.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>
