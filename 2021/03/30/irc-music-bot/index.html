@@ -230,6 +230,8 @@
 
 <p>Creates an MP3 file given the arguments: BPM, repeats, and a note phrase with embedded patch changes</p>
 
+<p>A note is represented by a letter and optional accidental (<code>#</code> or <code>b</code>), the octave number, and then a period followed by a duration (e.g. wn, hn, dqn, ten, d96, etc.).</p>
+
 <p>Volume changes are indicated with a <code>~</code> symbol.  Patch changes are indicated with <code>^</code>.  Panning is <code>!</code>.  Each can be from <code>0</code> to <code>127</code>.</p>
 
 <p>For example: <code>play 70 2 ^0 ~100 C4.en C4.en G4.en G4.en ^70 ~127 A4.en A4.en G4.qn</code></p>
@@ -238,7 +240,7 @@
 
 <p>If there are no patch changes, a piano will be used.</p>
 
-<p>Also, named chords are supported, and are indicated with a <code>=</code> symbol.  Octaves are given by a period followed by the number of the octave. The duration is further specified with another period followed by a duration (e.g. wn, hn, dqn, ten, etc.).  If not given, they default to octave <code>4</code> and duration <code>wn</code>.</p>
+<p>Also, named chords are supported, and are indicated with a <code>=</code> symbol.  Octaves are given by a period followed by the number of the octave. The duration is further specified with another period followed by a duration.  If not given, they default to octave <code>4</code> and duration <code>wn</code>.</p>
 
 <p>For example: <code>play 100 2 ^24 =C =F =G =G =F =C</code></p>
 
