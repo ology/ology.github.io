@@ -230,9 +230,9 @@
 
 <p>Creates an MP3 file given the arguments: BPM, repeats, and a note phrase with embedded patch changes</p>
 
-<p>Patch changes are indicated with a <code>^</code> symbol.</p>
+<p>Volume changes are indicated with a <code>~</code> symbol.  Patch changes are indicated with a <code>^</code> symbol.  Each can be from <code>0</code> to <code>127</code>.</p>
 
-<p>For example: <code>play 70 2 ^0 C4.en C4.en G4.en G4.en ^70 A4.en A4.en G4.qn</code></p>
+<p>For example: <code>play 70 2 ^0 ~100 C4.en C4.en G4.en G4.en ^70 ~127 A4.en A4.en G4.qn</code></p>
 
 <p>The BPM and repeats arguments are optional.  If left off they will default to 100 and 2, respectively.</p>
 
