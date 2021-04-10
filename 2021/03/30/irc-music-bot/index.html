@@ -225,11 +225,17 @@
 
 <p>Note that The &quot;em dash&quot; must be used if needing a hyphen in the argument e.g. Anh.133–150.</p>
 
-<h4><em>play</em> number number number phrase</h4>
+<h4><em>play</em> number number phrase</h4>
 
-<p>Creates an MP3 file given the arguments: BPM, MIDI patch, repeats, and note phrase</p>
+<p>Creates an MP3 file given the arguments: BPM, repeats, and a note phrase with embedded patch changes</p>
 
-<p>For example: <code>play 70 4 2 C4.en C4.en G4.en G4.en A4.en A4.en G4.qn</code></p>
+<p>Patch changes are indicated with a <code>^</code>.</p>
+
+<p>For example: <code>play 70 2 ^0 C4.en C4.en G4.en G4.en ^70 A4.en A4.en G4.qn</code></p>
+
+<p>The BPM and repeats arguments are optional.  If left off they will default to 100 and 2, respectively.</p>
+
+<p>If there are no patch changes, a piano will be used.</p>
 
 <h4><em>range</em> instrument</h4>
 
