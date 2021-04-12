@@ -240,9 +240,11 @@
 
 <h4><em>play</em> [number [number]] phrase</h4>
 
-<p>Creates an MP3 file given the arguments: BPM, repeats, and a note phrase with embedded patch changes</p>
+<p>Creates an MP3 file given the arguments: BPM, repeats, and a note phrase with embedded patch, volume and panning changes</p>
 
 <p>A note is represented by a letter and optional accidental (<code>#</code> or <code>b</code>), the octave number, and then a period followed by a duration (e.g. wn, hn, dqn, ten, d96, etc.).</p>
+
+<p>The <code>d96</code> duration is the &quot;raw tick&quot; value of the handy abbreviations.  These may be used for tied notes.  96 ticks are equal to one quarter note.  <code>d336</code> would be a tie of 3.5 notes.</p>
 
 <p>Volume changes are indicated with a <code>~</code> symbol.  Patch changes are indicated with <code>^</code>.  Panning is <code>!</code>.  Each can be from <code>0</code> to <code>127</code>.</p>
 
