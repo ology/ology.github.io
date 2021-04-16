@@ -8,7 +8,7 @@
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <title>IRC Music Bot - Gene Boggs</title>
-        <meta content="Statocles 0.097" name="generator">
+        <meta content="Statocles 0.098" name="generator">
         <link href="/2021/03/20/tape-loop-simulation-with-midi-perl/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
@@ -141,9 +141,22 @@
 <p>Generate an MP3 file based on a given phrase</p>
 
 <ul>
-<li><p><a href="https://metacpan.org/pod/MIDI::Drummer::Tiny">MIDI::Drummer::Tiny</a></p></li>
-<li><p>A server to host MP3 files and run the fretboard diagram app</p></li>
+<li>A server to host MP3 files and run the fretboard diagram app</li>
 </ul>
+
+<p>Optional</p>
+
+<ul>
+<li><a href="https://metacpan.org/pod/MIDI::Drummer::Tiny">MIDI::Drummer::Tiny</a></li>
+</ul>
+
+<p>Produce a drum track</p>
+
+<ul>
+<li><a href="https://metacpan.org/pod/MIDI::Chord::Guitar">MIDI::Chord::Guitar</a></li>
+</ul>
+
+<p>Prints out guitar chord neck position fingerings</p>
 
 <p>Generate percussion</p>
 
@@ -226,6 +239,12 @@
 <h4><em>hit</em> yyyymmdd</h4>
 
 <p>Finds the Billboard #1 hit song for that date</p>
+
+<h4><em>fingering</em> D3 m</h4>
+
+<p>Show the fingerings for the note and chord</p>
+
+<p>Please see the known chords <a href="https://metacpan.org/source/GENE/MIDI-Chord-Guitar-0.0603/share%2Fmidi-guitar-chord-voicings.csv">here</a></p>
 
 <h4><em>fret</em> x02220 1</h4>
 

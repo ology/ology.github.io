@@ -5,7 +5,7 @@
         <link>https://ology.github.io/tag/bible/</link>
         <atom:link href="https://ology.github.io/tag/bible.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of Gene Boggs</description>
-        <generator>Statocles 0.097</generator>
+        <generator>Statocles 0.098</generator>
         <item>
             <title>Books of the Bible TF-IDF</title>
             <link>https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/</link>
