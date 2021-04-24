@@ -104,10 +104,10 @@ my @scale = get_scale_MIDI(&#39;C&#39;, $octave, $scale);
 
 <pre><code>my $i = 0;
 for my $n (oeis($oeis, $limit)) {
-    $i++;
     my $mod = $n % @scale;
     my $note = $scale[$mod];
-    print &quot;$i. n: $n, mod &quot;, scalar(@scale), &quot;: $mod, note: $note\n&quot;;
+    printf &quot;%d. n: %d, mod %d: %d, note: %d\n&quot;,                                                                                                                              
+        ++$i, $n, scalar(@scale), $mod, $note;
     $score-&gt;n(&#39;qn&#39;, $note);
 }
 </code></pre>
