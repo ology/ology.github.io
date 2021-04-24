@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Hearing the OEIS - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/tag/midi.atom" rel="alternate" type="application/atom+xml">
-        <link href="/tag/midi.rss" rel="alternate" type="application/rss+xml">
-        <link href="/tag/midi/page/2/" rel="prev">
+        <link href="/2021/03/30/irc-music-bot/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -44,75 +42,104 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Hearing the OEIS</h1>
 
-<article>
-    <header>
-        <h1><a href="/2018/03/18/sonic-l-systems/">Sonic L-Systems</a></h1>
+    <aside>
+        <time datetime="2021-04-24">
+            Posted on 2021-04-24
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2018-03-18">
-                Posted on 2018-03-18
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/midi/" rel="tag">MIDI</a>
-            <a href="/tag/audio/" rel="tag">audio</a>
-        </p>
-
-    </header>
-
-    <p><img alt="" src="/2018/03/18/sonic-l-systems/Serpinski_Lsystem.png">
-In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lindenmayer</a> introduced &quot;<a href="https://en.wikipedia.org/wiki/L-system">L-systems</a>&quot; to the world. Basically, this is an iterative rewriting system of rules that operates on a string beginning with an &quot;axiom&quot; or initial string.</p>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+        <a href="/tag/audio/" rel="tag">audio</a>
+    </p>
 
 
-        <p><a href="/2018/03/18/sonic-l-systems/#section-2">Continue reading Sonic L-Systems...</a></p>
+</header>
+<section id="section-1">
+    <p>What does a number sequence &quot;sound like&quot;?</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2017/11/24/bach-note-transition-frequency-music/">Bach Note Transition Frequency &quot;Music&quot;</a></h1>
+</section>
+<section id="section-2">
+    <p>Let&#39;s join <a href="https://metacpan.org/release/MIDI-Perl">MIDI-Perl</a> with the <a href="https://metacpan.org/release/OEIS">OEIS module</a>!</p>
 
-        <aside>
-            <time datetime="2017-11-24">
-                Posted on 2017-11-24
-            </time>
-        </aside>
+<p><a href="https://www.midi.org/">MIDI</a> stands for &quot;Musical Instrument Digital Interface.&quot;  <a href="https://www.perl.org/">Perl</a> is, of course a computer language.  And the <a href="https://oeis.org/">OEIS</a> is the venerable, On-Line Encyclopedia of Integer Sequences.</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/midi/" rel="tag">MIDI</a>
-            <a href="/tag/analysis/" rel="tag">analysis</a>
-        </p>
+<p>Let&#39;s get to it.  The code is super simple:</p>
 
-    </header>
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+</code></pre>
 
-    <p>What are the note frequencies of music by Bach?  That is, &quot;How often does an F follow a C?&quot; etc.  What does it sound like if you &quot;reconstruct&quot; playable music from these frequencies?</p>
+<p>Declare the modules and functions to use:</p>
 
-<p>Let&#39;s see!</p>
+<pre><code>use MIDI::Util qw(setup_score);
+use Music::Scales qw(get_scale_MIDI);
+use OEIS qw(oeis);
+</code></pre>
 
+<p>Declare and assign the program parameters as command-line arguments:</p>
 
-        <p><a href="/2017/11/24/bach-note-transition-frequency-music/#section-2">Continue reading Bach Note Transition Frequency &quot;Music&quot;...</a></p>
+<pre><code>my $oeis   = shift || die &quot;Usage: perl $0 oeis-number [how-many scale bpm patch octave]\n&quot;;
+my $limit  = shift || 64;
+my $scale  = shift || &#39;major&#39;;
+my $bpm    = shift || 300;
+my $patch  = shift || 0;
+my $octave = shift || 4;
+</code></pre>
 
-</article>
+<p>We will need a MIDI score and a scale of notes:</p>
+
+<pre><code>my $score = setup_score(bpm =&gt; $bpm, patch =&gt; $patch);
+my @scale = get_scale_MIDI(&#39;C&#39;, $octave, $scale);
+</code></pre>
+
+<p>Inspect each term of the OEIS sequence.  Find the modulo between this term and the size of the scale.  (This keeps the values in the audible range.)  Add this value as a note to the growing score:</p>
+
+<pre><code>my $i = 0;
+for my $n (oeis($oeis, $limit)) {
+    $i++;
+    my $mod = $n % @scale;
+    my $note = $scale[$mod];
+    print &quot;$i. n: $n, mod &quot;, scalar(@scale), &quot;: $mod, note: $note\n&quot;;
+    $score-&gt;n(&#39;qn&#39;, $note);
+}
+</code></pre>
+
+<p>Finally, write the score to a MIDI file, named after the program:</p>
+
+<pre><code>$score-&gt;write_score(&quot;$0.mid&quot;);
+</code></pre>
+
+<p>And what does this sound like?  Well here are the first 64 prime numbers (OEIS A000040):</p>
+
+<p><audio controls><source src="oeis-40.mp3" type="audio/mp3"></audio></p>
+
+<p>And here are the Fibonacci numbers (OEIS A000045):</p>
+
+<p><audio controls><source src="oeis-45.mp3" type="audio/mp3"></audio></p>
+
+<p>Woo!</p>
+
+</section>
 
 <ul class="pager">
     <li class="prev">
-            <button disabled>
+            <a class="button button-primary" href="/2021/03/30/irc-music-bot/index.html" rel="prev">
                 ← Older
-            </button>
-    </li>
-    <li class="next">
-            <a class="button button-primary" href="/tag/midi/page/2/" rel="next">
-                Newer →
             </a>
     </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
 </ul>
-
 
 
 
@@ -152,20 +179,7 @@ In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lin
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/tag/midi.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/tag/midi.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

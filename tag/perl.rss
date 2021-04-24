@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Hearing the OEIS</title>
+            <link>https://ology.github.io/2021/04/24/hearing-the-oeis/</link>
+            <guid>https://ology.github.io/2021/04/24/hearing-the-oeis/</guid>
+            <description><![CDATA[
+                <p>What does a number sequence &quot;sound like&quot;?</p>
+
+                    <p><a href="https://ology.github.io/2021/04/24/hearing-the-oeis/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                        <a href="https://ology.github.io/tag/audio/">audio</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 24 Apr 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>IRC Music Bot</title>
             <link>https://ology.github.io/2021/03/30/irc-music-bot/</link>
             <guid>https://ology.github.io/2021/03/30/irc-music-bot/</guid>
@@ -87,29 +108,6 @@ These steps assume that your module and tests are located in <code>~/sandbox/You
             ]]></description>
             <pubDate>
                 Tue, 09 Mar 2021 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Books of the Bible TF-IDF</title>
-            <link>https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/</link>
-            <guid>https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/</guid>
-            <description><![CDATA[
-                <p>What are the &quot;most unique phrases&quot; in the Bible?  Let&#39;s find out!</p>
-
-                    <p><a href="https://ology.github.io/2021/02/15/books-of-the-bible-tf-idf/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/bible/">bible</a>
-                        <a href="https://ology.github.io/tag/nlp/">NLP</a>
-                        <a href="https://ology.github.io/tag/data/">data</a>
-                        <a href="https://ology.github.io/tag/analysis/">analysis</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Mon, 15 Feb 2021 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
