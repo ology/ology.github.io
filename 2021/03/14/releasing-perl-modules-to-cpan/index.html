@@ -140,22 +140,25 @@ regenerate = LICENSE
 <pre><code>vim -O ~/sandbox/Your-Module-Name/lib/Your/Module/Name.pm lib/Your/Module/Name.pm
 </code></pre>
 
-<p>Install the dependencies for your module:</p>
-
-<pre><code>dzil installdeps
-</code></pre>
-
-<p>Generate a license file:</p>
-
-<pre><code>dzil regenerate
-</code></pre>
-
 <p>Commit everything to github:</p>
 
 <pre><code>git add .
 git commit -a -m &#39;Initial commit&#39;
 git remote add origin git@github.com:your_github_id/Your-Module-Name.git
 git push -u origin main
+</code></pre>
+
+<p>Install the dependencies for your module:</p>
+
+<pre><code>dzil installdeps
+</code></pre>
+
+<p>Generate a license file and add it to git:</p>
+
+<pre><code>dzil regenerate
+git add LICENSE
+git commit -m &#39;Initial commit&#39; LICENSE
+git push
 </code></pre>
 
 <p>Test your distribution:</p>
