@@ -84,7 +84,7 @@ use Music::Scales qw(get_scale_MIDI);
 use OEIS qw(oeis);
 </code></pre>
 
-<p>Declare and assign the program parameters as command-line arguments:</p>
+<p>Declare and assign the program parameters (which can be given as command-line arguments):</p>
 
 <pre><code>my $oeis   = shift || die &quot;Usage: perl $0 oeis-number [how-many scale bpm patch octave]\n&quot;;
 my $limit  = shift || 64;
