@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/music/</id>
     <title>Gene Boggs</title>
-    <updated>2021-03-30T00:00:00Z</updated>
+    <updated>2021-05-07T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/music.atom" rel="self" />
     <link href="https://ology.github.io/tag/music/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/</id>
+        <title>Installing and Using Abbey Road 60s Drummer</title>
+        <link href="https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>I had trouble installing and using <a href="https://www.native-instruments.com/en/">Native Instruments</a> &quot;<a href="https://www.native-instruments.com/en/products/komplete/drums/abbey-road-vintage-drummer/">Abbey Road 60s Drummer</a>&quot; program.  But after significant trial, error, and finally talking to NI support, this is the proper way to get it happening:</p>
+
+                <p><a href="https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/music/">music</a>
+                    <a href="https://ology.github.io/tag/audio/">audio</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                </p>
+
+        ]]></content>
+        <updated>2021-05-07T00:00:00Z</updated>
+        <category term="music" />
+        <category term="audio" />
+        <category term="software" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2021/03/30/irc-music-bot/</id>
         <title>IRC Music Bot</title>
@@ -95,32 +116,6 @@ I decided to write down a set of steps on how to become an algorithmic music com
         <updated>2020-12-23T00:00:00Z</updated>
         <category term="perl" />
         <category term="MIDI" />
-        <category term="music" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2020/12/13/enter-music-chord-progression/</id>
-        <title>Enter Music::Chord::Progression</title>
-        <link href="https://ology.github.io/2020/12/13/enter-music-chord-progression/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><img alt="" src="https://ology.github.io/2020/12/13/enter-music-chord-progression/state-machine.png">
-This weekend I saw this diagram and thought, &quot;I can do that!&quot;</p>
-
-<p>tl;dr: <a href="https://metacpan.org/release/Music-Chord-Progression">Music::Chord::Progression</a></p>
-
-                <p><a href="https://ology.github.io/2020/12/13/enter-music-chord-progression/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/generative/">generative</a>
-                    <a href="https://ology.github.io/tag/music/">music</a>
-                </p>
-
-        ]]></content>
-        <updated>2020-12-13T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="generative" />
         <category term="music" />
     </entry>
 </feed>
