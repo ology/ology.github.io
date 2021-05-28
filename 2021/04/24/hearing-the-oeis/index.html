@@ -17,6 +17,7 @@
 <script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
         <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
         <script src="/theme/site/ology.js"></script>
     </head>
     <body>
@@ -73,16 +74,16 @@ What does a number sequence &quot;sound like&quot;?</p>
 
 <p>Let&#39;s get to it.  The code is super simple:</p>
 
-<pre><code>#!/usr/bin/env perl
-use strict;
-use warnings;
+<pre><code class="hljs">    <span class="hljs-comment">#!/usr/bin/env perl</span><span class="hljs-comment">
+</span>    <span class="hljs-keyword">use</span> <span class="hljs-keyword">strict</span>;
+    <span class="hljs-keyword">use</span> <span class="hljs-keyword">warnings</span>;
 </code></pre>
 
 <p>Declare the modules and functions to use:</p>
 
-<pre><code>use MIDI::Util qw(setup_score);
-use Music::Scales qw(get_scale_MIDI);
-use OEIS qw(oeis);
+<pre><code class="hljs">    <span class="hljs-keyword">use</span> <span class="hljs-function">MIDI::Util</span> qw(setup_score);
+    <span class="hljs-keyword">use</span> <span class="hljs-function">Music::Scales</span> qw(get_scale_MIDI);
+    <span class="hljs-keyword">use</span> OEIS qw(oeis);
 </code></pre>
 
 <p>Declare and assign the program parameters (which can be given as command-line arguments):</p>
