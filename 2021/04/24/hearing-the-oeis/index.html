@@ -74,49 +74,49 @@ What does a number sequence &quot;sound like&quot;?</p>
 
 <p>Let&#39;s get to it.  The code is super simple:</p>
 
-<pre><code class="hljs">    <span class="hljs-comment">#!/usr/bin/env perl</span><span class="hljs-comment">
-</span>    <span class="hljs-keyword">use</span> <span class="hljs-keyword">strict</span>;
-    <span class="hljs-keyword">use</span> <span class="hljs-keyword">warnings</span>;
+<pre><code class="hljs"><span class="hljs-keyword">#!/usr/bin/env perl</span>
+<span class="hljs-keyword">use</span> <span class="hljs-keyword">strict</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-keyword">warnings</span>;
 </code></pre>
 
 <p>Declare the modules and functions to use:</p>
 
-<pre><code class="hljs">    <span class="hljs-keyword">use</span> <span class="hljs-function">MIDI::Util</span> qw(setup_score);
-    <span class="hljs-keyword">use</span> <span class="hljs-function">Music::Scales</span> qw(get_scale_MIDI);
-    <span class="hljs-keyword">use</span> OEIS qw(oeis);
+<pre><code class="hljs"><span class="hljs-keyword">use</span> <span class="hljs-function">MIDI::Util</span> qw(setup_score);
+<span class="hljs-keyword">use</span> <span class="hljs-function">Music::Scales</span> qw(get_scale_MIDI);
+<span class="hljs-keyword">use</span> OEIS qw(oeis);
 </code></pre>
 
 <p>Declare and assign the program parameters (which can be given as command-line arguments):</p>
 
-<pre><code>my $oeis   = shift || die &quot;Usage: perl $0 oeis-number [how-many scale bpm patch octave]\n&quot;;
-my $limit  = shift || 64;
-my $scale  = shift || &#39;major&#39;;
-my $bpm    = shift || 300;
-my $patch  = shift || 0;
-my $octave = shift || 4;
+<pre><code class="hljs"><span class="hljs-keyword">my</span> <span class="hljs-type">$oeis</span>   = <span class="hljs-function">shift</span> || <span class="hljs-function">die</span> &quot;<span class="hljs-string">Usage: perl </span><span class="hljs-variable">$0</span><span class="hljs-string"> oeis-number [how-many scale bpm patch octave]</span><span class="hljs-string">\n</span>&quot;;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$limit</span>  = <span class="hljs-function">shift</span> || <span class="hljs-number">64</span>;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$scale</span>  = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">major</span>&#39;;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$bpm</span>    = <span class="hljs-function">shift</span> || <span class="hljs-number">300</span>;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$patch</span>  = <span class="hljs-function">shift</span> || 0;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$octave</span> = <span class="hljs-function">shift</span> || 4;
 </code></pre>
 
 <p>We will need a MIDI score and a scale of notes:</p>
 
-<pre><code>my $score = setup_score(bpm =&gt; $bpm, patch =&gt; $patch);
-my @scale = get_scale_MIDI(&#39;C&#39;, $octave, $scale);
+<pre><code class="hljs"><span class="hljs-keyword">my</span> <span class="hljs-type">$score</span> = setup_score(bpm =&gt; <span class="hljs-type">$bpm</span>, patch =&gt; <span class="hljs-type">$patch</span>);
+<span class="hljs-keyword">my</span> <span class="hljs-type">@scale</span> = get_scale_MIDI(&#39;<span class="hljs-string">C</span>&#39;, <span class="hljs-type">$octave</span>, <span class="hljs-type">$scale</span>);
 </code></pre>
 
 <p>Inspect each term of the OEIS sequence.  Find the modulo between this term and the size of the scale.  (This keeps the values in the audible range.)  Add this value as a note to the growing score:</p>
 
-<pre><code>my $i = 0;
-for my $n (oeis($oeis, $limit)) {
-    my $mod = $n % @scale;
-    my $note = $scale[$mod];
-    printf &quot;%d. n: %d, mod %d: %d, note: %d\n&quot;,                                                                                                                              
-        ++$i, $n, scalar(@scale), $mod, $note;
-    $score-&gt;n(&#39;qn&#39;, $note);
+<pre><code class="hljs"><span class="hljs-keyword">my</span> <span class="hljs-type">$i</span> = 0;
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">my</span> <span class="hljs-type">$n</span> (oeis(<span class="hljs-type">$oeis</span>, <span class="hljs-type">$limit</span>)) {
+    <span class="hljs-keyword">my</span> <span class="hljs-type">$mod</span> = <span class="hljs-type">$n</span> % <span class="hljs-type">@scale</span>;
+    <span class="hljs-keyword">my</span> <span class="hljs-type">$note</span> = <span class="hljs-type">$scale</span>[<span class="hljs-type">$mod</span>];
+    <span class="hljs-function">printf</span> &quot;<span class="hljs-type">%d</span><span class="hljs-string">. n: </span><span class="hljs-type">%d</span><span class="hljs-string">, mod </span><span class="hljs-type">%d</span><span class="hljs-string">: </span><span class="hljs-type">%d</span><span class="hljs-string">, note: </span><span class="hljs-type">%d</span><span class="hljs-string">\n</span>&quot;,                                                                                                                              
+        ++<span class="hljs-type">$i</span>, <span class="hljs-type">$n</span>, <span class="hljs-function">scalar</span>(<span class="hljs-type">@scale</span>), <span class="hljs-type">$mod</span>, <span class="hljs-type">$note</span>;
+    <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">n</span>(&#39;<span class="hljs-string">qn</span>&#39;, <span class="hljs-type">$note</span>);
 }
 </code></pre>
 
 <p>Finally, write the score to a MIDI file, named after the program:</p>
 
-<pre><code>$score-&gt;write_score(&quot;$0.mid&quot;);
+<pre><code class="hljs"><span class="hljs-type">$score</span>-&gt;<span class="hljs-type">write_score</span>(&quot;<span class="hljs-variable">$0</span><span class="hljs-string">.mid</span>&quot;);
 </code></pre>
 
 <p>And what does this sound like?  Well here are the 58 prime numbers in the sequence <a href="https://oeis.org/A000040">OEIS A000040</a>:</p>
