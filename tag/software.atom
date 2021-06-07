@@ -12,7 +12,7 @@
         <title>MacVim and the Apple Touch Bar</title>
         <link href="https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p><a href="https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/touchbar-buttons-01-sm.jpg">touchbar-buttons</a>
+            <p><img alt="touchbar-buttons" src="https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/touchbar-buttons-01-sm.jpg">
 You can add custom buttons to the <a href="https://support.apple.com/guide/mac-help/touch-bar-mchlbfd5b039/mac">Apple Touch Bar</a> when using <a href="https://github.com/macvim-dev/macvim#readme">MacVim</a>.</p>
 
                 <p><a href="https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/#section-2">Continue reading...</a></p>
