@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Installing and Using Abbey Road 60s Drummer - Gene Boggs</title>
+        <title>MacVim and the Apple Touch Bar - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/2021/06/06/macvim-and-the-touch-bar/index.html" rel="prev">
-        <link href="/2021/04/24/hearing-the-oeis/index.html" rel="next">
+        <link href="/2021/05/07/installing-and-using-abbey-road-60s-drummer/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -44,45 +43,50 @@
                 <div class="nine columns">
                     <main>
                         <header>
-    <h1>Installing and Using Abbey Road 60s Drummer</h1>
+    <h1>MacVim and the Apple Touch Bar</h1>
 
     <aside>
-        <time datetime="2021-05-07">
-            Posted on 2021-05-07
+        <time datetime="2021-06-06">
+            Posted on 2021-06-06
         </time>
     </aside>
 
     <p class="tags">Tags:
-        <a href="/tag/music/" rel="tag">music</a>
-        <a href="/tag/audio/" rel="tag">audio</a>
         <a href="/tag/software/" rel="tag">software</a>
     </p>
 
 
 </header>
 <section id="section-1">
-    <p>I had trouble installing and using <a href="https://www.native-instruments.com/en/">Native Instruments</a> &quot;<a href="https://www.native-instruments.com/en/products/komplete/drums/abbey-road-vintage-drummer/">Abbey Road 60s Drummer</a>&quot; program.  But after significant trial, error, and finally talking to NI support, this is the proper way to get it happening:</p>
+    <p>You can add custom buttons to the <a href="https://support.apple.com/guide/mac-help/touch-bar-mchlbfd5b039/mac">Apple Touch Bar</a> when using <a href="https://github.com/macvim-dev/macvim#readme">MacVim</a>.</p>
 
 </section>
 <section id="section-2">
-    <p>In short, you need to first install the Native Instrument program <a href="https://www.native-instruments.com/en/products/komplete/samplers/kontakt-6-player/">Kontakt 6 Player</a> <em>with</em> the program <a href="https://www.native-instruments.com/en/specials/native-access/">Native Access</a>.  <strong>Then</strong> download and install the drummer app with it.</p>
+    <p>From <a href="https://gist.github.com/0x4a616e/31f58e02ffd5d49bb0865c3dce0b5a08">this gist</a>, I learned about how to customize the touch bar in vim.  This is something that I have desired for, forever - i.e. having my own, personal vim buttons.  You can do this with gamer keypads, even foot pedals, etc.</p>
 
-<p>After that, running the Kontakt 6 Player will list the drummers, etc. in its library.  Installing will also make the <a href="https://en.wikipedia.org/wiki/Audio_Units">AU</a> and <a href="https://en.wikipedia.org/wiki/Virtual_Studio_Technology">VST</a> plugins available for your <a href="https://en.wikipedia.org/wiki/Digital_audio_workstation">DAW</a>.</p>
+<p>Anyway, just add a line like this to your .vimrc file:</p>
 
-<p>Whew.  Simple in the end, but painful for a while there. ;)</p>
+<pre><code>an icon=NSTouchBarComposeTemplate TouchBar.NewBuf :e .&lt;CR&gt;
+</code></pre>
+
+<p>This adds a touchbar button that opens the &quot;vim buffer explorer.&quot;</p>
+
+<p>Save and reopen MacVim. Voila!</p>
+
+<p>(By the way, I don&#39;t think you can remove the MacVim &quot;Fullscreen&quot; button.)</p>
 
 </section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/2021/04/24/hearing-the-oeis/index.html" rel="prev">
+            <a class="button button-primary" href="/2021/05/07/installing-and-using-abbey-road-60s-drummer/index.html" rel="prev">
                 ← Older
             </a>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/2021/06/06/macvim-and-the-touch-bar/index.html" rel="next">
+            <button disabled>
                 Newer →
-            </a>
+            </button>
     </li>
 </ul>
 

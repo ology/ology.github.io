@@ -7,6 +7,24 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>MacVim and the Apple Touch Bar</title>
+            <link>https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/</link>
+            <guid>https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/</guid>
+            <description><![CDATA[
+                <p>You can add custom buttons to the <a href="https://support.apple.com/guide/mac-help/touch-bar-mchlbfd5b039/mac">Apple Touch Bar</a> when using <a href="https://github.com/macvim-dev/macvim#readme">MacVim</a>.</p>
+
+                    <p><a href="https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 06 Jun 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Installing and Using Abbey Road 60s Drummer</title>
             <link>https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/</link>
             <guid>https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/</guid>
@@ -88,26 +106,6 @@ What does a number sequence &quot;sound like&quot;?</p>
             ]]></description>
             <pubDate>
                 Sat, 20 Mar 2021 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Word-clouds with R</title>
-            <link>https://ology.github.io/2021/03/19/word-clouds-with-r/</link>
-            <guid>https://ology.github.io/2021/03/19/word-clouds-with-r/</guid>
-            <description><![CDATA[
-                <p>What are the most used words in Sherlock Holmes?  Let&#39;s make word-clouds and find out!</p>
-
-                    <p><a href="https://ology.github.io/2021/03/19/word-clouds-with-r/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/r/">R</a>
-                        <a href="https://ology.github.io/tag/nlp/">NLP</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Fri, 19 Mar 2021 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
