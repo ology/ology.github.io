@@ -63,14 +63,19 @@ You can add custom buttons to the <a href="https://support.apple.com/guide/mac-h
 
 </section>
 <section id="section-2">
-    <p>From <a href="https://gist.github.com/0x4a616e/31f58e02ffd5d49bb0865c3dce0b5a08">this gist</a>, I learned about how to customize the touch bar in vim.  This is something that I have desired forever.  That is, having my own, personal vim buttons.  You can do this with gamer keypads, even foot pedals, etc.  But the touch bar! Shiny!</p>
+    <p>From <a href="https://gist.github.com/0x4a616e/31f58e02ffd5d49bb0865c3dce0b5a08">this gist</a>, I learned about how to customize the touch bar in vim.  This is something that I have desired forever.  That is, having my own, personal vim buttons.  You can do this with gamer keypads, even foot pedals, etc.  But the touch bar - Shiny!</p>
 
 <p>Anyway, just add a line like this to your .vimrc file:</p>
 
 <pre><code>an icon=NSTouchBarComposeTemplate TouchBar.NewBuf :e .&lt;CR&gt;
 </code></pre>
 
-<p>This adds a touchbar button that opens the &quot;vim buffer explorer.&quot;</p>
+<p>For a named button, just don&#39;t include the <code>icon=...</code> setting:</p>
+
+<pre><code>an TouchBar.NewBuf :e .&lt;CR&gt;
+</code></pre>
+
+<p>These add touchbar buttons that open the &quot;vim buffer explorer.&quot;</p>
 
 <p>Save and reopen MacVim. Voila!</p>
 
@@ -78,7 +83,7 @@ You can add custom buttons to the <a href="https://support.apple.com/guide/mac-h
 
 <p>This shows (on my 2017 model Touch Bar) the following &quot;virtual&quot; buttons: Escape, Full-screen, Previous tab, Open new tab, Next tab, Open the vim explorer, Previous git hunk, Toggle the fabulous <a href="https://github.com/airblade/vim-gitgutter#readme">gitgutter plugin</a> on or off, Next git hunk.  These are actions that I need to do periodically in vim.  And <a href="https://developer.apple.com/design/human-interface-guidelines/macos/touch-bar/touch-bar-glyphs-and-images/">here</a> are the &quot;Touch Bar Glyphs and Images&quot; from the Apple Human Interface Guidelines, that you can use.</p>
 
-<p>There is certainly more to this than I have covered, so that is up to you, the intrepid developer!</p>
+<p>There is certainly more to this than I have covered. So that is up to you, the intrepid developer!</p>
 
 <p>(By the way, I don&#39;t think you can remove the MacVim &quot;Full-screen&quot; button.)</p>
 
