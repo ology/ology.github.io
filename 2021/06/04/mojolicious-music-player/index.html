@@ -69,7 +69,9 @@
 <section id="section-2">
     <p>I have an external drive with 30+ straight days of music, and have two desires: 1) To be able to play through this library in &quot;shuffle&quot; mode, returning a random tune each time.  And 2) to be able to search for arbitrary keywords.</p>
 
-<p>So, yes, there are plenty of full-featured audio players out there.  <a href="https://www.videolan.org/">VLC</a> for instance.  But none written by me. Haha.  Also, it has the advantages of being super lightweight and playable from any machine on the nextwork too.</p>
+<p>So, yes, there are plenty of full-featured audio players out there.  <a href="https://www.videolan.org/">VLC</a> for instance.  But none written by me. Haha.  Also, it has the advantages of being super lightweight and playable from any machine on the network too.</p>
+
+<p><img alt="audio-player" src="audio-player.png"></p>
 
 <p>Let&#39;s get to it.  There are two parts: The code and the audio library itself.  The audio library goes under a subdirectory named &quot;public&quot;.  In my case, my audio files are on an external drive.  So do these steps:</p>
 
@@ -216,7 +218,12 @@ use constant DAT  =&gt; &quot;$0.dat&quot;;        # The tracks file
 
 <p>Next up is the single, but complex template full of Mojolicious and JavaScript things.  Unfortunately my Mojolicious based blog engine, <a href="https://metacpan.org/pod/Statocles">Statocles</a> tries to interpolate any template examples I show here!  So I will leave understanding that part up to the reader!</p>
 
-<p><img alt="audio-player" src="audio-player.png"></p>
+<p>Anyway, to start this program, just run the Mojolicious included development server, &quot;morbo&quot;:</p>
+
+<pre><code>audio-stream $ morbo audio-stream
+</code></pre>
+
+<p>And browse to http://127.0.0.1:3000/ - Voila!</p>
 
 </section>
 
