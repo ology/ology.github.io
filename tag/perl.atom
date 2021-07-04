@@ -12,7 +12,7 @@
         <title>Mojolicious Music Player</title>
         <link href="https://ology.github.io/2021/06/04/mojolicious-music-player/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Can you build an audio player from perl <a href="https://mojolicious.org/]">Mojolicious</a>?  Yes!</p>
+            <p>Can you build an audio player from perl <a href="https://mojolicious.org/">Mojolicious</a>?  Yes!</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Miscellaneous/blob/master/audio-stream">audio-stream</a></p>
 
