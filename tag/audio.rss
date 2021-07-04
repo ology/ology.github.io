@@ -7,6 +7,28 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Mojolicious Music Player</title>
+            <link>https://ology.github.io/2021/06/04/mojolicious-music-player/</link>
+            <guid>https://ology.github.io/2021/06/04/mojolicious-music-player/</guid>
+            <description><![CDATA[
+                <p>Can you build an audio player from perl (https://mojolicious.org/)[Mojolicious]?  Yes!</p>
+
+<p>tl;dr: (https://github.com/ology/Miscellaneous/blob/master/audio-stream)[audio-stream]</p>
+
+                    <p><a href="https://ology.github.io/2021/06/04/mojolicious-music-player/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/audio/">audio</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 04 Jun 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Installing and Using Abbey Road 60s Drummer</title>
             <link>https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/</link>
             <guid>https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/</guid>
@@ -96,28 +118,6 @@ Yesterday I became curious about what <a href="https://en.wikipedia.org/wiki/Con
             ]]></description>
             <pubDate>
                 Sat, 15 Feb 2020 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Sonic L-Systems</title>
-            <link>https://ology.github.io/2018/03/18/sonic-l-systems/</link>
-            <guid>https://ology.github.io/2018/03/18/sonic-l-systems/</guid>
-            <description><![CDATA[
-                <p><img alt="" src="https://ology.github.io/2018/03/18/sonic-l-systems/Serpinski_Lsystem.png">
-In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lindenmayer</a> introduced &quot;<a href="https://en.wikipedia.org/wiki/L-system">L-systems</a>&quot; to the world. Basically, this is an iterative rewriting system of rules that operates on a string beginning with an &quot;axiom&quot; or initial string.</p>
-
-                    <p><a href="https://ology.github.io/2018/03/18/sonic-l-systems/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                        <a href="https://ology.github.io/tag/audio/">audio</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sun, 18 Mar 2018 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

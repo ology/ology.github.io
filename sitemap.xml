@@ -271,6 +271,12 @@
         <lastmod>2021-05-07</lastmod>
     </url>
     <url>
+        <loc>https://ology.github.io/2021/06/04/mojolicious-music-player/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2021-06-04</lastmod>
+    </url>
+    <url>
         <loc>https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
@@ -280,6 +286,12 @@
         <loc>https://ology.github.io/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
+        <lastmod>2021-07-04</lastmod>
+    </url>
+    <url>
+        <loc>https://ology.github.io/page/10/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
         <lastmod>2021-06-06</lastmod>
     </url>
     <url>
@@ -352,7 +364,13 @@
         <loc>https://ology.github.io/tag/audio/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-05-07</lastmod>
+        <lastmod>2021-06-04</lastmod>
+    </url>
+    <url>
+        <loc>https://ology.github.io/tag/audio/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2021-06-04</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/automata/</loc>
@@ -484,49 +502,49 @@
         <loc>https://ology.github.io/tag/perl/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-04-24</lastmod>
+        <lastmod>2021-06-04</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/perl/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-04-24</lastmod>
+        <lastmod>2021-06-04</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/perl/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-04-24</lastmod>
+        <lastmod>2021-06-04</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/perl/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-04-24</lastmod>
+        <lastmod>2021-06-04</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/perl/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-04-24</lastmod>
+        <lastmod>2021-06-04</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/perl/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-04-24</lastmod>
+        <lastmod>2021-06-04</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/perl/page/7/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-04-24</lastmod>
+        <lastmod>2021-06-04</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/perl/page/8/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2021-04-24</lastmod>
+        <lastmod>2021-06-04</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/pi/</loc>
@@ -614,6 +632,12 @@
     </url>
     <url>
         <loc>https://ology.github.io/tag/software/page/8/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2021-06-06</lastmod>
+    </url>
+    <url>
+        <loc>https://ology.github.io/tag/software/page/9/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2021-06-06</lastmod>
