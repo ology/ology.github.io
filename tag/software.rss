@@ -30,9 +30,9 @@ You can add custom buttons to the <a href="https://support.apple.com/guide/mac-h
             <link>https://ology.github.io/2021/06/04/mojolicious-music-player/</link>
             <guid>https://ology.github.io/2021/06/04/mojolicious-music-player/</guid>
             <description><![CDATA[
-                <p>Can you build an audio player from perl (https://mojolicious.org/)[Mojolicious]?  Yes!</p>
+                <p>Can you build an audio player from perl <a href="https://mojolicious.org/]">Mojolicious</a>?  Yes!</p>
 
-<p>tl;dr: (https://github.com/ology/Miscellaneous/blob/master/audio-stream)[audio-stream]</p>
+<p>tl;dr: <a href="https://github.com/ology/Miscellaneous/blob/master/audio-stream">audio-stream</a></p>
 
                     <p><a href="https://ology.github.io/2021/06/04/mojolicious-music-player/#section-2">Continue reading...</a></p>
 
