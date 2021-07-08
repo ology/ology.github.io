@@ -87,13 +87,14 @@ curl http://127.0.0.1:3000/refresh
 
 <p>Now for the code.  First up, declare the libraries of functionality to use:</p>
 
-<pre><code>use File::Find::Rule;
+<pre><code>use Encoding::FixLatin qw(fix_latin);
+use File::Find::Rule ();
 use Mojolicious::Lite -signatures;
-use Number::Format;
+use Number::Format ();
 use Storable qw(retrieve store);
 </code></pre>
 
-<p><a href="https://metacpan.org/pod/File::Find::Rule">File::Find::Rule</a> recursively gathers all interesting files.  <a href="https://metacpan.org/pod/Mojolicious::Lite">Mojolicious::Lite</a> is the web framework upon which this program is based.  <a href="https://metacpan.org/pod/Number::Format">Number::Format</a> just puts a comma in the total number of tracks that is displayed.  <a href="https://metacpan.org/pod/Storable">Storable</a> saves and retrieves the file of tracks that is used to actually locate the audio.</p>
+<p><a href="https://metacpan.org/pod/Encoding::FixLatin">Encoding::FixLatin</a> &quot;makes a best effort to convert [funky encodings] to UTF-8.&quot;  <a href="https://metacpan.org/pod/File::Find::Rule">File::Find::Rule</a> recursively gathers all interesting files.  <a href="https://metacpan.org/pod/Mojolicious::Lite">Mojolicious::Lite</a> is the web framework upon which this program is based.  <a href="https://metacpan.org/pod/Number::Format">Number::Format</a> just puts a comma in the total number of tracks that is displayed.  <a href="https://metacpan.org/pod/Storable">Storable</a> saves and retrieves the file of tracks that is used to actually locate the audio.</p>
 
 <p>Next, the physical locations of the audio are defined:</p>
 
@@ -107,6 +108,7 @@ use constant DAT  =&gt; &quot;$0.dat&quot;;        # The tracks file
   my $autoadvance = $c-&gt;param(&#39;autoadvance&#39;) || 0;
   my $autoplay    = $c-&gt;param(&#39;autoplay&#39;) || 0;
   my $current     = $c-&gt;param(&#39;current&#39;) || 0;
+  my $noinc       = $c-&gt;param(&#39;noinc&#39;) || 0;
   my $shuffle     = $c-&gt;param(&#39;shuffle&#39;) || 0;
   my $query       = $c-&gt;param(&#39;query&#39;) || &#39;&#39;;
   my $submit      = $c-&gt;param(&#39;submit&#39;) || &#39;&#39;;
@@ -118,15 +120,14 @@ use constant DAT  =&gt; &quot;$0.dat&quot;;        # The tracks file
   my $match = []; # Bucket for all matches if given a query
 </code></pre>
 
-<p>A couple buckets are declared to hold the audio that is found.  And the first is set to the tracks file, declared above:</p>
+<p>A couple buckets are declared to hold the audio that is found.  And the first is set to the tracks file, declared above.  (And if a tracks file can&#39;t be found, a warning message is flashed to the user.)</p>
 
-<pre><code>  $audio = retrieve(DAT) if -e DAT;
-</code></pre>
-
-<p>As promised, we re-format the total number of tracks to have a thousands separator comma:</p>
-
-<pre><code>  my $nf = Number::Format-&gt;new;
-  my $total = $nf-&gt;format_number(scalar @$audio);
+<pre><code>  if (-e DAT) {
+    $audio = retrieve(DAT) if -e DAT;
+  }
+  else {
+    $c-&gt;flash(error =&gt; &quot;Can&#39;t read track list file&quot;);
+  }
 </code></pre>
 
 <p>Now if there is a query parameter provided to the endpoint, brute force through every track, looking for matches between the track name and the query:</p>
@@ -137,17 +138,28 @@ use constant DAT  =&gt; &quot;$0.dat&quot;;        # The tracks file
     }
 </code></pre>
 
-<p>Then if shuffling, get a random member of the matches. Otherwise increment the track:</p>
+<p>Then if shuffling, get a random member of the matches. Otherwise increment the track - unless we are told not to with the <em>noinc</em> flag:</p>
 
-<pre><code>    $current = $shuffle ? $match-&gt;[int rand @$match] : $current + 1;
+<pre><code>    $current = $shuffle
+      ? $match-&gt;[int rand @$match]
+      : $noinc
+        ? $current
+        : $current + 1;
   }
-  else {
 </code></pre>
 
-<p>If there is no query and shuffling is called for, get a random audio track index from the complete library of audio. Otherwise increment:</p>
+<p>If there is no query and shuffling is called for, get a random audio track index from the complete library of audio. Otherwise increment, unless we are told not to:</p>
 
-<pre><code>    $current = $shuffle ? int(rand @$audio) : $current + 1;
+<pre><code>  else {
+    $current = $shuffle ? int(rand @$audio) : $noinc ? $current : $current + 1;
   }
+</code></pre>
+
+<p>As promised, we re-format the total number, and query matched tracks to have a thousands separator comma:</p>
+
+<pre><code>  my $nf = Number::Format-&gt;new;
+  my $total = $nf-&gt;format_number(scalar @$audio);
+  my $matches = $nf-&gt;format_number(scalar @$match);
 </code></pre>
 
 <p>Normally a track is selected next.  But when a search query has been freshly submitted, do not select a track to display.</p>
