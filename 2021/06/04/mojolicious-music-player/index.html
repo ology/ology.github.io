@@ -145,8 +145,8 @@ use constant DAT  =&gt; &quot;$0.dat&quot;;        # The tracks file
 
 <p>The index of the current item of the search results is needed in order to properly increment.  Also, if the current item cannot be found, the first match is used.</p>
 
-<pre><code>my $idx = first_index { $_ == $current } @$match;
-$idx = $match-&gt;[0] if $idx == -1;
+<pre><code>    my $idx = first_index { $_ == $current } @$match;
+    $idx = 0 if $idx == -1;
 </code></pre>
 
 <p>Then if shuffling, get a random member of the matches. Otherwise increment the track - unless we are told not to with the <em>noinc</em> flag:</p>
@@ -154,7 +154,7 @@ $idx = $match-&gt;[0] if $idx == -1;
 <pre><code>    $current = $shuffle
       ? $match-&gt;[int rand @$match]
       : $noinc
-        ? $current
+        ? $match-&gt;[$idx]
         : $match-&gt;[$idx + 1];
   }
 </code></pre>
