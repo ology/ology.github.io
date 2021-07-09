@@ -89,12 +89,14 @@ curl http://127.0.0.1:3000/refresh
 
 <pre><code>use Encoding::FixLatin qw(fix_latin);
 use File::Find::Rule ();
+use List::SomeUtils qw(first_index);
 use Mojolicious::Lite -signatures;
+use Mojo::Util qw(url_escape url_unescape);
 use Number::Format ();
 use Storable qw(retrieve store);
 </code></pre>
 
-<p><a href="https://metacpan.org/pod/Encoding::FixLatin">Encoding::FixLatin</a> &quot;makes a best effort to convert [funky encodings] to UTF-8.&quot;  <a href="https://metacpan.org/pod/File::Find::Rule">File::Find::Rule</a> recursively gathers all interesting files.  <a href="https://metacpan.org/pod/Mojolicious::Lite">Mojolicious::Lite</a> is the web framework upon which this program is based.  <a href="https://metacpan.org/pod/Number::Format">Number::Format</a> just puts a comma in the total number of tracks that is displayed.  <a href="https://metacpan.org/pod/Storable">Storable</a> saves and retrieves the file of tracks that is used to actually locate the audio.</p>
+<p><a href="https://metacpan.org/pod/Encoding::FixLatin">Encoding::FixLatin</a> &quot;makes a best effort to convert [funky encodings] to UTF-8.&quot;  <a href="https://metacpan.org/pod/File::Find::Rule">File::Find::Rule</a> recursively gathers all interesting files.  The <a href="https://metacpan.org/pod/List::SomeUtils">List::SomeUtils</a> <code>first_index</code> function locates a track in the search matches.  <a href="https://metacpan.org/pod/Mojolicious::Lite">Mojolicious::Lite</a> is the web framework upon which this program is based.  <a href="https://metacpan.org/pod/Number::Format">Number::Format</a> just puts a comma in the total number of tracks that is displayed.  <a href="https://metacpan.org/pod/Storable">Storable</a> saves and retrieves the file of tracks that is used to actually locate the audio.</p>
 
 <p>Next, the physical locations of the audio are defined:</p>
 
@@ -133,9 +135,18 @@ use constant DAT  =&gt; &quot;$0.dat&quot;;        # The tracks file
 <p>Now if there is a query parameter provided to the endpoint, brute force through every track, looking for matches between the track name and the query:</p>
 
 <pre><code>  if ($query) {
+    # Convert encoded things like &amp;amp; back into &amp;
+    $query = url_unescape($query);
+
     for my $n (0 .. $#$audio) {
       push @$match, $n if lc($audio-&gt;[$n]) =~ /$query/i;
     }
+</code></pre>
+
+<p>The index of the current item of the search results is needed in order to properly increment.  Also, if the current item cannot be found, the first match is used.</p>
+
+<pre><code>my $idx = first_index { $_ == $current } @$match;
+$idx = $match-&gt;[0] if $idx == -1;
 </code></pre>
 
 <p>Then if shuffling, get a random member of the matches. Otherwise increment the track - unless we are told not to with the <em>noinc</em> flag:</p>
@@ -144,7 +155,7 @@ use constant DAT  =&gt; &quot;$0.dat&quot;;        # The tracks file
       ? $match-&gt;[int rand @$match]
       : $noinc
         ? $current
-        : $current + 1;
+        : $match-&gt;[$idx + 1];
   }
 </code></pre>
 
