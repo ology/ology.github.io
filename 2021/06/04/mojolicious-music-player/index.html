@@ -123,7 +123,7 @@ use constant DAT  =&gt; &quot;$0.dat&quot;;        # The tracks file
 <p>A couple buckets are declared to hold the audio that is found.  And the first is set to the tracks file, declared above.  (And if a tracks file can&#39;t be found, a warning message is flashed to the user.)</p>
 
 <pre><code>  if (-e DAT) {
-    $audio = retrieve(DAT) if -e DAT;
+    $audio = retrieve(DAT);
   }
   else {
     $c-&gt;flash(error =&gt; &quot;Can&#39;t read track list file&quot;);
