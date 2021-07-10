@@ -173,9 +173,10 @@ use constant DAT  =&gt; &quot;$0.dat&quot;;        # The tracks file
   my $matches = $nf-&gt;format_number(scalar @$match);
 </code></pre>
 
-<p>Normally a track is selected next.  But when a search query has been freshly submitted, do not select a track to display.</p>
+<p>Normally a track is selected next.  But when a search query has been freshly submitted, do not select a track to display.  Also, handle the case where there is no current track to display:</p>
 
-<pre><code>  my $track = $submit ? &#39;&#39; : $audio-&gt;[$current];
+<pre><code>    my $track = $submit || !$current ? &#39;&#39; : $audio-&gt;[$current];
+    $track ||= &#39;&#39;;
 </code></pre>
 
 <p>For this main endpoint, pass the interesting variables to the template (named &quot;index&quot;) for rendering on the web:</p>
