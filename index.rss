@@ -7,6 +7,25 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>The Moon Cannot Be Stolen</title>
+            <link>https://ology.github.io/2021/07/11/the-moon-cannot-be-stolen/</link>
+            <guid>https://ology.github.io/2021/07/11/the-moon-cannot-be-stolen/</guid>
+            <description><![CDATA[
+                <p>Ryokan, a Zen master, lived the simplest kind of life in a little hut
+at the foot of a mountain.</p>
+
+                    <p><a href="https://ology.github.io/2021/07/11/the-moon-cannot-be-stolen/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/psychology/">psychology</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 11 Jul 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>MacVim and the Apple Touch Bar</title>
             <link>https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/</link>
             <guid>https://ology.github.io/2021/06/06/macvim-and-the-touch-bar/</guid>
@@ -87,28 +106,6 @@ What does a number sequence &quot;sound like&quot;?</p>
             ]]></description>
             <pubDate>
                 Sat, 24 Apr 2021 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>IRC Music Bot</title>
-            <link>https://ology.github.io/2021/03/30/irc-music-bot/</link>
-            <guid>https://ology.github.io/2021/03/30/irc-music-bot/</guid>
-            <description><![CDATA[
-                <p>Sometimes I hang out in an IRC channel with fellow musicians.  So I wrote a handy bot that does a couple musical things...</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/irc-bot">irc-bot</a></p>
-
-                    <p><a href="https://ology.github.io/2021/03/30/irc-music-bot/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Tue, 30 Mar 2021 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
