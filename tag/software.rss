@@ -32,7 +32,7 @@ You can add custom buttons to the <a href="https://support.apple.com/guide/mac-h
             <description><![CDATA[
                 <p>Can you build an audio player from perl <a href="https://mojolicious.org/">Mojolicious</a>?  Yes!</p>
 
-<p>tl;dr: <a href="https://github.com/ology/audio-player">audio-player</a> &amp; <a href="https://github.com/ology/audio-player/blob/main/audio-player2">audio-player2</a></p>
+<p>tl;dr: <a href="https://github.com/ology/audio-player">audio-player</a></p>
 
                     <p><a href="https://ology.github.io/2021/06/04/mojolicious-music-player/#section-2">Continue reading...</a></p>
 
