@@ -1,3 +1,4 @@
 ul.list-inline > li {
-    padding: 15px;
+    padding-bottom: 5px;
+    padding-left: 5px;
 }
