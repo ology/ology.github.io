@@ -1,1 +1,3 @@
-//body { font-size: 1.5rem !important; }
+ul.list-inline > li {
+    padding: 15px;
+}
