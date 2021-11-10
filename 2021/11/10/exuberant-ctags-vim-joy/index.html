@@ -108,9 +108,15 @@
 
 <p>I stitched this together from a couple places.  One being <a href="https://github.com/kberov/ctags">kberov/ctags</a> on github.</p>
 
-<p>Next for me is to make a shell alias for making the <code>tags</code> files that I re-create constantly for my programming projects.  That&#39;s <code>alias retag=&#39;cd lib; ctags -R; cd -; cd t; ctags -R; cd -&#39;</code>.</p>
+<p>Next for me is to make a shell alias for making the <code>tags</code> files that I re-create constantly for my programming projects.  That&#39;s:</p>
 
-<p>Lastly, a ctags directive is needed in the <code>~/.vimrc</code> file.  This needs to point to a few places: 1. the core and cpan perl (an absolute directory that is not covered here) and 2. the relative directories to lib and t.  And what is that directive?  <code>set tags=lib/tags,t/tags</code> - That&#39;s it!</p>
+<pre><code>alias retag=&#39;cd lib; ctags -R; cd -; cd t; ctags -R; cd -&#39;
+</code></pre>
+
+<p>Lastly, a ctags directive is needed in the <code>~/.vimrc</code> file.  This needs to point to a few places: 1. the core and cpan perl (an absolute directory that is not covered here) and 2. the relative directories to lib and t.  And what is that directive?</p>
+
+<pre><code>set tags=lib/tags,t/tags
+</code></pre>
 
 <p>Now when you are in a script.pl perl file, you position the cursor over a subroutine or module name and key CTRL+].  This jumps you to the subroutine definition or top of the module, respectively.</p>
 
