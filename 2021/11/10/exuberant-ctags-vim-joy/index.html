@@ -62,7 +62,7 @@
 
 </section>
 <section id="section-2">
-    <p>I am a programmer and use ctags for a couple things:</p>
+    <p>I am a programmer and use ctags for a couple perl things:</p>
 
 <ul>
 <li><p>To index every perl package - core and from CPAN.</p></li>
@@ -108,7 +108,7 @@
 
 <p>I stitched this together from a couple places.  One being <a href="https://github.com/kberov/ctags">kberov/ctags</a> on github.</p>
 
-<p>Next for me is to make a shell alias for making the <code>tags</code> files that I re-create constantly for my programming projects.  That&#39;s:</p>
+<p>Next for me is to make a (bash, in my case) shell alias for making the <code>tags</code> files that are re-created constantly (when there are new bits pulled from the git origin).  Anyway, that&#39;s:</p>
 
 <pre><code>alias retag=&#39;cd lib; ctags -R; cd -; cd t; ctags -R; cd -&#39;
 </code></pre>
