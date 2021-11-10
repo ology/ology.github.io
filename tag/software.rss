@@ -7,6 +7,24 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Exuberant Ctags + vim = Joy</title>
+            <link>https://ology.github.io/2021/11/10/exuberant-ctags-vim-joy/</link>
+            <guid>https://ology.github.io/2021/11/10/exuberant-ctags-vim-joy/</guid>
+            <description><![CDATA[
+                <p>There are a couple thousand posts on how cool <a href="http://ctags.sourceforge.net/">Exuberant Ctags</a> is... This is another!</p>
+
+                    <p><a href="https://ology.github.io/2021/11/10/exuberant-ctags-vim-joy/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 10 Nov 2021 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>iTerm2, vim and the Apple Touch Bar</title>
             <link>https://ology.github.io/2021/10/10/iterm2-vim-and-the-apple-touchbar/</link>
             <guid>https://ology.github.io/2021/10/10/iterm2-vim-and-the-apple-touchbar/</guid>
@@ -84,28 +102,6 @@ You can add custom buttons to the <a href="https://support.apple.com/guide/mac-h
             ]]></description>
             <pubDate>
                 Fri, 07 May 2021 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Hearing the OEIS</title>
-            <link>https://ology.github.io/2021/04/24/hearing-the-oeis/</link>
-            <guid>https://ology.github.io/2021/04/24/hearing-the-oeis/</guid>
-            <description><![CDATA[
-                <p><img alt="oeis-logo.jpg" src="https://ology.github.io/2021/04/24/hearing-the-oeis/oeis-logo.jpg">
-What does a number sequence &quot;sound like&quot;?</p>
-
-                    <p><a href="https://ology.github.io/2021/04/24/hearing-the-oeis/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                        <a href="https://ology.github.io/tag/audio/">audio</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sat, 24 Apr 2021 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
