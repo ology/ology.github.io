@@ -152,7 +152,7 @@ print &quot;\tLast commit $git ago\n&quot;;
   }
 </code></pre>
 
-<p>This performs a git status of the repository and prints out how long it was since the last commit.</p>
+<p>This performs a git status, prints out the branches of the repository, and then prints out how long it was since the last commit.</p>
 
 <pre><code>  elsif ($response eq &#39;p&#39;) {
     my $git = qx{ git pull };
@@ -160,7 +160,7 @@ print &quot;\tLast commit $git ago\n&quot;;
   }
 </code></pre>
 
-<p>Sometimes I want to pull.  Some people abhor pulling... Fortunately, this program is open source. YMMV.</p>
+<p>Sometimes I want to pull.  Some people abhor pulling... Fortunately, this program is open source!</p>
 
 <pre><code>  elsif ($response eq &#39;f&#39;) {
     my $git = qx{ git fetch --prune };
