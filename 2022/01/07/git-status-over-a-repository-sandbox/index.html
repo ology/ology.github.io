@@ -105,7 +105,7 @@ my $path = shift || $ENV{HOME} . &#39;/sandbox&#39;;
     ...
 </code></pre>
 
-<p>If we choose to show a summary (with a &quot;1&quot; as the sole program argument), a &quot;DIRTY&quot; flag is printed with the time since the last commit.  Here is the code for that:</p>
+<p>If we choose to show a summary (with a &quot;1&quot; as the first program argument), a &quot;DIRTY&quot; flag is printed with the time since the last commit.  Here is the code for that:</p>
 
 <pre><code>my $git = qx{ git diff --stat };
 print &#39; - DIRTY&#39; if $git;
