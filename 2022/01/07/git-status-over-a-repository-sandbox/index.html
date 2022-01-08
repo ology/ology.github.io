@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Git Status Over a Repository Sandbox - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/index.atom" rel="alternate" type="application/atom+xml">
-        <link href="/index.rss" rel="alternate" type="application/rss+xml">
-        <link href="/page/2/" rel="next">
+        <link href="/2021/11/10/exuberant-ctags-vim-joy/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -44,128 +42,150 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Git Status Over a Repository Sandbox</h1>
 
-<article>
-    <header>
-        <h1><a href="/2022/01/07/git-status-over-a-repository-sandbox/">Git Status Over a Repository Sandbox</a></h1>
+    <aside>
+        <time datetime="2022-01-07">
+            Posted on 2022-01-07
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2022-01-07">
-                Posted on 2022-01-07
-            </time>
-        </aside>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
 
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
 
-    </header>
-
+</header>
+<section id="section-1">
     <p>Do you want to have a birds-eye view of an entire directory of repositories?</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Miscellaneous/blob/master/gitstat">gitstat</a></p>
 
+</section>
+<section id="section-2">
+    <p>I made an app that does that!  And here it is...</p>
 
-        <p><a href="/2022/01/07/git-status-over-a-repository-sandbox/#section-2">Continue reading Git Status Over a Repository Sandbox...</a></p>
+<p>The standard perl preamble:</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2021/11/10/exuberant-ctags-vim-joy/">Exuberant Ctags + vim = Joy</a></h1>
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+</code></pre>
 
-        <aside>
-            <time datetime="2021-11-10">
-                Posted on 2021-11-10
-            </time>
-        </aside>
+<p>Program imports that the program depends upon:</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
+<pre><code>use File::Find::Rule ();
+use IO::Prompt qw(prompt);
+use List::Util qw(any);
+use DateTime ();
+use DateTime::Format::DateParse ();
+use Time::Ago ();
+</code></pre>
 
-    </header>
+<p>Accept program arguments for quick summary or interactive views, and the location of the repositories:</p>
 
-    <p>There are a couple thousand posts on how cool <a href="http://ctags.sourceforge.net/">Exuberant Ctags</a> is... This is another!</p>
+<pre><code>my $summary = shift // 0;
+my $path = shift || $ENV{HOME} . &#39;/sandbox&#39;;
+</code></pre>
 
+<p>Ok. First-up, we get a list of the possible repositories:</p>
 
-        <p><a href="/2021/11/10/exuberant-ctags-vim-joy/#section-2">Continue reading Exuberant Ctags + vim = Joy...</a></p>
+<pre><code>my @repos = File::Find::Rule
+  -&gt;maxdepth(1)
+  -&gt;directory
+  -&gt;not(File::Find::Rule-&gt;new-&gt;name(qr/^\./)) # Skip .dot dirs
+  -&gt;in($path);
+</code></pre>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2021/10/10/iterm2-vim-and-the-apple-touchbar/">iTerm2, vim and the Apple Touch Bar</a></h1>
+<p>Next is the loop over these in ASCII-betical order, skipping any without a &quot;.git&quot; directory.  For each that <em>is</em> a repo, change to that directory and get the branch name.  Then we either print a quick summary, or switch to interactive mode.</p>
 
-        <aside>
-            <time datetime="2021-10-10">
-                Posted on 2021-10-10
-            </time>
-        </aside>
+<pre><code>REPO: for my $repo (sort @repos) {
+    ...
+</code></pre>
 
-        <p class="tags">Tags:
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
+<p>If we choose to show a summary (with a &quot;1&quot; as the sole program argument), a &quot;DIRTY&quot; flag is printed with the time since the last commit.  Here is the code for that:</p>
 
-    </header>
+<pre><code>my $git = qx{ git diff --stat };
+print &#39; - DIRTY&#39; if $git;
+print &quot;\n&quot;;
 
-    <p><img alt="Touch Bar" src="/2021/10/10/iterm2-vim-and-the-apple-touchbar/touchbar-sm.jpg">
-This post is about using the <a href="https://support.apple.com/guide/mac-help/touch-bar-mchlbfd5b039/mac">Apple Touch Bar</a> with <a href="https://iterm2.com/">iTerm2</a>, when in <a href="https://www.vim.org/">vim</a>.</p>
+$git = qx{ git log -1 --format=%cd };
+chomp $git;
+my $last = DateTime::Format::DateParse-&gt;parse_datetime($git, &#39;local&#39;);
+my $duration = $now-&gt;subtract_datetime_absolute($last);
+$git = Time::Ago-&gt;in_words($duration-&gt;seconds);
+print &quot;\tLast commit $git ago\n&quot;;
+</code></pre>
 
+<p>Interactively:</p>
 
-        <p><a href="/2021/10/10/iterm2-vim-and-the-apple-touchbar/#section-2">Continue reading iTerm2, vim and the Apple Touch Bar...</a></p>
+<pre><code>while (1) {
+  printf &quot;\n%0*d. %s (%s)&quot;, $width, $i, $repo, $branch;
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2021/07/11/the-moon-cannot-be-stolen/">The Moon Cannot Be Stolen</a></h1>
+  my $git = qx{ git diff --stat };
+  print $git ? &quot; - DIRTY\n&quot; : &quot;\n&quot;;
 
-        <aside>
-            <time datetime="2021-07-11">
-                Posted on 2021-07-11
-            </time>
-        </aside>
+  my $response = prompt &#39;Enter=next q=quit s=status p=pull f=prune: &#39;;
 
-        <p class="tags">Tags:
-            <a href="/tag/psychology/" rel="tag">psychology</a>
-        </p>
+  if ($response eq &#39;q&#39;) {
+    last REPO;
+  }
+</code></pre>
 
-    </header>
+<p>Ok. We prompt the user for their choice. If this is &quot;q&quot;, we bail-out of the program.  The other 4 conditions are as follows:</p>
 
-    <p>Ryōkan, a Zen master, lived the simplest kind of life in a little hut
-at the foot of a mountain.</p>
+<pre><code>  elsif ($response eq &#39;s&#39;) {
+    my $git = qx{ git status --untracked-files=no };
+    $git =~ s/^On branch [\w\-\/]+//;
+    $git =~ s/\s*\(.+?\)//gm;
+    $git =~ s/\n+/\n/gm;
+    print $git;
 
+    $git = qx{ git branch -a };
+    print &quot;\n$git&quot;;
 
-        <p><a href="/2021/07/11/the-moon-cannot-be-stolen/#section-2">Continue reading The Moon Cannot Be Stolen...</a></p>
+    $git = qx{ git log -1 --format=%cd };
+    print &quot;\nLast commit on $git&quot;;
+  }
+</code></pre>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2021/06/06/macvim-and-the-touch-bar/">MacVim and the Apple Touch Bar</a></h1>
+<p>This performs a git status of the repository and prints out how long it was since the last commit.</p>
 
-        <aside>
-            <time datetime="2021-06-06">
-                Posted on 2021-06-06
-            </time>
-        </aside>
+<pre><code>  elsif ($response eq &#39;p&#39;) {
+    my $git = qx{ git pull };
+    print &quot;\n$git&quot;;
+  }
+</code></pre>
 
-        <p class="tags">Tags:
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
+<p>Sometimes I want to pull.  Some people abhor pulling... Fortunately, this program is open source. YMMV.</p>
 
-    </header>
+<pre><code>  elsif ($response eq &#39;f&#39;) {
+    my $git = qx{ git fetch --prune };
+    $git =~ s/\n+/\n/gm;
+    print $git;
+  }
+</code></pre>
 
-    <p><img alt="touchbar-buttons" src="/2021/06/06/macvim-and-the-touch-bar/touchbar-buttons-01-sm.jpg">
-You can add custom buttons to the <a href="https://support.apple.com/guide/mac-help/touch-bar-mchlbfd5b039/mac">Apple Touch Bar</a> when using <a href="https://github.com/macvim-dev/macvim#readme">MacVim</a>.</p>
+<p>Sometimes I want to fetch everything <em>and</em> get rid of the branches that have been deleted.</p>
 
+<p>The final condition is just to skip to the next repo with:</p>
 
-        <p><a href="/2021/06/06/macvim-and-the-touch-bar/#section-2">Continue reading MacVim and the Apple Touch Bar...</a></p>
+<pre><code>  else {
+    next REPO;
+  }
+</code></pre>
 
-</article>
+<p>The point is that you can execute any git shell commands with the perl &quot;qx&quot; operator and a bit of tweezing!</p>
+
+<p>-Peace-</p>
+
+</section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/page/2/" rel="prev">
+            <a class="button button-primary" href="/2021/11/10/exuberant-ctags-vim-joy/index.html" rel="prev">
                 ← Older
             </a>
     </li>
@@ -175,7 +195,6 @@ You can add custom buttons to the <a href="https://support.apple.com/guide/mac-h
             </button>
     </li>
 </ul>
-
 
 
 
@@ -215,20 +234,7 @@ You can add custom buttons to the <a href="https://support.apple.com/guide/mac-h
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/index.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/index.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/software/</id>
     <title>Gene Boggs</title>
-    <updated>2021-11-10T00:00:00Z</updated>
+    <updated>2022-01-07T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/software.atom" rel="self" />
     <link href="https://ology.github.io/tag/software/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2022/01/07/git-status-over-a-repository-sandbox/</id>
+        <title>Git Status Over a Repository Sandbox</title>
+        <link href="https://ology.github.io/2022/01/07/git-status-over-a-repository-sandbox/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Do you want to have a birds-eye view of an entire directory of repositories?</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Miscellaneous/blob/master/gitstat">gitstat</a></p>
+
+                <p><a href="https://ology.github.io/2022/01/07/git-status-over-a-repository-sandbox/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                </p>
+
+        ]]></content>
+        <updated>2022-01-07T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2021/11/10/exuberant-ctags-vim-joy/</id>
         <title>Exuberant Ctags + vim = Joy</title>
@@ -81,27 +102,6 @@ You can add custom buttons to the <a href="https://support.apple.com/guide/mac-h
         <updated>2021-06-04T00:00:00Z</updated>
         <category term="audio" />
         <category term="perl" />
-        <category term="software" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/</id>
-        <title>Installing and Using Abbey Road 60s Drummer</title>
-        <link href="https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>I had trouble installing and using <a href="https://www.native-instruments.com/en/">Native Instruments</a> &quot;<a href="https://www.native-instruments.com/en/products/komplete/drums/abbey-road-vintage-drummer/">Abbey Road 60s Drummer</a>&quot; program.  But after significant trial, error, and finally talking to NI support, this is the proper way to get it happening:</p>
-
-                <p><a href="https://ology.github.io/2021/05/07/installing-and-using-abbey-road-60s-drummer/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/music/">music</a>
-                    <a href="https://ology.github.io/tag/audio/">audio</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                </p>
-
-        ]]></content>
-        <updated>2021-05-07T00:00:00Z</updated>
-        <category term="music" />
-        <category term="audio" />
         <category term="software" />
     </entry>
 </feed>
