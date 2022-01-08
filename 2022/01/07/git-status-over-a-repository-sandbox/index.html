@@ -125,7 +125,8 @@ print &quot;\tLast commit $git ago\n&quot;;
   printf &quot;\n%0*d. %s (%s)&quot;, $width, $i, $repo, $branch;
 
   my $git = qx{ git diff --stat };
-  print $git ? &quot; - DIRTY\n&quot; : &quot;\n&quot;;
+  print &#39; - DIRTY&#39; if $git;
+  print &quot;\n&quot;;
 
   my $response = prompt &#39;Enter=next q=quit s=status p=pull f=prune: &#39;;
 
