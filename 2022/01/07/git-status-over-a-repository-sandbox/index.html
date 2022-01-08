@@ -177,7 +177,17 @@ print &quot;\tLast commit $git ago\n&quot;;
   }
 </code></pre>
 
-<p>The point is that you can execute any git shell commands with the perl &quot;qx&quot; operator and a bit of tweezing!</p>
+<p>I execute this in the shell by putting this in my ~/bin directory, making it executable, then saying:</p>
+
+<pre><code>$ gitstat 1
+</code></pre>
+
+<p>And look for DIRTY repos.  Or interactively, for instance:</p>
+
+<pre><code>$ gitstat 0 ~/repos
+</code></pre>
+
+<p>Anyway, the point is that you can execute any git shell commands with the perl &quot;qx&quot; operator and a bit of tweezing!</p>
 
 <p>-Peace-</p>
 
