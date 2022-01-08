@@ -113,6 +113,7 @@ print &quot;\n&quot;;
 
 $git = qx{ git log -1 --format=%cd };
 chomp $git;
+
 my $last = DateTime::Format::DateParse-&gt;parse_datetime($git, &#39;local&#39;);
 my $duration = $now-&gt;subtract_datetime_absolute($last);
 $git = Time::Ago-&gt;in_words($duration-&gt;seconds);
