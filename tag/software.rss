@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>An Image Collage of CPAN Authors</title>
+            <link>https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/</link>
+            <guid>https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/</guid>
+            <description><![CDATA[
+                <p>It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote a while back, and fix it up...</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Modules/blob/master/cpan-avatars">cpan-avatars</a></p>
+
+                    <p><a href="https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 09 Jan 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Git Status Over a Repository Sandbox</title>
             <link>https://ology.github.io/2022/01/07/git-status-over-a-repository-sandbox/</link>
             <guid>https://ology.github.io/2022/01/07/git-status-over-a-repository-sandbox/</guid>
@@ -81,28 +102,6 @@ You can add custom buttons to the <a href="https://support.apple.com/guide/mac-h
             ]]></description>
             <pubDate>
                 Sun, 06 Jun 2021 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Mojolicious Music Player</title>
-            <link>https://ology.github.io/2021/06/04/mojolicious-music-player/</link>
-            <guid>https://ology.github.io/2021/06/04/mojolicious-music-player/</guid>
-            <description><![CDATA[
-                <p>Can you build an audio player from perl <a href="https://mojolicious.org/">Mojolicious</a>?  Yes!</p>
-
-<p>tl;dr: <a href="https://github.com/ology/audio-player">audio-player</a></p>
-
-                    <p><a href="https://ology.github.io/2021/06/04/mojolicious-music-player/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/audio/">audio</a>
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Fri, 04 Jun 2021 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

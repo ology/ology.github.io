@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/perl/</id>
     <title>Gene Boggs</title>
-    <updated>2022-01-07T00:00:00Z</updated>
+    <updated>2022-01-09T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/perl.atom" rel="self" />
     <link href="https://ology.github.io/tag/perl/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/</id>
+        <title>An Image Collage of CPAN Authors</title>
+        <link href="https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote a while back, and fix it up...</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Modules/blob/master/cpan-avatars">cpan-avatars</a></p>
+
+                <p><a href="https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                </p>
+
+        ]]></content>
+        <updated>2022-01-09T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2022/01/07/git-status-over-a-repository-sandbox/</id>
         <title>Git Status Over a Repository Sandbox</title>
@@ -94,27 +115,6 @@ What does a number sequence &quot;sound like&quot;?</p>
 
         ]]></content>
         <updated>2021-03-30T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="music" />
-        <category term="software" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2021/03/20/tape-loop-simulation-with-midi-perl/</id>
-        <title>Tape-loop Simulation with MIDI-Perl</title>
-        <link href="https://ology.github.io/2021/03/20/tape-loop-simulation-with-midi-perl/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Recently I was inspired by the Brian Eno section of <a href="https://teropa.info/loop/#/airports">this generative music presentation</a> (right arrow or space-bar moves forward), which describes Eno&#39;s tape-loop setup.</p>
-
-                <p><a href="https://ology.github.io/2021/03/20/tape-loop-simulation-with-midi-perl/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/music/">music</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                </p>
-
-        ]]></content>
-        <updated>2021-03-20T00:00:00Z</updated>
         <category term="perl" />
         <category term="music" />
         <category term="software" />
