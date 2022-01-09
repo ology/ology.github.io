@@ -104,14 +104,13 @@ my %authors;
 
 <p>Now we get to the actual functionality of the program:</p>
 
-<pre><code>die &quot;Path &#39;$path&#39; does not exist&quot;                                                                                                                                            
+<pre><code>die &quot;Path &#39;$path&#39; does not exist&quot; 
     unless -d $path;
 
 get_file($cpan . $file, $file, &quot;Saved $file&quot;);
 
 my $pca = Parse::CPAN::Authors-&gt;new($file);
 
-# Get each author metacpan url
 for my $author ($pca-&gt;authors) {
     $authors{ $author-&gt;pauseid } = $base . $author-&gt;pauseid;
 }
