@@ -125,7 +125,6 @@ for my $author ($pca-&gt;authors) {
     $start = first_index { CORE::fc($_) eq CORE::fc($start) } sort keys %authors;
     die &quot;Author &#39;$author&#39; not found\n&quot;
         if $start &lt; 0;
-    $start++;
 }
 </code></pre>
 
@@ -134,13 +133,13 @@ for my $author ($pca-&gt;authors) {
 <pre><code>if ($start &gt; -1) {
     my $i = 0;
     for my $author (sort keys %authors) {
-        $i++;
         if ($i &lt; $start) {
             delete $authors{$author};
         }
         else {
             last;
         }
+        $i++;
     }
 }
 
