@@ -12,7 +12,8 @@
         <title>An Image Collage of CPAN Authors</title>
         <link href="https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote a while back, and fix it up...</p>
+            <p><img alt="Collage" src="https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/collage-2x2.jpg">
+It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote a while back, and fix it up...</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Modules/blob/master/cpan-avatars">cpan-avatars</a></p>
 
