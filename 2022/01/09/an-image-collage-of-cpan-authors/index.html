@@ -88,7 +88,7 @@ use Parse::CPAN::Authors;
 <p>The program parameters, i.e. variables that define the bounds and behavior:</p>
 
 <pre><code>my $side  = shift || 3;
-my $start = shift || 1;
+my $start = shift // 0;
 my $path  = shift || $ENV{HOME} . &#39;/tmp/avatars/&#39;;
 
 my $width = 130;            # Fixed avatar side pixel size
