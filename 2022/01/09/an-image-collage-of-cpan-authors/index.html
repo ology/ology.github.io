@@ -151,6 +151,8 @@ die &quot;No authors\n&quot; unless keys %authors;
 
 <pre><code>my $i = 0;
 
+my @displayed; # Bucket for the displayed authors
+
 for my $author ($start == -1 ? shuffle keys %authors : sort keys %authors) { 
     $i++;
     sleep 4 unless $i == 1; # play nice
@@ -160,6 +162,8 @@ for my $author ($start == -1 ? shuffle keys %authors : sort keys %authors) {
     my $img = $dom-&gt;find(&#39;img[alt=&quot;Author image&quot;]&#39;)-&gt;[0]-&gt;attr(&#39;src&#39;);
     my $img_file = $path-&gt;child($author);
     get_file($img, $img_file, &quot;$i. Saved $img_file&quot;);
+
+    push @displayed, $author;
 
     last if $i &gt;= $max;
 }
@@ -177,7 +181,7 @@ $i = 0; # reset the incrementer
 my $x = 0;
 my $y = 0;
 
-for my $author (sort keys %authors) {
+for my $author (sort @displayed) {
     my $img_file = $path-&gt;child($author);
     next unless -e $img_file;
 
