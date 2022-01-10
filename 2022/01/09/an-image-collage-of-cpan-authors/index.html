@@ -143,8 +143,7 @@ for my $author ($pca-&gt;authors) {
     }
 }
 
-die &quot;No authors\n&quot;
-    if keys(%authors) &lt; 1;
+die &quot;No authors\n&quot; unless keys %authors;
 </code></pre>
 
 <p>Now that the author list is known, the actual avatar image files are downloaded until the maximum is reached:</p>
