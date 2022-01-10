@@ -98,7 +98,7 @@ my $base = &#39;https://metacpan.org/author/&#39;;
 my $cpan = &#39;http://www.cpan.org/authors/&#39;;
 my $file = &#39;01mailrc.txt.gz&#39;;
 
-my %authors;
+my @authors;
 </code></pre>
 
 <p>Now we get to the actual functionality of the program:</p>
@@ -113,7 +113,7 @@ get_file($cpan . $file, $file, &quot;Saved $file&quot;);
 my $pca = Parse::CPAN::Authors-&gt;new($file);
 
 for my $author ($pca-&gt;authors) {
-    $authors{ $author-&gt;pauseid } = $base . $author-&gt;pauseid;
+    push @authors, $author-&gt;pauseid;
 }
 </code></pre>
 
@@ -123,7 +123,7 @@ for my $author ($pca-&gt;authors) {
 
 <pre><code>if ($start ne &#39;-1&#39; &amp;&amp; $start =~ /[A-Za-z]/) {
     my $author = $start;
-    $start = first_index { CORE::fc($_) eq CORE::fc($author) } sort keys %authors;
+    $start = first_index { CORE::fc($_) eq CORE::fc($author) } sort @authors;
     die &quot;Author &#39;$author&#39; not found\n&quot;
         if $start &lt; 0;
 }
@@ -135,14 +135,14 @@ for my $author ($pca-&gt;authors) {
 
 my @displayed; # Bucket for the displayed authors
 
-for my $author ($start == -1 ? shuffle keys %authors : sort keys %authors) { 
+for my $author ($start == -1 ? shuffle @authors : sort @authors) { 
     $i++;
 
     next if $start &gt; -1 &amp;&amp; ($i - 1) &lt; $start;
 
     sleep 4 if @displayed; # play nice
 
-    my $content = get($authors{$author});
+    my $content = get($base . $author);
     my $dom = Mojo::DOM-&gt;new($content);
     my $img = $dom-&gt;find(&#39;img[alt=&quot;Author image&quot;]&#39;)-&gt;[0]-&gt;attr(&#39;src&#39;);
     my $img_file = $path-&gt;child($author);
