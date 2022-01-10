@@ -196,7 +196,7 @@ for my $author (sort keys %authors) {
     my $y0 = $y * $width;
     my $y1 = $y0 + $width;
 
-    $html .= qq|&lt;area shape=&quot;rect&quot; coords=&quot;$x0,$y0,$x1,$y1&quot; alt=&quot;$author&quot; href=&quot;https://metacpan.org/author/$author&quot; title=&quot;$author&quot;&gt;\n|;
+    $html .= qq|&lt;area shape=&quot;rect&quot; coords=&quot;$x0,$y0,$x1,$y1&quot; alt=&quot;$author&quot; href=&quot;$base$author&quot; title=&quot;$author&quot;&gt;\n|;
 
     $collage-&gt;paste(left =&gt; $x0, top =&gt; $y0, img =&gt; $img);
 
