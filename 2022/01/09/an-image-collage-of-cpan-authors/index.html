@@ -214,7 +214,8 @@ $collage-&gt;write(file =&gt; $file) or
     die &quot;Can&#39;t write to $file: &quot;, $collage-&gt;errstr;
 print &quot;Saved $file\n&quot;;
 
-... # HTML markup
+$html .= &lt;&lt;&#39;HTML&#39;;
+...
 
 $file = $path-&gt;child(&#39;collage.html&#39;);
 write_text($file, $html);
