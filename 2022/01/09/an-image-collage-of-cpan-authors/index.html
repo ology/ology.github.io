@@ -117,7 +117,7 @@ for my $author ($pca-&gt;authors) {
 }
 </code></pre>
 
-<p>This makes sure there is a place on the file system for the avatars and collage files, then fetches <em>all</em> the <a href="https://metacpan.org/">CPAN</a> authors. Finally, the code populates the list of authors with their CPAN author url.</p>
+<p>This makes sure there is a place on the file system for the avatars and collage files, then fetches <em>all</em> the <a href="https://metacpan.org/">CPAN</a> authors (with a subroutine, not shown here). Finally, the code populates the list of authors with their CPAN author url.</p>
 
 <p>Next, if not asking for a random selection, and if the &quot;start&quot; argument has been given as an author name (not a numeric id), find the index of &quot;start&quot; in the sorted list of authors:</p>
 
