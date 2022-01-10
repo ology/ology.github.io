@@ -75,12 +75,12 @@ use warnings;
 
 <p>The imports that the program depends upon:</p>
 
-<pre><code>use File::Slurper &#39;write_text&#39;;
-use HTTP::Simple;
+<pre><code>use HTTP::Simple;
 use Imager;
 use List::SomeUtils &#39;first_index&#39;;
 use List::Util &#39;shuffle&#39;;
 use Mojo::DOM;
+use Mojo::File;
 use Mojo::UserAgent;
 use Parse::CPAN::Authors;
 </code></pre>
@@ -104,8 +104,10 @@ my %authors;
 
 <p>Now we get to the actual functionality of the program:</p>
 
-<pre><code>die &quot;Path &#39;$path&#39; does not exist&quot; 
-    unless -d $path;
+<pre><code>$path = Mojo::File-&gt;new($path);
+unless (-d $path) { 
+    $path-&gt;make_path;                                                                                                                                                        
+}
 
 get_file($cpan . $file, $file, &quot;Saved $file&quot;);
 
@@ -158,7 +160,7 @@ for my $author ($start == -1 ? shuffle keys %authors : sort keys %authors) {
     my $tx = $ua-&gt;get($authors{$author});
     my $dom = Mojo::DOM-&gt;new($tx-&gt;res-&gt;body);
     my $img = $dom-&gt;find(&#39;img[alt=&quot;Author image&quot;]&#39;)-&gt;[0]-&gt;attr(&#39;src&#39;);
-    my $img_file = $path . $author;
+    my $img_file = $path-&gt;child($author);
     get_file($img, $img_file, &quot;$i. Saved $img_file&quot;);
 
     last if $i &gt;= $max;
@@ -178,7 +180,7 @@ my $x = 0;
 my $y = 0;
 
 for my $author ($start == -1 ? keys %authors : sort keys %authors) {
-    my $img_file = $path . $author;
+    my $img_file = $path-&gt;child($author);
     next unless -e $img_file;
 
     my $img = Imager-&gt;new;
@@ -209,14 +211,14 @@ for my $author ($start == -1 ? keys %authors : sort keys %authors) {
 
 <p>Finally, the collage image and HTML files are saved:</p>
 
-<pre><code>$file = $path . &#39;collage.jpg&#39;;
+<pre><code>$file = $path-&gt;child(&#39;collage.jpg&#39;);
 $collage-&gt;write(file =&gt; $file) or
     die &quot;Can&#39;t write to $file: &quot;, $collage-&gt;errstr;
 print &quot;Saved $file\n&quot;;
 
 ... # HTML markup
 
-$file = $path . &#39;collage.html&#39;;
+$file = $path-&gt;child(&#39;collage.html&#39;);
 write_text($file, $html);
 print &quot;Saved $file\n&quot;;
 </code></pre>
