@@ -129,25 +129,7 @@ for my $author ($pca-&gt;authors) {
 }
 </code></pre>
 
-<p>Next, if not asking for a random selection, the head of the sorted author list is truncated to the starting author id.  If there are no resulting authors in the list, bail out of the program:</p>
-
-<pre><code>if ($start &gt; -1) {
-    my $i = 0;
-    for my $author (sort keys %authors) {
-        if ($i &lt; $start) {
-            delete $authors{$author};
-        }
-        else {
-            last;
-        }
-        $i++;
-    }
-}
-
-die &quot;No authors\n&quot; unless keys %authors;
-</code></pre>
-
-<p>Now that the author list is known, the actual avatar image files are downloaded until the maximum is reached:</p>
+<p>Now the actual avatar image files are downloaded until the maximum is reached:</p>
 
 <pre><code>my $i = 0;
 
@@ -155,6 +137,9 @@ my @displayed; # Bucket for the displayed authors
 
 for my $author ($start == -1 ? shuffle keys %authors : sort keys %authors) { 
     $i++;
+
+    next if $start &gt; -1 &amp;&amp; ($i - 1) &lt; $start;
+
     sleep 4 unless $i == 1; # play nice
 
     my $content = get($authors{$author});
@@ -165,7 +150,7 @@ for my $author ($start == -1 ? shuffle keys %authors : sort keys %authors) {
 
     push @displayed, $author;
 
-    last if $i &gt;= $max;
+    last if @displayed &gt;= $max;
 }
 </code></pre>
 
