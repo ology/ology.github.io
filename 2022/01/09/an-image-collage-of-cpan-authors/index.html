@@ -123,7 +123,7 @@ for my $author ($pca-&gt;authors) {
 
 <pre><code>if ($start ne &#39;-1&#39; &amp;&amp; $start =~ /[A-Za-z]/) {
     my $author = $start;
-    $start = first_index { CORE::fc($_) eq CORE::fc($start) } sort keys %authors;
+    $start = first_index { CORE::fc($_) eq CORE::fc($author) } sort keys %authors;
     die &quot;Author &#39;$author&#39; not found\n&quot;
         if $start &lt; 0;
 }
