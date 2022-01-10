@@ -140,7 +140,7 @@ for my $author ($start == -1 ? shuffle keys %authors : sort keys %authors) {
 
     next if $start &gt; -1 &amp;&amp; ($i - 1) &lt; $start;
 
-    sleep 4 @displayed; # play nice
+    sleep 4 if @displayed; # play nice
 
     my $content = get($authors{$author});
     my $dom = Mojo::DOM-&gt;new($content);
