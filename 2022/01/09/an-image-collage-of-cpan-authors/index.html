@@ -98,7 +98,8 @@ my $base = &#39;https://metacpan.org/author/&#39;;
 my $cpan = &#39;http://www.cpan.org/authors/&#39;;
 my $file = &#39;01mailrc.txt.gz&#39;;
 
-my @authors;
+my @authors;   # Bucket for all authors
+my @displayed; # Bucket for displayed authors
 </code></pre>
 
 <p>Now we get to the actual functionality of the program:</p>
@@ -132,8 +133,6 @@ for my $author ($pca-&gt;authors) {
 <p>Now the actual avatar image files are downloaded until the maximum is reached:</p>
 
 <pre><code>my $i = 0;
-
-my @displayed; # Bucket for the displayed authors
 
 for my $author ($start == -1 ? shuffle @authors : sort @authors) { 
     $i++;
