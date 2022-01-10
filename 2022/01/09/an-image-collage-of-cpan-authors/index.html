@@ -167,7 +167,7 @@ for my $author ($start == -1 ? shuffle keys %authors : sort keys %authors) {
 
 <p>Next up is to build an HTML image map.  I&#39;ll leave-out the HTML markup, but the logic is thus:</p>
 
-<pre><code>my $html =&lt;&lt;&#39;HTML&#39;;
+<pre><code>my $html = &lt;&lt;&#39;HTML&#39;;
 ...
 
 my $collage = Imager-&gt;new(xsize =&gt; $size, ysize =&gt; $size)
