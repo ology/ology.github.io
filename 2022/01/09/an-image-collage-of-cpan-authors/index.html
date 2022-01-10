@@ -179,7 +179,7 @@ $i = 0; # reset the incrementer
 my $x = 0;
 my $y = 0;
 
-for my $author ($start == -1 ? keys %authors : sort keys %authors) {
+for my $author (sort keys %authors) {
     my $img_file = $path-&gt;child($author);
     next unless -e $img_file;
 
