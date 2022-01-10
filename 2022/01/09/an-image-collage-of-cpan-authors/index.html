@@ -75,13 +75,12 @@ use warnings;
 
 <p>The imports that the program depends upon:</p>
 
-<pre><code>use HTTP::Simple;
+<pre><code>use HTTP::Simple qw(get getstore);
 use Imager;
 use List::SomeUtils &#39;first_index&#39;;
 use List::Util &#39;shuffle&#39;;
 use Mojo::DOM;
 use Mojo::File;
-use Mojo::UserAgent;
 use Parse::CPAN::Authors;
 </code></pre>
 
@@ -156,9 +155,8 @@ for my $author ($start == -1 ? shuffle keys %authors : sort keys %authors) {
     $i++;
     sleep 4 unless $i == 1; # play nice
 
-    my $ua = Mojo::UserAgent-&gt;new;
-    my $tx = $ua-&gt;get($authors{$author});
-    my $dom = Mojo::DOM-&gt;new($tx-&gt;res-&gt;body);
+    my $content = get($authors{$author});
+    my $dom = Mojo::DOM-&gt;new($content);
     my $img = $dom-&gt;find(&#39;img[alt=&quot;Author image&quot;]&#39;)-&gt;[0]-&gt;attr(&#39;src&#39;);
     my $img_file = $path-&gt;child($author);
     get_file($img, $img_file, &quot;$i. Saved $img_file&quot;);
