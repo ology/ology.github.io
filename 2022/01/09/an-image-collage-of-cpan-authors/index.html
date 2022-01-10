@@ -207,7 +207,7 @@ $html .= &lt;&lt;&#39;HTML&#39;;
 ...
 
 $file = $path-&gt;child(&#39;collage.html&#39;);
-write_text($file, $html);
+$file-&gt;spurt($html);
 print &quot;Saved $file\n&quot;;
 </code></pre>
 
