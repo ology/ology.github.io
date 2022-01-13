@@ -94,7 +94,7 @@ use Parse::CPAN::Authors;
 
 <pre><code>my $side  = shift || 3;
 my $start = shift // 0;
-my $path  = shift || $ENV{HOME} . &#39;/tmp/avatars/&#39;;
+my $path  = shift || &#39;.&#39;; #$ENV{HOME} . &#39;/tmp/avatars/&#39;;
 
 my $width = 130;            # Fixed avatar side pixel size
 my $size  = $width * $side; # The width of the collage
