@@ -152,6 +152,7 @@ for my $author ($start == -1 ? shuffle @authors : sort @authors) {
     my $content = get($base . $author);
     my $dom = Mojo::DOM-&gt;new($content);
     my $img = $dom-&gt;find(&#39;img[alt=&quot;Author image&quot;]&#39;)-&gt;[0]-&gt;attr(&#39;src&#39;);
+
     my $img_file = $path-&gt;child($author);
     get_file($img, $img_file, &quot;$i. Saved $img_file&quot;);
 
