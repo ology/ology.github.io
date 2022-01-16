@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Text to Guidonian Melodies - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/index.atom" rel="alternate" type="application/atom+xml">
-        <link href="/index.rss" rel="alternate" type="application/rss+xml">
-        <link href="/page/10/" rel="prev">
+        <link href="/2022/01/09/an-image-collage-of-cpan-authors/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -50,73 +48,113 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Text to Guidonian Melodies</h1>
 
-<article>
-    <header>
-        <h1><a href="/2013/10/29/primes-gaps-and-gaps-of-gaps/">Primes, Gaps and Gaps of Gaps</a></h1>
+    <aside>
+        <time datetime="2022-01-15">
+            Posted on 2022-01-15
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2013-10-29">
-                Posted on 2013-10-29
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/mathematics/" rel="tag">mathematics</a>
-            <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
-        </p>
-
-    </header>
-
-    <p>The <a href="http://en.wikipedia.org/wiki/Prime_numbers">prime number sequence</a> fascinates me.  I am not sure why but exposing properties in it is exciting.  Even if they are mundane and &quot;obvious to everyone else&quot;, the fact that I can answer questions visually, sometimes thrills me.</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Math/blob/master/primes/gaps-of-gaps">gaps-of-gaps</a>
- </p>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/music/" rel="tag">music</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
 
 
-        <p><a href="/2013/10/29/primes-gaps-and-gaps-of-gaps/#section-2">Continue reading Primes, Gaps and Gaps of Gaps...</a></p>
+</header>
+<section id="section-1">
+    <p>I&#39;m a programming musician. Maybe that&#39;s &quot;musical programmer.&quot;  But it&#39;s an exciting Saturday night in Geekville. What to do?  Hmmm...</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2013/07/05/musical-deltahedra/">Musical Deltahedra</a></h1>
+<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/guidonian">guidonian</a></p>
 
-        <aside>
-            <time datetime="2013-07-05">
-                Posted on 2013-07-05
-            </time>
-        </aside>
+</section>
+<section id="section-2">
+    <p>While browsing through <a href="https://metacpan.org/">CPAN</a>, I noticed JMATES&#39; curious module <a href="https://metacpan.org/pod/Music::Guidonian">Music::Guidonian</a> and thought I&#39;d puzzle it out.</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/music/" rel="tag">music</a>
-        </p>
+<p>Seems that &quot;In Medieval music, the Guidonian hand was a mnemonic device used to assist singers in learning to sight-sing&quot; (from <a href="https://en.wikipedia.org/wiki/Guidonian_hand">wikipedia</a>).</p>
 
-    </header>
+<p>For the module, and the purposes of the this program, pitches are basically assigned to elements of text - for instance the vowels.</p>
 
-    <p><img alt="" src="/2013/07/05/musical-deltahedra/1-6.png">
-One day I became curious about musical triads (three note chords) as geometric triangles. I speculated about the actual sizes of the sides, given the intervals between the notes at the corners. Then, in no time, I was off day-dreaming about wobbling, vibrating triangles and string theory...</p>
+<p>On with the show!</p>
 
+<p>This program uses the venerable <a href="https://metacpan.org/pod/Getopt::Long">Getopt::Long</a> module to allow your code to easily consume command-line arguments.  For musical things, Music::Guidonian, <a href="https://metacpan.org/pod/Music::Scales">Music::Scales</a>, and <a href="https://metacpan.org/pod/MIDI::Util">MIDI::Util</a> are used.  If a text file is given, instead of a string of text, <a href="https://metacpan.org/pod/Mojo::File">Mojo::File</a> comes into action.</p>
 
-        <p><a href="/2013/07/05/musical-deltahedra/#section-2">Continue reading Musical Deltahedra...</a></p>
+<p>The program accepts a number of command-line arguments, all of which have a default set (except for the &quot;--file&quot;, which is undef).</p>
 
-</article>
+<p>One of these is the name of the scale to use.  And the next thing the program does is to compute the size of the intervals between the degrees:</p>
+
+<pre><code>my @scale     = (get_scale_nums($opts{scale}), 12);
+my @intervals = map { $scale[$_ + 1] - $scale[$_]} 0 .. $#scale - 1;
+</code></pre>
+
+<p>This is then used in the next step, which is to instantiate a new Music::Guidonian object:</p>
+
+<pre><code>my $mg = Music::Guidonian-&gt;new(
+  key_set =&gt; {
+    intervals =&gt; \@intervals,
+    keys      =&gt; [ split //, $opts{regex} ],
+    min       =&gt; $opts{min},
+    max       =&gt; $opts{max},
+  }
+);
+</code></pre>
+
+<p>If we are given a file, reassign the text to its contents:</p>
+
+<pre><code>if ($opts{file}) {
+    my $file = Mojo::File-&gt;new($opts{file});
+    $opts{text} = $file-&gt;slurp;
+}
+</code></pre>
+
+<p>Extract the vowels:</p>
+
+<pre><code>$opts{text} =~ s/([$opts{regex}])[$opts{regex}]/$1/g;                                                                                                                        
+my @vowels = lc($opts{text}) =~ m/([$opts{regex}])/g;
+</code></pre>
+
+<p>Create and call a Music::Guidonian iterator:</p>
+
+<pre><code>my $iter = $mg-&gt;iterator(\@vowels);
+my $phrase = $iter-&gt;();
+</code></pre>
+
+<p>Create a MIDI score, add the notes of the phrase to it, and play each as a quarter-note:</p>
+
+<pre><code>my $score = setup_score(bpm =&gt; $opts{bpm}, patch =&gt; $opts{patch}, volume =&gt; $opts{vol});
+
+for (1 .. $opts{num}) {
+    $score-&gt;n(&#39;qn&#39;, $_) for @$phrase;
+}
+
+$score-&gt;write_score(&quot;$0.mid&quot;);
+</code></pre>
+
+<p>So what does this sound like?</p>
+
+<pre><code>perl guidonian -t &#39;Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&#39; -s minor
+timidity %.mid
+</code></pre>
+
+<p><audio controls><source src="guidonian.mp3" type="audio/mp3"></audio></p>
+
+</section>
 
 <ul class="pager">
     <li class="prev">
-            <button disabled>
+            <a class="button button-primary" href="/2022/01/09/an-image-collage-of-cpan-authors/index.html" rel="prev">
                 ← Older
-            </button>
-    </li>
-    <li class="next">
-            <a class="button button-primary" href="/page/10/" rel="next">
-                Newer →
             </a>
     </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
 </ul>
-
 
 
 
@@ -156,20 +194,7 @@ One day I became curious about musical triads (three note chords) as geometric t
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/index.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/index.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

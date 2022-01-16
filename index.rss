@@ -7,6 +7,28 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Text to Guidonian Melodies</title>
+            <link>https://ology.github.io/2022/01/15/text-to-guidonian-melodies/</link>
+            <guid>https://ology.github.io/2022/01/15/text-to-guidonian-melodies/</guid>
+            <description><![CDATA[
+                <p>I&#39;m a programming musician. Maybe that&#39;s &quot;musical programmer.&quot;  But it&#39;s an exciting Saturday night in Geekville. What to do?  Hmmm...</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/guidonian">guidonian</a></p>
+
+                    <p><a href="https://ology.github.io/2022/01/15/text-to-guidonian-melodies/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 15 Jan 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>An Image Collage of CPAN Authors</title>
             <link>https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/</link>
             <guid>https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/</guid>
@@ -84,25 +106,6 @@ This post is about using the <a href="https://support.apple.com/guide/mac-help/t
             ]]></description>
             <pubDate>
                 Sun, 10 Oct 2021 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>The Moon Cannot Be Stolen</title>
-            <link>https://ology.github.io/2021/07/11/the-moon-cannot-be-stolen/</link>
-            <guid>https://ology.github.io/2021/07/11/the-moon-cannot-be-stolen/</guid>
-            <description><![CDATA[
-                <p>Ryōkan, a Zen master, lived the simplest kind of life in a little hut
-at the foot of a mountain.</p>
-
-                    <p><a href="https://ology.github.io/2021/07/11/the-moon-cannot-be-stolen/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/psychology/">psychology</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sun, 11 Jul 2021 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
