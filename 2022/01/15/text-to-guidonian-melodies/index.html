@@ -84,17 +84,17 @@
 
 <p>The program accepts a number of command-line arguments, all of which have a default set (except for the &quot;--file&quot;, which is undef).</p>
 
-<p>One of these is either the name of the scale to use, or a number for random intervals of half-steps.  So the next thing the program does is either compute the size of the intervals between scale degrees OR get a list of seven random integer interval numbers:</p>
+<p>One of these is either the name of the scale to use, or a number for random intervals of half-steps.  So the next thing the program does is either get a list of seven random integer interval numbers OR compute the size of the intervals between scale degrees:</p>
 
-<pre><code>if ($opts{int} == 0) { 
-    # Get the scale intervals
-    my @scale  = (get_scale_nums($opts{scale}), 12);
-    @intervals = map { $scale[$_ + 1] - $scale[$_]} 0 .. $#scale - 1;
+<p>if ($opts{rand}) { 
+    # Get random intervals
+    @intervals = map { int(rand $opts{rand}) + 1 } 1 .. 7;
 }
 else { 
-    @intervals = map { int(rand $opts{int}) + 1 } 1 .. 7;
-}
-</code></pre>
+    # Get the named scale intervals
+    my @scale  = (get_scale_nums($opts{scale}), 12);
+    @intervals = map { $scale[$_ + 1] - $scale[$_]} 0 .. $#scale - 1;
+}</p>
 
 <p>This is then used in the next step, which is to instantiate a new Music::Guidonian object:</p>
 
