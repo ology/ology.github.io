@@ -84,7 +84,7 @@
 
 <p>The program accepts a number of command-line arguments, all of which have a default set (except for the &quot;--file&quot;, which is undef).</p>
 
-<p>One of these is either the name of the scale to use, or a number for random intervals of half-steps.  So the next thing the program does is either get a list of seven random integer interval numbers OR compute the size of the intervals between scale degrees:</p>
+<p>This is either the name of the scale to use, or a maximum number for random intervals of half-steps.  So the next thing the program does is either get a list of seven random integer interval numbers OR compute the size of the intervals between scale degrees:</p>
 
 <pre><code>if ($opts{rand}) { 
     # Get random intervals
@@ -147,7 +147,7 @@ $score-&gt;write_score(&quot;$0.mid&quot;);
 
 <p><audio controls><source src="guidonian.mp3" type="audio/mp3"></audio></p>
 
-<p>And here is what the lyrics of The Beatles, <a href="https://genius.com/The-beatles-penny-lane-lyrics">Penny Lane</a> sounds like:</p>
+<p>And here are what the lyrics of The Beatles, <a href="https://genius.com/The-beatles-penny-lane-lyrics">Penny Lane</a> sounds like:</p>
 
 <pre><code>perl guidonian -f ~/Documents/lit/Beatles/Penny_Lane.txt
 </code></pre>
