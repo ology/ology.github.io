@@ -86,7 +86,7 @@ my @barst = map { my $sub = &#39;bart&#39; . $_; \&amp;$sub } 1 .. $total_bars;
 my @barsb = map { my $sub = &#39;barb&#39; . $_; \&amp;$sub } 1 .. $total_bars;
 </code></pre>
 
-<p>For the second, I do:</p>
+<p>For the second, I just get a random integer from 1 to the maximum number of bars to play:</p>
 
 <pre><code>my @choices = map { int rand @barst } 1 .. $max;
 </code></pre>
