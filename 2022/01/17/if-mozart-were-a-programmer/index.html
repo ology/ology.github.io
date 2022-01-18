@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>If Mozart Were a Programmer - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/index.atom" rel="alternate" type="application/atom+xml">
-        <link href="/index.rss" rel="alternate" type="application/rss+xml">
-        <link href="/page/2/" rel="next">
+        <link href="/2022/01/15/text-to-guidonian-melodies/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -50,138 +48,79 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>If Mozart Were a Programmer</h1>
 
-<article>
-    <header>
-        <h1><a href="/2022/01/17/if-mozart-were-a-programmer/">If Mozart Were a Programmer</a></h1>
+    <aside>
+        <time datetime="2022-01-17">
+            Posted on 2022-01-17
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2022-01-17">
-                Posted on 2022-01-17
-            </time>
-        </aside>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/generative/" rel="tag">generative</a>
+        <a href="/tag/music/" rel="tag">music</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
 
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/generative/" rel="tag">generative</a>
-            <a href="/tag/music/" rel="tag">music</a>
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
 
-    </header>
-
+</header>
+<section id="section-1">
     <p>How do you implement the <a href="https://en.wikipedia.org/wiki/Musikalisches_W%C3%BCrfelspiel">musical dice game</a>?</p>
 
 <p>tl;dr: <a href="https://github.com/ology/Music/blob/master/dice-game">dice-game</a></p>
 
+</section>
+<section id="section-2">
+    <p>After searching a bit, I found the <a href="https://musescore.com/user/30029219/scores/5943501">transcription of possible phrases</a> that were allegedly used by Mozart.  These are simple, single measures of treble and bass motifs in 3/8 time.  And there are about 100 of them.  So far, I only have 32 bars covered.</p>
 
-        <p><a href="/2022/01/17/if-mozart-were-a-programmer/#section-2">Continue reading If Mozart Were a Programmer...</a></p>
+<p>So I had my work cut out for me: 1) implement the selection and playing of these motifs.  And 2) tediously turn the measures into MIDI-Perl (the ~100 bars).</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2022/01/15/text-to-guidonian-melodies/">Text to Guidonian Melodies</a></h1>
+<p>This took some head scratching:  How to get lists of the subroutines that represent each motif? How to keep the choices consistent for both treble and bass?  How to keep the treble and bass measures in sync?</p>
 
-        <aside>
-            <time datetime="2022-01-15">
-                Posted on 2022-01-15
-            </time>
-        </aside>
+<p>For the first, I use this excellent syntax that perl affords:</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/music/" rel="tag">music</a>
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
+<pre><code>my $total_bars = 32;
+my @barst = map { my $sub = &#39;bart&#39; . $_; \&amp;$sub } 1 .. $total_bars;
+my @barsb = map { my $sub = &#39;barb&#39; . $_; \&amp;$sub } 1 .. $total_bars;
+</code></pre>
 
-    </header>
+<p>For the second, I do:</p>
 
-    <p>I&#39;m a programming musician. Maybe that&#39;s &quot;musical programmer.&quot;  But it&#39;s an exciting Saturday night in Geekville. What to do?  Hmmm...</p>
+<pre><code>my @choices = map { int rand @barst } 1 .. $max;
+</code></pre>
 
-<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/guidonian">guidonian</a></p>
+<p>Technically, this should be the sum of two dice...  But that is the same thing as choosing at random.</p>
 
+<p>For the third, I just loop over the choices executing each selected subroutine:</p>
 
-        <p><a href="/2022/01/15/text-to-guidonian-melodies/#section-2">Continue reading Text to Guidonian Melodies...</a></p>
+<pre><code>my $tproc = sub {
+    set_chan_patch($score, 0, $tpatch);
+    $barst[$_]-&gt;() for @choices;
+};
+my $bproc = sub {
+    set_chan_patch($score, 1, $bpatch);
+    $barsb[$_]-&gt;()for @choices;
+};
+</code></pre>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2022/01/09/an-image-collage-of-cpan-authors/">An Image Collage of CPAN Authors</a></h1>
+<p>Finally I play the two simultaneously with:</p>
 
-        <aside>
-            <time datetime="2022-01-09">
-                Posted on 2022-01-09
-            </time>
-        </aside>
+<pre><code>$score-&gt;synch($tproc, $bproc);
+...
+$score-&gt;write_score(&quot;$0.mid&quot;);
+</code></pre>
 
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
+<p>And what does a run of this sound like?</p>
 
-    </header>
+<p><audio controls><source src="dice-game.mp3" type="audio/mp3"></audio></p>
 
-    <p><img alt="Collage" src="/2022/01/09/an-image-collage-of-cpan-authors/collage-2x2.jpg">
-It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote a while back, and fix it up...</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Modules/blob/master/cpan-avatars">cpan-avatars</a></p>
-
-
-        <p><a href="/2022/01/09/an-image-collage-of-cpan-authors/#section-2">Continue reading An Image Collage of CPAN Authors...</a></p>
-
-</article>
-<article>
-    <header>
-        <h1><a href="/2022/01/07/git-status-over-a-repository-sandbox/">Git Status Over a Repository Sandbox</a></h1>
-
-        <aside>
-            <time datetime="2022-01-07">
-                Posted on 2022-01-07
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
-
-    </header>
-
-    <p>Do you want to have a birds-eye view of an entire directory of repositories?</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Miscellaneous/blob/master/gitstat">gitstat</a></p>
-
-
-        <p><a href="/2022/01/07/git-status-over-a-repository-sandbox/#section-2">Continue reading Git Status Over a Repository Sandbox...</a></p>
-
-</article>
-<article>
-    <header>
-        <h1><a href="/2021/11/10/exuberant-ctags-vim-joy/">Exuberant Ctags + vim = Joy</a></h1>
-
-        <aside>
-            <time datetime="2021-11-10">
-                Posted on 2021-11-10
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/software/" rel="tag">software</a>
-        </p>
-
-    </header>
-
-    <p>There are a couple thousand posts on how cool <a href="http://ctags.sourceforge.net/">Exuberant Ctags</a> is... This is another!</p>
-
-
-        <p><a href="/2021/11/10/exuberant-ctags-vim-joy/#section-2">Continue reading Exuberant Ctags + vim = Joy...</a></p>
-
-</article>
+</section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/page/2/" rel="prev">
+            <a class="button button-primary" href="/2022/01/15/text-to-guidonian-melodies/index.html" rel="prev">
                 ← Older
             </a>
     </li>
@@ -191,7 +130,6 @@ It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote 
             </button>
     </li>
 </ul>
-
 
 
 
@@ -231,20 +169,7 @@ It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote 
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/index.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/index.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

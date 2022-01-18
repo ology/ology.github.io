@@ -2,11 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/software/</id>
     <title>Gene Boggs</title>
-    <updated>2022-01-15T00:00:00Z</updated>
+    <updated>2022-01-17T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/software.atom" rel="self" />
     <link href="https://ology.github.io/tag/software/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2022/01/17/if-mozart-were-a-programmer/</id>
+        <title>If Mozart Were a Programmer</title>
+        <link href="https://ology.github.io/2022/01/17/if-mozart-were-a-programmer/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>How do you implement the <a href="https://en.wikipedia.org/wiki/Musikalisches_W%C3%BCrfelspiel">musical dice game</a>?</p>
+
+<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/dice-game">dice-game</a></p>
+
+                <p><a href="https://ology.github.io/2022/01/17/if-mozart-were-a-programmer/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/generative/">generative</a>
+                    <a href="https://ology.github.io/tag/music/">music</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                </p>
+
+        ]]></content>
+        <updated>2022-01-17T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="generative" />
+        <category term="music" />
+        <category term="software" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2022/01/15/text-to-guidonian-melodies/</id>
         <title>Text to Guidonian Melodies</title>
@@ -88,24 +113,6 @@ It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote 
 
         ]]></content>
         <updated>2021-11-10T00:00:00Z</updated>
-        <category term="software" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2021/10/10/iterm2-vim-and-the-apple-touchbar/</id>
-        <title>iTerm2, vim and the Apple Touch Bar</title>
-        <link href="https://ology.github.io/2021/10/10/iterm2-vim-and-the-apple-touchbar/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><img alt="Touch Bar" src="https://ology.github.io/2021/10/10/iterm2-vim-and-the-apple-touchbar/touchbar-sm.jpg">
-This post is about using the <a href="https://support.apple.com/guide/mac-help/touch-bar-mchlbfd5b039/mac">Apple Touch Bar</a> with <a href="https://iterm2.com/">iTerm2</a>, when in <a href="https://www.vim.org/">vim</a>.</p>
-
-                <p><a href="https://ology.github.io/2021/10/10/iterm2-vim-and-the-apple-touchbar/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                </p>
-
-        ]]></content>
-        <updated>2021-10-10T00:00:00Z</updated>
         <category term="software" />
     </entry>
 </feed>
