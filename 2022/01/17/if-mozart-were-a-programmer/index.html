@@ -82,13 +82,13 @@
 <p>For the first, I use this excellent syntax that perl affords:</p>
 
 <pre><code>my $total_bars = 32;
-my @barst = map { my $sub = &#39;bart&#39; . $_; \&amp;$sub } 1 .. $total_bars;
-my @barsb = map { my $sub = &#39;barb&#39; . $_; \&amp;$sub } 1 .. $total_bars;
+my @barst = map { my $sub = &#39;bart&#39; . $_; \&amp;$sub } 1 .. $total_bars; # Treble
+my @barsb = map { my $sub = &#39;barb&#39; . $_; \&amp;$sub } 1 .. $total_bars; # Bass
 </code></pre>
 
 <p>This creates a name for each numbered subroutine and then returns a reference to that subroutine - one for treble and one for bass.</p>
 
-<p>For the second, I just get a random integer, that is the size of the treble (and bass) subroutine list, from 1 to the maximum number of bars to play:</p>
+<p>For the second, I just get a random integer, that is the size of the treble subroutine list, from 1 to the maximum number of bars to play:</p>
 
 <pre><code>my @choices = map { int rand @barst } 1 .. $max;
 </code></pre>
@@ -100,10 +100,12 @@ my @barsb = map { my $sub = &#39;barb&#39; . $_; \&amp;$sub } 1 .. $total_bars;
 <pre><code>my $tproc = sub {
     set_chan_patch($score, 0, $tpatch);
     $barst[$_]-&gt;() for @choices;
+    ...
 };
 my $bproc = sub {
     set_chan_patch($score, 1, $bpatch);
     $barsb[$_]-&gt;()for @choices;
+    ...
 };
 </code></pre>
 
