@@ -81,9 +81,8 @@
 
 <p>For the first, I use this excellent syntax that perl affords:</p>
 
-<pre><code>my $total_bars = 32;
-my @barst = map { my $sub = &#39;bart&#39; . $_; \&amp;$sub } 1 .. $total_bars; # Treble
-my @barsb = map { my $sub = &#39;barb&#39; . $_; \&amp;$sub } 1 .. $total_bars; # Bass
+<pre><code>my @barst = map { my $sub = &#39;bart&#39; . $_; \&amp;$sub } 1 .. TOTAL_BARS; # Treble
+my @barsb = map { my $sub = &#39;barb&#39; . $_; \&amp;$sub } 1 .. TOTAL_BARS; # Bass
 </code></pre>
 
 <p>This creates a name for each numbered subroutine and then returns a reference to that subroutine - one for treble and one for bass.</p>
