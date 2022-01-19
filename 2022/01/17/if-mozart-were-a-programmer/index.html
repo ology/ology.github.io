@@ -105,7 +105,7 @@ my @barsb = map { my $sub = &#39;barb&#39; . $_; \&amp;$sub } 1 .. TOTAL_BARS; #
 };
 my $bproc = sub {
     set_chan_patch($score, 1, $bpatch);
-    $barsb[$_]-&gt;()for @choices;
+    $barsb[$_]-&gt;() for @choices;
     ...
 };
 </code></pre>
