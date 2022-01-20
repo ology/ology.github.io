@@ -94,7 +94,8 @@ use Time::Ago ();
 <p>Accept program arguments for either quick summary or interactive view, and the location of the repositories:</p>
 
 <pre><code>my $summary = shift // 0;
-my $path = shift || $ENV{HOME} . &#39;/sandbox&#39;;
+my $path    = shift || $ENV{HOME} . &#39;/sandbox&#39;;
+my $filter  = shift // &#39;&#39;; # Inclusive regular expression pattern
 </code></pre>
 
 <p>Ok. First-up, we get a list of the possible repositories:</p>
@@ -188,7 +189,7 @@ print &quot;\tLast commit $git ago\n&quot;;
 
 <p>I run this in the shell by putting this in my ~/bin directory, making it executable, then saying:</p>
 
-<pre><code>$ gitstat 1
+<pre><code>$ gitstat 1 | grep DIRTY -A1
 </code></pre>
 
 <p>And look for DIRTY repos.  Or interactively, for instance:</p>
