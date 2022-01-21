@@ -75,6 +75,17 @@ I stumbled across <a href="https://www.nytimes.com/2019/04/04/learning/whats-goi
 
 <p>Code: <a href="https://github.com/ology/Music/blob/master/analyze-low-level">analyze-low-level</a></p>
 
+<p>The code uses a number of libraries to get the job done:</p>
+
+<p><a href="https://metacpan.org/pod/GD::Chart::Radial">GD::Chart::Radial</a>,
+<a href="https://metacpan.org/pod/Math::Utils">Math::Utils</a>,
+<a href="https://metacpan.org/pod/Mojo::File">Mojo::File</a>,
+<a href="https://metacpan.org/pod/Statistics::Basic">Statistics::Basic</a>,
+<a href="https://metacpan.org/pod/WebService::AcousticBrainz">WebService::AcousticBrainz</a>, and
+<a href="https://metacpan.org/pod/WebService::MusicBrainz">WebService::MusicBrainz</a></p>
+
+<p>It&#39;s small but handy!  Please see the code link above for the exciting details.  But these types of images are what it produces:</p>
+
 <p><img alt="XYZ" src="radial/XYZ.png"></p>
 
 <p>As you can see, this is not the sexiest chart.  There are many many other libraries out there, but the one I chose was the simplest at the time.  The red polygon represents the song in question (&quot;XYZ&quot; in the above case).  Grey is for the average of all 26 tunes.</p>
