@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/</id>
     <title>Gene Boggs</title>
-    <updated>2022-01-20T00:00:00Z</updated>
+    <updated>2022-01-21T00:00:00Z</updated>
     <link href="https://ology.github.io/index.atom" rel="self" />
     <link href="https://ology.github.io/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/</id>
+        <title>Led Zeppelin in Seven Dimensions</title>
+        <link href="https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://ology.github.io/2022/01/20/musical-fingerprints-with-radial-bar-charts/">Previously</a>, I figured out how to &quot;fingerprint&quot; songs with radial charts.  But as soon as I did, I wanted to analyze the entire set of tunes by well known bands like Led Zeppelin.</p>
+
+                <p><a href="https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/music/">music</a>
+                </p>
+
+        ]]></content>
+        <updated>2022-01-21T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="music" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2022/01/20/musical-fingerprints-with-radial-bar-charts/</id>
         <title>Musical Fingerprints with Radial Bar Charts</title>
@@ -96,27 +117,6 @@ It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote 
 
         ]]></content>
         <updated>2022-01-09T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2022/01/07/git-status-over-a-repository-sandbox/</id>
-        <title>Git Status Over a Repository Sandbox</title>
-        <link href="https://ology.github.io/2022/01/07/git-status-over-a-repository-sandbox/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Do you want to have a birds-eye view of an entire directory of repositories?</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Miscellaneous/blob/master/gitstat">gitstat</a></p>
-
-                <p><a href="https://ology.github.io/2022/01/07/git-status-over-a-repository-sandbox/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                </p>
-
-        ]]></content>
-        <updated>2022-01-07T00:00:00Z</updated>
         <category term="perl" />
         <category term="software" />
     </entry>
