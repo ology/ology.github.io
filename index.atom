@@ -20,11 +20,13 @@
 
                 <p>Tags:
                     <a href="https://ology.github.io/tag/music/">music</a>
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
                 </p>
 
         ]]></content>
         <updated>2022-04-23T00:00:00Z</updated>
         <category term="music" />
+        <category term="perl" />
     </entry>
     <entry>
         <id>https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/</id>

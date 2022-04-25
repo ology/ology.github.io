@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Coltrane&#39;s Mystery Music Diagram</title>
+            <link>https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/</link>
+            <guid>https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/</guid>
+            <description><![CDATA[
+                <p><img alt="coltrane-circle-drawing" src="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/coltrane-circle-drawing-sm.jpg"></p>
+
+<p>Like many music theory minded people, who also are into jazz, I have seen and wondered about <a href="https://en.wikipedia.org/wiki/John_Coltrane">John Coltrane</a>&#39;s curious circle drawing...</p>
+
+                    <p><a href="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 23 Apr 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Led Zeppelin in Seven Dimensions</title>
             <link>https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/</link>
             <guid>https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/</guid>
@@ -90,28 +111,6 @@ I stumbled across <a href="https://www.nytimes.com/2019/04/04/learning/whats-goi
             ]]></description>
             <pubDate>
                 Sat, 15 Jan 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>An Image Collage of CPAN Authors</title>
-            <link>https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/</link>
-            <guid>https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/</guid>
-            <description><![CDATA[
-                <p><img alt="Collage" src="https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/collage-2x2.jpg">
-It&#39;s a lazy Sunday, so I thought I&#39;d resurrect a clunky program I wrote a while back, and fix it up...</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Modules/blob/master/cpan-avatars">cpan-avatars</a></p>
-
-                    <p><a href="https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sun, 09 Jan 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
