@@ -9,7 +9,7 @@
 
     <entry>
         <id>https://ology.github.io/2022/05/14/circular-music-interval-diagram/</id>
-        <title>Interactive Circular Music Interval Diagram</title>
+        <title>Circular Music Interval Diagram</title>
         <link href="https://ology.github.io/2022/05/14/circular-music-interval-diagram/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>After studying John Coltrane&#39;s wholetone/chromatic <a href="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/">circular diagram</a>, I was determined to make a program to show musical intervals around a circle.  And if I could, to make a concentric &quot;inner&quot; ring with note offsets, like Coltrane did.  So the weekend arrived and I got busy...</p>
