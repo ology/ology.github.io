@@ -7,6 +7,26 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Interactive Circular Music Interval Diagram</title>
+            <link>https://ology.github.io/2022/05/14/interactive-circular-music-interval-diagram/</link>
+            <guid>https://ology.github.io/2022/05/14/interactive-circular-music-interval-diagram/</guid>
+            <description><![CDATA[
+                <p>After studying John Coltrane&#39;s wholetone/chromatic <a href="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/">circular diagram</a>, I was determined to make a program to show any musical intervals around a circle.  And if I could, to make a concentric &quot;inner&quot; ring with note offsets, like Coltrane did.  So the weekend arrived and I got busy...</p>
+
+                    <p><a href="https://ology.github.io/2022/05/14/interactive-circular-music-interval-diagram/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/data/">data</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 14 May 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Coltrane&#39;s Mystery Music Diagram</title>
             <link>https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/</link>
             <guid>https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/</guid>
@@ -89,28 +109,6 @@ I stumbled across <a href="https://www.nytimes.com/2019/04/04/learning/whats-goi
             ]]></description>
             <pubDate>
                 Mon, 17 Jan 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Text to Guidonian Melodies</title>
-            <link>https://ology.github.io/2022/01/15/text-to-guidonian-melodies/</link>
-            <guid>https://ology.github.io/2022/01/15/text-to-guidonian-melodies/</guid>
-            <description><![CDATA[
-                <p>I&#39;m a programming musician. Maybe that&#39;s &quot;musical programmer.&quot;  But it&#39;s an exciting Saturday night in Geekville. What to do?  Hmmm...</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/guidonian">guidonian</a></p>
-
-                    <p><a href="https://ology.github.io/2022/01/15/text-to-guidonian-melodies/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sat, 15 Jan 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

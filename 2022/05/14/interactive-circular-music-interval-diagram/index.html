@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Interactive Circular Music Interval Diagram - Gene Boggs</title>
+        <meta content="Statocles 0.098" name="generator">
+        <link href="/2022/04/23/coltranes-mystery-music-diagram/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
+
+<script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <script src="/theme/site/ology.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://soundcloud.com/gene-boggs-music">On Soundcloud</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ology/MIDI-Perl-HOWTO/wiki">Algorithmic Music</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Interactive Circular Music Interval Diagram</h1>
+
+    <aside>
+        <time datetime="2022-05-14">
+            Posted on 2022-05-14
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/music/" rel="tag">music</a>
+        <a href="/tag/data/" rel="tag">data</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>After studying John Coltrane&#39;s wholetone/chromatic <a href="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/">circular diagram</a>, I was determined to make a program to show any musical intervals around a circle.  And if I could, to make a concentric &quot;inner&quot; ring with note offsets, like Coltrane did.  So the weekend arrived and I got busy...</p>
+
+</section>
+<section id="section-2">
+    <p>tl;dr: <a href="https://github.com/ology/Music/blob/master/circle-intervals">circle-intervals</a></p>
+
+<p>Let&#39;s dive in!</p>
+
+<p>First up is the standard perl preamble:</p>
+
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+</code></pre>
+
+<p>Next is importing the functionality we will use from a couple other modules:</p>
+
+<pre><code>use List::SomeUtils qw(first_index);
+use Math::Trig ();
+use Music::Scales qw(get_scale_notes);
+use SVG qw(title);
+</code></pre>
+
+<p>We will use a few trig constants and the main scale name:</p>
+
+<pre><code>use constant PI     =&gt; 2 * atan2(1,0);
+use constant HALF   =&gt; PI / 2;
+use constant DOUBLE =&gt; 2 * PI;
+use constant SCALE  =&gt; &#39;chromatic&#39;;
+</code></pre>
+
+<p>Here we grab any command-line user arguments and fall back to a default for each:</p>
+
+<pre><code>my $interval   = shift || 1;    # interval to calculate: default chromatic 1-11
+my $show_marks = shift || 12;   # how many circular note marks to display 2-60
+my $show_inner = shift // 0;    # show the inner ring?
+my $flat       = shift // 0;    # show note names with flats: default sharps
+my $numeric    = shift // 0;    # display notes as pitch numbers
+my $outer_note = shift || &#39;C&#39;;  # starting outer ring note
+my $inner_note = shift || &#39;C#&#39;; # starting inner ring note
+my $diameter   = shift || 512;  # the diameter of the circle
+my $fill       = shift || &#39;white&#39;;
+my $outer_line = shift || &#39;green&#39;;
+my $inner_line = shift || &#39;gray&#39;;
+my $text_line  = shift || &#39;black&#39;;
+</code></pre>
+
+<p>We set a number of parameters that define the behavior of the program:</p>
+
+<pre><code>my $total_marks = 60;           # maximum number of interval markers 2-60
+my $font_size   = 20;           # size of the caption font
+my $border_size = 10;           # chart margin
+my $sub_radius  = 11;           # radius for sub-circle markings
+my $radius      = $diameter / 2;
+my $frame_size  = $diameter + 2 * $border_size;
+my %named       = (
+    1  =&gt; &#39;halfstep&#39;,
+    2  =&gt; &#39;wholestep&#39;,
+    3  =&gt; &#39;min 3rd&#39;,
+    4  =&gt; &#39;maj 3rd&#39;,
+    5  =&gt; &#39;perf 4th&#39;,
+    6  =&gt; &#39;tritone&#39;,
+    7  =&gt; &#39;perf 5th&#39;,
+    8  =&gt; &#39;sharp 5&#39;,
+    9  =&gt; &#39;sixth&#39;,
+    10 =&gt; &#39;flat 7&#39;,
+    11 =&gt; &#39;seventh&#39;,
+);
+my $caption = &quot;Interval: $named{$interval}, Notes: $show_marks&quot;;
+my $title   = &#39;Circular Music Intervals&#39;;
+my $desc    = &quot;Show $show_marks marks around a note circle for the $named{$interval} interval&quot;;
+</code></pre>
+
+<p>And we are going to use SVG for this task:</p>
+
+<pre><code>my $svg = SVG-&gt;new(
+    width  =&gt; $frame_size,
+    height =&gt; $frame_size,
+);
+$svg-&gt;title()-&gt;cdata($title);
+$svg-&gt;desc(id =&gt; &#39;document-desc&#39;)-&gt;cdata($desc);
+
+my $outer_style = $svg-&gt;group(
+    id    =&gt; &#39;outer-style-group&#39;,
+    style =&gt; {
+        stroke =&gt; $outer_line,
+        fill   =&gt; $fill,
+    },
+);
+</code></pre>
+
+<p>And now for the meat of the program!</p>
+
+<p>There are two separate, concentric interval rings - an outer and an inner.  We render the outer ring first, but before we can, a scale of notes must be aquired.  With that in hand, we construct labels for our intervals - note names (or pitch numbers).</p>
+
+<pre><code>my @outer_scale = get_scale_notes($outer_note, SCALE, undef, $flat ? &#39;b&#39; : &#39;#&#39;);
+
+my @outer_labels = get_labels(\@outer_scale, $interval, $show_marks);
+</code></pre>
+
+<p>Now for our main circle:</p>
+
+<pre><code>$outer_style-&gt;circle(
+    cx =&gt; $frame_size / 2,
+    cy =&gt; $frame_size / 2,
+    r  =&gt; $radius,
+    id =&gt; &#39;style-group-outer-circle&#39;,
+);
+</code></pre>
+
+<p>If we are <em>not</em> showing the inner ring, render a caption in the middle of the circle, describing what we are going to be looking at:</p>
+
+<pre><code>$outer_style-&gt;text(
+    id    =&gt; &#39;style-group-outer-caption&#39;,
+    x     =&gt; $frame_size / 2 - $sub_radius * 10,
+    y     =&gt; $frame_size / 2,
+    style =&gt; {
+        stroke      =&gt; $text_line,
+        &#39;font-size&#39; =&gt; $font_size,
+    },
+    -cdata =&gt; $caption,
+) if !$show_inner;
+</code></pre>
+
+<p>Now for the loop that actually draws the interval positions on the outer ring... But first we have to set up a couple things - a counter and and array of the positions to render:</p>
+
+<pre><code>my $i = 0; # counter
+
+my @marks = map { $_ * $total_marks / $show_marks } 1 .. $show_marks;
+</code></pre>
+
+<p>Now for the loop!  A coordinate is computed based on the current position, a small circle is drawn for each interval position, and the name of the note (or the pitch number) is added (from the @outer_labels array):</p>
+
+<pre><code>for my $mark (@marks) {
+    $i++;
+
+    my $p = coordinate($mark, $total_marks, $radius);
+
+    $outer_style-&gt;circle(
+        id =&gt; $mark . &#39;-style-group-outer-sub-circle&#39;,
+        cx =&gt; $p-&gt;[0] + $sub_radius,
+        cy =&gt; $p-&gt;[1] + $sub_radius,
+        r  =&gt; $sub_radius,
+    );
+
+    my $item = $outer_labels[ $i % @outer_labels ];
+    my $text = $numeric
+        ? first_index { $_ eq $item } @outer_scale
+        : $item;
+    $outer_style-&gt;text(
+        id =&gt; $i . &#39;-style-group-outer-sub-text&#39;,
+        x  =&gt; $p-&gt;[0] + $sub_radius - ($sub_radius / 2),
+        y  =&gt; $p-&gt;[1] + $sub_radius + ($sub_radius / 2),
+    )-&gt;cdata($text);
+}
+</code></pre>
+
+<p>Okay. With the outer ring drawn, we move on to the inner ring.  This is mostly identical in how it is rendered.  The only difference is that, by default, it uses a chromatic scale one halfstep above the starting note on the outer ring.  The starting notes can be given on the command-line, by the way.</p>
+
+<pre><code>if ($show_inner) {
+    my $inner_style = $svg-&gt;group(
+        id    =&gt; &#39;inner-style-group&#39;,
+        style =&gt; {
+            stroke =&gt; $inner_line,
+            fill   =&gt; $fill,
+        },
+    );
+</code></pre>
+
+<p>The big difficulty with the inner ring is that it must be rotated so that its notes are exactly between the notes of the outer ring.  This involves tediously adjusting the positions.  So that is what this ugly array is:</p>
+
+<pre><code>    my @factors = (
+        0,    0,
+        1.7,  1.2,  0.9,  0.7,
+        0.65, 0.6,  0.5,  0.45,
+        0.45, 0.4,  0.35, 0.35,
+        0.35, 0.35, 0.35, 0.3,
+        0.3,  0.25, 0.25, 0.25,
+        0.25, 0.25, 0.25, 0.24,
+        0.24, 0.23, 0.22, 0.22,
+        0.22, 0.22, 0.21, 0.21,
+        0.2,  0.2,  0.2,  0.2,
+        0.2,  0.2,  0.2,  0.2,
+        0.19, 0.19, 0.19, 0.19,
+        0.19, 0.19, 0.18, 0.18,
+        0.18, 0.18, 0.18, 0.18,
+        0.18, 0.18, 0.18, 0.18,
+        0.18, 0.18, 0.17,
+    );
+    my %intervals;
+    for my $known (keys %named) {
+        for my $mark (2 .. $total_marks) {
+            $intervals{ $known . &#39;,&#39; . $mark } = $factors[$mark];
+        }
+    }
+</code></pre>
+
+<p>A hash is built of all the known intervals with these adjustments as values.</p>
+
+<p>Next we do pretty much the same thing as with the outer ring to the inner ring: Generate arrays for note intervals, labels and positions, and then add them to the growing SVG diagram.  But first we add the inner circle and caption.</p>
+
+<pre><code>    my @inner_scale = get_scale_notes($inner_note, SCALE, undef, $flat ? &#39;b&#39; : &#39;#&#39;);
+
+    my @inner_labels = get_labels(\@inner_scale, $interval, $show_marks);
+
+    my $inner_radius = $radius - $sub_radius * 3;
+
+    $inner_style-&gt;circle(
+        id =&gt; &#39;style-group-inner-circle&#39;,
+        cx =&gt; $frame_size / 2,
+        cy =&gt; $frame_size / 2,
+        r  =&gt; $inner_radius,
+    );
+
+    $inner_style-&gt;text(
+        id    =&gt; &#39;style-group-inner-caption&#39;,
+        x     =&gt; $frame_size / 2 - $sub_radius * 10,
+        y     =&gt; $frame_size / 2,
+        style =&gt; {
+            stroke      =&gt; $text_line,
+            &#39;font-size&#39; =&gt; $font_size,
+        },
+        -cdata =&gt; $caption,
+    );
+</code></pre>
+
+<p>With the inner circle in place, we procede to add the notes to the ring:</p>
+
+<pre><code>    $i = 0;
+
+    for my $mark (@marks) {
+        $i++;
+
+        my $p = coordinate(
+            $mark,
+            $total_marks,
+            $inner_radius,
+            $intervals{ $interval . &#39;,&#39; . $show_marks }
+        );
+
+        $inner_style-&gt;circle(
+            id =&gt; $mark . &#39;-style-group-inner-sub-circle&#39;,
+            cx =&gt; $p-&gt;[0] + $sub_radius * 4,
+            cy =&gt; $p-&gt;[1] + $sub_radius * 4,
+            r  =&gt; $sub_radius,
+        );
+
+        my $item = $inner_labels[ $i % @inner_labels ];
+        my $text = $numeric
+            ? first_index { $_ eq $item } @inner_scale
+            : $item;
+        $inner_style-&gt;text(
+            id =&gt; $i . &#39;-style-group-inner-sub-text&#39;,
+            x  =&gt; $p-&gt;[0] + $sub_radius * 3 + 3,
+            y  =&gt; $p-&gt;[1] + $sub_radius * 3 + 3 + $sub_radius,
+        )-&gt;cdata($text);
+    }
+}
+</code></pre>
+
+<p>Finally, we output the SVG we have created:</p>
+
+<pre><code>print $svg-&gt;xmlify;
+</code></pre>
+
+<p>There are two subroutines that are used.  One is to gather the note labels to render.  The other is to return the exact coordinate to go on a ring.</p>
+
+<pre><code>sub get_labels {
+    my ($scale, $interval, $marks) = @_;
+
+    my @labels = map { $scale-&gt;[ ($_ * $interval) % @$scale ] }
+        0 .. $marks - 1;
+
+    return @labels;
+}
+
+sub coordinate {
+    my ($p, $total, $radius, $inner) = @_;
+
+    # Compute the analog minute time equivalent
+    my $analog = $p / $total * DOUBLE - HALF;
+
+    # Replace the time value with the polar coordinate
+    my $coord;
+    if ($inner) {
+        $coord = [
+            $radius + $radius * cos($analog - DOUBLE / $total + $inner),
+            $radius + $radius * sin($analog - DOUBLE / $total + $inner)
+        ];
+    }
+    else {
+        $coord = [
+            $radius + $radius * cos($analog),
+            $radius + $radius * sin($analog)
+        ];
+    }
+
+    return $coord;
+}
+</code></pre>
+
+<p>So what do these diagrams look like?  Here are some examples produced with the preceeding commands:</p>
+
+<pre><code>$ perl circle-intervals 1 24 1 &gt; circle-intervals-01.svg
+</code></pre>
+
+<p><img alt="halfstep" src="circle-intervals-01.svg"></p>
+
+<pre><code>$ perl circle-intervals 7 12 1 0 0 C F &gt; circle-intervals-02.svg
+</code></pre>
+
+<p><img alt="perfect 5th" src="circle-intervals-02.svg"></p>
+
+<pre><code>$ perl circle-intervals 4 12 1 0 1 &gt; circle-intervals-03.svg
+</code></pre>
+
+<p><img alt="numeric" src="circle-intervals-03.svg"></p>
+
+<p>Here is Coltrane&#39;s wholetone/chromatic diagram:</p>
+
+<pre><code>$ perl circle-intervals 2 30 1 1 &gt; circle-intervals-04.svg
+</code></pre>
+
+<p><img alt="wholetone" src="circle-intervals-04.svg"></p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2022/04/23/coltranes-mystery-music-diagram/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    <input id="query" placeholder="Search" type="text">
+
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                |
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

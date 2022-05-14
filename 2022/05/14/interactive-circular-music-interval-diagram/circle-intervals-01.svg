@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="532" width="532" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>Circular Music Intervals</title>
+	<desc id="document-desc">Show 24 marks around a note circle for the halfstep interval</desc>
+	<g id="outer-style-group" style="fill: white; stroke: green">
+		<circle cx="266" cy="266" id="style-group-outer-circle" r="256" />
+		<circle cx="333.257675546245" cy="19.7229884699985" id="2.5-style-group-outer-sub-circle" r="11" />
+		<text id="1-style-group-outer-sub-text" x="327.757675546245" y="25.2229884699985">C#</text>
+		<circle cx="395" cy="45.2974966311837" id="5-style-group-outer-sub-circle" r="11" />
+		<text id="2-style-group-outer-sub-text" x="389.5" y="50.7974966311837">D</text>
+		<circle cx="448.019335983756" cy="85.9806640162438" id="7.5-style-group-outer-sub-circle" r="11" />
+		<text id="3-style-group-outer-sub-text" x="442.519335983756" y="91.4806640162438">D#</text>
+		<circle cx="488.702503368816" cy="139" id="10-style-group-outer-sub-circle" r="11" />
+		<text id="4-style-group-outer-sub-text" x="483.202503368816" y="144.5">E</text>
+		<circle cx="514.277011530001" cy="200.742324453755" id="12.5-style-group-outer-sub-circle" r="11" />
+		<text id="5-style-group-outer-sub-text" x="508.777011530001" y="206.242324453755">F</text>
+		<circle cx="523" cy="267" id="15-style-group-outer-sub-circle" r="11" />
+		<text id="6-style-group-outer-sub-text" x="517.5" y="272.5">F#</text>
+		<circle cx="514.277011530001" cy="333.257675546245" id="17.5-style-group-outer-sub-circle" r="11" />
+		<text id="7-style-group-outer-sub-text" x="508.777011530001" y="338.757675546245">G</text>
+		<circle cx="488.702503368816" cy="395" id="20-style-group-outer-sub-circle" r="11" />
+		<text id="8-style-group-outer-sub-text" x="483.202503368816" y="400.5">G#</text>
+		<circle cx="448.019335983756" cy="448.019335983756" id="22.5-style-group-outer-sub-circle" r="11" />
+		<text id="9-style-group-outer-sub-text" x="442.519335983756" y="453.519335983756">A</text>
+		<circle cx="395" cy="488.702503368816" id="25-style-group-outer-sub-circle" r="11" />
+		<text id="10-style-group-outer-sub-text" x="389.5" y="494.202503368816">A#</text>
+		<circle cx="333.257675546245" cy="514.277011530001" id="27.5-style-group-outer-sub-circle" r="11" />
+		<text id="11-style-group-outer-sub-text" x="327.757675546245" y="519.777011530001">B</text>
+		<circle cx="267" cy="523" id="30-style-group-outer-sub-circle" r="11" />
+		<text id="12-style-group-outer-sub-text" x="261.5" y="528.5">C</text>
+		<circle cx="200.742324453755" cy="514.277011530002" id="32.5-style-group-outer-sub-circle" r="11" />
+		<text id="13-style-group-outer-sub-text" x="195.242324453755" y="519.777011530002">C#</text>
+		<circle cx="139" cy="488.702503368816" id="35-style-group-outer-sub-circle" r="11" />
+		<text id="14-style-group-outer-sub-text" x="133.5" y="494.202503368816">D</text>
+		<circle cx="85.9806640162438" cy="448.019335983756" id="37.5-style-group-outer-sub-circle" r="11" />
+		<text id="15-style-group-outer-sub-text" x="80.4806640162438" y="453.519335983756">D#</text>
+		<circle cx="45.2974966311837" cy="395" id="40-style-group-outer-sub-circle" r="11" />
+		<text id="16-style-group-outer-sub-text" x="39.7974966311837" y="400.5">E</text>
+		<circle cx="19.7229884699985" cy="333.257675546245" id="42.5-style-group-outer-sub-circle" r="11" />
+		<text id="17-style-group-outer-sub-text" x="14.2229884699985" y="338.757675546245">F</text>
+		<circle cx="11" cy="267" id="45-style-group-outer-sub-circle" r="11" />
+		<text id="18-style-group-outer-sub-text" x="5.5" y="272.5">F#</text>
+		<circle cx="19.7229884699985" cy="200.742324453755" id="47.5-style-group-outer-sub-circle" r="11" />
+		<text id="19-style-group-outer-sub-text" x="14.2229884699985" y="206.242324453755">G</text>
+		<circle cx="45.2974966311837" cy="139" id="50-style-group-outer-sub-circle" r="11" />
+		<text id="20-style-group-outer-sub-text" x="39.7974966311837" y="144.5">G#</text>
+		<circle cx="85.9806640162438" cy="85.9806640162438" id="52.5-style-group-outer-sub-circle" r="11" />
+		<text id="21-style-group-outer-sub-text" x="80.4806640162438" y="91.4806640162438">A</text>
+		<circle cx="139" cy="45.2974966311838" id="55-style-group-outer-sub-circle" r="11" />
+		<text id="22-style-group-outer-sub-text" x="133.5" y="50.7974966311838">A#</text>
+		<circle cx="200.742324453755" cy="19.7229884699985" id="57.5-style-group-outer-sub-circle" r="11" />
+		<text id="23-style-group-outer-sub-text" x="195.242324453755" y="25.2229884699985">B</text>
+		<circle cx="267" cy="11" id="60-style-group-outer-sub-circle" r="11" />
+		<text id="24-style-group-outer-sub-text" x="261.5" y="16.5">C</text>
+	</g>
+	<g id="inner-style-group" style="fill: white; stroke: gray">
+		<circle cx="266" cy="266" id="style-group-inner-circle" r="223" />
+		<text id="style-group-inner-caption" style="font-size: 20; stroke: black" x="156" y="266">Interval: halfstep, Notes: 24</text>
+		<circle cx="355.292234420461" cy="62.2233378994512" id="2.5-style-group-inner-sub-circle" r="11" />
+		<text id="1-style-group-inner-sub-text" x="347.292234420461" y="65.2233378994512">D</text>
+		<circle cx="405.283849631638" cy="92.0526452584817" id="5-style-group-inner-sub-circle" r="11" />
+		<text id="2-style-group-inner-sub-text" x="397.283849631638" y="95.0526452584817">D#</text>
+		<circle cx="445.851649015285" cy="133.804325728973" id="7.5-style-group-inner-sub-circle" r="11" />
+		<text id="3-style-group-inner-sub-text" x="437.851649015285" y="136.804325728973">E</text>
+		<circle cx="474.231004084865" cy="184.633071284776" id="10-style-group-inner-sub-circle" r="11" />
+		<text id="4-style-group-inner-sub-text" x="466.231004084865" y="187.633071284776">F</text>
+		<circle cx="488.487908691488" cy="241.074986914736" id="12.5-style-group-inner-sub-circle" r="11" />
+		<text id="5-style-group-inner-sub-text" x="480.487908691488" y="244.074986914736">F#</text>
+		<circle cx="487.650778346862" cy="299.283649343346" id="15-style-group-inner-sub-circle" r="11" />
+		<text id="6-style-group-inner-sub-text" x="479.650778346862" y="302.283649343346">G</text>
+		<circle cx="471.776662100549" cy="355.292234420461" id="17.5-style-group-inner-sub-circle" r="11" />
+		<text id="7-style-group-inner-sub-text" x="463.776662100549" y="358.292234420461">G#</text>
+		<circle cx="441.947354741518" cy="405.283849631638" id="20-style-group-inner-sub-circle" r="11" />
+		<text id="8-style-group-inner-sub-text" x="433.947354741518" y="408.283849631638">A</text>
+		<circle cx="400.195674271027" cy="445.851649015285" id="22.5-style-group-inner-sub-circle" r="11" />
+		<text id="9-style-group-inner-sub-text" x="392.195674271027" y="448.851649015285">A#</text>
+		<circle cx="349.366928715224" cy="474.231004084865" id="25-style-group-inner-sub-circle" r="11" />
+		<text id="10-style-group-inner-sub-text" x="341.366928715224" y="477.231004084865">B</text>
+		<circle cx="292.925013085264" cy="488.487908691488" id="27.5-style-group-inner-sub-circle" r="11" />
+		<text id="11-style-group-inner-sub-text" x="284.925013085264" y="491.487908691488">C</text>
+		<circle cx="234.716350656654" cy="487.650778346862" id="30-style-group-inner-sub-circle" r="11" />
+		<text id="12-style-group-inner-sub-text" x="226.716350656654" y="490.650778346862">C#</text>
+		<circle cx="178.707765579539" cy="471.776662100549" id="32.5-style-group-inner-sub-circle" r="11" />
+		<text id="13-style-group-inner-sub-text" x="170.707765579539" y="474.776662100549">D</text>
+		<circle cx="128.716150368362" cy="441.947354741518" id="35-style-group-inner-sub-circle" r="11" />
+		<text id="14-style-group-inner-sub-text" x="120.716150368362" y="444.947354741518">D#</text>
+		<circle cx="88.1483509847155" cy="400.195674271027" id="37.5-style-group-inner-sub-circle" r="11" />
+		<text id="15-style-group-inner-sub-text" x="80.1483509847155" y="403.195674271027">E</text>
+		<circle cx="59.7689959151354" cy="349.366928715224" id="40-style-group-inner-sub-circle" r="11" />
+		<text id="16-style-group-inner-sub-text" x="51.7689959151354" y="352.366928715224">F</text>
+		<circle cx="45.5120913085121" cy="292.925013085264" id="42.5-style-group-inner-sub-circle" r="11" />
+		<text id="17-style-group-inner-sub-text" x="37.5120913085121" y="295.925013085264">F#</text>
+		<circle cx="46.3492216531384" cy="234.716350656654" id="45-style-group-inner-sub-circle" r="11" />
+		<text id="18-style-group-inner-sub-text" x="38.3492216531384" y="237.716350656654">G</text>
+		<circle cx="62.2233378994511" cy="178.707765579539" id="47.5-style-group-inner-sub-circle" r="11" />
+		<text id="19-style-group-inner-sub-text" x="54.2233378994511" y="181.707765579539">G#</text>
+		<circle cx="92.0526452584817" cy="128.716150368362" id="50-style-group-inner-sub-circle" r="11" />
+		<text id="20-style-group-inner-sub-text" x="84.0526452584817" y="131.716150368362">A</text>
+		<circle cx="133.804325728973" cy="88.1483509847154" id="52.5-style-group-inner-sub-circle" r="11" />
+		<text id="21-style-group-inner-sub-text" x="125.804325728973" y="91.1483509847154">A#</text>
+		<circle cx="184.633071284776" cy="59.7689959151353" id="55-style-group-inner-sub-circle" r="11" />
+		<text id="22-style-group-inner-sub-text" x="176.633071284776" y="62.7689959151353">B</text>
+		<circle cx="241.074986914736" cy="45.5120913085121" id="57.5-style-group-inner-sub-circle" r="11" />
+		<text id="23-style-group-inner-sub-text" x="233.074986914736" y="48.5120913085121">C</text>
+		<circle cx="299.283649343346" cy="46.3492216531384" id="60-style-group-inner-sub-circle" r="11" />
+		<text id="24-style-group-inner-sub-text" x="291.283649343346" y="49.3492216531384">C#</text>
+	</g>
+	<!--
+	Generated using the Perl SVG Module V2.86
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+	-->
+</svg>
