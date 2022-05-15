@@ -197,7 +197,7 @@ my @outer_labels = get_labels(\@outer_scale, $interval, $show_marks);
 my @marks = map { $_ * $total_marks / $show_marks } 1 .. $show_marks;
 </code></pre>
 
-<p>Now for the loop!  A coordinate is computed based on the current position, a small circle is drawn for each interval position, and the name of the note (or the pitch number) is added (from the @outer_labels array):</p>
+<p>Now for the loop!  A coordinate is computed based on the current position, a small circle is drawn for each interval position, and the name of the note (or the pitch number) is added:</p>
 
 <pre><code>for my $mark (@marks) {
     $i++;
