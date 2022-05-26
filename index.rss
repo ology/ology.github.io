@@ -7,6 +7,25 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>HP48G Resurrection!</title>
+            <link>https://ology.github.io/2022/05/25/hp48g-ressurection/</link>
+            <guid>https://ology.github.io/2022/05/25/hp48g-ressurection/</guid>
+            <description><![CDATA[
+                <p>The HP48G Series - Venerable, classic, still relevant.</p>
+
+                    <p><a href="https://ology.github.io/2022/05/25/hp48g-ressurection/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/systems/">systems</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 25 May 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Circular Music Interval Diagram</title>
             <link>https://ology.github.io/2022/05/14/circular-music-interval-diagram/</link>
             <guid>https://ology.github.io/2022/05/14/circular-music-interval-diagram/</guid>
@@ -86,29 +105,6 @@ I stumbled across <a href="https://www.nytimes.com/2019/04/04/learning/whats-goi
             ]]></description>
             <pubDate>
                 Thu, 20 Jan 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>If Mozart Were a Programmer</title>
-            <link>https://ology.github.io/2022/01/17/if-mozart-were-a-programmer/</link>
-            <guid>https://ology.github.io/2022/01/17/if-mozart-were-a-programmer/</guid>
-            <description><![CDATA[
-                <p>How do you implement the <a href="https://en.wikipedia.org/wiki/Musikalisches_W%C3%BCrfelspiel">musical dice game</a>?</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/dice-game">dice-game</a></p>
-
-                    <p><a href="https://ology.github.io/2022/01/17/if-mozart-were-a-programmer/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/generative/">generative</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Mon, 17 Jan 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
