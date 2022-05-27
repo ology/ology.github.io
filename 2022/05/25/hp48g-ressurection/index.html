@@ -93,7 +93,7 @@
 
 <pre><code>▸ sudo ~gene/bin/kermit 
 ...
-(/home/gene/sandbox/HP48/) C-Kermit&gt;
+(/home/gene/sandbox/HP48/) C-Kermit&gt;take transfer-setup.kermit
 </code></pre>
 
 <p>So, after much scouring of the internet, I found <a href="https://retrocomputing.stackexchange.com/questions/16165/how-to-transfer-files-between-modern-linux-host-and-hp48-handheld-calculator">this post</a> and set these things (ignoring the ; comments) according to it:</p>
@@ -108,6 +108,8 @@ set control prefix all    ; Not sure about what this means, worked after I set i
 set file type binary      ; Binary if you want to run it. ASCII for text source listings.
 SET SEND PACKET-LENGTH 64 ; CRUCIAL!
 </code></pre>
+
+<p>That&#39;s the <code>transfer-setup.kermit</code> file.</p>
 
 <p>To send from the HP48 to the PC, on the PC type:</p>
 
