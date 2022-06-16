@@ -7,6 +7,25 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Simple Analog Clock in Perl</title>
+            <link>https://ology.github.io/2022/06/16/simple-analog-clock-in-perl/</link>
+            <guid>https://ology.github.io/2022/06/16/simple-analog-clock-in-perl/</guid>
+            <description><![CDATA[
+                <p>Long ago I wrote a really clunky analog clock app. Yesterday I finally fixed it up...</p>
+
+                    <p><a href="https://ology.github.io/2022/06/16/simple-analog-clock-in-perl/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 16 Jun 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>HP48G Resurrection!</title>
             <link>https://ology.github.io/2022/05/25/hp48g-ressurection/</link>
             <guid>https://ology.github.io/2022/05/25/hp48g-ressurection/</guid>
@@ -87,28 +106,6 @@ I stumbled across <a href="https://www.nytimes.com/2019/04/04/learning/whats-goi
             ]]></description>
             <pubDate>
                 Mon, 17 Jan 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Text to Guidonian Melodies</title>
-            <link>https://ology.github.io/2022/01/15/text-to-guidonian-melodies/</link>
-            <guid>https://ology.github.io/2022/01/15/text-to-guidonian-melodies/</guid>
-            <description><![CDATA[
-                <p>I&#39;m a programming musician. Maybe that&#39;s &quot;musical programmer.&quot;  But it&#39;s an exciting Saturday night in Geekville. What to do?  Hmmm...</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/guidonian">guidonian</a></p>
-
-                    <p><a href="https://ology.github.io/2022/01/15/text-to-guidonian-melodies/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sat, 15 Jan 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

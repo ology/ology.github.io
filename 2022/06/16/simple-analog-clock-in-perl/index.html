@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Simple Analog Clock in Perl - Gene Boggs</title>
+        <meta content="Statocles 0.098" name="generator">
+        <link href="/2022/05/25/hp48g-ressurection/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
+
+<script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <script src="/theme/site/ology.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://metacpan.org/author/GENE">On CPAN</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ology">On Github</a>
+                        </li>
+                        <li>
+                            <a href="https://soundcloud.com/gene-boggs-music">On Soundcloud</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ology/MIDI-Perl-HOWTO/wiki">Algorithmic Music</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Simple Analog Clock in Perl</h1>
+
+    <aside>
+        <time datetime="2022-06-16">
+            Posted on 2022-06-16
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>Long ago I wrote a really clunky analog clock app. Yesterday I finally fixed it up...</p>
+
+</section>
+<section id="section-2">
+    <p>This post is not about some earth shattering revelation.  Rather it&#39;s about the basic math needed to render a working clock.</p>
+
+<p>First up is the standard preamble for perl programs:</p>
+
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+</code></pre>
+
+<p>Next are the imports:</p>
+
+<pre><code>use GD::SVG ();
+use Math::Trig qw(:pi);
+</code></pre>
+
+<p>We will need a few constant values of π:</p>
+
+<pre><code>use constant HALF   =&gt; pip2;
+use constant DOUBLE =&gt; pi2;
+use constant FRACT  =&gt; pi2 / 12 / 60;
+</code></pre>
+
+<p>And we will need a few variables that define the behavior of the app.  Like these optional, user defined variables first:</p>
+
+<pre><code>my ( $diameter, $hours, $minutes, $seconds ) = @ARGV;
+
+my $show_hours = 0;
+
+$diameter ||= 200;
+my $radius = $diameter / 2;
+
+my $clock = GD::SVG::Image-&gt;new( $diameter, $diameter );
+
+my $trans = $clock-&gt;colorAllocate( 200, 200, 200 ); # background
+my $red   = $clock-&gt;colorAllocate( 255,   0,   0 ); # second hand
+my $blue  = $clock-&gt;colorAllocate(   0,   0, 255 ); # minute hand
+my $grey  = $clock-&gt;colorAllocate( 100, 100, 100 ); # hour hand
+my $black = $clock-&gt;colorAllocate(   0,   0,   0 ); # perimeter
+</code></pre>
+
+<p>Ok, with our variables set, the functionality begins!</p>
+
+<p>Our clock background will be transparent:</p>
+
+<pre><code>$clock-&gt;transparent($trans);
+</code></pre>
+
+<p>Add a perimeter circle to the clock:</p>
+
+<pre><code>$clock-&gt;arc( $radius, $radius, $diameter, $diameter, 0, 360, $black );
+</code></pre>
+
+<p>Indicate the hours if <code>$show_hours</code> is true:</p>
+
+<pre><code>if ($show_hours) {
+    for my $hour (1 .. 12) {
+        my ( undef, undef, $h ) = time_point( $radius, 0, 0, $hour );
+        $clock-&gt;arc( @$h, 6, 6, 0, 360, $black );
+    }
+}
+</code></pre>
+
+<p>Now get HH:MM:SS coordinates of the given (or current) time for the hands:</p>
+
+<pre><code>my ( $s, $m, $h ) = time_point( $radius, $seconds, $minutes, $hours, 1 );
+</code></pre>
+
+<p>Draw the hands of the clock with varying thickness and color:</p>
+
+<pre><code>$clock-&gt;setThickness(8);
+$clock-&gt;line( $radius, $radius, @$h, $grey );   # hour hand
+$clock-&gt;setThickness(4);
+$clock-&gt;line( $radius, $radius, @$m, $blue );   # minute hand
+$clock-&gt;setThickness(2);
+$clock-&gt;line( $radius, $radius, @$s, $red );    # second hand
+</code></pre>
+
+<p>Now render the clock!</p>
+
+<pre><code>print $clock-&gt;svg;
+</code></pre>
+
+<p>That&#39;s it!  There is just this one sub-routine that handles all the math:</p>
+
+<pre><code>sub time_point {
+    my ( $radius, $s, $m, $h, $flag ) = @_;
+</code></pre>
+
+<p>Getting a flag set to true means we are plotting the hands of the clock.  Without, we are just rendering the perimeter hour markings.</p>
+
+<p>Here is where we get the current time if one is not given:</p>
+
+<pre><code>    ( $s, $m, $h ) = ( localtime )[ 0 .. 2 ]
+        unless defined $s &amp;&amp; defined $m &amp;&amp; defined $h;
+
+    warn sprintf &quot;%02d:%02d:%02d\n&quot;, $h, $m, $s;
+</code></pre>
+
+<p>We need to remember the number of minutes so we can compute the position of the hour hand:</p>
+
+<pre><code>    my $min = $m; # Remember the number of minutes
+</code></pre>
+
+<p>Now compute the analog time equivalents with our constants:</p>
+
+<pre><code>    $s = $s / 60 * DOUBLE - HALF;
+    $m = $m / 60 * DOUBLE - HALF;
+    $h = $h / 12 * DOUBLE - HALF;
+</code></pre>
+
+<p>Compute the position of the hour hand and add 1/2 degree for each minute, if we are plotting the hands:</p>
+
+<pre><code>    $h += $min * FRACT if $flag;
+</code></pre>
+
+<p>In order to handle the parts of the time separately in the loop below, save the triple in a hash of named keys:</p>
+
+<pre><code>    my %t = ( s =&gt; $s, m =&gt; $m, h =&gt; $h );
+</code></pre>
+
+<p>Now loop over the named keys:</p>
+
+<pre><code>    for my $i (qw( s m h )) {
+        my $r = $radius;
+</code></pre>
+
+<p>And if we are plotting the hand positions, use differring lengths for each:</p>
+
+<pre><code>        if ($flag) {
+            $r = $i eq &#39;h&#39; ? $radius / 2
+               : $i eq &#39;m&#39; ? $radius / 1.3
+               : $i eq &#39;s&#39; ? $radius / 1.1
+               : $radius;
+        }
+</code></pre>
+
+<p>That makes the hands look a bit more realistic for actualy clocksC. &quot;in real life.&quot;</p>
+
+<p>Finally replace the time values with a rectangular coordinates:</p>
+
+<pre><code>        $t{$i} = [
+            $radius + $r * cos $t{$i},
+            $radius + $r * sin $t{$i}
+        ];
+    }
+</code></pre>
+
+<p>Show what we have computed:</p>
+
+<pre><code>    warn join(&#39;, &#39;, map { sprintf &quot;[%.2f,%.2f]&quot;, @$_ } @t{qw(s m h)}), &quot;\n&quot;;
+</code></pre>
+
+<p>And return the new coordinates:</p>
+
+<pre><code>    return @t{qw(s m h)};
+}
+</code></pre>
+
+<p><img alt="clock.svg" src="clock.svg"></p>
+
+<p>Voila!</p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2022/05/25/hp48g-ressurection/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    <input id="query" placeholder="Search" type="text">
+
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/systems/">systems</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container tagline">
+    Crafted by <a href="https://github.com/ology">Gene Boggs</a>, Epistemologist-at-large
+</div>
+
+            <div class="container tagline">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                |
+                <a href="http://www.perl.org">Powered by Perl</a>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
