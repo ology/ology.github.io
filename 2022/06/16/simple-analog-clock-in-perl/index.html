@@ -179,7 +179,7 @@ $clock-&gt;line( $radius, $radius, @$s, $red );    # second hand
     $h = $h / 12 * DOUBLE - HALF;
 </code></pre>
 
-<p>Compute the position of the hour hand and add 1/2 degree for each minute, if we are plotting the hands:</p>
+<p>To compute the position of the hour hand, we also need to add 1/2 degree for each minute:</p>
 
 <pre><code>    $h += $min * FRACT if $flag;
 </code></pre>
