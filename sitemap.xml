@@ -4,7 +4,7 @@
         <loc>https://ology.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/2013/07/05/musical-deltahedra/</loc>
@@ -316,7 +316,7 @@
         <loc>https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/collage.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/2022/01/15/text-to-guidonian-melodies/</loc>
@@ -340,7 +340,7 @@
         <loc>https://ology.github.io/2022/01/20/musical-fingerprints-with-radar-charts/charts.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/</loc>
@@ -361,7 +361,7 @@
         <lastmod>2022-05-14</lastmod>
     </url>
     <url>
-        <loc>https://ology.github.io/2022/05/25/hp48g-ressurection/</loc>
+        <loc>https://ology.github.io/2022/05/25/hp48g-resurrection/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2022-05-25</lastmod>
@@ -373,76 +373,82 @@
         <lastmod>2022-06-16</lastmod>
     </url>
     <url>
+        <loc>https://ology.github.io/2022/07/05/guitar-resurrection/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2022-07-05</lastmod>
+    </url>
+    <url>
         <loc>https://ology.github.io/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/10/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/11/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/12/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/7/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/8/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/9/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2022-06-16</lastmod>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/analysis/</loc>
@@ -509,6 +515,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2020-04-02</lastmod>
+    </url>
+    <url>
+        <loc>https://ology.github.io/tag/foo/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2022-07-05</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/fractal/</loc>
