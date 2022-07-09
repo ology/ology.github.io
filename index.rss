@@ -7,6 +7,25 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>The Art of War^WEngineering?</title>
+            <link>https://ology.github.io/2022/07/09/the-art-of-war-for-engineering/</link>
+            <guid>https://ology.github.io/2022/07/09/the-art-of-war-for-engineering/</guid>
+            <description><![CDATA[
+                <p>Does <a href="https://en.wikipedia.org/wiki/Sun_Tzu">Sun Tzu</a>&#39;s venerable classic <a href="https://en.wikipedia.org/wiki/The_Art_of_War">&quot;The Art of War&quot;</a> apply to the discipline of engineering?  Who (or what) is &quot;the enemy&quot;?  And &quot;spies&quot;? Huh?  But there is wisdom to be had.</p>
+
+                    <p><a href="https://ology.github.io/2022/07/09/the-art-of-war-for-engineering/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/psychology/">psychology</a>
+                        <a href="https://ology.github.io/tag/systems/">systems</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 09 Jul 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Guitar Resurrection</title>
             <link>https://ology.github.io/2022/07/05/guitar-resurrection/</link>
             <guid>https://ology.github.io/2022/07/05/guitar-resurrection/</guid>
@@ -81,27 +100,6 @@
             ]]></description>
             <pubDate>
                 Sat, 14 May 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Coltrane&#39;s Mystery Music Diagram</title>
-            <link>https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/</link>
-            <guid>https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/</guid>
-            <description><![CDATA[
-                <p><img alt="coltrane-circle-drawing" src="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/coltrane-circle-drawing-sm.jpg"></p>
-
-<p>Like many music theory minded people, who also are into jazz, I have seen and wondered about <a href="https://en.wikipedia.org/wiki/John_Coltrane">John Coltrane</a>&#39;s curious circle drawing...</p>
-
-                    <p><a href="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sat, 23 Apr 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
