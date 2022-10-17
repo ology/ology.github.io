@@ -107,7 +107,7 @@ GetOptions( \%opts,
 );
 </code></pre>
 
-<p>But in order to do anything, we must have an <strong>artist</strong> name. Then the program will use either a <strong>track</strong> or an <strong>album</strong> if provided. If neither are given, the artist is looked up. Also an alternate configureation file, Spotify batch size (<strong>limit</strong>), and the Spotify <strong>max</strong>imum number of records to fetch, may be given.</p>
+<p>But in order to do anything, we must have an <strong>artist</strong> name. Then the program will use either a <strong>track</strong> or an <strong>album</strong> if provided. If neither are given, the <strong>artist</strong> is looked up. Also an alternate configuration file, Spotify batch size (<strong>limit</strong>), and the Spotify <strong>max</strong>imum number of records to fetch, may be given.</p>
 
 <pre><code>die qq/Usage: perl $0 artist=&quot;Gene Boggs&quot; [album=&quot;X&quot;|track=&quot;Clubster&quot;] [config=&quot;settings.yml&quot;]\n/
     unless $opts{artist};
@@ -154,7 +154,7 @@ my @query = ($opts{$key}, $key);
     );
 </code></pre>
 
-<p>Then inspect each of the items returnd, if any:</p>
+<p>Then inspect each of the items returned, if any:</p>
 
 <pre><code>    for my $item ($result-&gt;{$keys}{items}-&gt;@*) {
 </code></pre>
