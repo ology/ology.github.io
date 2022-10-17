@@ -66,7 +66,9 @@
 
 </section>
 <section id="section-2">
-    <p>In order to get this working, you have to have a <a href="https://developer.spotify.com/dashboard/">Spotify developer account</a>. Once you have this, add the bits to a <code>settings.yml</code> file, like:</p>
+    <p>tl;dr: <a href="https://github.com/ology/Music/blob/master/www-spotify">www-spotify</a></p>
+
+<p>In order to get this working, you have to have a <a href="https://developer.spotify.com/dashboard/">Spotify developer account</a>. Once you have this, add the bits to a <code>settings.yml</code> file, like:</p>
 
 <pre><code>oauth_client_id: abcdefghijklmnopqrstuvwxyz
 oauth_client_secret: 12345678901234567890
@@ -109,7 +111,7 @@ GetOptions( \%opts,
 
 <p>But in order to do anything, we must have an <strong>artist</strong> name. Then the program will use either a <strong>track</strong> or an <strong>album</strong> if provided. If neither are given, the <strong>artist</strong> is looked up. Also an alternate configuration file, Spotify batch size (<strong>limit</strong>), and the Spotify <strong>max</strong>imum number of records to fetch, may be given.</p>
 
-<pre><code>die qq/Usage: perl $0 artist=&quot;Gene Boggs&quot; [album=&quot;X&quot;|track=&quot;Clubster&quot;] [config=&quot;settings.yml&quot;]\n/
+<pre><code>die qq/Usage: perl $0 --artist=&quot;Gene Boggs&quot; [--album=&quot;X&quot;|--track=&quot;Clubster&quot;] [--config=&quot;settings.yml&quot;]\n/
     unless $opts{artist};
 </code></pre>
 
