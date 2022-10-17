@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Using WWW::Spotify - Gene Boggs</title>
+        <meta content="Statocles 0.098" name="generator">
+        <link href="/2022/07/09/the-art-of-war-for-engineering/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
+
+<script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <script src="/theme/site/ology.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://soundcloud.com/gene-boggs-music">Soundcloud</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ology/MIDI-Perl-HOWTO/wiki">Algorithmic Music</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Using WWW::Spotify</h1>
+
+    <aside>
+        <time datetime="2022-10-16">
+            Posted on 2022-10-16
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>Last year, I wrote a <a href="https://github.com/ology/audio-player">music player</a> for myself that fetches and displays cover art. This weekend I added artist image and genres via the excellent <a href="https://metacpan.org/pod/WWW::Spotify">WWW::Spotify</a> module. Here&#39;s how:</p>
+
+</section>
+<section id="section-2">
+    <p>In order to get this working, you have to have a <a href="https://developer.spotify.com/dashboard/">Spotify developer account</a>. Once you have this, add the bits to a <code>settings.yml</code> file, like:</p>
+
+<pre><code>oauth_client_id: abcdefghijklmnopqrstuvwxyz
+oauth_client_secret: 12345678901234567890
+</code></pre>
+
+<p>Ok, on with the show!  First is the standard perl preamble:</p>
+
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+</code></pre>
+
+<p>Next are the modules to use (with the specific functions declared):</p>
+
+<pre><code>use Data::Dumper::Compact qw(ddc);
+use Getopt::Long qw(GetOptions);
+use WWW::Spotify;
+use YAML::XS qw(LoadFile);
+</code></pre>
+
+<p>This program is a command-line script that takes the following arguments:</p>
+
+<pre><code>my %opts = (
+    artist =&gt; undef,
+    album  =&gt; undef,
+    track  =&gt; undef,
+    config =&gt; &#39;settings.yml&#39;,
+    limit  =&gt; 10,
+    max    =&gt; 50,
+);
+GetOptions( \%opts,
+    &#39;config=s&#39;,
+    &#39;artist=s&#39;,
+    &#39;album=s&#39;,
+    &#39;track=s&#39;,
+    &#39;limit=i&#39;,
+    &#39;max=i&#39;,
+);
+</code></pre>
+
+<p>But in order to do anything, we must have an <strong>artist</strong> name. Then the program will use either a <strong>track</strong> or an <strong>album</strong> if provided. If neither are given, the artist is looked up. Also an alternate configureation file, Spotify batch size (<strong>limit</strong>), and the Spotify <strong>max</strong>imum number of records to fetch, may be given.</p>
+
+<pre><code>die qq/Usage: perl $0 artist=&quot;Gene Boggs&quot; [album=&quot;X&quot;|track=&quot;Clubster&quot;] [config=&quot;settings.yml&quot;]\n/
+    unless $opts{artist};
+</code></pre>
+
+<p>Load up the configuration file bits:</p>
+
+<pre><code>my $cfg = LoadFile($opts{config});
+</code></pre>
+
+<p>And now create a new, authorized WWW::Spotify instance, that returns search results as a perl hash reference:</p>
+
+<pre><code>my $spotify = WWW::Spotify-&gt;new;
+$spotify-&gt;oauth_client_id($cfg-&gt;{oauth_client_id});
+$spotify-&gt;oauth_client_secret($cfg-&gt;{oauth_client_secret});
+$spotify-&gt;force_client_auth(1);
+$spotify-&gt;auto_json_decode(1);
+</code></pre>
+
+<p>Construct our Spotify query based on the given <strong>track</strong>, <strong>album</strong>, or <strong>artist</strong>:</p>
+
+<pre><code>my $key   = $opts{track} ? &#39;track&#39; : $opts{album} ? &#39;album&#39; : &#39;artist&#39;;
+my $keys  = $key . &#39;s&#39;;
+my @query = ($opts{$key}, $key);
+</code></pre>
+
+<p>Assign a couple of handy variables for our Sportify search bounds:</p>
+
+<pre><code>my ($limit, $max) = @opts{ qw(limit max) };
+</code></pre>
+
+<p>And then use those bounds to compute the loop that grabs batches of Spotify results:</p>
+
+<pre><code>BATCH: for (my $i = 0; $i &lt;= $max; $i += $limit) {
+    my $batch = $max - $i &lt; $limit ? $max - $i + 1 : $limit;
+    warn &quot;offset=$i, limit=$batch\n&quot;;
+</code></pre>
+
+<p>Ok, now actually fetch the results from Spotify:</p>
+
+<pre><code>    my $result = $spotify-&gt;search(
+        @query,
+        { limit =&gt; $batch, offset =&gt; $i }
+    );
+</code></pre>
+
+<p>Then inspect each of the items returnd, if any:</p>
+
+<pre><code>    for my $item ($result-&gt;{$keys}{items}-&gt;@*) {
+</code></pre>
+
+<p>If we are searching for an artist, check the name of the item, and if it matches <strong>exactly</strong>, then print out the artist&#39;s genres, second image, and bail out of the batch search entirely:</p>
+
+<pre><code>        if ($key eq &#39;artist&#39; &amp;&amp; $item-&gt;{name} eq $opts{artist}) {
+            print &#39;Genres: &#39;, join(&#39;, &#39;, $item-&gt;{genres}-&gt;@*), &quot;\n&quot;,
+                &quot;Image: $item-&gt;{images}[1]{url}\n&quot;;
+            last BATCH;
+        }
+</code></pre>
+
+<p>Why the second image and not the first? Because for my purposes, the first image is generally too large. YMMV!</p>
+
+<p>If we are searching for an album or track, check that the name of the item <strong>begins</strong> with the right name. If so, print out second image, and bail out of the batch search entirely:</p>
+
+<pre><code>        elsif ($item-&gt;{name} =~ /^$opts{$key}\b/
+            &amp;&amp; defined $item-&gt;{artists}[0]{name}
+            &amp;&amp; $item-&gt;{artists}[0]{name} eq $opts{artist}
+        ) {
+            my $val = $key eq &#39;track&#39;
+                ? $item-&gt;{album}{images}[1]{url}
+                : $item-&gt;{images}[1]{url};
+            print &quot;Image: $val\n&quot;;
+            last BATCH;
+        }
+</code></pre>
+
+<p>Why do we check that the name begins with rather than is exactly the same? Because some tracks have, for example the phrase &quot; (Remastered)&quot; appended.</p>
+
+<pre><code>    } # End of items
+} # End of batch
+</code></pre>
+
+<p>And that&#39;s it!</p>
+
+<p>Here are a couple runs:</p>
+
+<pre><code>&gt; perl www-spotify --artist=&#39;KISS&#39;
+Genres: album rock, glam rock, hard rock, metal, rock
+Image: https://i.scdn.co/image/ab676161000051744e85269a1f35917eddeadefd
+
+&gt; perl www-spotify --artist=&#39;KISS&#39; --track=&#39;Firehouse&#39;
+Image: https://i.scdn.co/image/ab67616d00001e025621f132b6d5ce5254b5aa2a
+
+&gt; perl www-spotify --artist=&#39;KISS&#39; --album=&#39;Destroyer&#39;
+Image: https://i.scdn.co/image/ab67616d00001e029309dd399ed75be936b8c1b6
+</code></pre>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2022/07/09/the-art-of-war-for-engineering/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    <input id="query" placeholder="Search" type="text">
+
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/systems/">systems</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <span style="float: right;">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                </span>
+                <span style="float: left;">
+                Copyright (c) 2013-2022 by <a href="https://gene.ology.net/">Gene Boggs</a>, Epistemologist-at-large
+                </span>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

@@ -2,11 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/</id>
     <title>Gene Boggs</title>
-    <updated>2022-07-09T00:00:00Z</updated>
+    <updated>2022-10-16T00:00:00Z</updated>
     <link href="https://ology.github.io/index.atom" rel="self" />
     <link href="https://ology.github.io/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2022/10/16/using-www-spotify/</id>
+        <title>Using WWW::Spotify</title>
+        <link href="https://ology.github.io/2022/10/16/using-www-spotify/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Last year, I wrote a <a href="https://github.com/ology/audio-player">music player</a> for myself that fetches and displays cover art. This weekend I added artist image and genres via the excellent <a href="https://metacpan.org/pod/WWW::Spotify">WWW::Spotify</a> module. Here&#39;s how:</p>
+
+                <p><a href="https://ology.github.io/2022/10/16/using-www-spotify/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                </p>
+
+        ]]></content>
+        <updated>2022-10-16T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2022/07/09/the-art-of-war-for-engineering/</id>
         <title>The Art of War^WEngineering?</title>
@@ -82,27 +101,6 @@
         <updated>2022-05-25T00:00:00Z</updated>
         <category term="software" />
         <category term="systems" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2022/05/14/circular-music-interval-diagram/</id>
-        <title>Circular Music Interval Diagram</title>
-        <link href="https://ology.github.io/2022/05/14/circular-music-interval-diagram/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>After studying John Coltrane&#39;s wholetone/chromatic <a href="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/">circular diagram</a>, I was determined to make a program to show musical intervals around a circle.  And if I could, to make a concentric &quot;inner&quot; ring with note offsets, like Coltrane did.  So the weekend arrived and I got busy...</p>
-
-                <p><a href="https://ology.github.io/2022/05/14/circular-music-interval-diagram/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/music/">music</a>
-                    <a href="https://ology.github.io/tag/data/">data</a>
-                </p>
-
-        ]]></content>
-        <updated>2022-05-14T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="music" />
-        <category term="data" />
     </entry>
 </feed>
 
