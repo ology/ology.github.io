@@ -7,6 +7,26 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>The Black Page (in Perl)</title>
+            <link>https://ology.github.io/2022/11/13/the-black-page-in-perl/</link>
+            <guid>https://ology.github.io/2022/11/13/the-black-page-in-perl/</guid>
+            <description><![CDATA[
+                <p>I have a library of drummer tools, and Frank Zappa wrote <a href="https://en.wikipedia.org/wiki/The_Black_Page">The Black Page</a> drum solo.  So...</p>
+
+                    <p><a href="https://ology.github.io/2022/11/13/the-black-page-in-perl/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 13 Nov 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Using WWW::Spotify</title>
             <link>https://ology.github.io/2022/10/16/using-www-spotify/</link>
             <guid>https://ology.github.io/2022/10/16/using-www-spotify/</guid>
@@ -80,25 +100,6 @@
             ]]></description>
             <pubDate>
                 Thu, 16 Jun 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>HP48G Resurrection!</title>
-            <link>https://ology.github.io/2022/05/25/hp48g-resurrection/</link>
-            <guid>https://ology.github.io/2022/05/25/hp48g-resurrection/</guid>
-            <description><![CDATA[
-                <p>The HP48G Series - Venerable, classic, still relevant.</p>
-
-                    <p><a href="https://ology.github.io/2022/05/25/hp48g-resurrection/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                        <a href="https://ology.github.io/tag/systems/">systems</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Wed, 25 May 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

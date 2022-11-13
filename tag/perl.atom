@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/perl/</id>
     <title>Gene Boggs</title>
-    <updated>2022-10-16T00:00:00Z</updated>
+    <updated>2022-11-13T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/perl.atom" rel="self" />
     <link href="https://ology.github.io/tag/perl/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2022/11/13/the-black-page-in-perl/</id>
+        <title>The Black Page (in Perl)</title>
+        <link href="https://ology.github.io/2022/11/13/the-black-page-in-perl/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>I have a library of drummer tools, and Frank Zappa wrote <a href="https://en.wikipedia.org/wiki/The_Black_Page">The Black Page</a> drum solo.  So...</p>
+
+                <p><a href="https://ology.github.io/2022/11/13/the-black-page-in-perl/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/music/">music</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                </p>
+
+        ]]></content>
+        <updated>2022-11-13T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="music" />
+        <category term="software" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2022/10/16/using-www-spotify/</id>
         <title>Using WWW::Spotify</title>
@@ -84,27 +105,6 @@
         <category term="perl" />
         <category term="music" />
         <category term="data" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/</id>
-        <title>Coltrane&#39;s Mystery Music Diagram</title>
-        <link href="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><img alt="coltrane-circle-drawing" src="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/coltrane-circle-drawing-sm.jpg"></p>
-
-<p>Like many music theory minded people, who also are into jazz, I have seen and wondered about <a href="https://en.wikipedia.org/wiki/John_Coltrane">John Coltrane</a>&#39;s curious circle drawing...</p>
-
-                <p><a href="https://ology.github.io/2022/04/23/coltranes-mystery-music-diagram/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/music/">music</a>
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                </p>
-
-        ]]></content>
-        <updated>2022-04-23T00:00:00Z</updated>
-        <category term="music" />
-        <category term="perl" />
     </entry>
 </feed>
 

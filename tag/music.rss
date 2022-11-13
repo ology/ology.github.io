@@ -7,6 +7,26 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>The Black Page (in Perl)</title>
+            <link>https://ology.github.io/2022/11/13/the-black-page-in-perl/</link>
+            <guid>https://ology.github.io/2022/11/13/the-black-page-in-perl/</guid>
+            <description><![CDATA[
+                <p>I have a library of drummer tools, and Frank Zappa wrote <a href="https://en.wikipedia.org/wiki/The_Black_Page">The Black Page</a> drum solo.  So...</p>
+
+                    <p><a href="https://ology.github.io/2022/11/13/the-black-page-in-perl/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 13 Nov 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Guitar Resurrection</title>
             <link>https://ology.github.io/2022/07/05/guitar-resurrection/</link>
             <guid>https://ology.github.io/2022/07/05/guitar-resurrection/</guid>
@@ -84,27 +104,6 @@
             ]]></description>
             <pubDate>
                 Fri, 21 Jan 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Musical Fingerprints with Radar Charts</title>
-            <link>https://ology.github.io/2022/01/20/musical-fingerprints-with-radar-charts/</link>
-            <guid>https://ology.github.io/2022/01/20/musical-fingerprints-with-radar-charts/</guid>
-            <description><![CDATA[
-                <p><a href="https://ology.github.io/2022/01/20/musical-fingerprints-with-radar-charts/radial-nyt.png"><img alt="radial-nyt-sm.png" src="https://ology.github.io/2022/01/20/musical-fingerprints-with-radar-charts/radial-nyt-sm.png"></a>
-I stumbled across <a href="https://www.nytimes.com/2019/04/04/learning/whats-going-on-in-this-graph-april-10-2019.html">this link</a> with this cool chart.</p>
-
-                    <p><a href="https://ology.github.io/2022/01/20/musical-fingerprints-with-radar-charts/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Thu, 20 Jan 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
