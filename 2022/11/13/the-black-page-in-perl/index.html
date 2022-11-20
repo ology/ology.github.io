@@ -77,7 +77,15 @@ I have a library of drummer tools, and Frank Zappa wrote <a href="https://en.wik
 
 <p><img alt="black-page-ex.png" src="black-page-ex.png"></p>
 
-<p>This piece is not easy to play...</p>
+<p>This piece is not easy to play... The audio for that first revision is below.</p>
+
+<p>Here is the sheet music for the &quot;official&quot; transcription:</p>
+
+<p><img alt="black-page-8-bars.png" src="black-page-8-bars.png"></p>
+
+<p>...which includes this gem:</p>
+
+<p><img alt="holy-crap.png" src="holy-crap.png"></p>
 
 <p>For the coding, a <a href="https://metacpan.org/pod/MIDI::Drummer::Tiny">MIDI::Drummer::Tiny</a> object is created with a couple handfuls of custom musical durations via <a href="https://metacpan.org/pod/Music::Duration">Music::Duration</a>. These are added to the <a href="https://metacpan.org/dist/MIDI-Perl">MIDI-Perl</a> known lengths list, and used to add notes and rests to the score.</p>
 
@@ -114,23 +122,39 @@ use MIDI::Util qw(dura_size);
 );
 </code></pre>
 
-<p>Now that we have that, we can create the custom note durations that Frank imagined:</p>
+<p>Now that we have that, we must create the custom note durations that Frank imagined:</p>
 
-<pre><code>Music::Duration::tuplet($d-&gt;half,    &#39;A&#39;,  5);
-Music::Duration::tuplet($d-&gt;eighth,  &#39;B&#39;,  5);
-Music::Duration::tuplet($d-&gt;quarter, &#39;C&#39;,  7);
-Music::Duration::tuplet($d-&gt;quarter, &#39;D&#39;,  5);
-Music::Duration::tuplet($d-&gt;quarter, &#39;E&#39;, 11);
-Music::Duration::tuplet($d-&gt;quarter, &#39;F&#39;, 12);
+<pre><code>Music::Duration::tuplet($d-&gt;half,    &#39;A&#39;, 5);  # Ahn
+Music::Duration::tuplet($d-&gt;eighth,  &#39;B&#39;, 5);  # Ben
+Music::Duration::tuplet($d-&gt;quarter, &#39;C&#39;, 5);  # Cqn
+Music::Duration::tuplet($d-&gt;quarter, &#39;D&#39;, 7);  # Dqn
+Music::Duration::tuplet($d-&gt;quarter, &#39;E&#39;, 11); # Eqn
+Music::Duration::tuplet($d-&gt;quarter, &#39;F&#39;, 12); # Fqn
 
 my $ten = dura_size($d-&gt;triplet_eighth);
-Music::Duration::add_duration(Gten =&gt; $ten * 2);
+Music::Duration::add_duration(Gten =&gt; $ten * 2); # Gten
+
+# for bar 5
+Music::Duration::tuplet($d-&gt;triplet_half, &#39;P&#39;, 5); # Pthn
+Music::Duration::tuplet($d-&gt;triplet_half, &#39;Q&#39;, 6); # Qthn
+Music::Duration::tuplet($d-&gt;triplet_half, &#39;R&#39;, 7); # Rthn ?
+
+# for bar 15
+Music::Duration::tuplet($d-&gt;triplet_whole, &#39;S&#39;, 7);   # Stwn
+my $twn = dura_size($d-&gt;triplet_whole);
+Music::Duration::add_duration(Ttwn =&gt; $twn / 2);      # Ttwn
+Music::Duration::add_duration(Utwn =&gt; $twn / 7);      # Utwn
+my $half_twn = dura_size(&#39;Ttwn&#39;);
+Music::Duration::add_duration(Vtwn =&gt; $half_twn / 5); # Vtwn
+Music::Duration::add_duration(Xtwn =&gt; $half_twn / 4); # Xtwn
+my $half_7twn = dura_size(&#39;Utwn&#39;);
+Music::Duration::add_duration(Wtwn =&gt; $half_7twn / 2); # Wtwn
 </code></pre>
 
 <p>Next, synchronize the patterns that add notes and rests to the score, so that they are played simultaneously:</p>
 
 <pre><code>$d-&gt;sync(
-    \&amp;pulse,
+    \&amp;pulse, # not in the original but handy for debugging
     \&amp;beat,
 );
 </code></pre>
@@ -146,12 +170,7 @@ Music::Duration::add_duration(Gten =&gt; $ten * 2);
 
 <pre><code>sub pulse {
     for my $i (1 .. $d-&gt;beats * $d-&gt;bars) {
-        if ($i == 1) {
-            $d-&gt;flam($d-&gt;quarter, &#39;r&#39;, $d-&gt;pedal_hh);
-        }
-        else {
-            $d-&gt;note($d-&gt;quarter, $d-&gt;pedal_hh);
-        }
+        $d-&gt;note($d-&gt;quarter, $d-&gt;pedal_hh);
     }
 }
 </code></pre>
@@ -162,7 +181,7 @@ Music::Duration::add_duration(Gten =&gt; $ten * 2);
 
 <pre><code>sub beat {
     # 1st measure:
-    $d-&gt;flam($d-&gt;quarter, $d-&gt;kick, $d-&gt;snare, ACCENT);
+    $d-&gt;note($d-&gt;quarter, $d-&gt;snare);
 
     $d-&gt;note($d-&gt;thirtysecond, $d-&gt;snare);
     $d-&gt;note($d-&gt;thirtysecond, $d-&gt;snare);
@@ -175,7 +194,7 @@ Music::Duration::add_duration(Gten =&gt; $ten * 2);
 
 <p>This just adds notes, clusters of notes, and rests to the score.</p>
 
-<p>To actually hear it, you have to use <a href="https://timidity.sourceforge.net/">timidity</a> on the command-line or <a href="https://www.videolan.org/vlc/">VLC</a>.  Either of these programs can render to MP3 too.  Here&#39;s the timidity output with exciting General MIDI patches:</p>
+<p>To actually hear it, you have to use <a href="https://timidity.sourceforge.net/">timidity</a> on the command-line or <a href="https://www.videolan.org/vlc/">VLC</a>.  Either of these programs can render to MP3 too.  Here&#39;s the timidity output of the Terry Bozzio version with exciting General MIDI patches:</p>
 
 <p><audio controls><source src="black-page.mp3" type="audio/mp3"></audio></p>
 
@@ -188,6 +207,10 @@ Music::Duration::add_duration(Gten =&gt; $ten * 2);
 <p>For your pleasure, and critical comparison, here is Terry with Dweezil and crew:</p>
 
 <p><iframe allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/aDQE82ElyJg" width="560"></iframe></p>
+
+<p><strong>UPDATE</strong> But I have found and re-coded the &quot;official&quot; version.  Here is the audio after piping through my DAW:</p>
+
+<p><audio controls><source src="black-page-ORIG.mp3" type="audio/mp3"></audio></p>
 
 </section>
 
