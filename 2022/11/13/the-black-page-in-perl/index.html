@@ -137,20 +137,18 @@ my $ten = dura_size($d-&gt;triplet_eighth);
 Music::Duration::add_duration(Gten =&gt; $ten * 2); # Gten
 
 # for bar 5
-Music::Duration::tuplet($d-&gt;triplet_half, &#39;P&#39;, 5); # Pthn
-Music::Duration::tuplet($d-&gt;triplet_half, &#39;Q&#39;, 6); # Qthn
-Music::Duration::tuplet($d-&gt;triplet_half, &#39;R&#39;, 7); # Rthn ?
+Music::Duration::tuplet($d-&gt;triplet_quarter, &#39;P&#39;, 5); # Ptqn
+Music::Duration::tuplet($d-&gt;triplet_quarter, &#39;Q&#39;, 6); # Qtqn
 
 # for bar 15
-Music::Duration::tuplet($d-&gt;triplet_whole, &#39;S&#39;, 7);   # Stwn
-my $twn = dura_size($d-&gt;triplet_whole);
-Music::Duration::add_duration(Ttwn =&gt; $twn / 2);      # Ttwn
-Music::Duration::add_duration(Utwn =&gt; $twn / 7);      # Utwn
-my $half_twn = dura_size(&#39;Ttwn&#39;);
-Music::Duration::add_duration(Vtwn =&gt; $half_twn / 5); # Vtwn
-Music::Duration::add_duration(Xtwn =&gt; $half_twn / 4); # Xtwn
-my $half_7twn = dura_size(&#39;Utwn&#39;);
-Music::Duration::add_duration(Wtwn =&gt; $half_7twn / 2); # Wtwn
+my $thn = dura_size($d-&gt;triplet_half);
+Music::Duration::add_duration(Tthn =&gt; $thn / 2);      # Tthn
+Music::Duration::add_duration(Uthn =&gt; $thn / 7);      # Uthn
+my $half_thn = dura_size(&#39;Tthn&#39;);
+Music::Duration::add_duration(Vthn =&gt; $half_thn / 5); # Vthn
+Music::Duration::add_duration(Xthn =&gt; $half_thn / 4); # Xthn
+my $half_7thn = dura_size(&#39;Uthn&#39;);
+Music::Duration::add_duration(Wthn =&gt; $half_7thn / 2); # Wthn
 </code></pre>
 
 <p>Next, synchronize the patterns that add notes and rests to the score, so that they are played simultaneously:</p>
