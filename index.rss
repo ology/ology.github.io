@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Twelve-bar Jazz Practice</title>
+            <link>https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/</link>
+            <guid>https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/</guid>
+            <description><![CDATA[
+                <p>I stumbled upon this chart of 17 blues-jazz (jazz-blues?) chord progressions. Naturally, being a programmer, I made a program with which to practice. (tl:dr: <a href="https://github.com/ology/Music/blob/master/blues-progressions">blues-progressions</a> &amp; audio below)</p>
+
+                    <p><a href="https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 25 Nov 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>The Black Page (in Perl)</title>
             <link>https://ology.github.io/2022/11/13/the-black-page-in-perl/</link>
             <guid>https://ology.github.io/2022/11/13/the-black-page-in-perl/</guid>
@@ -83,25 +104,6 @@ I have a library of drummer tools, and Frank Zappa wrote <a href="https://en.wik
             ]]></description>
             <pubDate>
                 Tue, 05 Jul 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Simple Analog Clock in Perl</title>
-            <link>https://ology.github.io/2022/06/16/simple-analog-clock-in-perl/</link>
-            <guid>https://ology.github.io/2022/06/16/simple-analog-clock-in-perl/</guid>
-            <description><![CDATA[
-                <p>Long ago I wrote a really clunky analog clock app. Yesterday I finally fixed it up...</p>
-
-                    <p><a href="https://ology.github.io/2022/06/16/simple-analog-clock-in-perl/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Thu, 16 Jun 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

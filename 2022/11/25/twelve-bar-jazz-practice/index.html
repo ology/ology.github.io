@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Twelve-bar Jazz Practice - Gene Boggs</title>
+        <meta content="Statocles 0.098" name="generator">
+        <link href="/2022/11/13/the-black-page-in-perl/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
+
+<script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <script src="/theme/site/ology.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://soundcloud.com/gene-boggs-music">Soundcloud</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ology/MIDI-Perl-HOWTO/wiki">Algorithmic Music</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Twelve-bar Jazz Practice</h1>
+
+    <aside>
+        <time datetime="2022-11-25">
+            Posted on 2022-11-25
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+        <a href="/tag/music/" rel="tag">music</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>I stumbled upon this chart of 17 blues-jazz (jazz-blues?) chord progressions. Naturally, being a programmer, I made a program with which to practice. (tl:dr: <a href="https://github.com/ology/Music/blob/master/blues-progressions">blues-progressions</a> &amp; audio below)</p>
+
+</section>
+<section id="section-2">
+    <p>This is an account of the program code itself.  For an example of a couple runs, see the MP3s below.</p>
+
+<p>As usual, I generally do <strong>not</strong> use the raw midi file.  Instead, I import the file into <a href="https://www.apple.com/logic-pro/">my DAW</a> and render it with superior instrumentation.</p>
+
+<p>The traditional Perl preamble:</p>
+
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+</code></pre>
+
+<p>The libraries and their functionality, that we will use:</p>
+
+<pre><code>use Data::Dumper::Compact qw(ddc);              # verbose output
+use Getopt::Long qw(GetOptions);                # commandline options
+use MIDI::Drummer::Tiny ();                     # MIDI score operations
+use MIDI::Util qw(set_chan_patch midi_format);  # &quot;
+use Music::Cadence ();                          # ending musical cadence
+use Music::Chord::Note ();                      # notes of a chord
+use Music::MelodicDevice::Transposition ();     # transpose a note
+</code></pre>
+
+<p>First up, we define and the grab the values for the command-line given, program options:</p>
+
+<pre><code>my %opts = (
+    tonic   =&gt; &#39;C&#39;,     # note to transpose things to
+    octave  =&gt; 4,       # octave of chord notes
+    patch   =&gt; 5,       # 0=piano, etc general midi
+    bpm     =&gt; 90,      # beats per minute
+    bars    =&gt; 12,      # number of 4/4 bars
+    repeat  =&gt; 1,       # number of times to repeat
+    percent =&gt; 25,      # maximum half-note percentage
+    drums   =&gt; 0,       # to drum, or not to drum?
+    metrono =&gt; &#39;pedal&#39;, # hihat: pedal, closed, open
+    verbose =&gt; 0,
+);
+GetOptions( \%opts, 
+    &#39;tonic=s&#39;,
+    &#39;octave=i&#39;,
+    &#39;patch=i&#39;,
+    &#39;bpm=i&#39;,
+    &#39;bars=i&#39;,
+    &#39;repeat=i&#39;,
+    &#39;percent=i&#39;,
+    &#39;drums&#39;,
+    &#39;metrono=s&#39;,
+    &#39;verbose&#39;,
+);
+</code></pre>
+
+<p>Next we find our drummer (joke-omitted):</p>
+
+<pre><code>my $d = MIDI::Drummer::Tiny-&gt;new(
+    file   =&gt; &quot;$0.mid&quot;,
+    bars   =&gt; $opts{bars},
+    bpm    =&gt; $opts{bpm},
+    reverb =&gt; 15,
+);
+</code></pre>
+
+<p>This includes everything we will need to compose a MIDI score.</p>
+
+<p>But we need to synchronize the two patterns, so that they are played simultaneously:</p>
+
+<pre><code>$d-&gt;sync(
+    \&amp;drums,
+    \&amp;chords,
+);
+</code></pre>
+
+<p>You can alter the drums in the following ways: Have a cheesey drumline or have a steady, quarter-note hi-hat pulse. More on that later.</p>
+
+<p>Finally, write the MIDI out to a file called &quot;blues-progressions.mid&quot;:</p>
+
+<pre><code>$d-&gt;write;
+</code></pre>
+
+<p>Here are the drums:</p>
+
+<pre><code>sub drums {
+    if ($opts{drums}) {
+        $d-&gt;metronome44swing($d-&gt;bars * $opts{repeat});
+        $d-&gt;note($d-&gt;whole, $d-&gt;kick, $d-&gt;ride1);
+    }
+    else {
+        my $metronome = $opts{metrono} . &#39;_hh&#39;;
+        $d-&gt;count_in({
+            bars  =&gt; $d-&gt;bars * $opts{repeat},
+            patch =&gt; $d-&gt;$metronome(),
+        });
+    }
+}
+</code></pre>
+
+<p>This says either play the <code>metronome44swing()</code> method, followed by a kick + ride whole-note, OR play a steady hi-hat (pedal, closed, or open).</p>
+
+<p>Ok. So much for the easy bits... Next up is the meat of what we actually want to practice: Soloing over (or playing a bass-line to) the generated chords.</p>
+
+<pre><code>sub chords {
+    set_chan_patch($d-&gt;score, 0, $opts{patch});
+</code></pre>
+
+<p>This sets the MIDI channel and the patch we want to use.</p>
+
+<p>Next are instantiations of various music programming objects. One for transposition, one for finding the notes of chords, and one for ending the progression on a cadence chord:</p>
+
+<pre><code>    my $md = Music::MelodicDevice::Transposition-&gt;new;
+    my $cn = Music::Chord::Note-&gt;new;
+    my $mc = Music::Cadence-&gt;new(
+        key    =&gt; $opts{tonic},
+        octave =&gt; $opts{octave},
+        format =&gt; &#39;midi&#39;,
+    );
+</code></pre>
+
+<p>Now we may wish to transpose things from the default key of C. This is done by indicating the tonic in the command-line invocation.</p>
+
+<p>Here, C is equal to zero for the <code>scale()</code> method, meaning that we do not want to transpose. Anything else goes to 11. That is, C=0 .. B=11.</p>
+
+<pre><code>    my $transpose = $cn-&gt;scale($opts{tonic});
+</code></pre>
+
+<p>Ok the bar lists and network transitions are static.  I took them from</p>
+
+<p><a href="Blues-Progressions.jpg"><img alt="" src="Blues-Progressions.jpg"></a></p>
+
+<p>which is freely available in the <a href="https://www.jazzbooks.com/jazz/fqbk">Jazz Handbook</a>.</p>
+
+<pre><code>    my @bars = bars();
+    my %net  = net();
+</code></pre>
+
+<p>We will be collecting MIDI note specifications (duration + pitch + octave) with this variable:</p>
+
+<pre><code>    my @specs;
+</code></pre>
+
+<p>So for each bar defined...</p>
+
+<pre><code>    for my $n (0 .. $d-&gt;bars - 1) {
+</code></pre>
+
+<p>Collect the chords of a bar (and there are 12 of them known, given by the <code>bars()</code> function). Then get a random chord from that list, possibly transpose it, and finally get the notes that define the chord:</p>
+
+<pre><code>        my @pool = $bars[ $n % @bars ]-&gt;@*;
+        my $chord = $pool[ int rand @pool ];
+        my $new_chord = transposition($transpose, $chord, $md);
+        my @notes = $cn-&gt;chord_with_octave($new_chord, $opts{octave});
+</code></pre>
+
+<p>Keep track of the chord name(s) for verbose mode:</p>
+
+<pre><code>        my $names = $new_chord;
+</code></pre>
+
+<p>This is an individual MIDI note specification, for temporary use inside the loop:</p>
+
+<pre><code>        my @spec;
+</code></pre>
+
+<p>Next, we want to add either a whole or two half notes.  Whether to add a half is determined by the percent command option:</p>
+
+<pre><code>        if ($opts{percent} &gt;= int(rand 100) + 1) {
+</code></pre>
+
+<p>Accumulate the compued chord notes, and re-collect for the next half-note:</p>
+
+<pre><code>            push @spec, [ $d-&gt;half, @notes ];
+
+            @pool = $net{$chord}-&gt;@*;
+            $chord = $pool[ int rand @pool ];
+            my $new_chord = transposition($transpose, $chord, $md);
+            @notes = $cn-&gt;chord_with_octave($new_chord, $opts{octave});
+
+            $names .= &quot;-$new_chord&quot;;
+
+            push @spec, [ $d-&gt;half, @notes ];
+        }
+</code></pre>
+
+<p>If we have not decided to divide into half-notes, just add a whole-note to the score:</p>
+
+<pre><code>        else {
+            push @spec, [ $d-&gt;whole, @notes ];
+        }
+</code></pre>
+
+<p>Tell us what we&#39;ve won, Bob!</p>
+
+<pre><code>        printf &#39;%*d. %13s: %s&#39;, length($opts{bars}), $n + 1, $names, ddc(\@spec) if $opts{verbose};
+</code></pre>
+
+<p>Accumulate the note specifications:</p>
+
+<pre><code>        push @specs, @spec;
+    }
+</code></pre>
+
+<p>Ok we made it! All chords accounted for!  Next up is to actually add them to the score.  This is done in a <code>for</code> loop for the number of repeats we (may or may not) have requested:</p>
+
+<pre><code>    for (1 .. $opts{repeat}) {
+        $d-&gt;note(midi_format(@$_)) for @specs;
+    }
+</code></pre>
+
+<p>Finally, the first chord of an imperfect cadence is added to the end:</p>
+
+<pre><code>    my $cadence = $mc-&gt;cadence(type =&gt; &#39;imperfect&#39;);
+    $d-&gt;note($d-&gt;whole, $cadence-&gt;[0]-&gt;@*);
+}
+</code></pre>
+
+<p>For reference, here is the overly-complicated transposition subroutine:</p>
+
+<pre><code>sub transposition {
+    my ($transpose, $chord, $md) = @_;
+    if ($transpose &amp;&amp; $chord =~ /^([A-G][#b]?)(.*)$/) {
+        my $note = $1;
+        my $flav = $2;
+        my $transposed = $md-&gt;transpose($transpose, [$note]);
+        (my $new_note = $transposed-&gt;[0]) =~ s/^([A-G][#b]?).*$/$1/;
+        my $new_chord = $new_note . $flav;
+        return $new_chord;
+    }
+    return $chord;
+}
+
+sub bars {
+    no warnings qw(qw);
+    return (
+        [qw( C7 CM7 C#m7 )],
+        [qw( C7 F7 Bm7 FM7 C#m7 )],
+        [qw( C7 Am7 Em7 BM7 )],
+        [qw( C7 Gm7 Dbm7 AbM7 )],
+        [qw( F7 FM7 )],
+        [qw( F7 Bb7 Gbm7 Gbdim7 Fm7 )],
+        [qw( C7 Em7 EbM7 EM7 )],
+        [qw( C7 A7 Bb7 Ebm7 Em7 )],
+        [qw( G7 D7 Dm7 Ab7 DbM7 DM7 )],
+        [qw( G7 F7 Abm7 Db7 Dm7 DbM7 )],
+        [qw( C7 Em7 FM7 )],
+        [qw( C7 G7 Dm7 Ab7 Abm7 DM7 )],
+    );
+}
+
+sub net {
+    no warnings qw(qw);
+    return (
+        &#39;A7&#39;     =&gt; [qw( Ebm7 D7 Dm7 Ab7 DM7 Abm7 )],
+        &#39;Ab7&#39;    =&gt; [qw( DbM7 Dm7 G7 )],
+        ...
+        &#39;Gbdim7&#39; =&gt; [qw( Em7 )],
+        &#39;Gm7&#39;    =&gt; [qw( C7 Gb7 )],
+    );
+}
+</code></pre>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2022/11/13/the-black-page-in-perl/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    <input id="query" placeholder="Search" type="text">
+
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/systems/">systems</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <span style="float: right;">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                </span>
+                <span style="float: left;">
+                Copyright (c) 2013-2022 by <a href="https://gene.ology.net/">Gene Boggs</a>, Epistemologist-at-large
+                </span>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

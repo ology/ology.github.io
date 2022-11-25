@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Twelve-bar Jazz Practice</title>
+            <link>https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/</link>
+            <guid>https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/</guid>
+            <description><![CDATA[
+                <p>I stumbled upon this chart of 17 blues-jazz (jazz-blues?) chord progressions. Naturally, being a programmer, I made a program with which to practice. (tl:dr: <a href="https://github.com/ology/Music/blob/master/blues-progressions">blues-progressions</a> &amp; audio below)</p>
+
+                    <p><a href="https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 25 Nov 2022 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>The Black Page (in Perl)</title>
             <link>https://ology.github.io/2022/11/13/the-black-page-in-perl/</link>
             <guid>https://ology.github.io/2022/11/13/the-black-page-in-perl/</guid>
@@ -83,26 +104,6 @@ I have a library of drummer tools, and Frank Zappa wrote <a href="https://en.wik
             ]]></description>
             <pubDate>
                 Wed, 25 May 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Led Zeppelin in Seven Dimensions</title>
-            <link>https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/</link>
-            <guid>https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/</guid>
-            <description><![CDATA[
-                <p><a href="https://ology.github.io/2022/01/20/musical-fingerprints-with-radar-charts/">Previously</a>, I figured out how to &quot;fingerprint&quot; songs with radar charts.  But as soon as I did, I wanted to analyze the entire set of tunes by well known bands like Led Zeppelin.</p>
-
-                    <p><a href="https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Fri, 21 Jan 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
