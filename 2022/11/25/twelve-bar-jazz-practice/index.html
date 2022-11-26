@@ -257,7 +257,8 @@ GetOptions( \%opts,
 
 <p>Tell us what we&#39;ve won, Bob!</p>
 
-<pre><code>        printf &#39;%*d. %13s: %s&#39;, length($opts{bars}), $n + 1, $names, ddc(\@spec) if $opts{verbose};
+<pre><code>        printf &#39;%*d. %13s: %s&#39;, length($opts{bars}), $n + 1, $names, ddc(\@spec)
+            if $opts{verbose};
 </code></pre>
 
 <p>Accumulate the note specifications:</p>
