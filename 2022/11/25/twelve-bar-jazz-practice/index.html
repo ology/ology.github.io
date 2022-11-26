@@ -276,6 +276,8 @@ GetOptions( \%opts,
     }
 </code></pre>
 
+<p>(Note that the <code>midi_format()</code> function is used here to make sure all the sharps and flats are reconizable to MIDI-Perl.)</p>
+
 <p>Finally, the <strong>first</strong> chord of an imperfect cadence is added to the end:</p>
 
 <pre><code>    my $cadence = $mc-&gt;cadence(type =&gt; &#39;imperfect&#39;);  # 2 chords, but...
@@ -368,7 +370,7 @@ $ timidity blues-progressions.mid
 
 <p>Some <a href="https://en.wikipedia.org/wiki/Steely_Dan">Steely Dan</a> changes, man... But some <strong>really</strong> lame drums! :D</p>
 
-<p>Anyway, like I say, I repeat 32 or 64 bars, import into my DAW for better patches, <strong>then</strong> I practice! :)</p>
+<p>Anyway, like I say, I repeat 24 or 48 bars or more, import into my DAW for better patches, <strong>then</strong> I practice! :)</p>
 
 </section>
 
