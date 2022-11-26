@@ -191,15 +191,17 @@ GetOptions( \%opts,
 <pre><code>    my $transpose = $cn-&gt;scale($opts{tonic});
 </code></pre>
 
-<p>Ok the bar lists and network transitions are static.  I took them from:</p>
-
-<p><a href="Blues-Progressions.jpg"><img alt="" src="Blues-Progressions.jpg"></a></p>
-
-<p>which is freely available in the <a href="https://www.jazzbooks.com/jazz/fqbk">Jazz Handbook</a>.</p>
+<p>Next, we need the actual lists of chords to use:</p>
 
 <pre><code>    my @bars = bars();
     my %net  = net();
 </code></pre>
+
+<p>The bar lists and network transitions are static.  I took them from:</p>
+
+<p><a href="Blues-Progressions.jpg"><img alt="" src="Blues-Progressions.jpg"></a></p>
+
+<p>This is freely available in the <a href="https://www.jazzbooks.com/jazz/fqbk">Jazz Handbook</a>.</p>
 
 <p>We will be collecting MIDI note specifications (duration + pitch + octave) with this variable:</p>
 
