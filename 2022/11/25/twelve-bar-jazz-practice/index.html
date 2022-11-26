@@ -86,6 +86,7 @@ use MIDI::Util qw(set_chan_patch midi_format);  # &quot;
 use Music::Cadence ();                          # ending musical cadence
 use Music::Chord::Note ();                      # notes of a chord
 use Music::MelodicDevice::Transposition ();     # transpose a note
+use Music::Note ();                             # enharmonic notes
 </code></pre>
 
 <p>With those things declared, we define and the grab the values for the command-line given, program options:</p>
@@ -100,7 +101,7 @@ use Music::MelodicDevice::Transposition ();     # transpose a note
     percent =&gt; 25,      # maximum half-note percentage
     metrono =&gt; &#39;pedal&#39;, # hihat: pedal, closed, open
     drums   =&gt; 0,       # to drum, or not to drum?
-    simple  =&gt; 0,       # don&#39;t randomly choose a transtion
+    simple  =&gt; 0,       # don&#39;t randomly choose a transition
     verbose =&gt; 0,
 );
 GetOptions( \%opts, 
