@@ -70,16 +70,16 @@
 <section id="section-2">
     <p>This is an account of the program code itself.  For an example of a couple runs, see the MP3s below.</p>
 
-<p>As usual, I generally do <strong>not</strong> use the raw midi file.  Instead, I import the file into <a href="https://www.apple.com/logic-pro/">my DAW</a> and render it with superior instrumentation.</p>
+<p>As usual, I generally do <strong>not</strong> use a single, raw midi file.  Instead, after curating a few generated runs, I import the files into <a href="https://www.apple.com/logic-pro/">my DAW</a> and render with superior instrumentation.</p>
 
-<p>The traditional Perl preamble:</p>
+<p>Anyway, here is the traditional Perl preamble:</p>
 
 <pre><code>#!/usr/bin/env perl
 use strict;
 use warnings;
 </code></pre>
 
-<p>The libraries and their functionality, that we will use:</p>
+<p>Followed by the libraries and their functionality, that we will use:</p>
 
 <pre><code>use Data::Dumper::Compact qw(ddc);              # verbose output
 use Getopt::Long qw(GetOptions);                # commandline options
@@ -90,7 +90,7 @@ use Music::Chord::Note ();                      # notes of a chord
 use Music::MelodicDevice::Transposition ();     # transpose a note
 </code></pre>
 
-<p>First up, we define and the grab the values for the command-line given, program options:</p>
+<p>With those things declared, we define and the grab the values for the command-line given, program options:</p>
 
 <pre><code>my %opts = (
     tonic   =&gt; &#39;C&#39;,     # note to transpose things to
