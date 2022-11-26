@@ -274,10 +274,10 @@ GetOptions( \%opts,
     }
 </code></pre>
 
-<p>Finally, the first chord of an imperfect cadence is added to the end:</p>
+<p>Finally, the <strong>first</strong> chord of an imperfect cadence is added to the end:</p>
 
-<pre><code>    my $cadence = $mc-&gt;cadence(type =&gt; &#39;imperfect&#39;);
-    $d-&gt;note($d-&gt;whole, $cadence-&gt;[0]-&gt;@*);
+<pre><code>    my $cadence = $mc-&gt;cadence(type =&gt; &#39;imperfect&#39;);  # 2 chords, but...
+    $d-&gt;note($d-&gt;whole, $cadence-&gt;[0]-&gt;@*);           # only use the 1st
 }
 </code></pre>
 
