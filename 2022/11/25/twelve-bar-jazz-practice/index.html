@@ -70,9 +70,7 @@
 <section id="section-2">
     <p>This is an account of the program code itself.  For an example of a couple runs, see the MP3s below.</p>
 
-<p>As usual, I generally do <strong>not</strong> use a single, raw midi file.  Instead, after curating a few generated runs, I import the files into <a href="https://www.apple.com/logic-pro/">my DAW</a> and render with superior instrumentation.</p>
-
-<p>Anyway, here is the traditional Perl preamble:</p>
+<p>Here is the traditional Perl preamble:</p>
 
 <pre><code>#!/usr/bin/env perl
 use strict;
@@ -340,9 +338,13 @@ GetOptions( \%opts,
 
 <p>Yes, every one is not used (yet)...</p>
 
-<p>But, on with the show!  Here are various timidity renderings with their command-line options.</p>
+<p>Ok now for the audio!</p>
 
-<p>Btw, in <code>vim</code> I do this type of thing:</p>
+<p>As usual, I generally do <strong>not</strong> use a single, raw midi file to practice with.  Instead, after curating a few generated runs, I import the files into <a href="https://www.apple.com/logic-pro/">my DAW</a> and render with superior instrumentation.</p>
+
+<p>Below are various timidity renderings with their command-line options.</p>
+
+<p>Btw, in <a href="https://www.vim.org/">vim</a> I do this type of thing:</p>
 
 <pre><code>:!rm -f %.mid ; perl % --verbose ; timidity %.mid
 </code></pre>
