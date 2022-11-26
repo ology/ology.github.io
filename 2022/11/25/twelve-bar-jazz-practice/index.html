@@ -285,8 +285,8 @@ GetOptions( \%opts,
 <pre><code>sub transposition {
     my ($transpose, $chord, $md) = @_;
     if ($transpose &amp;&amp; $chord =~ /^([A-G][#b]?)(.*)$/) {
-        my $note = $1;
-        my $flav = $2;
+        my $note = $1; # the named note itself
+        my $flav = $2; # the chord &quot;flavor&quot;
         my $transposed = $md-&gt;transpose($transpose, [$note]);
         (my $new_note = $transposed-&gt;[0]) =~ s/^([A-G][#b]?).*$/$1/;
         my $new_chord = $new_note . $flav;
@@ -294,8 +294,11 @@ GetOptions( \%opts,
     }
     return $chord;
 }
+</code></pre>
 
-sub bars {
+<p>And here are the actual chords for the seventh-chord, 12-bar blues:</p>
+
+<pre><code>sub bars {
     no warnings qw(qw);
     return (
         [qw( C7 CM7 C#m7 )],
@@ -312,8 +315,11 @@ sub bars {
         [qw( C7 G7 Dm7 Ab7 Abm7 DM7 )],
     );
 }
+</code></pre>
 
-sub net {
+<p>And here is the transition network for each chord to a list of connected chords:</p>
+
+<pre><code>sub net {
     no warnings qw(qw);
     return (
         &#39;A7&#39;     =&gt; [qw( Ebm7 D7 Dm7 Ab7 DM7 Abm7 )],
@@ -324,6 +330,40 @@ sub net {
     );
 }
 </code></pre>
+
+<p>Yes, every one is not used (yet)...</p>
+
+<p>So, on with the show!  Here are various timidity renderings with their command-line options.</p>
+
+<p>Btw, in <code>vim</code> I do this type of thing:</p>
+
+<pre><code>:!rm -f %.mid ; perl % --verbose ; timidity %.mid
+</code></pre>
+
+<p>But anyway:</p>
+
+<pre><code>$ perl blues-progressions --verbose --percent=20 --metrono=closed --repeat=2
+$ timidity blues-progressions.mid
+</code></pre>
+
+<p><audio controls><source src="blues-progressions-01.mp3" type="audio/mp3"></audio></p>
+
+<pre><code>$ perl blues-progressions --percent=0 --tonic=Bb
+</code></pre>
+
+<p><audio controls><source src="blues-progressions-02.mp3" type="audio/mp3"></audio></p>
+
+<pre><code>$ perl blues-progressions --percent=100 --patch=0 --bpm=120
+</code></pre>
+
+<p><audio controls><source src="blues-progressions-03.mp3" type="audio/mp3"></audio></p>
+
+<pre><code>$ perl blues-progressions --drums
+</code></pre>
+
+<p><audio controls><source src="blues-progressions-04.mp3" type="audio/mp3"></audio></p>
+
+<p>Some <a href="https://en.wikipedia.org/wiki/Steely_Dan">Steely Dan</a> changes, man...</p>
 
 </section>
 
