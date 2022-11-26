@@ -226,7 +226,7 @@ GetOptions( \%opts,
 <pre><code>        my @spec;
 </code></pre>
 
-<p>Next, we want to add either a whole or two half notes.  Whether to add a half is determined by the percent command option:</p>
+<p>Next, we want to add either a whole or two half notes.  Whether to add a half is determined by the <code>percent</code> command option:</p>
 
 <pre><code>        if ($opts{percent} &gt;= int(rand 100) + 1) {
 </code></pre>
@@ -263,7 +263,7 @@ GetOptions( \%opts,
 
 <p>An example of the verbose output is shown below.</p>
 
-<p>Now we accumulate the note specifications (either 2 halves or 1 whole):</p>
+<p>Now we accumulate the note specification (either 2 halves or 1 whole):</p>
 
 <pre><code>        push @specs, @spec;
     }
