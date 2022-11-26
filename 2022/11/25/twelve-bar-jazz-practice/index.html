@@ -223,7 +223,7 @@ GetOptions( \%opts,
 <pre><code>C7 C7 C7 C7 / F7 F7 C7 C7 / G7 G7 C7 C7
 </code></pre>
 
-<p>If we are <strong>not</strong> being &quot;simple&quot;, then get a random chord from that list, possibly transpose it, and finally get the notes that define the chord.</p>
+<p>If we are <strong>not</strong> being <code>simple</code>, then get a random chord from that list, possibly transpose it, and finally get the notes that define the chord.</p>
 
 <pre><code>        my $chord = $opts{simple} ? $pool[0] : $pool[ int rand @pool ];
         my $new_chord = transposition($transpose, $chord, $md);
@@ -245,7 +245,7 @@ GetOptions( \%opts,
 <pre><code>        if (!$opts{simple} &amp;&amp; $opts{percent} &gt;= int(rand 100) + 1) {
 </code></pre>
 
-<p>Accumulate the computed chord notes, and re-collect for the next half-note:</p>
+<p>If we are <strong>not</strong> <code>simple</code> and the <code>percent</code> is right, accumulate the computed chord notes, and re-collect for the next half-note:</p>
 
 <pre><code>            push @spec, [ $d-&gt;half, @notes ];
 
