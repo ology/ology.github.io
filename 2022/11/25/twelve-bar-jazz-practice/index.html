@@ -245,7 +245,9 @@ GetOptions( \%opts,
 <pre><code>        if (!$opts{simple} &amp;&amp; $opts{percent} &gt;= int(rand 100) + 1) {
 </code></pre>
 
-<p>If we are <strong>not</strong> <code>simple</code> and the <code>percent</code> is right, accumulate the computed chord notes, and re-collect for the next half-note:</p>
+<p>The &quot;percent&quot; is really a &quot;possible maximum.&quot;  The default is 25%. This means that a half-note will be chosen a <strong>maximum</strong> of 25% of the time. Could be less!</p>
+
+<p>Anyway, if we are <strong>not</strong> <code>simple</code> and the <code>percent</code> is right, accumulate the computed chord notes, and re-collect for the next half-note:</p>
 
 <pre><code>            push @spec, [ $d-&gt;half, @notes ];
 
