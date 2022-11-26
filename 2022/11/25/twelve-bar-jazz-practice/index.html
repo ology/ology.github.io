@@ -263,7 +263,9 @@ GetOptions( \%opts,
             if $opts{verbose};
 </code></pre>
 
-<p>Accumulate the note specifications:</p>
+<p>An example of the verbose output is shown below.</p>
+
+<p>Now we accumulate the note specifications (either 2 halves or 1 whole):</p>
 
 <pre><code>        push @specs, @spec;
     }
@@ -351,7 +353,7 @@ GetOptions( \%opts,
 $ timidity blues-progressions.mid
 </code></pre>
 
-<p>Which can be abbreviated to this, by the way:</p>
+<p>This can be abbreviated, by the way:</p>
 
 <pre><code>$ perl blues-progressions --ver --per=20 --met=closed --rep=2
 </code></pre>
@@ -360,8 +362,26 @@ $ timidity blues-progressions.mid
 
 <p><audio controls><source src="blues-progressions-01.mp3" type="audio/mp3"></audio></p>
 
-<pre><code>$ perl blues-progressions --percent=0 --tonic=Bb
+<pre><code>$ perl blues-progressions --verbose --percent=0 --tonic=Bb
 </code></pre>
+
+<p>Which looks like this for eaxample (not the same as the audio below):</p>
+
+<pre><code>1.    A#7: [ [ &#39;wn&#39;, &#39;A#4&#39;, &#39;D5&#39;, &#39;F5&#39;, &#39;G#5&#39; ] ]
+2.    Bm7: [ [ &#39;wn&#39;, &#39;B4&#39;, &#39;D5&#39;, &#39;F#5&#39;, &#39;A5&#39; ] ]
+3.    A#7: [ [ &#39;wn&#39;, &#39;A#4&#39;, &#39;D5&#39;, &#39;F5&#39;, &#39;G#5&#39; ] ]
+4.   F#M7: [ [ &#39;wn&#39;, &#39;F#4&#39;, &#39;A#4&#39;, &#39;C#5&#39;, &#39;F5&#39; ] ]
+5.   D#M7: [ [ &#39;wn&#39;, &#39;D#4&#39;, &#39;G4&#39;, &#39;A#4&#39;, &#39;D5&#39; ] ]
+6.   D#m7: [ [ &#39;wn&#39;, &#39;D#4&#39;, &#39;F#4&#39;, &#39;A#4&#39;, &#39;C#5&#39; ] ]
+7.    DM7: [ [ &#39;wn&#39;, &#39;D4&#39;, &#39;F#4&#39;, &#39;A4&#39;, &#39;C#5&#39; ] ]
+8.    Dm7: [ [ &#39;wn&#39;, &#39;D4&#39;, &#39;F4&#39;, &#39;A4&#39;, &#39;C5&#39; ] ]
+9.     C7: [ [ &#39;wn&#39;, &#39;C4&#39;, &#39;E4&#39;, &#39;G4&#39;, &#39;A#4&#39; ] ]
+10.   D#7: [ [ &#39;wn&#39;, &#39;D#4&#39;, &#39;G4&#39;, &#39;A#4&#39;, &#39;C#5&#39; ] ]
+11.   A#7: [ [ &#39;wn&#39;, &#39;A#4&#39;, &#39;D5&#39;, &#39;F5&#39;, &#39;G#5&#39; ] ]
+12.   CM7: [ [ &#39;wn&#39;, &#39;C4&#39;, &#39;E4&#39;, &#39;G4&#39;, &#39;B4&#39; ] ]
+</code></pre>
+
+<p>(Where <code>A#</code> == <code>Bb</code>, etc. Guess I need to display flats if the requested tonic is flat. Hmmmm.)</p>
 
 <p><audio controls><source src="blues-progressions-02.mp3" type="audio/mp3"></audio></p>
 
