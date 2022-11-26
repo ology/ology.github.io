@@ -98,8 +98,9 @@ use Music::MelodicDevice::Transposition ();     # transpose a note
     bars    =&gt; 12,      # number of 4/4 bars
     repeat  =&gt; 1,       # number of times to repeat
     percent =&gt; 25,      # maximum half-note percentage
-    drums   =&gt; 0,       # to drum, or not to drum?
     metrono =&gt; &#39;pedal&#39;, # hihat: pedal, closed, open
+    drums   =&gt; 0,       # to drum, or not to drum?
+    simple  =&gt; 0,       # don&#39;t randomly choose a transtion
     verbose =&gt; 0,
 );
 GetOptions( \%opts, 
@@ -110,8 +111,9 @@ GetOptions( \%opts,
     &#39;bars=i&#39;,
     &#39;repeat=i&#39;,
     &#39;percent=i&#39;,
-    &#39;drums&#39;,
     &#39;metrono=s&#39;,
+    &#39;drums&#39;,
+    &#39;simple&#39;,
     &#39;verbose&#39;,
 );
 </code></pre>
@@ -208,10 +210,19 @@ GetOptions( \%opts,
 <pre><code>    for my $n (0 .. $d-&gt;bars - 1) {
 </code></pre>
 
-<p>Collect the chords of a bar (and there are 12 of them known, given by the <code>bars()</code> function). Then get a random chord from that list, possibly transpose it, and finally get the notes that define the chord:</p>
+<p>We collect the chords of a bar (and there are 12 bars, given by the <code>bars()</code> function).</p>
 
 <pre><code>        my @pool = $bars[ $n % @bars ]-&gt;@*;
-        my $chord = $pool[ int rand @pool ];
+</code></pre>
+
+<p>If we are running with the <code>simple</code> command-line option, use the first defined chord in each bar pool.  This results in the standard progression:</p>
+
+<pre><code>C7 C7 C7 C7 / F7 F7 C7 C7 / G7 G7 C7 C7
+</code></pre>
+
+<p>If we are <strong>not</strong> being &quot;simple&quot;, then get a random chord from that list, possibly transpose it, and finally get the notes that define the chord.</p>
+
+<pre><code>        my $chord = $opts{simple} ? $pool[0] : $pool[ int rand @pool ];
         my $new_chord = transposition($transpose, $chord, $md);
         my @notes = $cn-&gt;chord_with_octave($new_chord, $opts{octave});
 </code></pre>
@@ -226,9 +237,9 @@ GetOptions( \%opts,
 <pre><code>        my @spec;
 </code></pre>
 
-<p>Next, we want to add either a whole or two half notes.  Whether to add a half is determined by the <code>percent</code> command option:</p>
+<p>Next, we want to add either a whole or two half notes.  Whether to add a half is determined by the <code>simple</code> and <code>percent</code> command-line options:</p>
 
-<pre><code>        if ($opts{percent} &gt;= int(rand 100) + 1) {
+<pre><code>        if (!$opts{simple} &amp;&amp; $opts{percent} &gt;= int(rand 100) + 1) {
 </code></pre>
 
 <p>Accumulate the computed chord notes, and re-collect for the next half-note:</p>
