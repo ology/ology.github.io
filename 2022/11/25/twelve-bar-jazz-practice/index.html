@@ -99,7 +99,7 @@ use Music::Note ();                             # enharmonic notes
     bars    =&gt; 12,      # number of 4/4 bars
     repeat  =&gt; 1,       # number of times to repeat
     percent =&gt; 25,      # maximum half-note percentage
-    metrono =&gt; &#39;pedal&#39;, # hihat: pedal, closed, open
+    hihat   =&gt; &#39;pedal&#39;, # pedal, closed, open
     drums   =&gt; 0,       # to drum, or not to drum?
     simple  =&gt; 0,       # don&#39;t randomly choose a transition
     verbose =&gt; 0,
@@ -112,7 +112,7 @@ GetOptions( \%opts,
     &#39;bars=i&#39;,
     &#39;repeat=i&#39;,
     &#39;percent=i&#39;,
-    &#39;metrono=s&#39;,
+    &#39;hihat=s&#39;,
     &#39;drums&#39;,
     &#39;simple&#39;,
     &#39;verbose&#39;,
@@ -154,7 +154,7 @@ GetOptions( \%opts,
         $d-&gt;note($d-&gt;whole, $d-&gt;kick, $d-&gt;ride1);
     }
     else {
-        my $metronome = $opts{metrono} . &#39;_hh&#39;;
+        my $metronome = $opts{hihat} . &#39;_hh&#39;;
         $d-&gt;count_in({
             bars  =&gt; $d-&gt;bars * $opts{repeat},
             patch =&gt; $d-&gt;$metronome(),
@@ -367,7 +367,7 @@ GetOptions( \%opts,
 
 <p>But anyway:</p>
 
-<pre><code>$ perl blues-progressions --verbose --percent=20 --metrono=closed --repeat=2
+<pre><code>$ perl blues-progressions --verbose --percent=20 --hihat=closed --repeat=2
 $ timidity blues-progressions.mid
 </code></pre>
 
