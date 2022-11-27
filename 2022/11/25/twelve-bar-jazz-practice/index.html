@@ -341,6 +341,22 @@ my @bass_notes; # global accumulator for the optional bass
 }
 </code></pre>
 
+<p>And here is the note/chord &quot;flattener&quot; subroutine:</p>
+
+<pre><code>sub accidental {
+    my ($string) = @_; # note or chord name
+    if ($string =~ /^([A-G]#)(.*)?$/) { # is the note sharp?
+        my $note = $1;
+        my $flav = $2;
+        my $mn = Music::Note-&gt;new($note, &#39;isobase&#39;);
+        $mn-&gt;en_eq(&#39;b&#39;); # convert to flat
+        $string = $mn-&gt;format(&#39;isobase&#39;);
+        $string .= $flav if $flav;
+    } 
+    return $string;
+}
+</code></pre>
+
 <p>And here are the possible chords for the seventh-chord, 12-bar blues:</p>
 
 <pre><code>sub bars {
