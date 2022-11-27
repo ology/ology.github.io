@@ -101,6 +101,7 @@ use Music::Note ();                             # enharmonic notes
     percent =&gt; 25,      # maximum half-note percentage
     hihat   =&gt; &#39;pedal&#39;, # pedal, closed, open
     drums   =&gt; 0,       # to drum, or not to drum?
+    bass    =&gt; 0,       # to have a parallel bass or not
     simple  =&gt; 0,       # don&#39;t randomly choose a transition
     verbose =&gt; 0,
 );
@@ -114,6 +115,7 @@ GetOptions( \%opts,
     &#39;percent=i&#39;,
     &#39;hihat=s&#39;,
     &#39;drums&#39;,
+    &#39;bass&#39;,
     &#39;simple&#39;,
     &#39;verbose&#39;,
 );
@@ -127,6 +129,8 @@ GetOptions( \%opts,
     bpm    =&gt; $opts{bpm},
     reverb =&gt; 15,
 );
+
+my @bass_notes; # global accumulator for the optional bass
 </code></pre>
 
 <p>This includes everything we will need to compose a MIDI score.</p>
@@ -136,6 +140,7 @@ GetOptions( \%opts,
 <pre><code>$d-&gt;sync(
     \&amp;drums,
     \&amp;chords,
+    \&amp;bass,
 );
 </code></pre>
 
@@ -164,6 +169,22 @@ GetOptions( \%opts,
 </code></pre>
 
 <p>This says either play the <code>metronome44swing()</code> method, followed by a kick + ride whole-note, OR play a steady hi-hat (pedal, closed, or open).</p>
+
+<p>And here is the bass subroutine:</p>
+
+<pre><code>sub bass {
+    if ($opts{bass}) {
+        set_chan_patch($d-&gt;score, 1, 35);
+
+        for (1 .. $opts{repeat}) {
+            for my $n (@bass_notes) {
+                $n =~ s/^([A-G][#b]?)\d$/$1 . 3/e;
+                $d-&gt;note($d-&gt;whole, midi_format($n));
+            } 
+        }
+    }
+}
+</code></pre>
 
 <p>Ok. So much for the easy bits... Next up is the meat of what we actually want to practice: Soloing over (or playing a bass-line to) the generated chords.</p>
 
@@ -362,7 +383,7 @@ GetOptions( \%opts,
 
 <p>Btw, in <a href="https://www.vim.org/">vim</a> I do this type of thing:</p>
 
-<pre><code>:!rm -f %.mid ; perl % --verbose --simple ; timidity %.mid
+<pre><code>:!rm -f %.mid ; perl % --verbose --simple --bass ; timidity %.mid
 </code></pre>
 
 <p>But anyway:</p>
