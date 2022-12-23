@@ -136,6 +136,8 @@ my $black = $clock-&gt;colorAllocate(   0,   0,   0 ); # perimeter
 <pre><code>my ( $s, $m, $h ) = time_point( $radius, $seconds, $minutes, $hours, 1 );
 </code></pre>
 
+<p>Notice that we pass a <code>1</code> to the <code>time_point()</code> function this time. That is a &quot;flag&quot; that means, that the hands of the clock are to be plotted (and not the hour markings).</p>
+
 <p>Draw the hands of the clock with varying thickness and color:</p>
 
 <pre><code>$clock-&gt;setThickness(8);
