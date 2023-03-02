@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Creating Rhythms with Perl - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/tag/generative.atom" rel="alternate" type="application/atom+xml">
-        <link href="/tag/generative.rss" rel="alternate" type="application/rss+xml">
-        <link href="/tag/generative/" rel="prev">
+        <link href="/2023/02/07/algorithmic-musical-composition-by-gpt3/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -47,80 +45,57 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Creating Rhythms with Perl</h1>
 
-<article>
-    <header>
-        <h1><a href="/2020/11/01/imitating-a-drum-circle/">Imitating a Drum Circle</a></h1>
+    <aside>
+        <time datetime="2023-03-02">
+            Posted on 2023-03-02
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2020-11-01">
-                Posted on 2020-11-01
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/generative/" rel="tag">generative</a>
-            <a href="/tag/midi/" rel="tag">MIDI</a>
-            <a href="/tag/music/" rel="tag">music</a>
-        </p>
-
-    </header>
-
-    <p><img alt="" src="/2020/11/01/imitating-a-drum-circle/drum-circle.jpg">
-Ever been to the park and heard a tribe drumming in the distance?  This is a <a href="https://en.wikipedia.org/wiki/Drum_circle">drum circle</a>.
-Upon closer inspection, each drummer has a single instrument (or maybe a set of bongos).
-Each drummer keeps a steady beat in common and in syncopation with his or her fellow drummers.</p>
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/mathematics/" rel="tag">mathematics</a>
+        <a href="/tag/generative/" rel="tag">generative</a>
+        <a href="/tag/music/" rel="tag">music</a>
+    </p>
 
 
-        <p><a href="/2020/11/01/imitating-a-drum-circle/#section-2">Continue reading Imitating a Drum Circle...</a></p>
+</header>
+<section id="section-1">
+    <p><img alt="" src="creating-rhythms-cover.png">
+I recently finished the thin but dense book <a href="https://abrazol.com/books/rhythm1">&quot;Creating Rhythms&quot;</a>. And being a Perl programmer at heart, I naturally turned most of the math and c code into a <a href="https://metacpan.org/dist/Music-CreatingRhythms">handy module</a> for any intrepid programmer to play with!</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2020/10/18/imitating-steve-reich/">Imitating Steve Reich</a></h1>
+</section>
+<section id="section-2">
+    <p>The book is full of musical descriptions of mathematical sequences that can be interpreted as a series of rhythmic onset and rest beats.</p>
 
-        <aside>
-            <time datetime="2020-10-18">
-                Posted on 2020-10-18
-            </time>
-        </aside>
+<p>The descriptions of the math and algorithms are great, but the fact that the book has a companion website with mostly working <a href="https://abrazol.com/books/rhythm1/software.html">c code</a> is a blessing!</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/generative/" rel="tag">generative</a>
-            <a href="/tag/midi/" rel="tag">MIDI</a>
-            <a href="/tag/music/" rel="tag">music</a>
-        </p>
+<p>Now the actual program names are abbreviations of their functionality. Like <code>cfcv()</code> - that stands for &quot;a continued fraction convergent.&quot; I mirrored these names in order to maintain a connection with the book. But for what it&#39;s worth, naming things is hard. And coming up with any better names was difficult at best!</p>
 
-    </header>
+<p>I was pleased to find that porting the c algorithms as-is into perl was sufficiently (and sometimes very) fast. I thought about translating them to &quot;idiomatic&quot; perl, but was not sure how to implement the (often recursive) algorithms into said idioms. So I left them be for the most part. Some algorithms are straight-up perl modules with a single call. So I used that as much as I could (e.g. for de Bruijn and permutations, etc.).</p>
 
-    <p><img alt="" src="/2020/10/18/imitating-steve-reich/Steve-Reich.jpg">
-Recently I was enjoying Steve Reich&#39;s &quot;Octet&quot; (Eight Lines) and became curious if I could mimic the simple, staccato phrases with which he starts off his piece.</p>
+<p>A small caveat: The book text and companion software sometimes mixes up the arguments to give to the programs. But what to use is made obvious by the <a href="https://metacpan.org/pod/Music::CreatingRhythms">module documentation</a>.</p>
 
-<p>tl;dr: <a href="https://github.com/ology/Music/blob/master/reichify">reichify</a></p>
+<p>Music-Math nerds - Enjoy! :D</p>
 
-
-        <p><a href="/2020/10/18/imitating-steve-reich/#section-2">Continue reading Imitating Steve Reich...</a></p>
-
-</article>
+</section>
 
 <ul class="pager">
     <li class="prev">
-            <button disabled>
+            <a class="button button-primary" href="/2023/02/07/algorithmic-musical-composition-by-gpt3/index.html" rel="prev">
                 ← Older
-            </button>
-    </li>
-    <li class="next">
-            <a class="button button-primary" href="/tag/generative/" rel="next">
-                Newer →
             </a>
     </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
 </ul>
-
 
 
 
@@ -161,20 +136,7 @@ Recently I was enjoying Steve Reich&#39;s &quot;Octet&quot; (Eight Lines) and be
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/tag/generative.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/tag/generative.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

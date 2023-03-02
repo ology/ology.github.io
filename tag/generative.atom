@@ -2,11 +2,37 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/generative/</id>
     <title>Gene Boggs</title>
-    <updated>2022-01-17T00:00:00Z</updated>
+    <updated>2023-03-02T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/generative.atom" rel="self" />
     <link href="https://ology.github.io/tag/generative/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2023/03/02/creating-rhythms-with-perl/</id>
+        <title>Creating Rhythms with Perl</title>
+        <link href="https://ology.github.io/2023/03/02/creating-rhythms-with-perl/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="https://ology.github.io/2023/03/02/creating-rhythms-with-perl/creating-rhythms-cover.png">
+I recently finished the thin but dense book <a href="https://abrazol.com/books/rhythm1">&quot;Creating Rhythms&quot;</a>. And being a Perl programmer at heart, I naturally turned most of the math and c code into a <a href="https://metacpan.org/dist/Music-CreatingRhythms">handy module</a> for any intrepid programmer to play with!</p>
+
+                <p><a href="https://ology.github.io/2023/03/02/creating-rhythms-with-perl/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/mathematics/">mathematics</a>
+                    <a href="https://ology.github.io/tag/generative/">generative</a>
+                    <a href="https://ology.github.io/tag/music/">music</a>
+                </p>
+
+        ]]></content>
+        <updated>2023-03-02T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="mathematics" />
+        <category term="generative" />
+        <category term="music" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2022/01/17/if-mozart-were-a-programmer/</id>
         <title>If Mozart Were a Programmer</title>
@@ -102,34 +128,6 @@ This weekend I saw this diagram and thought, &quot;I can do that!&quot;</p>
 
         ]]></content>
         <updated>2020-11-11T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="generative" />
-        <category term="MIDI" />
-        <category term="music" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2020/11/01/imitating-a-drum-circle/</id>
-        <title>Imitating a Drum Circle</title>
-        <link href="https://ology.github.io/2020/11/01/imitating-a-drum-circle/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><img alt="" src="https://ology.github.io/2020/11/01/imitating-a-drum-circle/drum-circle.jpg">
-Ever been to the park and heard a tribe drumming in the distance?  This is a <a href="https://en.wikipedia.org/wiki/Drum_circle">drum circle</a>.
-Upon closer inspection, each drummer has a single instrument (or maybe a set of bongos).
-Each drummer keeps a steady beat in common and in syncopation with his or her fellow drummers.</p>
-
-                <p><a href="https://ology.github.io/2020/11/01/imitating-a-drum-circle/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/generative/">generative</a>
-                    <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                    <a href="https://ology.github.io/tag/music/">music</a>
-                </p>
-
-        ]]></content>
-        <updated>2020-11-01T00:00:00Z</updated>
         <category term="perl" />
         <category term="software" />
         <category term="generative" />
