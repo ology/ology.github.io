@@ -7,6 +7,25 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>My New Album: XI</title>
+            <link>https://ology.github.io/2023/03/05/my-new-album-xi/</link>
+            <guid>https://ology.github.io/2023/03/05/my-new-album-xi/</guid>
+            <description><![CDATA[
+                <p><img alt="IX cover art" src="https://ology.github.io/2023/03/05/my-new-album-xi/XI-Cover.jpg">
+My first album in <b>6 years</b> has been released! It&#39;s called &quot;XI&quot; (i.e. &quot;Eleven&quot;)...</p>
+
+                    <p><a href="https://ology.github.io/2023/03/05/my-new-album-xi/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 05 Mar 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Creating Rhythms with Perl</title>
             <link>https://ology.github.io/2023/03/02/creating-rhythms-with-perl/</link>
             <guid>https://ology.github.io/2023/03/02/creating-rhythms-with-perl/</guid>
@@ -88,25 +107,6 @@ I have a library of drummer tools, and Frank Zappa wrote <a href="https://en.wik
             ]]></description>
             <pubDate>
                 Sun, 13 Nov 2022 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Guitar Resurrection</title>
-            <link>https://ology.github.io/2022/07/05/guitar-resurrection/</link>
-            <guid>https://ology.github.io/2022/07/05/guitar-resurrection/</guid>
-            <description><![CDATA[
-                <p><a href="https://ology.github.io/2022/07/05/guitar-resurrection/gold-hardware.jpg"><img alt="Blue-Meanie" src="https://ology.github.io/2022/07/05/guitar-resurrection/gold-hardware-sm.jpg"></a> My friend Mike gave me this guitar he built (from new parts, not used scrap!).  So I decided it was time to re-learn the basics of playing the instrument...</p>
-
-                    <p><a href="https://ology.github.io/2022/07/05/guitar-resurrection/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Tue, 05 Jul 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
