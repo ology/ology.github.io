@@ -105,7 +105,6 @@
 <pre><code>my $mdp1 = Music::Duration::Partition-&gt;new(
     size =&gt; $size,
     pool =&gt; [qw/qn en sn/],
-    #verbose=&gt;1,
 );
 my $motif1 = $mdp1-&gt;motif;
 </code></pre>
@@ -139,9 +138,7 @@ my @notes1 = map { $voice-&gt;rand } @$motif1;
 }
 </code></pre>
 
-<p>}</p>
-
-<p>And here are a couple runs with different snare and kick onsets:</p>
+<p>And here are a couple runs with syncopated snare and kick onsets:</p>
 
 <p><audio controls><source src="figured-syncopation-05.mp3" type="audio/mp3"></audio></p>
 
