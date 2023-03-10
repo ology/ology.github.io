@@ -94,7 +94,7 @@
 
 <p>Anyway, each part is both <strong>similar</strong> in basic structure and <strong>random</strong> (i.e. &quot;generative&quot;) in the changing syncopation and fill that is added.</p>
 
-<p>The <code>part</code> routine synchronizes twice: First are three measures of straight-ahead groove (with Euclidean onsets). Second is a single measure of an ending fill with figured bass.</p>
+<p>The <code>part</code> routine synchronizes twice: First are three measures of straight-ahead groove (with Euclidean onsets) and figured bass. Second is a single measure of an ending fill with figured bass.</p>
 
 <p>The fill is actually a slightly complicated bit under the hood. It takes two arguments: one for the number of snare onsets and another for the kick onsets. These are for the continued groove that has been establed in the previous three bars. For the fill itself, which occurs at the <strong>end</strong> of the bar, a random Euclidean bitstring is also computed. This is assigned to the snare. (The fill is only snare at the moment. No cymbals or toms yet...)</p>
 
@@ -141,7 +141,7 @@ my @notes1 = map { $voice-&gt;rand } @$motif1;
 
 <p>}</p>
 
-<p>And here are a couple runs with different snare onsets:</p>
+<p>And here are a couple runs with different snare and kick onsets:</p>
 
 <p><audio controls><source src="figured-syncopation-05.mp3" type="audio/mp3"></audio></p>
 
