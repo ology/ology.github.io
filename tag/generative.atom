@@ -2,11 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/generative/</id>
     <title>Gene Boggs</title>
-    <updated>2023-03-02T00:00:00Z</updated>
+    <updated>2023-03-10T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/generative.atom" rel="self" />
     <link href="https://ology.github.io/tag/generative/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2023/03/10/realistic-drum-grooves/</id>
+        <title>Realistic Drum Grooves</title>
+        <link href="https://ology.github.io/2023/03/10/realistic-drum-grooves/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>I finally have the tools to create realistic drum grooves!</p>
+
+                <p><a href="https://ology.github.io/2023/03/10/realistic-drum-grooves/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/perl/">perl</a>
+                    <a href="https://ology.github.io/tag/software/">software</a>
+                    <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                    <a href="https://ology.github.io/tag/generative/">generative</a>
+                    <a href="https://ology.github.io/tag/music/">music</a>
+                </p>
+
+        ]]></content>
+        <updated>2023-03-10T00:00:00Z</updated>
+        <category term="perl" />
+        <category term="software" />
+        <category term="MIDI" />
+        <category term="generative" />
+        <category term="music" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2023/03/02/creating-rhythms-with-perl/</id>
         <title>Creating Rhythms with Perl</title>
@@ -103,31 +128,6 @@ This weekend I saw this diagram and thought, &quot;I can do that!&quot;</p>
 
         ]]></content>
         <updated>2020-11-23T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="generative" />
-        <category term="MIDI" />
-        <category term="music" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2020/11/11/generating-musical-phrases/</id>
-        <title>Generating Musical Phrases</title>
-        <link href="https://ology.github.io/2020/11/11/generating-musical-phrases/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>After years of fiddling with algorithmic composition, I have come to reach for certain tools to craft melodies, bass-lines, solos, etc.  My latest generative composition program and output will illustrate...</p>
-
-                <p><a href="https://ology.github.io/2020/11/11/generating-musical-phrases/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/generative/">generative</a>
-                    <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                    <a href="https://ology.github.io/tag/music/">music</a>
-                </p>
-
-        ]]></content>
-        <updated>2020-11-11T00:00:00Z</updated>
         <category term="perl" />
         <category term="software" />
         <category term="generative" />

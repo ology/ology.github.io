@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>My New Album: XI - Gene Boggs</title>
+        <title>Realistic Drum Grooves - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/2023/03/10/realistic-drum-grooves/index.html" rel="prev">
-        <link href="/2023/03/02/creating-rhythms-with-perl/index.html" rel="next">
+        <link href="/2023/03/05/my-new-album-xi/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -47,46 +46,119 @@
                 <div class="nine columns">
                     <main>
                         <header>
-    <h1>My New Album: XI</h1>
+    <h1>Realistic Drum Grooves</h1>
 
     <aside>
-        <time datetime="2023-03-05">
-            Posted on 2023-03-05
+        <time datetime="2023-03-10">
+            Posted on 2023-03-10
         </time>
     </aside>
 
     <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+        <a href="/tag/generative/" rel="tag">generative</a>
         <a href="/tag/music/" rel="tag">music</a>
     </p>
 
 
 </header>
 <section id="section-1">
-    <p><img alt="IX cover art" src="XI-Cover.jpg">
-My first album in <b>6 years</b> has been released! It&#39;s called &quot;XI&quot; (i.e. &quot;Eleven&quot;)...</p>
+    <p>I finally have the tools to create realistic drum grooves!</p>
 
 </section>
 <section id="section-2">
-    <p>My write up, with links to track styles and where to listen is: <a href="https://ology.net/XI/">XI</a> - Dig it! :D</p>
+    <p>&quot;What are these &#39;tools&#39;?&quot;, you ask. Well let me elucidate...</p>
 
-<p>And thanks for listening,</p>
+<p>Enter <a href="https://www.perl.org/">Perl</a> and these programming modules:</p>
 
-<p>Gene</p>
+<p><a href="https://metacpan.org/dist/MIDI-Drummer-Tiny">MIDI::Drummer::Tiny</a> and
+<a href="https://metacpan.org/dist/MIDI-Util">MIDI::Util</a> and
+<a href="https://metacpan.org/dist/Music-Duration-Partition">Music::Duration::Partition</a> and
+<a href="https://metacpan.org/dist/Music-Scales">Music::Scales</a> and
+<a href="https://metacpan.org/dist/Music-VoiceGen">Music::VoiceGen</a></p>
 
-<p><img alt="SD moon cow" src="cow-02.png"></p>
+<p>Each provides crucial music or MIDI functionality.</p>
+
+<p>MIDI::Drummer::Tiny is at the core of what is needed. It sets MIDI parameters like tempo and filename. It also gives us a MIDI <strong>score</strong> object, which is used to change channels and patches, etc. The module object is also what is used to fire-off different drummer-oriented methods.</p>
+
+<pre><code>my $d = MIDI::Drummer::Tiny-&gt;new(
+    file    =&gt; &quot;$0.mid&quot;,
+    bpm     =&gt; $bpm,
+    verbose =&gt; 1,
+);
+</code></pre>
+
+<p>Speaking of changing channels and patches, that is actually done with MIDI::Util and the <code>set_chan_patch</code> function.</p>
+
+<p>Anyway, each part is both <strong>similar</strong> in basic structure and <strong>random</strong> (i.e. &quot;generative&quot;) in the changing syncopation and fill that is added.</p>
+
+<p>The <code>part</code> routine synchronizes twice: First are three measures of straight-ahead groove (with Euclidean onsets). Second is a single measure of an ending fill with figured bass.</p>
+
+<p>The fill is actually a slightly complicated bit under the hood. It takes two arguments: one for the number of snare onsets and another for the kick onsets. These are for the continued groove that has been establed in the previous three bars. For the fill itself, which occurs at the <strong>end</strong> of the bar, a random Euclidean bitstring is also computed. This is assigned to the snare. (The fill is only snare at the moment. No cymbals or toms yet...)</p>
+
+<p>For musical context, this program also generates a randomzed, figured bassline. Actually it generates a few for each run. And this is also a complicated bit that uses a couple different tools.</p>
+
+<p>The Music::Duration::Partition module is used to create a couple different three-beat figures (i.e. &quot;phrases&quot;, &quot;motifs&quot;). Why three? Because we add a rest on the fourth beat, so that the phrases don&#39;t run together.</p>
+
+<pre><code>my $mdp1 = Music::Duration::Partition-&gt;new(
+    size =&gt; $size,
+    pool =&gt; [qw/qn en sn/],
+    #verbose=&gt;1,
+);
+my $motif1 = $mdp1-&gt;motif;
+</code></pre>
+
+<p>The Music::Scales module is used to get a set of pitches to use, based on a given base note and scale name.</p>
+
+<pre><code>my @pitches = get_scale_MIDI($note, 1, $scale);
+</code></pre>
+
+<p>The Music::VoiceGen module uses those pitches and a set of allowed intervals to create notes to go along with our motifs.</p>
+
+<pre><code>my $voice = Music::VoiceGen-&gt;new(
+    pitches   =&gt; \@pitches,
+    intervals =&gt; [qw/-4 -3 -2 2 3 4/],
+);
+my @notes1 = map { $voice-&gt;rand } @$motif1;
+</code></pre>
+
+<p>Finally, these computed notes and phrases are added to the score. For musical context and variation, these are added in an alternating fashion.</p>
+
+<pre><code>for my $i (1 .. $bars) {
+    if ($i % 2) {
+        $mdp1-&gt;add_to_score($d-&gt;score, $motif1, \@notes1);
+    }
+    else {
+        my @notes2 = map { $voice-&gt;rand } @$motif2;
+        $mdp2-&gt;add_to_score($d-&gt;score, $motif2, \@notes2);
+    }
+
+    $d-&gt;rest($d-&gt;quarter);
+}
+</code></pre>
+
+<p>}</p>
+
+<p>And here are a couple runs with different snare onsets:</p>
+
+<p><audio controls><source src="figured-syncopation-05.mp3" type="audio/mp3"></audio></p>
+
+<p><audio controls><source src="figured-syncopation-06.mp3" type="audio/mp3"></audio></p>
 
 </section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/2023/03/02/creating-rhythms-with-perl/index.html" rel="prev">
+            <a class="button button-primary" href="/2023/03/05/my-new-album-xi/index.html" rel="prev">
                 ← Older
             </a>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/2023/03/10/realistic-drum-grooves/index.html" rel="next">
+            <button disabled>
                 Newer →
-            </a>
+            </button>
     </li>
 </ul>
 
