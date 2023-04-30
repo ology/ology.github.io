@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Of Hexagons, Kites and Tiles - Gene Boggs</title>
+        <meta content="Statocles 0.098" name="generator">
+        <link href="/2023/03/10/realistic-drum-grooves/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
+
+<script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <script src="/theme/site/ology.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://soundcloud.com/gene-boggs-music">Soundcloud</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ology/MIDI-Perl-HOWTO/wiki">Algorithmic Music</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Of Hexagons, Kites and Tiles</h1>
+
+    <aside>
+        <time datetime="2023-04-30">
+            Posted on 2023-04-30
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/image/" rel="tag">image</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p><img alt="hat.png" src="hat.png">
+I recently read about the <a href="https://www.scientificamerican.com/article/newfound-mathematical-einstein-shape-creates-a-never-repeating-pattern/">13-sided &quot;Einstein shape&quot;</a> (or hat/t-shirt tile) on a hexagonal grid of <a href="https://en.wikipedia.org/wiki/Kite_(geometry)">kites</a>. Being a curious cat and programmer, I had to find out more!</p>
+
+</section>
+<section id="section-2">
+    <p>I started by actually printing out a couple images from the article and then cutting out the shapes... My mom, who is a seamstress, would be proud! And at first, I didn&#39;t realize the the entire hexagonal graph is made of whirling kites. I only focused on the hexes, until she mentioned that she could quilt it with the &quot;English Paper Piecing&quot; technique. Huh? :-)</p>
+
+<p>Once I realized that the kites in the graph were the &quot;atoms&quot; of these tiles, I began to scour the Internet for graph paper to color-fill with an image editor. Alas, this led to nothing! I am still shocked. There are plenty of hex graphs, divided at the <strong>vertices</strong>. But I needed hexes divided in the middle of each side! Also, there are plenty of English Paper Piecing kite templates out there. But they are <strong>always</strong> arranged in non-contiguous rows, or as individual pieces to be cut-out.</p>
+
+<p>So after much fretting, I decided it was time to make my own graph paper, so that I could properly inspect these figures and especially that 13-sided aperiodic tiling (and geometric tessellations in general).</p>
+
+<p>At first, I tried to find a mathematical way. Ugh - complicated and academic. Then I thought I could just use line drawing, but that tuned out to be no fun calculating and keeping track of where all the start and end points were located. Finally I stumbled upon a post about drawing hexagons with <a href="https://en.wikipedia.org/wiki/Turtle_graphics">turtle graphics</a>. Ha! And that was my answer! All I had to do was figure out how a turtle would efficiently traverse the entire graph - kites and all... Hmmmm.</p>
+
+<p>Enter <a href="https://www.perl.org/">Perl</a>! I decided to marry the <a href="https://metacpan.org/pod/Data::Turtle">Data::Turtle</a> module with the <a href="https://metacpan.org/pod/SVG">SVG</a> module - simple!</p>
+
+<p>We start with the standard perl5 preamble:</p>
+
+<pre><code>#!/usr/bin/env perl
+use strict;
+use warnings;
+</code></pre>
+
+<p>Next we import the (object oriented) functionality from the Data::Turtle and SVG modules. Additionally, we will capture user input in the form of command-line options with the excellent <a href="https://metacpan.org/pod/Getopt::Long">Getopt::Long</a> module:</p>
+
+<pre><code>use Data::Turtle ();
+use Getopt::Long qw(GetOptions);
+use SVG qw(title);
+</code></pre>
+
+<p>We declare and assign defaults for the possible command-line parameters:</p>
+
+<pre><code>my %opts = (
+    rows   =&gt; 4,
+    cols   =&gt; 7,
+    side   =&gt; 60,
+    width  =&gt; 700,
+    height =&gt; 600,
+    stroke =&gt; &#39;gray&#39;,
+    fill   =&gt; &#39;white&#39;,
+);
+</code></pre>
+
+<p>Then we capture any given on the command-line by the user:</p>
+
+<pre><code>GetOptions( \%opts,
+    &#39;rows=i&#39;,
+    &#39;cols=i&#39;,
+    &#39;side=i&#39;,
+    &#39;width=i&#39;,
+    &#39;height=i&#39;,
+    &#39;stroke=s&#39;,
+    &#39;fill=s&#39;,
+) or die &#39;Problem getting command options&#39;;
+</code></pre>
+
+<p>This program is about geometry, so we compute the kite side dimensions:</p>
+
+<pre><code>my $short = $opts{side} / 2;
+my $long  = $opts{side} * sqrt(3);
+</code></pre>
+
+<p>Next up, we instantiate an SVG object, give our diagram a title, declare a &quot;style&quot; for the stroke and fill colors, and make a white background:</p>
+
+<pre><code>my $svg = SVG-&gt;new(
+    width  =&gt; $opts{width},
+    height =&gt; $opts{height},
+);
+$svg-&gt;title()-&gt;cdata(&#39;Hexagonal Kite Grid&#39;);
+my $style = $svg-&gt;group(
+    id    =&gt; &#39;style-group&#39;,
+    style =&gt; {
+        stroke =&gt; $opts{stroke},
+        fill   =&gt; $opts{fill},
+    },
+);
+$style-&gt;rectangle(
+    id     =&gt; &#39;rectangle-frame&#39;,
+    x      =&gt; 0,
+    y      =&gt; 0,
+    width  =&gt; $opts{width},
+    height =&gt; $opts{height},
+);
+</code></pre>
+
+<p>Next, we need a turtle to do the actual traversing. We start it heading right (0) inside the top left corner:</p>
+
+<pre><code>my $turtle = Data::Turtle-&gt;new(
+    x       =&gt; $short + $short / 2,
+    y       =&gt; $opts{side},
+    width   =&gt; $opts{width},
+    height  =&gt; $opts{height},
+    heading =&gt; 0,
+);
+</code></pre>
+
+<p>Now each line we draw with SVG needs to have a unique ID, so we use a counter initialized to the current time (number of epoch seconds):</p>
+
+<pre><code>my $count = time();
+</code></pre>
+
+<p>Now for the meat of the program. We iterate over the number of columns and rows, drawing a single hexagon at a time (with dividing lines making 6 kites):</p>
+
+<pre><code>for my $col (1 .. $opts{cols}) {
+    my $extra = $col % 2 ? 0 : 1;
+
+    for my $row (1 .. $opts{rows} + $extra) {
+        $count = hex_kite_grid($style, $turtle, $count);
+</code></pre>
+
+<p>Each time we have drawn a single hex-with-kites figure, we move to the next row&#39;s (lower) starting point in the column:</p>
+
+<pre><code>        $turtle-&gt;right(90);
+        $turtle-&gt;forward($long);
+        $turtle-&gt;left(90);
+    }
+</code></pre>
+
+<p>Each time we have drawn a column, move to the next starting point, which is up to the first row, and one column over:</p>
+
+<pre><code>    $turtle-&gt;left(90);
+    $turtle-&gt;forward($long * $opts{rows} + ($long / 2));
+    $turtle-&gt;right(90);
+    $turtle-&gt;forward($opts{side} + $short);
+}
+</code></pre>
+
+<p>Finally we print the SVG as an ordinary XML string:</p>
+
+<pre><code>print $svg-&gt;xmlify;
+</code></pre>
+
+<p>This allows you to run the program and pipe the output to a file called <code>hex.svg</code> for instance.</p>
+
+<p>Ok. Now we come to the only subroutine in the code. It traverses clockwise from top-left:</p>
+
+<pre><code>sub hex_kite_grid {
+    my ($style, $turtle, $count) = @_;
+</code></pre>
+
+<p>First, we will draw a 6 sided hexagon:</p>
+
+<pre><code>    for my $i (1 .. 6) {
+</code></pre>
+
+<p>A line is defined when we move the turtle. This is added to our growing SVG:</p>
+
+<pre><code>        my @line = $turtle-&gt;forward($opts{side});
+        $style-&gt;line(
+            id =&gt; &quot;line-$count&quot;,
+            x1 =&gt; $line[0],
+            y1 =&gt; $line[1],
+            x2 =&gt; $line[2],
+            y2 =&gt; $line[3],
+        );
+</code></pre>
+
+<p>Crucially the unique line-ID count is incremented:</p>
+
+<pre><code>        $count++;
+</code></pre>
+
+<p>And then we adjust our heading, so that we are ready to trace another hexagonal side:</p>
+
+<pre><code>        $turtle-&gt;right(60);
+    }
+</code></pre>
+
+<p>Next we need to draw 3 spokes that divide the hexagon into 6 kites:</p>
+
+<pre><code>    for my $spoke (1 .. 3) {
+</code></pre>
+
+<p>First, we move to the middle of a hexagon side and turn to the center:</p>
+
+<pre><code>        $turtle-&gt;forward($short);
+        $turtle-&gt;right(90);
+</code></pre>
+
+<p>Now draw a line to the other side:</p>
+
+<pre><code>        my @line = $turtle-&gt;forward($long);
+        $style-&gt;line(
+            id =&gt; &quot;line-$count&quot;,
+            x1 =&gt; $line[0],
+            y1 =&gt; $line[1], 
+            x2 =&gt; $line[2],
+            y2 =&gt; $line[3],
+        );
+</code></pre>
+
+<p>Increment the ID counter again:</p>
+
+<pre><code>        $count++;
+</code></pre>
+
+<p>And adjust our position and heading so that we are ready to trace another spoke:</p>
+
+<pre><code>        $turtle-&gt;right(90);
+        $turtle-&gt;forward($short);
+        $turtle-&gt;right(60);
+    }
+</code></pre>
+
+<p>Return the current counter to the calling loop, so that we can keep track of it for the next iteration:</p>
+
+<pre><code>    return $count;
+}
+</code></pre>
+
+<p><img alt="hex.svg" src="hex.svg"></p>
+
+<p>Once I finally had my hexagonal graph paper, I could use it to figure out things like, &quot;How many possible rotational and flip symmetries are there&quot;? And here is an animated graph of the 12 possible, colored so that things are more obvious:</p>
+
+<p><img alt="animated.gif" src="animated.gif"></p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2023/03/10/realistic-drum-grooves/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    <input id="query" placeholder="Search" type="text">
+
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/systems/">systems</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <span style="float: right;">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                </span>
+                <span style="float: left;">
+                Copyright (c) 2013-2022 by <a href="https://gene.ology.net/">Gene Boggs</a>, Epistemologist-at-large
+                </span>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

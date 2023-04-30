@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Of Hexagons, Kites and Tiles</title>
+            <link>https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/</link>
+            <guid>https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/</guid>
+            <description><![CDATA[
+                <p><img alt="hat.png" src="https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/hat.png">
+I recently read about the <a href="https://www.scientificamerican.com/article/newfound-mathematical-einstein-shape-creates-a-never-repeating-pattern/">13-sided &quot;Einstein shape&quot;</a> (or hat/t-shirt tile) on a hexagonal grid of <a href="https://en.wikipedia.org/wiki/Kite_(geometry)">kites</a>. Being a curious cat and programmer, I had to find out more!</p>
+
+                    <p><a href="https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/image/">image</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 30 Apr 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Realistic Drum Grooves</title>
             <link>https://ology.github.io/2023/03/10/realistic-drum-grooves/</link>
             <guid>https://ology.github.io/2023/03/10/realistic-drum-grooves/</guid>
@@ -86,27 +107,6 @@ I recently finished the thin but dense book <a href="https://abrazol.com/books/r
             ]]></description>
             <pubDate>
                 Tue, 07 Feb 2023 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Twelve-bar Jazz Practice</title>
-            <link>https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/</link>
-            <guid>https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/</guid>
-            <description><![CDATA[
-                <p>I stumbled upon <a href="https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/Blues-Progressions.jpg">this chart</a> of 17 blues-jazz (jazz-blues?) chord progressions by <a href="http://www.danhaerle.com/">Dan Haerle</a>. Naturally, being a programmer-musician, I made a program with which to practice improv skills. (tl;dr: <a href="https://github.com/ology/Music/blob/master/blues-progressions">blues-progressions</a> &amp; audio below)</p>
-
-                    <p><a href="https://ology.github.io/2022/11/25/twelve-bar-jazz-practice/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                        <a href="https://ology.github.io/tag/software/">software</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Fri, 25 Nov 2022 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
