@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Control Linux with MIDI</title>
+            <link>https://ology.github.io/2023/05/08/control-linux-with-midi/</link>
+            <guid>https://ology.github.io/2023/05/08/control-linux-with-midi/</guid>
+            <description><![CDATA[
+                <p>I decided to see if I could intercept signals from my MIDI controller and control my Linux machine. YES! (tl;dr: <a href="https://github.com/ology/Music/blob/master/capture-midi">capture-midi</a>)</p>
+
+                    <p><a href="https://ology.github.io/2023/05/08/control-linux-with-midi/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/systems/">systems</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 08 May 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Of Hexagons, Kites and Tiles</title>
             <link>https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/</link>
             <guid>https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/</guid>
@@ -89,24 +110,6 @@ I recently finished the thin but dense book <a href="https://abrazol.com/books/r
             ]]></description>
             <pubDate>
                 Thu, 02 Mar 2023 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Algorithmic Musical Composition by GPT3</title>
-            <link>https://ology.github.io/2023/02/07/algorithmic-musical-composition-by-gpt3/</link>
-            <guid>https://ology.github.io/2023/02/07/algorithmic-musical-composition-by-gpt3/</guid>
-            <description><![CDATA[
-                <p>Tonight I used the AI, GPT3 to produce a fleshed-out outline regarding the aspects of algorithmic musical composition.</p>
-
-                    <p><a href="https://ology.github.io/2023/02/07/algorithmic-musical-composition-by-gpt3/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Tue, 07 Feb 2023 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

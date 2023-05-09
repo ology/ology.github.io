@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Control Linux with MIDI</title>
+            <link>https://ology.github.io/2023/05/08/control-linux-with-midi/</link>
+            <guid>https://ology.github.io/2023/05/08/control-linux-with-midi/</guid>
+            <description><![CDATA[
+                <p>I decided to see if I could intercept signals from my MIDI controller and control my Linux machine. YES! (tl;dr: <a href="https://github.com/ology/Music/blob/master/capture-midi">capture-midi</a>)</p>
+
+                    <p><a href="https://ology.github.io/2023/05/08/control-linux-with-midi/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                        <a href="https://ology.github.io/tag/systems/">systems</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 08 May 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Realistic Drum Grooves</title>
             <link>https://ology.github.io/2023/03/10/realistic-drum-grooves/</link>
             <guid>https://ology.github.io/2023/03/10/realistic-drum-grooves/</guid>
@@ -91,30 +112,6 @@ What does a number sequence &quot;sound like&quot;?</p>
             ]]></description>
             <pubDate>
                 Sat, 24 Apr 2021 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Algorithmic Composition Wiki!</title>
-            <link>https://ology.github.io/2020/12/23/algorithmic-composition-wiki/</link>
-            <guid>https://ology.github.io/2020/12/23/algorithmic-composition-wiki/</guid>
-            <description><![CDATA[
-                <p><img alt="" src="https://ology.github.io/2020/12/23/algorithmic-composition-wiki/piano-camel-sm.png">
-I decided to write down a set of steps on how to become an algorithmic music composer with the language <a href="https://www.perl.org/">Perl</a>.</p>
-
-<p>At first this took the form of an outline for myself.  Then I realized that it might be useful to others!</p>
-
-<p>And here it is: <a href="https://github.com/ology/MIDI-Perl-HOWTO/wiki">MIDI-Perl HOWTO Wiki</a></p>
-
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/perl/">perl</a>
-                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Wed, 23 Dec 2020 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

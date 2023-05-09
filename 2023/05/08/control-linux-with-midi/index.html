@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Control Linux with MIDI - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/tag/systems.atom" rel="alternate" type="application/atom+xml">
-        <link href="/tag/systems.rss" rel="alternate" type="application/rss+xml">
+        <link href="/2023/04/30/of-hexagons-kites-and-tiles/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -46,85 +45,58 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Control Linux with MIDI</h1>
 
-<article>
-    <header>
-        <h1><a href="/2023/05/08/control-linux-with-midi/">Control Linux with MIDI</a></h1>
+    <aside>
+        <time datetime="2023-05-08">
+            Posted on 2023-05-08
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2023-05-08">
-                Posted on 2023-05-08
-            </time>
-        </aside>
+    <p class="tags">Tags:
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/software/" rel="tag">software</a>
+        <a href="/tag/systems/" rel="tag">systems</a>
+    </p>
 
-        <p class="tags">Tags:
-            <a href="/tag/midi/" rel="tag">MIDI</a>
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/systems/" rel="tag">systems</a>
-        </p>
 
-    </header>
-
+</header>
+<section id="section-1">
     <p>I decided to see if I could intercept signals from my MIDI controller and control my Linux machine. YES! (tl;dr: <a href="https://github.com/ology/Music/blob/master/capture-midi">capture-midi</a>)</p>
 
+</section>
+<section id="section-2">
+    <p>Being a musician, I happen to have a couple MIDI controllers. Like this one, for instance:</p>
 
-        <p><a href="/2023/05/08/control-linux-with-midi/#section-2">Continue reading Control Linux with MIDI...</a></p>
+<p><img alt="mpd218.jpg" src="mpd218.jpg"></p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2022/07/09/the-art-of-war-for-engineering/">The Art of War^WEng?</a></h1>
+<p>An <a href="https://www.akaipro.com/mpd218">Akai MPD218</a> 4x4x3 pad and 6x3 knob controller.</p>
 
-        <aside>
-            <time datetime="2022-07-09">
-                Posted on 2022-07-09
-            </time>
-        </aside>
+<p>With that device, a Linux laptop, perl, <code>aseqdump</code>, and <code>xdotool</code>, I was able to glue together a program that captures MIDI and triggers either modifier keystrokes (like CTRL-L) or text (like &#39;:tabnew&#39;).</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/psychology/" rel="tag">psychology</a>
-            <a href="/tag/systems/" rel="tag">systems</a>
-        </p>
+<p>Really, I only want to control my editor: <code>vim</code>. But you can trigger any keystroke thing, for any window that you are focused on! (I actually <strong>do</strong> have a bank of pads and knobs for Firefox things. But I just made that as a proof of concept, and never actually use it.)</p>
 
-    </header>
+<p>As for the full code that glues this all together, please see the above &quot;tl;dr&quot; link. But we&#39;ll take a look at a few crucial bits here.</p>
 
-    <p>Does <a href="https://en.wikipedia.org/wiki/Sun_Tzu">Sun Tzu</a>&#39;s venerable classic <a href="https://en.wikipedia.org/wiki/The_Art_of_War">&quot;The Art of War&quot;</a> apply to the discipline of engineering?  Who (or what) is &quot;the enemy&quot;?  And &quot;spies&quot;? Huh?  But there is wisdom to be had.</p>
+<p>First, the capture program relies on the above things being present (like <code>aseqdump</code>). Second it uses a <a href="https://metacpan.org/dist/YAML/view/lib/YAML.pod">YAML</a> configuration file declaring every single MIDI event to detect, and the keystrokes that they trigger. My <code>vim</code> config is in the same GitHub directory as the capture program itself.</p>
 
+<p>The meat of the program is a single <code>while</code> loop that listens for MIDI events. This loop parses each line into meaningful parts that are used to trigger keystrokes. Next up, is the triggering itself with an inner <code>foreach</code> loop over <strong>every</strong> trigger event in the config. &quot;Whew!&quot; I hear you say. But it appears to be fast enough...</p>
 
-        <p><a href="/2022/07/09/the-art-of-war-for-engineering/#section-2">Continue reading The Art of War^WEng?...</a></p>
+<p>Anyway, if we find a match, based on the name of the event and the event data, we trigger either a keystroke or literal text to be &quot;typed&quot;, which is entered into the window with the current computer focus.</p>
 
-</article>
-<article>
-    <header>
-        <h1><a href="/2022/05/25/hp48g-resurrection/">HP48G Resurrection!</a></h1>
+<p>And that&#39;s it really! It works perfectly.</p>
 
-        <aside>
-            <time datetime="2022-05-25">
-                Posted on 2022-05-25
-            </time>
-        </aside>
+<p>So Linux musician people: double the functionality of your MIDI controllers! :D</p>
 
-        <p class="tags">Tags:
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/systems/" rel="tag">systems</a>
-        </p>
-
-    </header>
-
-    <p>The HP48G Series - Venerable, classic, still relevant.</p>
-
-
-        <p><a href="/2022/05/25/hp48g-resurrection/#section-2">Continue reading HP48G Resurrection!...</a></p>
-
-</article>
+</section>
 
 <ul class="pager">
     <li class="prev">
-            <button disabled>
+            <a class="button button-primary" href="/2023/04/30/of-hexagons-kites-and-tiles/index.html" rel="prev">
                 ← Older
-            </button>
+            </a>
     </li>
     <li class="next">
             <button disabled>
@@ -132,7 +104,6 @@
             </button>
     </li>
 </ul>
-
 
 
 
@@ -173,20 +144,7 @@
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/tag/systems.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/tag/systems.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>
