@@ -12,7 +12,7 @@
         <title>Querying a Music Theory Database</title>
         <link href="https://ology.github.io/2023/06/05/querying-a-music-theory-database/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>For a long time, I have wondered how to easily know what chords have a diatonic function in two different keys (modes). This is known as a <a href="https://en.wikipedia.org/wiki/Common_chord_(music)">&quot;common&quot;</a> or &quot;pivot&quot; chord. (tl;dr: the <a href="https://github.com/ology/Music-ModalFunction/blob/main/eg/mode-pivot">mode-pivot</a> program)</p>
+            <p>For a long time, I have wondered how to easily know what chords have a diatonic function in two different keys (modes). This is known as a <a href="https://en.wikipedia.org/wiki/Common_chord_(music)">&quot;common&quot;</a> or &quot;pivot&quot; chord. Naturally, being a software engineer, I wrote a program to answer this for me! (tl;dr: the <a href="https://github.com/ology/Music-ModalFunction/blob/main/eg/mode-pivot">mode-pivot</a> program)</p>
 
                 <p><a href="https://ology.github.io/2023/06/05/querying-a-music-theory-database/#section-2">Continue reading...</a></p>
 

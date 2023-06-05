@@ -66,13 +66,11 @@
 
 </header>
 <section id="section-1">
-    <p>For a long time, I have wondered how to easily know what chords have a diatonic function in two different keys (modes). This is known as a <a href="https://en.wikipedia.org/wiki/Common_chord_(music)">&quot;common&quot;</a> or &quot;pivot&quot; chord. (tl;dr: the <a href="https://github.com/ology/Music-ModalFunction/blob/main/eg/mode-pivot">mode-pivot</a> program)</p>
+    <p>For a long time, I have wondered how to easily know what chords have a diatonic function in two different keys (modes). This is known as a <a href="https://en.wikipedia.org/wiki/Common_chord_(music)">&quot;common&quot;</a> or &quot;pivot&quot; chord. Naturally, being a software engineer, I wrote a program to answer this for me! (tl;dr: the <a href="https://github.com/ology/Music-ModalFunction/blob/main/eg/mode-pivot">mode-pivot</a> program)</p>
 
 </section>
 <section id="section-2">
-    <p>Naturally, being a software engineer, I wrote a program to answer this for me! =)</p>
-
-<p>For our purposes, the essential question is this: &quot;Can a chord in one key function in a second?&quot; Any parts of this open-ended question may be unbound, thereby resulting in all possible truths.</p>
+    <p>For our purposes, the essential question is this: &quot;Can a chord in one key function in a second?&quot; Any parts of this open-ended question may be unbound, thereby resulting in all possible truths.</p>
 
 <p>How are &quot;all possible truths&quot; determined? Well the short answer is &quot;With Prolog!&quot; What does &quot;unbound&quot; mean here? Well, that&#39;s another Prolog concept, and I will explain briefly: Basically in Prolog there are only atoms and facts, rules and variables. The atoms are literals. Facts are relations between atoms. Rules are compound statements about facts with variables standing for atoms that make the rule true. Truth or falsehood is the essential result of any Prolog query. &quot;Bound&quot; variables are those associated with a particular atom or series of atoms. &quot;Unbound&quot; variables are not literally associated, but rather stand in place of atoms that would make the query true. (Whew! Confused yet? Haha.)</p>
 
