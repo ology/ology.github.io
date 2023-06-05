@@ -121,7 +121,7 @@ my $m = Music::ModalFunction-&gt;new(
 );
 my $query = $m-&gt;pivot_chord_keys;
 last unless @$query;
-my $result = $query-&gt;[ int rand @$q ];
+my $result = $query-&gt;[ int rand @$query ];
 ...
 </code></pre>
 
