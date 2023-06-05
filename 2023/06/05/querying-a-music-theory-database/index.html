@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Querying a Music Theory Database - Gene Boggs</title>
+        <meta content="Statocles 0.098" name="generator">
+        <link href="/2023/05/08/control-linux-with-midi/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
+
+<script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <script src="/theme/site/ology.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ology">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://soundcloud.com/gene-boggs-music">Soundcloud</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ology/MIDI-Perl-HOWTO/wiki">Algorithmic Music</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Querying a Music Theory Database</h1>
+
+    <aside>
+        <time datetime="2023-06-05">
+            Posted on 2023-06-05
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/perl/" rel="tag">perl</a>
+        <a href="/tag/prolog/" rel="tag">prolog</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+        <a href="/tag/music/" rel="tag">music</a>
+        <a href="/tag/analysis/" rel="tag">analysis</a>
+        <a href="/tag/software/" rel="tag">software</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p>For a long time, I have wondered how to easily know what chords have a diatonic function in two different keys (modes). This is known as a <a href="https://en.wikipedia.org/wiki/Common_chord_(music)">&quot;common&quot;</a> or &quot;pivot&quot; chord.</p>
+
+</section>
+<section id="section-2">
+    <p>Naturally, being a software engineer, I wrote a program to answer this for me! =)</p>
+
+<p>For our purposes, the essential question is this: &quot;Can a chord in one key function in a second?&quot; Any parts of this open-ended question may be unbound, thereby resulting in all possible truths.</p>
+
+<p>How are &quot;all possible truths&quot; determined? Well the short answer is &quot;With Prolog!&quot; What does &quot;unbound&quot; mean here? Well, that&#39;s another Prolog concept, and I will explain briefly: Basically in Prolog there are only atoms and facts, rules and variables. The atoms are literals. Facts are relations between atoms. Rules are compound statements about facts with variables standing for atoms that make the rule true. Truth or falsehood is the essential result of any Prolog query. &quot;Bound&quot; variables are those associated with a particular atom or series of atoms. &quot;Unbound&quot; variables are not literally associated, but rather stand in place of atoms that would make the query true. (Whew! Confused yet? Haha.)</p>
+
+<p>So in Prolog, I was able to ask questions like, &quot;In what mode(s) can a Gmaj chord function as a subdominant pivot chord?&quot; Or, &quot;In what mode(s) can a Gmaj chord function as a pivot chord with any function?&quot; The first question has six answers. The second has more results. A query with no atoms (literals) and <strong>all</strong> variables can return an astronomical number of alternate true results.</p>
+
+<p>This was a breakthrough for me. I could finally know what pivot chords function in what modes. But this was still a <strong>manual</strong> thing. That is, I had to type in my full question and interact with the Prolog interpreter. This was not going to scale and would not suffice for automation.</p>
+
+<p>Enter Perl!</p>
+
+<p>With Perl and the excellent <a href="https://metacpan.org/pod/Music::Scales">Music::Scales</a> module, I was able to generate every single fact about every single note of every single mode, on the fly, and save this in a Prolog database.</p>
+
+<p>This is done with a data structure holding every mode (7) and every property of that mode. Example:</p>
+
+<pre><code>ionian =&gt; [
+    { chord =&gt; &#39;maj&#39;, roman =&gt; &#39;r_I&#39;,   function =&gt; &#39;tonic&#39; },
+    { chord =&gt; &#39;min&#39;, roman =&gt; &#39;r_ii&#39;,  function =&gt; &#39;supertonic&#39; },
+    { chord =&gt; &#39;min&#39;, roman =&gt; &#39;r_iii&#39;, function =&gt; &#39;mediant&#39; },
+    { chord =&gt; &#39;maj&#39;, roman =&gt; &#39;r_IV&#39;,  function =&gt; &#39;subdominant&#39; },
+    { chord =&gt; &#39;maj&#39;, roman =&gt; &#39;r_V&#39;,   function =&gt; &#39;dominant&#39; },
+    { chord =&gt; &#39;min&#39;, roman =&gt; &#39;r_vi&#39;,  function =&gt; &#39;submediant&#39; },
+    { chord =&gt; &#39;dim&#39;, roman =&gt; &#39;r_vii&#39;, function =&gt; &#39;leading_tone&#39; }
+],
+etc.
+</code></pre>
+
+<p>Next, I literally append the single rule about pivot chords and what modes/keys and diatonic functions they are in. That rule looks like that:</p>
+
+<pre><code>pivot_chord_keys(ChordNote, Chord, Key1Note, Key1, Key1Function, Key1Roman, Key2Note, Key2, Key2Function, Key2Roman) :-
+    chord_key(ChordNote, Chord, Key1Note, Key1, Key1Function, Key1Roman),
+    chord_key(ChordNote, Chord, Key2Note, Key2, Key2Function, Key2Roman),
+    Key1Function \= Key2Function.
+</code></pre>
+
+<p>This associates a chord, the &quot;source&quot; mode (key) that it functions in, and the &quot;destination&quot; mode (key) that we pivot to.</p>
+
+<p>And that&#39;s it really! Prolog is &quot;declarative.&quot; That is, you don&#39;t tell it the steps to take to evaluate things. You just tell it the facts and rules that determine the evaluation of what is true.</p>
+
+<p>So with the <a href="https://metacpan.org/dist/Music-ModalFunction">Music::ModalFunction</a> module, you can define the database and ask questions of it, in an automated fashion. For instance, consider the example Perl program, &quot;mode-pivot&quot;, that comes with the distribution. It generates a chord progression that changes keys, based on the final chord in a section (of four whole note measures). This chord acts as the pivot between the original mode and the new mode. And the new mode is determined by 1) querying the database, 2) getting the results, and 3) selecting one at random:</p>
+
+<pre><code>...
+my $m = Music::ModalFunction-&gt;new(
+    chord_note =&gt; lc($modal_pitch),
+    chord      =&gt; $chord,
+    mode_note  =&gt; $last_pitch,
+    mode       =&gt; $last_scale,
+);
+my $query = $m-&gt;pivot_chord_keys;
+last unless @$query;
+my $result = $query-&gt;[ int rand @$q ];
+...
+</code></pre>
+
+<p>Each chord progression (generated by <a href="https://metacpan.org/dist/Music-Chord-Progression">Music::Chord::Progression</a> and <a href="https://metacpan.org/dist/Music-ModalFunction">Music::ModalFunction</a>) is scored and saved in a MIDI file that you can play with (for instance) <a href="https://timidity.sourceforge.net/">Timidity++</a>.</p>
+
+<p>Voila!</p>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2023/05/08/control-linux-with-midi/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    <input id="query" placeholder="Search" type="text">
+
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/prolog/">prolog</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/systems/">systems</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <span style="float: right;">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                </span>
+                <span style="float: left;">
+                Copyright (c) 2013-2023 by <a href="https://gene.ology.net/">Gene Boggs</a>, Epistemologist-at-large
+                </span>
+            </div>
+        </footer>
+
+
+    </body>
+</html>

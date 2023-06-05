@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Gene Boggs</title>
+        <link>https://ology.github.io/tag/prolog/</link>
+        <atom:link href="https://ology.github.io/tag/prolog.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Gene Boggs</description>
+        <generator>Statocles 0.098</generator>
+        <item>
+            <title>Querying a Music Theory Database</title>
+            <link>https://ology.github.io/2023/06/05/querying-a-music-theory-database/</link>
+            <guid>https://ology.github.io/2023/06/05/querying-a-music-theory-database/</guid>
+            <description><![CDATA[
+                <p>For a long time, I have wondered how to easily know what chords have a diatonic function in two different keys (modes). This is known as a <a href="https://en.wikipedia.org/wiki/Common_chord_(music)">&quot;common&quot;</a> or &quot;pivot&quot; chord.</p>
+
+                    <p><a href="https://ology.github.io/2023/06/05/querying-a-music-theory-database/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/perl/">perl</a>
+                        <a href="https://ology.github.io/tag/prolog/">prolog</a>
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/analysis/">analysis</a>
+                        <a href="https://ology.github.io/tag/software/">software</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 05 Jun 2023 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+
