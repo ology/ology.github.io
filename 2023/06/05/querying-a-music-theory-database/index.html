@@ -111,18 +111,18 @@
 
 <p>So with the <a href="https://metacpan.org/dist/Music-ModalFunction">Music::ModalFunction</a> module, you can define the database and ask questions of it, in an automated fashion. For instance, consider the example Perl program, &quot;mode-pivot&quot;, that comes with the distribution. It generates a chord progression that changes keys, based on the final chord in a section (of four whole note measures). This chord acts as the pivot between the original mode and the new mode. And the new mode is determined by 1) querying the database, 2) getting the results, and 3) selecting one at random:</p>
 
-<pre><code>...
-my $m = Music::ModalFunction-&gt;new(
-    chord_note =&gt; lc($modal_pitch),
-    chord      =&gt; $chord,
-    mode_note  =&gt; $last_pitch,
-    mode       =&gt; $last_scale,
-);
-my $query = $m-&gt;pivot_chord_keys;
-last unless @$query;
-my $result = $query-&gt;[ int rand @$query ];
-...
-</code></pre>
+<pre><code class="hljs">    <span class="hljs-comment"># ...</span><span class="hljs-comment">
+</span>    <span class="hljs-keyword">my</span> <span class="hljs-type">$m</span> = <span class="hljs-function">Music::ModalFunction</span>-&gt;new(
+        chord_note =&gt; <span class="hljs-function">lc</span>(<span class="hljs-type">$modal_pitch</span>),
+        chord      =&gt; <span class="hljs-type">$chord</span>,
+        mode_note  =&gt; <span class="hljs-type">$last_pitch</span>,
+        mode       =&gt; <span class="hljs-type">$last_scale</span>,
+    );
+    <span class="hljs-keyword">my</span> <span class="hljs-type">$query</span> = <span class="hljs-type">$m</span>-&gt;<span class="hljs-type">pivot_chord_keys</span>;
+    <span class="hljs-keyword">last</span> <span class="hljs-keyword">unless</span> <span class="hljs-type">@$query</span>;
+    <span class="hljs-keyword">my</span> <span class="hljs-type">$result</span> = <span class="hljs-type">$query</span>-&gt;[ <span class="hljs-function">int</span> <span class="hljs-function">rand</span> <span class="hljs-type">@$query</span> ];
+    <span class="hljs-comment"># ...</span><span class="hljs-comment">
+</span></code></pre>
 
 <p>Here is a run with verbose output:</p>
 
