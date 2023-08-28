@@ -99,10 +99,10 @@
 
 <p>Next, I literally append the single rule about pivot chords and what modes/keys and diatonic functions they are in. That rule looks like this:</p>
 
-<pre><code>pivot_chord_keys(ChordNote, Chord, Key1Note, Key1, Key1Function, Key1Roman, Key2Note, Key2, Key2Function, Key2Roman) :-
-    chord_key(ChordNote, Chord, Key1Note, Key1, Key1Function, Key1Roman),
-    chord_key(ChordNote, Chord, Key2Note, Key2, Key2Function, Key2Roman),
-    Key1Function \= Key2Function.
+<pre><code class="hljs">    pivot_chord_keys(ChordNote, Chord, Key1Note, Key1, Key1Function, Key1Roman, Key2Note, Key2, Key2Function, Key2Roman) :-
+        chord_key(ChordNote, Chord, Key1Note, Key1, Key1Function, Key1Roman),
+        chord_key(ChordNote, Chord, Key2Note, Key2, Key2Function, Key2Roman),
+        Key1Function \= Key2Function.
 </code></pre>
 
 <p>This associates a chord, the &quot;source&quot; mode (key) that it functions in, and the &quot;destination&quot; mode (key) that we pivot to.</p>
