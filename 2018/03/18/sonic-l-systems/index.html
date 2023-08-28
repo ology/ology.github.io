@@ -17,6 +17,7 @@
 <script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
         <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
         <script src="/theme/site/ology.js"></script>
     </head>
     <body>
@@ -76,66 +77,66 @@ In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lin
 
 <p>The program is short but has a few parts. The first is the preamble that says we are a perl program and that we will be fooling with MIDI things:</p>
 
-<pre><code>#!/usr/bin/env perl
-use strict;
-use warnings;
+<pre><code class="hljs">    <span class="hljs-comment">#!/usr/bin/env perl</span><span class="hljs-comment">
+</span>    <span class="hljs-keyword">use</span> <span class="hljs-keyword">strict</span>;
+    <span class="hljs-keyword">use</span> <span class="hljs-keyword">warnings</span>;
 
-use MIDI::Util;
+    <span class="hljs-keyword">use</span> <span class="hljs-function">MIDI::Util</span>;
 </code></pre>
 
 <p>Next, the program takes arguments from the command-line user:</p>
 
-<pre><code>my $rule       = shift || 2,
-my $iterations = shift || 4;
-my $string     = shift || &#39;F&#39;;
-my $distance   = shift || &#39;qn&#39;;
-my $theta      = shift || 1;
+<pre><code class="hljs">    <span class="hljs-keyword">my</span> <span class="hljs-type">$rule</span>       = <span class="hljs-function">shift</span> || <span class="hljs-number">2</span>,
+    <span class="hljs-keyword">my</span> <span class="hljs-type">$iterations</span> = <span class="hljs-function">shift</span> || 4;
+    <span class="hljs-keyword">my</span> <span class="hljs-type">$string</span>     = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">F</span>&#39;;
+    <span class="hljs-keyword">my</span> <span class="hljs-type">$distance</span>   = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">qn</span>&#39;;
+    <span class="hljs-keyword">my</span> <span class="hljs-type">$theta</span>      = <span class="hljs-function">shift</span> || <span class="hljs-number">1</span>;
 </code></pre>
 
 <p>These variables specify the rule to use (shown below), the number of iterations to perform, the initial string (axiom), the &quot;distance&quot; – a musical duration like the quarter note, and theta – the amount to increase/decrease the current note value by.</p>
 
 <p>Next up is to define the actual re-write rules to use:</p>
 
-<pre><code>my %rules = (
-    ...
-    # Sierpinski arrowhead curve: start=F
-    5 =&gt; {
-        F =&gt; &#39;G-F-G&#39;,
-        G =&gt; &#39;F+G+F&#39;,
-    },
-    ...
-);
+<pre><code class="hljs">    <span class="hljs-keyword">my</span> <span class="hljs-type">%rules</span> = (
+        ...
+        <span class="hljs-comment"># Sierpinski arrowhead curve: start=F</span><span class="hljs-comment">
+</span>        <span class="hljs-number">5</span> =&gt; {
+            F =&gt; &#39;<span class="hljs-string">G-F-G</span>&#39;,
+            G =&gt; &#39;<span class="hljs-string">F+G+F</span>&#39;,
+        },
+        ...
+    );
 </code></pre>
 
 <p>The program then initializes a MIDI score and sets the initial note to middle C (MIDI note 60):</p>
 
-<pre><code>my $score = MIDIUtil::setup_midi( patch =&gt; 0, bpm =&gt; 300 );
-my $note = 60;
+<pre><code class="hljs">    <span class="hljs-keyword">my</span> <span class="hljs-type">$score</span> = <span class="hljs-function">MIDIUtil::setup_midi</span>( patch =&gt; 0, bpm =&gt; <span class="hljs-number">300</span> );
+    <span class="hljs-keyword">my</span> <span class="hljs-type">$note</span> = <span class="hljs-number">60</span>;
 </code></pre>
 
 <p>Ok. Now for the meat of the program – a dispatch table of MIDI and note events, re-writing the string according to the given rules, and finally translating each string symbol into a dispatched command:</p>
 
-<pre><code>my %translate = (
-    &#39;f&#39; =&gt; sub { $score-&gt;r($distance) },
-    &#39;F&#39; =&gt; sub { $score-&gt;n( $distance, $note ) },
-    &#39;G&#39; =&gt; sub { $score-&gt;n( $distance, $note ) },
-    &#39;-&#39; =&gt; sub { $note -= $theta },
-    &#39;+&#39; =&gt; sub { $note += $theta },
-);
+<pre><code class="hljs">    <span class="hljs-keyword">my</span> <span class="hljs-type">%translate</span> = (
+        &#39;<span class="hljs-string">f</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">r</span>(<span class="hljs-type">$distance</span>) },
+        &#39;<span class="hljs-string">F</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">n</span>( <span class="hljs-type">$distance</span>, <span class="hljs-type">$note</span> ) },
+        &#39;<span class="hljs-string">G</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">n</span>( <span class="hljs-type">$distance</span>, <span class="hljs-type">$note</span> ) },
+        &#39;<span class="hljs-string">-</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$note</span> -= <span class="hljs-type">$theta</span> },
+        &#39;<span class="hljs-string">+</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$note</span> += <span class="hljs-type">$theta</span> },
+    );
 
-for ( 1 .. $iterations ) {
-    $string =~ s/(.)/defined($rules{$rule}{$1}) ? $rules{$rule}{$1} : $1/eg;
-}
-warn &quot;$string\n&quot;;
+    <span class="hljs-keyword">for</span> ( <span class="hljs-number">1</span> .. <span class="hljs-type">$iterations</span> ) {
+        <span class="hljs-type">$string</span> =~ s/<span class="hljs-string">(</span>.<span class="hljs-string">)</span>/<span class="hljs-string">defined(</span><span class="hljs-type">$rules</span><span class="hljs-string">{</span><span class="hljs-type">$rule</span><span class="hljs-string">}{</span><span class="hljs-variable">$1</span><span class="hljs-string">}) ? </span><span class="hljs-type">$rules</span><span class="hljs-string">{</span><span class="hljs-type">$rule</span><span class="hljs-string">}{</span><span class="hljs-variable">$1</span><span class="hljs-string">} : </span><span class="hljs-variable">$1</span>/eg;
+    }
+    <span class="hljs-function">warn</span> &quot;<span class="hljs-type">$string</span><span class="hljs-string">\n</span>&quot;;
 
-for my $command ( split //, $string ) {
-    $translate{$command}-&gt;() if exists $translate{$command};
-}
+    <span class="hljs-keyword">for</span> <span class="hljs-keyword">my</span> <span class="hljs-type">$command</span> ( <span class="hljs-function">split</span> //, <span class="hljs-type">$string</span> ) {
+        <span class="hljs-type">$translate</span>{<span class="hljs-type">$command</span>}-&gt;() <span class="hljs-keyword">if</span> <span class="hljs-function">exists</span> <span class="hljs-type">$translate</span>{<span class="hljs-type">$command</span>};
+    }
 </code></pre>
 
 <p>Lastly, the program writes the MIDI file that was created.</p>
 
-<pre><code>$score-&gt;write_score( $0 . &#39;.mid&#39; );
+<pre><code class="hljs">    <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">write_score</span>( <span class="hljs-variable">$0</span> . &#39;<span class="hljs-string">.mid</span>&#39; );
 </code></pre>
 
 <p>Here are some examples. They are decidedly not music; more like Metroid on crack.</p>
