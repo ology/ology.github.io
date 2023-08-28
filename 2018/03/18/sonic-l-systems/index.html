@@ -78,35 +78,35 @@ In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lin
 
 <p>The program is short but has a few parts. The first is the preamble that says we are a perl program and that we will be fooling with MIDI things:</p>
 
-<pre><code class="hljs">    <span class="hljs-comment">#!/usr/bin/env perl</span><span class="hljs-comment">
-</span>    <span class="hljs-keyword">use</span> <span class="hljs-keyword">strict</span>;
-    <span class="hljs-keyword">use</span> <span class="hljs-keyword">warnings</span>;
+<pre><code class="hljs"><span class="hljs-keyword">#!/usr/bin/env perl</span>
+<span class="hljs-keyword">use</span> <span class="hljs-keyword">strict</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-keyword">warnings</span>;
 
-    <span class="hljs-keyword">use</span> <span class="hljs-function">MIDI::Util</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-function">MIDI::Util</span>;
 </code></pre>
 
 <p>Next, the program takes arguments from the command-line user:</p>
 
-<pre><code class="hljs">    <span class="hljs-keyword">my</span> <span class="hljs-type">$rule</span>       = <span class="hljs-function">shift</span> || <span class="hljs-number">2</span>,
-    <span class="hljs-keyword">my</span> <span class="hljs-type">$iterations</span> = <span class="hljs-function">shift</span> || 4;
-    <span class="hljs-keyword">my</span> <span class="hljs-type">$string</span>     = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">F</span>&#39;;
-    <span class="hljs-keyword">my</span> <span class="hljs-type">$distance</span>   = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">qn</span>&#39;;
-    <span class="hljs-keyword">my</span> <span class="hljs-type">$theta</span>      = <span class="hljs-function">shift</span> || <span class="hljs-number">1</span>;
+<pre><code class="hljs"><span class="hljs-keyword">my</span> <span class="hljs-type">$rule</span>       = <span class="hljs-function">shift</span> || <span class="hljs-number">2</span>,
+<span class="hljs-keyword">my</span> <span class="hljs-type">$iterations</span> = <span class="hljs-function">shift</span> || 4;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$string</span>     = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">F</span>&#39;;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$distance</span>   = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">qn</span>&#39;;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$theta</span>      = <span class="hljs-function">shift</span> || <span class="hljs-number">1</span>;
 </code></pre>
 
 <p>These variables specify the rule to use (shown below), the number of iterations to perform, the initial string (axiom), the &quot;distance&quot; – a musical duration like the quarter note, and theta – the amount to increase/decrease the current note value by.</p>
 
 <p>Next up is to define the actual re-write rules to use:</p>
 
-<pre><code class="hljs">    <span class="hljs-keyword">my</span> <span class="hljs-type">%rules</span> = (
-        ...
-        <span class="hljs-comment"># Sierpinski arrowhead curve: start=F</span><span class="hljs-comment">
-</span>        <span class="hljs-number">5</span> =&gt; {
-            F =&gt; &#39;<span class="hljs-string">G-F-G</span>&#39;,
-            G =&gt; &#39;<span class="hljs-string">F+G+F</span>&#39;,
-        },
-        ...
-    );
+<pre><code class="hljs"><span class="hljs-keyword">my</span> <span class="hljs-type">%rules</span> = (
+    ...
+    <span class="hljs-comment"># Sierpinski arrowhead curve: start=F</span><span class="hljs-comment">
+</span>    <span class="hljs-number">5</span> =&gt; {
+        F =&gt; &#39;<span class="hljs-string">G-F-G</span>&#39;,
+        G =&gt; &#39;<span class="hljs-string">F+G+F</span>&#39;,
+    },
+    ...
+);
 </code></pre>
 
 <p>The program then initializes a MIDI score and sets the initial note to middle C (MIDI note 60):</p>
@@ -117,27 +117,27 @@ In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lin
 
 <p>Ok. Now for the meat of the program – a dispatch table of MIDI and note events, re-writing the string according to the given rules, and finally translating each string symbol into a dispatched command:</p>
 
-<pre><code class="hljs">    <span class="hljs-keyword">my</span> <span class="hljs-type">%translate</span> = (
-        &#39;<span class="hljs-string">f</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">r</span>(<span class="hljs-type">$distance</span>) },
-        &#39;<span class="hljs-string">F</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">n</span>( <span class="hljs-type">$distance</span>, <span class="hljs-type">$note</span> ) },
-        &#39;<span class="hljs-string">G</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">n</span>( <span class="hljs-type">$distance</span>, <span class="hljs-type">$note</span> ) },
-        &#39;<span class="hljs-string">-</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$note</span> -= <span class="hljs-type">$theta</span> },
-        &#39;<span class="hljs-string">+</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$note</span> += <span class="hljs-type">$theta</span> },
-    );
+<pre><code class="hljs"><span class="hljs-keyword">my</span> <span class="hljs-type">%translate</span> = (
+    &#39;<span class="hljs-string">f</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">r</span>(<span class="hljs-type">$distance</span>) },
+    &#39;<span class="hljs-string">F</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">n</span>( <span class="hljs-type">$distance</span>, <span class="hljs-type">$note</span> ) },
+    &#39;<span class="hljs-string">G</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">n</span>( <span class="hljs-type">$distance</span>, <span class="hljs-type">$note</span> ) },
+    &#39;<span class="hljs-string">-</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$note</span> -= <span class="hljs-type">$theta</span> },
+    &#39;<span class="hljs-string">+</span>&#39; =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-type">$note</span> += <span class="hljs-type">$theta</span> },
+);
 
-    <span class="hljs-keyword">for</span> ( <span class="hljs-number">1</span> .. <span class="hljs-type">$iterations</span> ) {
-        <span class="hljs-type">$string</span> =~ s/<span class="hljs-string">(</span>.<span class="hljs-string">)</span>/<span class="hljs-string">defined(</span><span class="hljs-type">$rules</span><span class="hljs-string">{</span><span class="hljs-type">$rule</span><span class="hljs-string">}{</span><span class="hljs-variable">$1</span><span class="hljs-string">}) ? </span><span class="hljs-type">$rules</span><span class="hljs-string">{</span><span class="hljs-type">$rule</span><span class="hljs-string">}{</span><span class="hljs-variable">$1</span><span class="hljs-string">} : </span><span class="hljs-variable">$1</span>/eg;
-    }
-    <span class="hljs-function">warn</span> &quot;<span class="hljs-type">$string</span><span class="hljs-string">\n</span>&quot;;
+<span class="hljs-keyword">for</span> ( <span class="hljs-number">1</span> .. <span class="hljs-type">$iterations</span> ) {
+    <span class="hljs-type">$string</span> =~ s/<span class="hljs-string">(</span>.<span class="hljs-string">)</span>/<span class="hljs-string">defined(</span><span class="hljs-type">$rules</span><span class="hljs-string">{</span><span class="hljs-type">$rule</span><span class="hljs-string">}{</span><span class="hljs-variable">$1</span><span class="hljs-string">}) ? </span><span class="hljs-type">$rules</span><span class="hljs-string">{</span><span class="hljs-type">$rule</span><span class="hljs-string">}{</span><span class="hljs-variable">$1</span><span class="hljs-string">} : </span><span class="hljs-variable">$1</span>/eg;
+}
+<span class="hljs-function">warn</span> &quot;<span class="hljs-type">$string</span><span class="hljs-string">\n</span>&quot;;
 
-    <span class="hljs-keyword">for</span> <span class="hljs-keyword">my</span> <span class="hljs-type">$command</span> ( <span class="hljs-function">split</span> //, <span class="hljs-type">$string</span> ) {
-        <span class="hljs-type">$translate</span>{<span class="hljs-type">$command</span>}-&gt;() <span class="hljs-keyword">if</span> <span class="hljs-function">exists</span> <span class="hljs-type">$translate</span>{<span class="hljs-type">$command</span>};
-    }
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">my</span> <span class="hljs-type">$command</span> ( <span class="hljs-function">split</span> //, <span class="hljs-type">$string</span> ) {
+    <span class="hljs-type">$translate</span>{<span class="hljs-type">$command</span>}-&gt;() <span class="hljs-keyword">if</span> <span class="hljs-function">exists</span> <span class="hljs-type">$translate</span>{<span class="hljs-type">$command</span>};
+}
 </code></pre>
 
 <p>Lastly, the program writes the MIDI file that was created.</p>
 
-<pre><code class="hljs">    <span class="hljs-type">$score</span>-&gt;<span class="hljs-type">write_score</span>( <span class="hljs-variable">$0</span> . &#39;<span class="hljs-string">.mid</span>&#39; );
+<pre><code class="hljs"><span class="hljs-type">$score</span>-&gt;<span class="hljs-type">write_score</span>( <span class="hljs-variable">$0</span> . &#39;<span class="hljs-string">.mid</span>&#39; );
 </code></pre>
 
 <p>Here are some examples. They are decidedly not music; more like Metroid on crack.</p>
