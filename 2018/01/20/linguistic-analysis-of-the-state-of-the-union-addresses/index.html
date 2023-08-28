@@ -17,6 +17,7 @@
 <script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
         <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <link href="/theme/plugin/highlight/default.css" rel="stylesheet" type="text/css">
         <script src="/theme/site/ology.js"></script>
     </head>
     <body>
@@ -157,25 +158,29 @@
 
 <p><a href="SOTU-Lexical-Diversity.png"><img alt="" src="SOTU-Lexical-Diversity.png"></a></p>
 
-<pre><code>R&gt; df$file[ which( df$div == max(df$div) ) ]
-[1] &quot;17901208-Washington.txt&quot;
+<pre><code class="hljs">    R&gt; df$file[ <span class="hljs-keyword">which(</span> df$div == <span class="hljs-keyword">max(</span>df$div<span class="hljs-keyword">)</span> <span class="hljs-keyword">)</span> ]
+    [1] <span class="hljs-string">&quot;17901208-Washington.txt&quot;</span>
 
-R&gt; df$file[ which( df$div == min(df$div) ) ]
-[1] &quot;19460121-Truman.txt&quot;
+    R&gt; df$file[ <span class="hljs-keyword">which(</span> df$div == <span class="hljs-keyword">min(</span>df$div<span class="hljs-keyword">)</span> <span class="hljs-keyword">)</span> ]
+    [1] <span class="hljs-string">&quot;19460121-Truman.txt&quot;</span>
 </code></pre>
 
 <p>The reading level has steadily declined, as shown in this graph:</p>
 
 <p><a href="SOTU-FOG.png"><img alt="" src="SOTU-FOG.png"></a></p>
 
-<pre><code>R&gt; sotu$Name[ which( sotu$FOG == max(sotu$FOG) ) ]
-[1] 18151205-Madison
+<pre><code class="hljs">    R&gt; sotu$Name[ <span class="hljs-keyword">which(</span> sotu$FOG == <span class="hljs-keyword">max(</span>sotu$FOG<span class="hljs-keyword">)</span> <span class="hljs-keyword">)</span> ]
+    [1] 18151205-Madison
 
-R&gt; sotu$Name[ which( sotu$FOG == min(sotu$FOG) ) ]
-[1] 19920128-Bush
+    R&gt; sotu$Name[ <span class="hljs-keyword">which(</span> sotu$FOG == <span class="hljs-keyword">min(</span>sotu$FOG<span class="hljs-keyword">)</span> <span class="hljs-keyword">)</span> ]
+    [1] 19920128-Bush
 </code></pre>
 
-<p>(And here are two excellent sites with their own analysis: http://www.presidency.ucsb.edu/sou.php &amp; http://stateoftheunion.onetwothree.net/)</p>
+<p>(And here are two excellent sites with their own analysis:
+<a href="http://www.presidency.ucsb.edu/sou.php">http://www.presidency.ucsb.edu/sou.php</a>
+&amp;
+<a href="http://stateoftheunion.onetwothree.net/">http://stateoftheunion.onetwothree.net/</a>
+)</p>
 
 </section>
 
