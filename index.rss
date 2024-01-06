@@ -7,6 +7,27 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>MIDI Rock: Stone</title>
+            <link>https://ology.github.io/2024/01/05/midi-rock-stone/</link>
+            <guid>https://ology.github.io/2024/01/05/midi-rock-stone/</guid>
+            <description><![CDATA[
+                <p><img alt="" src="https://ology.github.io/2024/01/05/midi-rock-stone/MIDI-Rock-Stone-01-sm.jpg">
+So I bought a <a href="https://reverb.com/shop/midi-rock">MIDI Rock</a> &quot;Stone&quot; joystick controller...</p>
+
+                    <p><a href="https://ology.github.io/2024/01/05/midi-rock-stone/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/analysis/">analysis</a>
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                        <a href="https://ology.github.io/tag/systems/">systems</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 05 Jan 2024 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Querying a Music Theory Database</title>
             <link>https://ology.github.io/2023/06/05/querying-a-music-theory-database/</link>
             <guid>https://ology.github.io/2023/06/05/querying-a-music-theory-database/</guid>
@@ -91,25 +112,6 @@ I recently read about the <a href="https://www.scientificamerican.com/article/ne
             ]]></description>
             <pubDate>
                 Fri, 10 Mar 2023 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>My New Album: XI</title>
-            <link>https://ology.github.io/2023/03/05/my-new-album-xi/</link>
-            <guid>https://ology.github.io/2023/03/05/my-new-album-xi/</guid>
-            <description><![CDATA[
-                <p><img alt="IX cover art" src="https://ology.github.io/2023/03/05/my-new-album-xi/XI-Cover.jpg">
-My first album in <b>6 years</b> has been released! It&#39;s called &quot;XI&quot; (i.e. &quot;Eleven&quot;)...</p>
-
-                    <p><a href="https://ology.github.io/2023/03/05/my-new-album-xi/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/music/">music</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sun, 05 Mar 2023 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

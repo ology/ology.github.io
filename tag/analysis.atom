@@ -2,11 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/tag/analysis/</id>
     <title>Gene Boggs</title>
-    <updated>2023-06-05T00:00:00Z</updated>
+    <updated>2024-01-05T00:00:00Z</updated>
     <link href="https://ology.github.io/tag/analysis.atom" rel="self" />
     <link href="https://ology.github.io/tag/analysis/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2024/01/05/midi-rock-stone/</id>
+        <title>MIDI Rock: Stone</title>
+        <link href="https://ology.github.io/2024/01/05/midi-rock-stone/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><img alt="" src="https://ology.github.io/2024/01/05/midi-rock-stone/MIDI-Rock-Stone-01-sm.jpg">
+So I bought a <a href="https://reverb.com/shop/midi-rock">MIDI Rock</a> &quot;Stone&quot; joystick controller...</p>
+
+                <p><a href="https://ology.github.io/2024/01/05/midi-rock-stone/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
+                    <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                    <a href="https://ology.github.io/tag/systems/">systems</a>
+                </p>
+
+        ]]></content>
+        <updated>2024-01-05T00:00:00Z</updated>
+        <category term="analysis" />
+        <category term="MIDI" />
+        <category term="systems" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2023/06/05/querying-a-music-theory-database/</id>
         <title>Querying a Music Theory Database</title>
@@ -108,29 +130,6 @@ What are &quot;ngrams&quot;?  And how do they relate to music?  Well <a href="
         <category term="software" />
         <category term="MIDI" />
         <category term="music" />
-        <category term="analysis" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2020/03/07/how-much-ink-is-used-for-each-letter/</id>
-        <title>How Much Ink Is Used For Each Letter?</title>
-        <link href="https://ology.github.io/2020/03/07/how-much-ink-is-used-for-each-letter/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Today I became curious about how much ink is needed to print each of the 26 letters of the English alphabet.  Naturally I wrote <a href="https://github.com/ology/Graphics/blob/master/detect-black.pl">a program</a> to tell me...</p>
-
-                <p><a href="https://ology.github.io/2020/03/07/how-much-ink-is-used-for-each-letter/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/data/">data</a>
-                    <a href="https://ology.github.io/tag/analysis/">analysis</a>
-                </p>
-
-        ]]></content>
-        <updated>2020-03-07T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="data" />
         <category term="analysis" />
     </entry>
 </feed>
