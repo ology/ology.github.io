@@ -70,11 +70,11 @@ So I bought a <a href="https://reverb.com/shop/midi-rock">MIDI Rock</a> &quot;St
 <section id="section-2">
     <p><img alt="" src="MIDI-Rock-Stone-01.jpg"></p>
 
-<p>The labeled photos are the only real documentation. And you have to save them from where-ever you bought the device (e.g. eBay, in my case). The little text file &quot;documentation&quot; that came with it, seems to have been dashed off from memory, by an engineer. Descriptions? Bah!</p>
+<p>The labeled photos are actually the best documentation. The device comes with a small text file that introduces the Stone and reiterates the configuration settings.</p>
 
-<p>Anyway, I was determined to figure it out from the perspective of the MIDI signals it transmits, because puzzling it out from the &quot;documentation&quot; is not entirely enlightening.</p>
+<p>However, I was determined to figure it out from the perspective of the MIDI signals it transmits. Here is my analysis of the signals transmitted, with the command</p>
 
-<p>Here is my analysis of the signals transmitted, with the command <code>aseqdump -p &#39;MIDI ROCK Joystick&#39;</code> :</p>
+<p><code>aseqdump -p &#39;MIDI ROCK Joystick&#39;</code> :</p>
 
 <pre><code>  Source   Event                  Ch  Data                     # comment
 
@@ -190,7 +190,11 @@ MODE 2, Switch 1/2, Absolute/Relative:
 <img alt="" src="MIDI-Rock-Stone-04.jpg">
 <img alt="" src="MIDI-Rock-Stone-05.jpg"></p>
 
-<p>I was really hoping that each switch and mode would change <strong>every</strong> control. But alas... 🤔</p>
+<p>I was hoping that each switch and mode would change <strong>every</strong> control. But no.</p>
+
+<p>But after contacting the maker, I can reprogram with the source and the right tools.</p>
+
+<p>To Be Continued...</p>
 
 </section>
 
