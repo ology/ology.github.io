@@ -2,11 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/</id>
     <title>Gene Boggs</title>
-    <updated>2024-01-05T00:00:00Z</updated>
+    <updated>2024-12-12T00:00:00Z</updated>
     <link href="https://ology.github.io/index.atom" rel="self" />
     <link href="https://ology.github.io/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2024/12/12/clocking-a-music-sequencer-with-python/</id>
+        <title>Clocking a Music Sequencer with Python</title>
+        <link href="https://ology.github.io/2024/12/12/clocking-a-music-sequencer-with-python/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>So, I got tired of starting up my bloated music app (i.e. &quot;LogicPro X&quot;, the industrial strength DAW), which is made for recording and mastering, just to fool with my synths, and using my own timing systems. Since I&#39;m a programmer, naturally I made a python MIDI program! tl;dr: <a href="https://github.com/ology/Music/blob/master/clock-it.py">clock-it.py</a></p>
+
+                <p><a href="https://ology.github.io/2024/12/12/clocking-a-music-sequencer-with-python/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/python/">Python</a>
+                    <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                </p>
+
+        ]]></content>
+        <updated>2024-12-12T00:00:00Z</updated>
+        <category term="Python" />
+        <category term="MIDI" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2024/01/05/midi-rock-stone/</id>
         <title>MIDI Rock: Stone</title>
@@ -100,31 +119,6 @@ I recently read about the <a href="https://www.scientificamerican.com/article/ne
         <category term="perl" />
         <category term="image" />
         <category term="software" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2023/03/10/realistic-drum-grooves/</id>
-        <title>Realistic Drum Grooves</title>
-        <link href="https://ology.github.io/2023/03/10/realistic-drum-grooves/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>I finally have the tools to create realistic drum grooves! (tl;dr: <a href="https://github.com/ology/Music/blob/master/figured-syncopation">figured-syncopation</a> &amp; mp3s below)</p>
-
-                <p><a href="https://ology.github.io/2023/03/10/realistic-drum-grooves/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                    <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                    <a href="https://ology.github.io/tag/generative/">generative</a>
-                    <a href="https://ology.github.io/tag/music/">music</a>
-                </p>
-
-        ]]></content>
-        <updated>2023-03-10T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="software" />
-        <category term="MIDI" />
-        <category term="generative" />
-        <category term="music" />
     </entry>
 </feed>
 

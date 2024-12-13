@@ -4,7 +4,7 @@
         <loc>https://ology.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/2013/07/05/musical-deltahedra/</loc>
@@ -316,7 +316,7 @@
         <loc>https://ology.github.io/2022/01/09/an-image-collage-of-cpan-authors/collage.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2024-06-30</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/2022/01/15/text-to-guidonian-melodies/</loc>
@@ -340,7 +340,7 @@
         <loc>https://ology.github.io/2022/01/20/musical-fingerprints-with-radar-charts/charts.html</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2024-06-30</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/2022/01/21/led-zeppelin-in-seven-dimensions/</loc>
@@ -451,94 +451,100 @@
         <lastmod>2024-01-05</lastmod>
     </url>
     <url>
+        <loc>https://ology.github.io/2024/12/12/clocking-a-music-sequencer-with-python/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2024-12-12</lastmod>
+    </url>
+    <url>
         <loc>https://ology.github.io/page/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2024-06-30</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/10/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/11/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/12/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/13/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/14/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/15/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/7/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/8/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/page/9/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/analysis/</loc>
@@ -664,25 +670,25 @@
         <loc>https://ology.github.io/tag/midi/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/midi/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/midi/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/midi/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2024-01-05</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/music/</loc>
@@ -826,7 +832,7 @@
         <loc>https://ology.github.io/tag/python/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2018-08-07</lastmod>
+        <lastmod>2024-12-12</lastmod>
     </url>
     <url>
         <loc>https://ology.github.io/tag/r/</loc>

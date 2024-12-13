@@ -7,10 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Dimensional Personality Disorder Assessment - Gene Boggs</title>
+        <title>Clocking a Music Sequencer with Python - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/index.html" rel="prev">
-        <link href="/2017/11/24/bach-note-transition-frequency-music/index.html" rel="next">
+        <link href="/2024/01/05/midi-rock-stone/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -47,65 +46,77 @@
                 <div class="nine columns">
                     <main>
                         <header>
-    <h1>Dimensional Personality Disorder Assessment</h1>
+    <h1>Clocking a Music Sequencer with Python</h1>
 
     <aside>
-        <time datetime="2017-12-19">
-            Posted on 2017-12-19
+        <time datetime="2024-12-12">
+            Posted on 2024-12-12
         </time>
     </aside>
 
     <p class="tags">Tags:
-        <a href="/tag/perl/" rel="tag">perl</a>
-        <a href="/tag/psychology/" rel="tag">psychology</a>
+        <a href="/tag/python/" rel="tag">Python</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
     </p>
 
 
 </header>
 <section id="section-1">
-    <p><img alt="" src="tim.jpg">
-<a href="http://obits.oregonlive.com/obituaries/oregon/obituary.aspx?pid=160646732">Timothy W. Butcher</a> and I collaborated on a number of diverse projects.  One was a personality disorder quiz that he devised while taking an abnormal psychology university course.</p>
+    <p>So, I got tired of starting up my bloated music app (i.e. &quot;LogicPro X&quot;, the industrial strength DAW), which is made for recording and mastering, just to fool with my synths, and using my own timing systems. Since I&#39;m a programmer, naturally I made a python MIDI program! tl;dr: <a href="https://github.com/ology/Music/blob/master/clock-it.py">clock-it.py</a></p>
 
 </section>
 <section id="section-2">
-    <p>Since 1999, when we made it, the quiz and the anonymous data and chart history has been lost to time.  But recently I found and resurrected <a href="http://dev.ology.net:8050/overview">the quiz itself</a>!</p>
+    <p>For the record, I can play the keyboard. And, my eurorack can &quot;play itself&quot; - e.g. evolving, ambient things. No, what I needed was a MIDI &quot;clock&quot; to tell my sequencer about the timing to use.</p>
 
-<p>It is <strong>196</strong> questions long - Whew!  But that is what it takes for an accurate questionnaire about multiple personality disorders.</p>
+<p>&quot;Why do you need that?&quot;, you ask. Strictly, I don&#39;t. Music is not mission critical. Haha. But sequencers can (often) be driven externally, by a periodic MIDI clock signal. My Intellijel &quot;Metropolix&quot; can, at least... (And yes, my fellow eurorack friends, you can definitely buy a Pamela&#39;s Workout to do many more clock things all at once. I have one, and it is amazing.)</p>
 
-<p>Unfortunately, a number of the questions are difficult in their wording.  I wish Tim was still around to discuss, clarify, and refine them...</p>
+<p>Anyway, this signal doesn&#39;t have to be regular at all! It can be completely random, or Euclidean, or whatever. (And yes, the Metropolix module can be programmed to do many more things, like with probability, ratcheting, accumulations, etc. etc.) I wanted to just send a clock, mostly because I am a curious cat.</p>
 
-<p>Back then, my part was to make it interactive and &quot;on-line.&quot;  Briefly, here is how it works, underneath the hood.  (And here is <a href="https://github.com/ology/DPDA">the code</a>.)</p>
+<p>Anyway, on with the code!</p>
 
-<p>For a user interface this time around, I chose <a href="https://metacpan.org/pod/Dancer2">Dancer2</a> as a web framework.  Also, I need to chart the results and for that I chose to use the <a href="https://metacpan.org/pod/GD::Graph::Data">GD::Graph::Data</a> module.</p>
+<p>First up, we import the functionality we will be using:</p>
 
-<p>There are a few routes (&quot;web addresses that are understood by the app&quot;), but the most important ones are for question/response and final result computation.</p>
+<pre><code>import mido
+import time
+</code></pre>
 
-<p>To keep track of the question/answer history for a quiz taker, I use a simple cookie.  This allows multiple questionnaires to be running concurrently.  Also, this allows a person to take a break from the quiz (as long as they don&#39;t clear their browser cookies).</p>
+<p>Next we define our single subroutine:</p>
 
-<p>For the question route, I first get our quiz progress and then handle the history.   This is done by clearing the history <strong>if</strong> we are on question number one, and to transform it into an array and hash reference for later use, otherwise.</p>
+<pre><code>def send_clock(outport, bpm=120):
+    # Calculate the time between clock messages (24 PPQN per beat)
+    interval = 60 / (bpm * 24)
+    try:
+        while True:
+            outport.send(mido.Message(&#39;clock&#39;))
+            time.sleep(interval)
+    except KeyboardInterrupt:
+        outport.send(mido.Message(&#39;stop&#39;))
+        outport.close()
+        print(&quot;\nExiting...&quot;)
+</code></pre>
 
-<p>Next we load the quiz questions and get a random, unseen one.</p>
+<p>Lastly, we define the MIDI port to output to. For me, that is my cheap USB interface cable. Next, we tell that port we are ready to start, and then call our clock subroutine:</p>
 
-<p>Ok.  When a response has been made to a question, by submitting on the web, the quiz route is invoked.</p>
+<pre><code>if __name__ == &quot;__main__&quot;:
+    with mido.open_output(&#39;USB MIDI Interface&#39;) as outport:
+        outport.send(mido.Message(&#39;start&#39;))
+        send_clock(outport, bpm=100)
+</code></pre>
 
-<p>Next, a &quot;question|answer&quot; item added to the history, and the progress is incremented.  If we are past the last question, then go to the finalize chart route, otherwise, ask another question!</p>
-
-<p>And what is that last step?  Well, I defer to the code itself.  Again, if Tim were here, I would ask him for the statistical formulae being used, so that I could say succinctly what is being computed: In the final &quot;/chart&quot; route, the history is handled as above, and the quiz is loaded to access the metadata for each question - &quot;category&quot; and &quot;polarity.&quot;  Next, the results are calculated, the categories ordered, the average responses calculated, the &quot;discord&quot; (&quot;dishonesty&quot;, &quot;ambivalence&quot;) calculated and finally a bar chart is rendered.</p>
-
-<p>Now to test that the quiz results were accurate, I wrote a little <a href="https://github.com/ology/DPDA/blob/master/bin/mech-test">Test::WWW::Mechanize script</a> to test the boundaries.  You can see the results of having every disorder to having none of the disorders, on the quiz <a href="http://dev.ology.net:8050/sample">Sample Results</a> page.</p>
+<p>Pretty simple!</p>
 
 </section>
 
 <ul class="pager">
     <li class="prev">
-            <a class="button button-primary" href="/2017/11/24/bach-note-transition-frequency-music/index.html" rel="prev">
+            <a class="button button-primary" href="/2024/01/05/midi-rock-stone/index.html" rel="prev">
                 ← Older
             </a>
     </li>
     <li class="next">
-            <a class="button button-primary" href="/2018/01/20/linguistic-analysis-of-the-state-of-the-union-addresses/index.html" rel="next">
+            <button disabled>
                 Newer →
-            </a>
+            </button>
     </li>
 </ul>
 
