@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ology.github.io/</id>
     <title>Gene Boggs</title>
-    <updated>2024-12-12T00:00:00Z</updated>
+    <updated>2025-09-28T00:00:00Z</updated>
     <link href="https://ology.github.io/index.atom" rel="self" />
     <link href="https://ology.github.io/" rel="alternate" />
     <generator version="0.098">Statocles</generator>
 
+    <entry>
+        <id>https://ology.github.io/2025/09/28/musical-creativity-with-python/</id>
+        <title>Musical Creativity with Python</title>
+        <link href="https://ology.github.io/2025/09/28/musical-creativity-with-python/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Recently, I found that there were big gaps in the musical creativity packages on https://pypi.org/. There are packages for music analysis and utilities for doing MIDI things, but nothing I could find for actual creativity. I decided to rectify this and port my <a href="https://metacpan.org/author/GENE">music and MIDI Perl code</a> to Python.</p>
+
+                <p><a href="https://ology.github.io/2025/09/28/musical-creativity-with-python/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://ology.github.io/tag/python/">Python</a>
+                    <a href="https://ology.github.io/tag/music/">Music</a>
+                    <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                </p>
+
+        ]]></content>
+        <updated>2025-09-28T00:00:00Z</updated>
+        <category term="Python" />
+        <category term="Music" />
+        <category term="MIDI" />
+    </entry>
     <entry>
         <id>https://ology.github.io/2024/12/12/clocking-a-music-sequencer-with-python/</id>
         <title>Clocking a Music Sequencer with Python</title>
@@ -97,28 +118,6 @@ So I bought a <a href="https://reverb.com/shop/midi-rock">MIDI Rock</a> &quot;St
         <category term="perl" />
         <category term="software" />
         <category term="systems" />
-    </entry>
-    <entry>
-        <id>https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/</id>
-        <title>Of Hexagons, Kites and Tiles</title>
-        <link href="https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><img alt="hat.png" src="https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/hat.png">
-I recently read about the <a href="https://www.scientificamerican.com/article/newfound-mathematical-einstein-shape-creates-a-never-repeating-pattern/">13-sided &quot;Einstein shape&quot;</a> (or hat/t-shirt tile) on a hexagonal grid of <a href="https://en.wikipedia.org/wiki/Kite_(geometry)">kites</a>. Being a curious cat and programmer, I had to find out more! (tl;dr: <a href="https://github.com/ology/Graphics/blob/master/hexagon-grid">hexagon-grid</a> and animation at the bottom)</p>
-
-                <p><a href="https://ology.github.io/2023/04/30/of-hexagons-kites-and-tiles/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://ology.github.io/tag/perl/">perl</a>
-                    <a href="https://ology.github.io/tag/image/">image</a>
-                    <a href="https://ology.github.io/tag/software/">software</a>
-                </p>
-
-        ]]></content>
-        <updated>2023-04-30T00:00:00Z</updated>
-        <category term="perl" />
-        <category term="image" />
-        <category term="software" />
     </entry>
 </feed>
 

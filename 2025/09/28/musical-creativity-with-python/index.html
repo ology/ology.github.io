@@ -7,11 +7,9 @@
         <link href="/theme/css/skeleton.css" rel="stylesheet">
         <link href="/theme/css/statocles-default.css" rel="stylesheet">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <title>Gene Boggs</title>
+        <title>Musical Creativity with Python - Gene Boggs</title>
         <meta content="Statocles 0.098" name="generator">
-        <link href="/tag/prime-numbers.atom" rel="alternate" type="application/atom+xml">
-        <link href="/tag/prime-numbers.rss" rel="alternate" type="application/rss+xml">
-        <link href="/tag/prime-numbers/" rel="prev">
+        <link href="/2024/12/12/clocking-a-music-sequencer-with-python/index.html" rel="next">
         <link href="/theme/site/favicon.png" rel="shortcut icon">
         <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
 
@@ -41,50 +39,66 @@
             <div class="row">
                 <div class="nine columns">
                     <main>
-                        
+                        <header>
+    <h1>Musical Creativity with Python</h1>
 
-<article>
-    <header>
-        <h1><a href="/2013/10/29/primes-gaps-and-gaps-of-gaps/">Primes, Gaps and Gaps of Gaps</a></h1>
+    <aside>
+        <time datetime="2025-09-28">
+            Posted on 2025-09-28
+        </time>
+    </aside>
 
-        <aside>
-            <time datetime="2013-10-29">
-                Posted on 2013-10-29
-            </time>
-        </aside>
-
-        <p class="tags">Tags:
-            <a href="/tag/perl/" rel="tag">perl</a>
-            <a href="/tag/software/" rel="tag">software</a>
-            <a href="/tag/mathematics/" rel="tag">mathematics</a>
-            <a href="/tag/prime-numbers/" rel="tag">prime numbers</a>
-        </p>
-
-    </header>
-
-    <p>The <a href="http://en.wikipedia.org/wiki/Prime_numbers">prime number sequence</a> fascinates me.  I am not sure why but exposing properties in it is exciting.  Even if they are mundane and &quot;obvious to everyone else&quot;, the fact that I can answer questions visually, sometimes thrills me.</p>
-
-<p>tl;dr: <a href="https://github.com/ology/Math/blob/master/primes/gaps-of-gaps">gaps-of-gaps</a>
- </p>
+    <p class="tags">Tags:
+        <a href="/tag/python/" rel="tag">Python</a>
+        <a href="/tag/music/" rel="tag">Music</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+    </p>
 
 
-        <p><a href="/2013/10/29/primes-gaps-and-gaps-of-gaps/#section-2">Continue reading Primes, Gaps and Gaps of Gaps...</a></p>
+</header>
+<section id="section-1">
+    <p>Recently, I found that there were big gaps in the musical creativity packages on https://pypi.org/. There are packages for music analysis and utilities for doing MIDI things, but nothing I could find for actual creativity. I decided to rectify this and port my <a href="https://metacpan.org/author/GENE">music and MIDI Perl code</a> to Python.</p>
 
-</article>
+</section>
+<section id="section-2">
+    <p>First up was my <a href="https://metacpan.org/dist/Music-Duration-Partition">rhythmic phrase generator</a> that is essential for doing things other than steady, even beats. That ended up as https://pypi.org/project/random-rhythms/.</p>
+
+<p>Second was my <a href="https://metacpan.org/dist/MIDI-Drummer-Tiny">handy MIDI drummer</a>. This makes it a no-brainer to add beats to a piece. This ended up as https://pypi.org/project/music-drummer/.</p>
+
+<p>Third was my <a href="https://metacpan.org/dist/Music-CreatingRhythms">Creating Rhythms</a> module, based on the <a href="https://abrazol.com/books/rhythm1/">excellent book</a> by Hollos and Hollos. This allows for the creation of combinatorical patterns that can be used for note rhythms or beats (like <code>euclid(m, n)</code> for instance). This became https://pypi.org/project/music-creatingrhythms/.</p>
+
+<p>After porting my rhythmic modules over, I turned to tonal things.</p>
+
+<p>So fourth was the fabulous module https://metacpan.org/pod/Music::VoiceGen by Jeremy Mates which I heavily depend upon for my stuff. That ended up as https://pypi.org/project/music-voicegen/.</p>
+
+<p>Fifth was then my <a href="https://metacpan.org/dist/Music-Bassline-Generator">bassline generator code</a>. What would music be without a low-end? Haha! That ended up as https://pypi.org/project/music-bassline-generator/.</p>
+
+<p>Sixth was probably the most nerdy of all chord changes - https://metacpan.org/dist/Music-Chord-Progression-Transform - my module for doing Neo-Riemann chord progressions. This code also depends on another module that I ported by Jeremy Mates: https://metacpan.org/pod/Music::NeoRiemannianTonnetz</p>
+
+<p>Seventh were my <a href="https://metacpan.org/search?size=500&amp;q=melodic+device">modules</a> for converting notes and phrases to traditional types of chromatic and melodic transformations, like inversion, ornaments, and arpeggiation, etc. The became https://pypi.org/project/music-melodicdevice/.</p>
+
+<p>Eighth was my <a href="https://metacpan.org/dist/Music-Chord-Progression">module</a> for creating randomized chord progressions based on weighted network transitions (from one chord to the next). This ended up as https://pypi.org/project/chord-progression-network/.</p>
+
+<p>For each, I made simple musical examples and added them to the readme files for each package.</p>
+
+<p>For my musical curiosities, I made a few threading MIDI players, one of which is: https://github.com/ology/Music/blob/master/midi-thread-2.py that exercises the arpeggiation device (and is musically realized at https://www.youtube.com/watch?v=nbCCPr_KPdU). This open-source code can be copied and modified with any of the above packages for your own player.</p>
+
+<p>Enjoy! :D</p>
+
+</section>
 
 <ul class="pager">
     <li class="prev">
-            <button disabled>
+            <a class="button button-primary" href="/2024/12/12/clocking-a-music-sequencer-with-python/index.html" rel="prev">
                 ← Older
-            </button>
-    </li>
-    <li class="next">
-            <a class="button button-primary" href="/tag/prime-numbers/" rel="next">
-                Newer →
             </a>
     </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
 </ul>
-
 
 
 
@@ -126,20 +140,7 @@
         </ul>
     </nav>
 
-                            <h1>Feeds</h1>
-        <ul class="list-inline">
-            <li>
-                <a href="/tag/prime-numbers.atom" rel="alternate" type="application/atom+xml">
-                    Atom
-                </a>
-            </li>
-            <li>
-                <a href="/tag/prime-numbers.rss" rel="alternate" type="application/rss+xml">
-                    RSS
-                </a>
-            </li>
-        </ul>
-
+                    
                 </div>
             </div>
         </div>

@@ -7,6 +7,26 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Musical Creativity with Python</title>
+            <link>https://ology.github.io/2025/09/28/musical-creativity-with-python/</link>
+            <guid>https://ology.github.io/2025/09/28/musical-creativity-with-python/</guid>
+            <description><![CDATA[
+                <p>Recently, I found that there were big gaps in the musical creativity packages on https://pypi.org/. There are packages for music analysis and utilities for doing MIDI things, but nothing I could find for actual creativity. I decided to rectify this and port my <a href="https://metacpan.org/author/GENE">music and MIDI Perl code</a> to Python.</p>
+
+                    <p><a href="https://ology.github.io/2025/09/28/musical-creativity-with-python/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/python/">Python</a>
+                        <a href="https://ology.github.io/tag/music/">Music</a>
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 28 Sep 2025 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Clocking a Music Sequencer with Python</title>
             <link>https://ology.github.io/2024/12/12/clocking-a-music-sequencer-with-python/</link>
             <guid>https://ology.github.io/2024/12/12/clocking-a-music-sequencer-with-python/</guid>
