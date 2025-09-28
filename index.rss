@@ -11,7 +11,7 @@
             <link>https://ology.github.io/2025/09/28/musical-creativity-with-python/</link>
             <guid>https://ology.github.io/2025/09/28/musical-creativity-with-python/</guid>
             <description><![CDATA[
-                <p>Recently, I found that there were big gaps in the musical creativity packages on https://pypi.org/. There are packages for music analysis and utilities for doing MIDI things, but nothing I could find for actual creativity. I decided to rectify this and port my <a href="https://metacpan.org/author/GENE">music and MIDI Perl code</a> to Python.</p>
+                <p>Recently, I found that there were big gaps in the musical creativity packages on <a href="https://pypi.org/">pypi</a>. There are packages for music analysis and utilities for doing MIDI things, but nothing I could find for actual creativity. I decided to rectify this and port my <a href="https://metacpan.org/author/GENE">music and MIDI Perl code</a> to Python.</p>
 
                     <p><a href="https://ology.github.io/2025/09/28/musical-creativity-with-python/#section-2">Continue reading...</a></p>
 
