@@ -60,19 +60,21 @@
 <section id="section-1">
     <p>Let&#39;s talk about music programming! There are a million aspects to this subject, but today, we&#39;ll touch on generating rhythmic patterns with mathematical and combinatorial techniques. These include the generation of partitions, necklaces, and Euclidean patterns.</p>
 
-<p>Stefan and J. Richard Hollos wrote an <a href="https://abrazol.com/books/rhythm1/">excellent little book</a> called &quot;Creating Rhythms&quot; that has been turned into <a href="https://abrazol.com/books/rhythm1/software.html">C, Perl, and Python</a>. It features a number of algorithms that produce or modify lists of numbers or bit-vectors (of ones and zeroes). These can be beat onsets (the ones) and rests (the zeroes) of a rhythm. We&#39;ll check out these concepts with Python.</p>
+</section>
+<section id="section-2">
+    <p>Stefan and J. Richard Hollos wrote an <a href="https://abrazol.com/books/rhythm1/">excellent little book</a> called &quot;Creating Rhythms&quot; that has been turned into <a href="https://abrazol.com/books/rhythm1/software.html">C, Perl, and Python</a>. It features a number of algorithms that produce or modify lists of numbers or bit-vectors (of ones and zeroes). These can be beat onsets (the ones) and rests (the zeroes) of a rhythm. We&#39;ll check out these concepts with Python.</p>
 
 <p>For each example, we will play what things sound like with MIDI, by using the <a href="https://mido.readthedocs.io/en/stable/">mido</a> Python package. And in order to actually hear the rhythms, we will need a MIDI synthesizer. For the simplest illustration, we can use <a href="https://www.fluidsynth.org/">fluidsynth</a>. Of course, any MIDI capable synth will work.</p>
 
 <p>Here&#39;s how I start <code>fluidsynth</code> on my mac in the terminal, in a <em>separate</em> session. It uses a generic soundfont file (<code>sf2</code>) that can be downloaded <a href="https://keymusician01.s3.amazonaws.com/FluidR3_GM.zip">here</a> (124MB zip).</p>
 
-<p><code>shell
+<p><code>
 fluidsynth -a coreaudio -m coremidi -g 2.0 ~/Music/soundfont/FluidR3_GM.sf2
 </code></p>
 
 <p>So, how do Python and <code>mido</code> know what output port to use? There are a few ways, but with the <code>mido</code> package, you can do this:</p>
 
-<p><code>python
+<p><code>
 import mido
 n = mido.get_output_names()
 print(n) # [&#39;FluidSynth virtual port (89324)&#39;, ...]
@@ -84,7 +86,7 @@ print(n) # [&#39;FluidSynth virtual port (89324)&#39;, ...]
 
 <p>First-up, let&#39;s look at partition algorithms. With the <code>part()</code> function, we can generate all partitions of <code>n</code>, where <code>n</code> is <code>5</code>, and the &quot;parts&quot; all add up to <code>5</code>. Then taking one of these (say, the third element), we convert it to a binary sequence that can be interpreted as a rhythmic phrase, and play it 4 times.</p>
 
-<p>```python
+<p>```
 import time
 from music_creatingrhythms import Rhythms</p>
 
@@ -101,7 +103,7 @@ from music_creatingrhythms import Rhythms</p>
 
 <p>Now we realize the rhythm:</p>
 
-<p>```python
+<p>```
 import mido</p>
 
 <p>port_name = sys.argv[1] if len(sys.argv) &gt; 1 else &#39;USB MIDI&#39;
@@ -123,7 +125,7 @@ port = mido.open_output(port_name)</p>
 
 <p>With this shell command, we can hear what it sounds like:</p>
 
-<p><code>shell
+<p><code>
 python coder-legion-1.1.py &#39;FluidSynth virtual port (89324)&#39;
 </code></p>
 
@@ -152,7 +154,7 @@ python coder-legion-1.1.py &#39;FluidSynth virtual port (89324)&#39;
 
 <p>Here are the compositions of <code>5</code> turned into sequences, played by a snare drum, and written to the disk:</p>
 
-<p>```python
+<p>```
 from mido import Message, MidiFile, MidiTrack, MetaMessage, bpm2tempo
 from music_creatingrhythms import Rhythms</p>
 
@@ -194,7 +196,7 @@ mid.save(&#39;coder-legion-2.1.mid&#39;)
 
 <p>In order to play the MIDI file that is produced, we can use <code>fluidsynth</code> like this:</p>
 
-<p><code>shell
+<p><code>
 fluidsynth -i ~/Music/soundfont/FluidR3_GM.sf2 coder-legion-2.1.mid
 </code></p>
 
@@ -209,19 +211,19 @@ fluidsynth -i ~/Music/soundfont/FluidR3_GM.sf2 coder-legion-2.1.mid
 
 <p>Another way to play the MIDI file is to use <a href="https://wiki.archlinux.org/title/Timidity++">timidity</a>. On my mac, with the soundfont specified in the <code>timidity.cfg</code> configuration file, this would be:</p>
 
-<p><code>shell
+<p><code>
 timidity -c ~/timidity.cfg -Od coder-legion-2.1.mid
 </code></p>
 
 <p>To convert a MIDI file to an mp3 (or other audio formats), I do this:</p>
 
-<p><code>shell
+<p><code>
 timidity -c ~/timidity.cfg coder-legion-2.1.mid -Ow -o - | ffmpeg -i - -acodec libmp3lame -ab 64k coder-legion-2.1.mp3
 </code></p>
 
 <p>Ok. Enough technical details! What if we want a kick bass drum and hi-hats, too? Refactor time…</p>
 
-<p>```python
+<p>```
 import random
 from mido import Message, MidiFile, MidiTrack, MetaMessage, bpm2tempo
 from music_creatingrhythms import Rhythms</p>
@@ -313,7 +315,7 @@ mid.save(&#39;coder-legion-3.mid&#39;)
 <p>Rhythm necklaces are circular diagrams of equally spaced, connected nodes. A necklace is a lexicographical ordering with no rotational duplicates. For instance, the necklaces of <code>3</code> beats are <code>[[1, 1, 1], [1, 1, 0], [1, 0, 0], [0, 0, 0]]</code>. Notice that there is no <code>[1, 0, 1]</code> or <code>[0, 1, 1]</code>. Also, there are no rotated versions of <code>[1, 0, 0]</code>, either.</p>
 
 <p>So, how many 16 beat rhythm necklaces are there?
-<code>python
+<code>
 necklaces = r.neck(16)
 print(len(necklaces)) # 4116 of &#39;em!
 </code></p>
@@ -322,7 +324,7 @@ print(len(necklaces)) # 4116 of &#39;em!
 
 <p>Also, let&#39;s simplify the code a bit.</p>
 
-<p>```python</p>
+<p>```</p>
 
 <h1>...</h1>
 
@@ -352,7 +354,7 @@ mid.save(&#39;coder-legion-4.1.mid&#39;)
 
 <p>More interesting would be playing simultaneous beats.</p>
 
-<p>```python</p>
+<p>```</p>
 
 <h1>...</h1>
 
@@ -399,7 +401,7 @@ mid.save(&#39;coder-legion-4.2.mid&#39;)
 
 <p>Euclidean patterns are a set number of positions <code>P</code> that are filled with a number of beats <code>Q</code> that is less than or equal to <code>P</code>. They are named for Euclid because they are generated by applying the &quot;Euclidean algorithm,&quot; which was originally designed to find the greatest common divisor (GCD) of two numbers, to distribute musical beats as evenly as possible.</p>
 
-<p>```python</p>
+<p>```</p>
 
 <h1>...</h1>
 
