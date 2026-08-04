@@ -82,7 +82,7 @@ In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lin
 <p>Next, the program takes arguments from the command-line user:</p>
 
 <pre><code class="hljs"><span class="hljs-keyword">my</span> <span class="hljs-type">$rule</span>       = <span class="hljs-function">shift</span> || <span class="hljs-number">2</span>,
-<span class="hljs-keyword">my</span> <span class="hljs-type">$iterations</span> = <span class="hljs-function">shift</span> || 4;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$iterations</span> = <span class="hljs-function">shift</span> || <span class="hljs-number">4</span>;
 <span class="hljs-keyword">my</span> <span class="hljs-type">$string</span>     = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">F</span>&#39;;
 <span class="hljs-keyword">my</span> <span class="hljs-type">$distance</span>   = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">qn</span>&#39;;
 <span class="hljs-keyword">my</span> <span class="hljs-type">$theta</span>      = <span class="hljs-function">shift</span> || <span class="hljs-number">1</span>;
@@ -105,7 +105,7 @@ In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lin
 
 <p>The program then initializes a MIDI score and sets the initial note to middle C (MIDI note 60):</p>
 
-<pre><code class="hljs">    <span class="hljs-keyword">my</span> <span class="hljs-type">$score</span> = <span class="hljs-function">MIDIUtil::setup_midi</span>( patch =&gt; 0, bpm =&gt; <span class="hljs-number">300</span> );
+<pre><code class="hljs">    <span class="hljs-keyword">my</span> <span class="hljs-type">$score</span> = <span class="hljs-function">MIDIUtil::setup_midi</span>( patch =&gt; <span class="hljs-number">0</span>, bpm =&gt; <span class="hljs-number">300</span> );
     <span class="hljs-keyword">my</span> <span class="hljs-type">$note</span> = <span class="hljs-number">60</span>;
 </code></pre>
 
@@ -182,8 +182,10 @@ In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lin
             <li><a href="/tag/audio/">audio</a></li>
             <li><a href="/tag/automata/">automata</a></li>
             <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/chess/">chess</a></li>
             <li><a href="/tag/complexity/">complexity</a></li>
             <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/django/">django</a></li>
             <li><a href="/tag/evolutionary/">evolutionary</a></li>
             <li><a href="/tag/fractal/">fractal</a></li>
             <li><a href="/tag/game-theory/">game theory</a></li>
@@ -199,10 +201,11 @@ In 1968, <a href="https://en.wikipedia.org/wiki/Aristid_Lindenmayer">Aristid Lin
             <li><a href="/tag/prime-numbers/">prime numbers</a></li>
             <li><a href="/tag/prolog/">prolog</a></li>
             <li><a href="/tag/psychology/">psychology</a></li>
-            <li><a href="/tag/python/">Python</a></li>
+            <li><a href="/tag/python/">python</a></li>
             <li><a href="/tag/r/">R</a></li>
             <li><a href="/tag/software/">software</a></li>
             <li><a href="/tag/systems/">systems</a></li>
+            <li><a href="/tag/visualization/">visualization</a></li>
             <li><a href="/tag/web/">web</a></li>
         </ul>
     </nav>

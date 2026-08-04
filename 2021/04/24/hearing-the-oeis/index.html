@@ -89,8 +89,8 @@ What does a number sequence &quot;sound like&quot;?</p>
 <span class="hljs-keyword">my</span> <span class="hljs-type">$limit</span>  = <span class="hljs-function">shift</span> || <span class="hljs-number">64</span>;
 <span class="hljs-keyword">my</span> <span class="hljs-type">$scale</span>  = <span class="hljs-function">shift</span> || &#39;<span class="hljs-string">major</span>&#39;;
 <span class="hljs-keyword">my</span> <span class="hljs-type">$bpm</span>    = <span class="hljs-function">shift</span> || <span class="hljs-number">300</span>;
-<span class="hljs-keyword">my</span> <span class="hljs-type">$patch</span>  = <span class="hljs-function">shift</span> || 0;
-<span class="hljs-keyword">my</span> <span class="hljs-type">$octave</span> = <span class="hljs-function">shift</span> || 4;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$patch</span>  = <span class="hljs-function">shift</span> || <span class="hljs-number">0</span>;
+<span class="hljs-keyword">my</span> <span class="hljs-type">$octave</span> = <span class="hljs-function">shift</span> || <span class="hljs-number">4</span>;
 </code></pre>
 
 <p>We will need a MIDI score and a scale of notes:</p>
@@ -101,7 +101,7 @@ What does a number sequence &quot;sound like&quot;?</p>
 
 <p>Inspect each term of the OEIS sequence.  Find the modulo between this term and the size of the scale.  (This keeps the values in the audible range.)  Add this value as a note to the growing score:</p>
 
-<pre><code class="hljs"><span class="hljs-keyword">my</span> <span class="hljs-type">$i</span> = 0;
+<pre><code class="hljs"><span class="hljs-keyword">my</span> <span class="hljs-type">$i</span> = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">for</span> <span class="hljs-keyword">my</span> <span class="hljs-type">$n</span> (oeis(<span class="hljs-type">$oeis</span>, <span class="hljs-type">$limit</span>)) {
     <span class="hljs-keyword">my</span> <span class="hljs-type">$mod</span> = <span class="hljs-type">$n</span> % <span class="hljs-type">@scale</span>;
     <span class="hljs-keyword">my</span> <span class="hljs-type">$note</span> = <span class="hljs-type">$scale</span>[<span class="hljs-type">$mod</span>];
@@ -156,8 +156,10 @@ What does a number sequence &quot;sound like&quot;?</p>
             <li><a href="/tag/audio/">audio</a></li>
             <li><a href="/tag/automata/">automata</a></li>
             <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/chess/">chess</a></li>
             <li><a href="/tag/complexity/">complexity</a></li>
             <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/django/">django</a></li>
             <li><a href="/tag/evolutionary/">evolutionary</a></li>
             <li><a href="/tag/fractal/">fractal</a></li>
             <li><a href="/tag/game-theory/">game theory</a></li>
@@ -173,10 +175,11 @@ What does a number sequence &quot;sound like&quot;?</p>
             <li><a href="/tag/prime-numbers/">prime numbers</a></li>
             <li><a href="/tag/prolog/">prolog</a></li>
             <li><a href="/tag/psychology/">psychology</a></li>
-            <li><a href="/tag/python/">Python</a></li>
+            <li><a href="/tag/python/">python</a></li>
             <li><a href="/tag/r/">R</a></li>
             <li><a href="/tag/software/">software</a></li>
             <li><a href="/tag/systems/">systems</a></li>
+            <li><a href="/tag/visualization/">visualization</a></li>
             <li><a href="/tag/web/">web</a></li>
         </ul>
     </nav>
