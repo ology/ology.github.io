@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Gene Boggs</title>
+        <link>https://ology.github.io/tag/hardware/</link>
+        <atom:link href="https://ology.github.io/tag/hardware.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of Gene Boggs</description>
+        <generator>Statocles 0.098</generator>
+        <item>
+            <title>Loving the Kaoss Pad V</title>
+            <link>https://ology.github.io/2026/08/21/loving-the-kaoss-pad-v/</link>
+            <guid>https://ology.github.io/2026/08/21/loving-the-kaoss-pad-v/</guid>
+            <description><![CDATA[
+                <p><img alt="In Action" src="https://ology.github.io/2026/08/21/loving-the-kaoss-pad-v/KaossPad-in-Action-Cropped.jpg"></p>
+
+<p>I recently scored a used Korg &quot;Kaoss Pad V.&quot; This device (&quot;KPV&quot;) is new to the market as of a few months, and it is the fifth version in a long line of Kaoss pads.</p>
+
+                    <p><a href="https://ology.github.io/2026/08/21/loving-the-kaoss-pad-v/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/audio/">audio</a>
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/hardware/">hardware</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 21 Aug 2026 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

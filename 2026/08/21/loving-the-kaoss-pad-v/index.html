@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="/theme/css/normalize.css" rel="stylesheet">
+        <link href="/theme/css/skeleton.css" rel="stylesheet">
+        <link href="/theme/css/statocles-default.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Loving the Kaoss Pad V - Gene Boggs</title>
+        <meta content="Statocles 0.098" name="generator">
+        <link href="/2026/08/03/chess-coverage-visualization/index.html" rel="next">
+        <link href="/theme/site/favicon.png" rel="shortcut icon">
+        <meta content="v--gGGK7_9GCDMA9TXuSnxcvJAeU_6ZueEnLYfBRaDA" name="google-site-verification">
+
+<script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <link href="/theme/site/ology.css" rel="stylesheet" type="text/css">
+        <script src="/theme/site/ology.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <img src="/theme/site/banner.jpg"><br>
+
+                    <a class="brand" href="/">Gene Boggs</a>
+                    <ul>
+                        <li>
+                            <a href="https://www.ology.net/">www.ology.net</a>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </nav>
+            
+        </header>
+        <div class="main container">
+            <div class="row">
+                <div class="nine columns">
+                    <main>
+                        <header>
+    <h1>Loving the Kaoss Pad V</h1>
+
+    <aside>
+        <time datetime="2026-08-21">
+            Posted on 2026-08-21
+        </time>
+    </aside>
+
+    <p class="tags">Tags:
+        <a href="/tag/audio/" rel="tag">audio</a>
+        <a href="/tag/midi/" rel="tag">MIDI</a>
+        <a href="/tag/music/" rel="tag">music</a>
+        <a href="/tag/hardware/" rel="tag">hardware</a>
+    </p>
+
+
+</header>
+<section id="section-1">
+    <p><img alt="In Action" src="KaossPad-in-Action-Cropped.jpg"></p>
+
+<p>I recently scored a used Korg &quot;Kaoss Pad V.&quot; This device (&quot;KPV&quot;) is new to the market as of a few months, and it is the fifth version in a long line of Kaoss pads.</p>
+
+</section>
+<section id="section-2">
+    <h2>The Past, The Present</h2>
+
+<p>The line was traditionally geared toward live performance and DJ set-ups with microphone input, stereo RCA in/outs, and 5-pin MIDI. But this new version is class-compliant and has a USB MIDI A input on the back. So now the computer and DAW can see this as a proper MIDI/audio device. Woo!</p>
+
+<p>This is great news to me, as I am a recording musician and had been drooling over the previous version for a long time. But it wouldn&#39;t interface with the computer like I wanted. I needed it to work seamlessly with my DAW… Enter the KPV!</p>
+
+<p>Let&#39;s look at a few use-cases:</p>
+
+<h2>As a mixer aux send/return</h2>
+
+<p>This is the traditional way to apply effects in the music studio. And of course that method works fine with the KPV filtering per channel.</p>
+
+<h2>USB MIDI to a device directly (with a program)</h2>
+
+<p>Modern programming languages all have a functional MIDI interface. And there are a huge number of Perl and Python programs out there. The coolest one of mine is (of course, the latest) a <a href="https://github.com/ology/Mojo-MIDIFilter">MIDI filter</a> for simultaneously controlling multiple MIDI devices in the studio. That is, you can transfer MIDI messages to and from any USB computer-connected devices in your studio.</p>
+
+<p>For other programmers out there, a simpler, command-line program is the Perl code <a href="https://github.com/ology/MIDI-RtController-Filter-CC/blob/main/eg/continuous.pl">continuous.pl</a> - check it out!</p>
+
+<h2>With Logic Pro / Reaper</h2>
+
+<p><img alt="In Logic Pro" src="KaossPad-LogicPro.png"></p>
+
+<p>So, this is exactly what I dreamed about: Recording real-time effects based on playback of another existing track in my DAW.</p>
+
+<p>It took me a bit of puzzling, trial, and error, but I finally figured out how to make the KPV play nice in my DAW, Logic Pro. In order to use it to record fresh effects for an existing audio track, do this:</p>
+
+<ol>
+<li><p>Set the KPV to &quot;SEND&quot;, not &quot;DIRECT&quot; and &quot;Line &amp; USB&quot; as the &quot;FX Target.&quot;</p></li>
+<li><p>Have an existing audio track to effect open in your DAW.</p></li>
+<li><p>Now, go to the app settings and switch the audio device I/O from the default system setting to the &quot;KAOSS PAD KPV&quot; audio interface.</p></li>
+<li><p>Make a new audio mic/line-in track for the Kaoss Pad and arm it for recording.</p></li>
+<li><p>Hit record and make fabulous X-Y gestures on the KPV!</p>
+
+<p>a. The audio from the KPV will be recorded onto the track.</p></li>
+<li><p>Go back to the settings and switch the audio device back to the system default.</p></li>
+<li><p>Give it a listen!</p></li>
+</ol>
+
+<p>And you do the same thing in Reaper: Have a source audio track (not plain MIDI). Add a new, blank track to record the Kaoss Pad. Switch the audio device in settings to the Kaoss Pad (which must be in &quot;Send&quot; mode). Mute the track and monitor with headphones on the KPV. Arm the new track for record and go for it, making X-Y pad motions. This will be recorded to the new track. Then when finished, switch the audio device back to the original system settings, un-mute and play!</p>
+
+<p><img alt="In Reaper" src="KaossPad-Reaper.png"></p>
+
+<h2>Happy effecting! :D</h2>
+
+</section>
+
+<ul class="pager">
+    <li class="prev">
+            <a class="button button-primary" href="/2026/08/03/chess-coverage-visualization/index.html" rel="prev">
+                ← Older
+            </a>
+    </li>
+    <li class="next">
+            <button disabled>
+                Newer →
+            </button>
+    </li>
+</ul>
+
+
+
+                    </main>
+                </div>
+
+                <div class="three columns sidebar">
+                    <input id="query" placeholder="Search" type="text">
+
+                        <nav id="tags">
+        <h1>Tags</h1>
+        <ul class="list-inline">
+            <li><a href="/tag/analysis/">analysis</a></li>
+            <li><a href="/tag/audio/">audio</a></li>
+            <li><a href="/tag/automata/">automata</a></li>
+            <li><a href="/tag/bible/">bible</a></li>
+            <li><a href="/tag/chess/">chess</a></li>
+            <li><a href="/tag/complexity/">complexity</a></li>
+            <li><a href="/tag/data/">data</a></li>
+            <li><a href="/tag/django/">django</a></li>
+            <li><a href="/tag/evolutionary/">evolutionary</a></li>
+            <li><a href="/tag/fractal/">fractal</a></li>
+            <li><a href="/tag/game-theory/">game theory</a></li>
+            <li><a href="/tag/generative/">generative</a></li>
+            <li><a href="/tag/hardware/">hardware</a></li>
+            <li><a href="/tag/image/">image</a></li>
+            <li><a href="/tag/machine-learning/">machine learning</a></li>
+            <li><a href="/tag/mathematics/">Mathematics</a></li>
+            <li><a href="/tag/midi/">MIDI</a></li>
+            <li><a href="/tag/music/">music</a></li>
+            <li><a href="/tag/nlp/">NLP</a></li>
+            <li><a href="/tag/perl/">perl</a></li>
+            <li><a href="/tag/pi/">pi</a></li>
+            <li><a href="/tag/prime-numbers/">prime numbers</a></li>
+            <li><a href="/tag/prolog/">prolog</a></li>
+            <li><a href="/tag/psychology/">psychology</a></li>
+            <li><a href="/tag/python/">python</a></li>
+            <li><a href="/tag/r/">R</a></li>
+            <li><a href="/tag/software/">software</a></li>
+            <li><a href="/tag/systems/">systems</a></li>
+            <li><a href="/tag/visualization/">visualization</a></li>
+            <li><a href="/tag/web/">web</a></li>
+        </ul>
+    </nav>
+
+                    
+                </div>
+            </div>
+        </div>
+        <footer>
+            
+            <div class="container tagline">
+                <span style="float: right;">
+                <a href="https://metacpan.org/pod/Statocles">Made with Statocles</a>
+                </span>
+                <span style="float: left;">
+                Copyright (c) 2013-2023 by <a href="https://gene.ology.net/">Gene Boggs</a>, Epistemologist-at-large
+                </span>
+            </div>
+        </footer>
+
+
+    </body>
+</html>
