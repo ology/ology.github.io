@@ -12,7 +12,9 @@
         <title>Roland GP-100 Patches and Things</title>
         <link href="https://ology.github.io/2026/10/04/roland-gp-100-patches-and-things/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>I recently acquired a classic, Roland GP-100 guitar effects processor from a friend. He is a wicked guitarist, multi-instrumentalist virtuoso, and owned it for decades. Naturally it&#39;s loaded with custom Jimmy Page and Zappa patches, EVH, Bridge of Sighs, ZZ Top, on and on!</p>
+            <p><img alt="Roland GP-100" src="https://ology.github.io/2026/10/04/roland-gp-100-patches-and-things/gp-100.jpg"></p>
+
+<p>I recently acquired a classic, Roland GP-100 guitar effects processor from a friend. He is a wicked guitarist, multi-instrumentalist virtuoso, and owned it for decades. Naturally it&#39;s loaded with custom Jimmy Page and Zappa patches, EVH, Bridge of Sighs, ZZ Top, on and on!</p>
 
 <p>Anyway, I recorded a dump of the GP memory onto an external MIDI track in Logic Pro. I think this is a valid MIDI sysex file of the patches. But I don&#39;t want to test it on this thing, I&#39;ve never tried it before, and I only have one!</p>
 
