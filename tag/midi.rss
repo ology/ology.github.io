@@ -7,6 +7,33 @@
         <description>Blog feed of Gene Boggs</description>
         <generator>Statocles 0.098</generator>
         <item>
+            <title>Roland GP-100 Patches and Things</title>
+            <link>https://ology.github.io/2026/10/04/roland-gp-100-patches-and-things/</link>
+            <guid>https://ology.github.io/2026/10/04/roland-gp-100-patches-and-things/</guid>
+            <description><![CDATA[
+                <p>I recently acquired a classic, Roland GP-100 guitar effects processor from a friend. He is a wicked guitarist, multi-instrumentalist virtuoso, and owned it for decades. Naturally it&#39;s loaded with custom Jimmy Page and Zappa patches, EVH, Bridge of Sighs, ZZ Top, on and on!</p>
+
+<p>Anyway, I recorded a dump of the GP memory onto an external MIDI track in Logic Pro. I think this is a valid MIDI sysex file of the patches. But I don&#39;t want to test it on this thing, I&#39;ve never tried it before, and I only have one!</p>
+
+<p>But if <strong>you</strong> have it dialed-in, please check <a href="https://drive.google.com/file/d/1P_XY7moAdn7v3fV3Pe4dd_V0BWqTB19e/view?usp=drive_link">this file</a> out, see if it works (i.e. should have a Zappa patch or two), and tell me if so or if not. :D</p>
+
+<p>Here is a cool <a href="https://www.vintagedigital.com.au/roland-gp-100/">write-up</a> on the device. And here are its <a href="https://support.roland.com/hc/en-us/articles/201946959-GP-100-Technical-Specifications">technical specifications</a>.</p>
+
+<h1>Roland #GP100 #MIDI #SYSEX</h1>
+
+
+                    <p>Tags:
+                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
+                        <a href="https://ology.github.io/tag/music/">music</a>
+                        <a href="https://ology.github.io/tag/hardware/">hardware</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 04 Oct 2026 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Loving the Kaoss Pad V</title>
             <link>https://ology.github.io/2026/08/21/loving-the-kaoss-pad-v/</link>
             <guid>https://ology.github.io/2026/08/21/loving-the-kaoss-pad-v/</guid>
@@ -87,27 +114,6 @@
             ]]></description>
             <pubDate>
                 Thu, 12 Dec 2024 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>MIDI Rock: Stone</title>
-            <link>https://ology.github.io/2024/01/05/midi-rock-stone/</link>
-            <guid>https://ology.github.io/2024/01/05/midi-rock-stone/</guid>
-            <description><![CDATA[
-                <p><img alt="" src="https://ology.github.io/2024/01/05/midi-rock-stone/MIDI-Rock-Stone-01-sm.jpg">
-So I bought a <a href="https://reverb.com/shop/midi-rock">MIDI Rock</a> &quot;Stone&quot; joystick controller...</p>
-
-                    <p><a href="https://ology.github.io/2024/01/05/midi-rock-stone/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://ology.github.io/tag/analysis/">analysis</a>
-                        <a href="https://ology.github.io/tag/midi/">MIDI</a>
-                        <a href="https://ology.github.io/tag/systems/">systems</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Fri, 05 Jan 2024 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
