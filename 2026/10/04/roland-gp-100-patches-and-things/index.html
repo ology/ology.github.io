@@ -65,6 +65,38 @@
 <section id="section-2">
     <p>I recorded a dump of the GP memory onto an external MIDI track in Logic Pro. <a href="https://drive.google.com/file/d/1P_XY7moAdn7v3fV3Pe4dd_V0BWqTB19e/view?usp=drive_link">And this</a> is MIDI sysex file of the patches. It&#39;s untested, because I&#39;ve never tried it before, and I only have one GP-100!</p>
 
+<h2>Here&#39;s what Google has to say on the matter:</h2>
+
+<p>To perform a System Exclusive (SysEx) memory dump (backup) or bulk load (restore) on your Roland GP-100, you will use the unit&#39;s [UTILITY] menu functions.</p>
+
+<ul>
+<li>MIDI OUT of the GP-100 connects to the MIDI IN of your computer interface.</li>
+<li>MIDI IN of the GP-100 connects to the MIDI OUT of your computer interface.</li>
+</ul>
+
+<h3>Step-by-Step SysEx Bulk Dump (Backup)</h3>
+
+<ol>
+<li>Open a SysEx utility program on your computer (such as MIDI-OX for Windows or SysEx Librarian for macOS) and set it to &quot;Receive Manual Dump&quot; or &quot;Record&quot;.</li>
+<li>Press the [UTILITY] button on the front panel of the GP-100.</li>
+<li>Rotate the [PARAMETER] knob until &quot;MIDI Bulk Dump&quot; appears.</li>
+<li>Use the [VALUE] knob to specify the block or range of data you wish to backup.</li>
+<li>Press the [WRITE] button to begin sending the memory data.</li>
+<li>Save the captured data as a <code>.mid</code> or <code>.syx</code> file on your computer.</li>
+</ol>
+
+<h3>Step-by-Step SysEx Bulk Load (Restore)</h3>
+
+<ol>
+<li>Press the [UTILITY] button.</li>
+<li>Rotate the [PARAMETER] knob until &quot;MIDI Bulk Load&quot; is displayed on the screen. The unit will enter a standby state to wait for incoming MIDI streams.</li>
+<li>Transmit from Computer: Open your saved file in your SysEx utility software and send or transmit.</li>
+<li>The GP-100 screen will display data packet reception status. Once the file transmission from the software stops, the unit automatically processes and overwrites the designated user memory spots.</li>
+<li>Press [EXIT] to return to the normal Play screen.</li>
+</ol>
+
+<h2>Anyway...</h2>
+
 <p>If <strong>you</strong> have it dialed-in, please <a href="https://drive.google.com/file/d/1P_XY7moAdn7v3fV3Pe4dd_V0BWqTB19e/view?usp=drive_link">check it out</a> and see if it works for you.</p>
 
 <p>Here are the patch types and names that I tediously compiled by hand:</p>
