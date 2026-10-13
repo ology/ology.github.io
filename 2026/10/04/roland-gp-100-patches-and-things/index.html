@@ -99,214 +99,415 @@
 
 <p>If <strong>you</strong> have it dialed-in, please <a href="https://drive.google.com/file/d/1P_XY7moAdn7v3fV3Pe4dd_V0BWqTB19e/view?usp=drive_link">check it out</a> and see if it works for you.</p>
 
+<p>Btw, here is a cool <a href="https://www.vintagedigital.com.au/roland-gp-100/">write-up</a> on the device. And here are its <a href="https://support.roland.com/hc/en-us/articles/201946959-GP-100-Technical-Specifications">technical specifications</a>.</p>
+
 <p>Here are the patch types and names that I tediously compiled by hand:</p>
 
-<p><code>
-|   # | Type    | Name               |
-| --: | :-----: | :----------------- |
-| 1   | vintage | Blue top loose     |
-| 2   | basic   | SLDN super lead    |
-| 3   | harmony | Reversed 2         |
-| 4   | dual    | Van Halen brown    |
-| 5   | dual    | Van Halen brown    |
-| 6   | vintage | Zappa wah wah      |
-| 7   | vintage | Les-wired2         |
-| 8   | vintage | Hadden=ed          |
-| 9   | basic   | Blow by blow dry   |
-| 10  | basic   | No.1 combo         |
-| 11  | delay   | Zeppelin phase     |
-| 12  | basic   | Heartbeat:Belew    |
-| 13  | basic   | Heartbeat:Belew    |
-| 14  | delay   | Good times bad..   |
-| 15  | vintage | Tremolo Page       |
-| 16  | vintage | Terry Kath= lead   |
-| 17  | vintage | Jimmy Page trans   |
-| 18  | vintage | Jimmy Page slap    |
-| 19  | harmony | Reversed 2         |
-| 20  | vintage | Zappa wah wah      |
-| 21  | vintage | Comp&#39;d Marshall    |
-| 22  | vintage | Strat Marshall     |
-| 23  | vintage | Pork pie hat       |
-| 24  | vintage | Strat med gain     |
-| 25  | dual    | Van Halen 5150 II  |
-| 26  | vintage | Strat med gain     |
-| 27  | vintage | Clean top          |
-| 28  | vintage | Hi gain Marshall   |
-| 29  | basic   | Full blown drive   |
-| 30  | basic   | Eric Johnson cln   |
-| 31  | vintage | Eric Johnson OD2   |
-| 32  | basic   | Clear cut echo     |
-| 33  | basic   | Eric Johnson cl+   |
-| 34  | vintage | Eric Johnson OD1   |
-| 35  | dual    | Super Butcher      |
-| 36  | delay   | Eric high phase    |
-| 37  | harmony | Reversed 2         |
-| 38  | harmony | One Time           |
-| 39  | vintage | Sweet 1959 lead    |
-| 40  | basic   | Heartbeat:Belew    |
-| 41  | vintage | Les-wired1         |
-| 42  | vintage | Townshend Paul 1   |
-| 43  | vintage | Blues top boost    |
-| 44  | vintage | Blues top boost    |
-| 45  | vintage | Cant u hear me?    |
-| 46  | vintage | Strat Marshall     |
-| 47  | vintage | Blues top boost    |
-| 48  | vintage | Blues top boost    |
-| 49  | vintage | Joe&#39;s 1959 lead    |
-| 50  | vintage | Cant u hear me?    |
-| 51  | delay   | Eric high phase    |
-| 52  | vintage | Blues top boost    |
-| 53  | vintage | Jimmy Page= live   |
-| 54  | vintage | Wah wah two        |
-| 55  | vintage | Cant u hear me?    |
-| 56  | vintage | Only rock n roll   |
-| 57  | vintage | Rolling Stones     |
-| 58  | vintage | Blues top boost    |
-| 59  | vintage | Blues top boost    |
-| 60  | basic   | Chors cut echo     |
-| 61  | vintage | Start me up        |
-| 62  | vintage | Live at Leeds 1    |
-| 63  | vintage | Lead tube amp ==-  |
-| 64  | vintage | Wah wah two        |
-| 65  | delay   | Modulated phase    |
-| 66  | delay   | Modulated phase    |
-| 67  | vintage | Townshend Paul 1   |
-| 68  | vintage | Duane tremolo      |
-| 69  | vintage | Small amp          |
-| 70  | vintage | Les-clean¥         |
-| 71  | vintage | Les-blues¥         |
-| 72  | vintage | Les-wired1         |
-| 73  | vintage | Les-wired2         |
-| 74  | vintage | Wah wah two        |
-| 75  | basic   | Heartbeat:Belew    |
-| 76  | vintage | Les-wired2         |
-| 77  | basic   | Blow by blow dry   |
-| 78  | vintage | Les-wired2         |
-| 79  | vintage | Hadden=ed2         |
-| 80  | dual    | Van Halen brown    |
-| 81  | vintage | Jimmy Page vox     |
-| 82  | vintage | Joe&#39;s 1959 lead    |
-| 83  | dual    | Van Halen brown    |
-| 84  | vintage | Jimmy Page vox     |
-| 85  | basic   | Heartbeat:Belew    |
-| 86  | dual    | Too Rollinstoned   |
-| 87  | basic   | Robin Trower 1     |
-| 88  | vintage | Black Crowes=      |
-| 89  | delay   | Fripp echo         |
-| 90  | delay   | Montana lead       |
-| 91  | vintage | Townshend Paul 1   |
-| 92  | dual    | Too Rollinstoned   |
-| 93  | delay   | Lark&#39;s tongues II  |
-| 94  | vintage | Lead tube amp ==-  |
-| 95  | vintage | Jag-wired1         |
-| 96  | dual    | Super Butcher      |
-| 97  | basic   | Cutting comp       |
-| 98  | vintage | Blues top boost    |
-| 99  | basic   | Blues combo        |
-| 100 | dual    | Super sizzler      |
-| 101 | basic   | Bright twin        |
-| 102 | vintage | Mild jazz          |
-| 103 | delay   | Halen big bottom   |
-| 104 | vintage | Blues top boost    |
-| 105 | delay   | 70s fusion OD-1    |
-| 106 | basic   | Turbo cry baby     |
-| 107 | harmony | Major chord        |
-| 108 | delay   | Phasing chorus     |
-| 109 | vintage | Slow gear SG-1     |
-| 110 | delay   | Heavy drive        |
-| 111 | delay   | Brian echo         |
-| 112 | basic   | Mellow comp        |
-| 113 | basic   | Fat MS stack       |
-| 114 | basic   | Rockin tweed #1    |
-| 115 | delay   | West coast         |
-| 116 | delay   | Wah phase          |
-| 117 | basic   | Octave down        |
-| 118 | delay   | Modulated phase    |
-| 119 | basic   | Metal 5150 lead    |
-| 120 | basic   | Metal 5150 lead    |
-| 121 | delay   | Turbo OD-2 lead    |
-| 122 | basic   | Cutting comp       |
-| 123 | basic   | Fat echo stack     |
-| 124 | delay   | JC-120 clean       |
-| 125 | delay   | 60s back beat      |
-| 126 | basic   | Fuzz wah wah       |
-| 127 | harmony | Sizzlin harmony    |
-| 128 | delay   | Flanging phase     |
-| 129 | vintage | Vibrato VB-2       |
-| 130 | basic   | Turbo OD-2         |
-| 131 | basic   | Metallic dist      |
-| 132 | basic   | American twin      |
-| 133 | delay   | Fat super Satch    |
-| 134 | basic   | UK crunch-bright   |
-| 135 | basic   | Blues drive        |
-| 136 | delay   | Pedal phase 1      |
-| 137 | harmony | Detuned octave     |
-| 138 | delay   | Clean phase        |
-| 139 | vintage | Panning            |
-| 140 | delay   | Fuzz lead          |
-| 141 | delay   | Rock woman drive   |
-| 142 | delay   | Orange comp        |
-| 143 | vintage | Mild fuzz lead     |
-| 144 | basic   | JC-120 daydream    |
-| 145 | delay   | Venture lead       |
-| 146 | delay   | Mild wah twin      |
-| 147 | delay   | Pedal 2fret down   |
-| 148 | delay   | Hi band flanger    |
-| 149 | vintage | Auto wah           |
-| 150 | basic   | Woman tone         |
-| 151 | delay   | Metal backing      |
-| 152 | delay   | Ducking delay      |
-| 153 | delay   | Punk stack         |
-| 154 | delay   | Whacky pluck       |
-| 155 | basic   | Blues combo        |
-| 156 | vintage | Pedal VCF reso     |
-| 157 | harmony | Diminished pan     |
-| 158 | delay   | Flange drive       |
-| 159 | vintage | Pedal feedbacker   |
-| 160 | delay   | Stereo echo        |
-| 161 | basic   | Fat BG drive       |
-| 162 | delay   | Analog delay       |
-| 163 | delay   | Tempo drive        |
-| 164 | vintage | Rhythm master      |
-| 165 | basic   | Crunch SLDN        |
-| 166 | delay   | Flanging wah       |
-| 167 | harmony | Guitar soundtrack  |
-| 168 | vintage | Growling pan       |
-| 169 | vintage | Tremelo wah        |
-| 170 | delay   | Presence lead      |
-| 171 | delay   | Sweet turbo OD     |
-| 172 | basic   | Jazz tone          |
-| 173 | delay   | BG power stack     |
-| 174 | delay   | Acousticrisp       |
-| 175 | delay   | Detuned drive      |
-| 176 | delay   | JC clear pedal wah |
-| 177 | delay   | Twin lead in C     |
-| 178 | vintage | Vibrato wah        |
-| 179 | vintage | Metal vibro wah    |
-| 180 | basic   | Sweet distortion   |
-| 181 | delay   | No Quarter fuzz    |
-| 182 | vintage | Mild sustain       |
-| 183 | delay   | Metal distortion   |
-| 184 | delay   | Echoplex twin      |
-| 185 | basic   | MS 1959 crunch     |
-| 186 | delay   | Pedal phase 2      |
-| 187 | harmony | Reversed octave    |
-| 188 | delay   | Phasing echo       |
-| 189 | vintage | Metal vibro pan    |
-| 190 | basic   | Grange dist        |
-| 191 | vintage | Sweet 1969 lead    |
-| 192 | vintage | Mellow tone        |
-| 193 | delay   | Bridge of sighs    |
-| 194 | delay   | Tap delay twin     |
-| 195 | delay   | JC-120 drive       |
-| 196 | delay   | Comp wah drive     |
-| 197 | harmony | 4th pitch shift    |
-| 198 | vintage | Crying pan         |
-| 199 | harmony | Synth bass         |
-| 200 | dual    | Two Geddy overdr   |
-</code></p>
+<p>|   # | Type    | Name               |</p>
 
-<p>Btw, here is a cool <a href="https://www.vintagedigital.com.au/roland-gp-100/">write-up</a> on the device. And here are its <a href="https://support.roland.com/hc/en-us/articles/201946959-GP-100-Technical-Specifications">technical specifications</a>.</p>
+<p>| --: | :-----: | :----------------- |</p>
+
+<p>| 1   | vintage | Blue top loose     |</p>
+
+<p>| 2   | basic   | SLDN super lead    |</p>
+
+<p>| 3   | harmony | Reversed 2         |</p>
+
+<p>| 4   | dual    | Van Halen brown    |</p>
+
+<p>| 5   | dual    | Van Halen brown    |</p>
+
+<p>| 6   | vintage | Zappa wah wah      |</p>
+
+<p>| 7   | vintage | Les-wired2         |</p>
+
+<p>| 8   | vintage | Hadden=ed          |</p>
+
+<p>| 9   | basic   | Blow by blow dry   |</p>
+
+<p>| 10  | basic   | No.1 combo         |</p>
+
+<p>| 11  | delay   | Zeppelin phase     |</p>
+
+<p>| 12  | basic   | Heartbeat:Belew    |</p>
+
+<p>| 13  | basic   | Heartbeat:Belew    |</p>
+
+<p>| 14  | delay   | Good times bad..   |</p>
+
+<p>| 15  | vintage | Tremolo Page       |</p>
+
+<p>| 16  | vintage | Terry Kath= lead   |</p>
+
+<p>| 17  | vintage | Jimmy Page trans   |</p>
+
+<p>| 18  | vintage | Jimmy Page slap    |</p>
+
+<p>| 19  | harmony | Reversed 2         |</p>
+
+<p>| 20  | vintage | Zappa wah wah      |</p>
+
+<p>| 21  | vintage | Comp&#39;d Marshall    |</p>
+
+<p>| 22  | vintage | Strat Marshall     |</p>
+
+<p>| 23  | vintage | Pork pie hat       |</p>
+
+<p>| 24  | vintage | Strat med gain     |</p>
+
+<p>| 25  | dual    | Van Halen 5150 II  |</p>
+
+<p>| 26  | vintage | Strat med gain     |</p>
+
+<p>| 27  | vintage | Clean top          |</p>
+
+<p>| 28  | vintage | Hi gain Marshall   |</p>
+
+<p>| 29  | basic   | Full blown drive   |</p>
+
+<p>| 30  | basic   | Eric Johnson cln   |</p>
+
+<p>| 31  | vintage | Eric Johnson OD2   |</p>
+
+<p>| 32  | basic   | Clear cut echo     |</p>
+
+<p>| 33  | basic   | Eric Johnson cl+   |</p>
+
+<p>| 34  | vintage | Eric Johnson OD1   |</p>
+
+<p>| 35  | dual    | Super Butcher      |</p>
+
+<p>| 36  | delay   | Eric high phase    |</p>
+
+<p>| 37  | harmony | Reversed 2         |</p>
+
+<p>| 38  | harmony | One Time           |</p>
+
+<p>| 39  | vintage | Sweet 1959 lead    |</p>
+
+<p>| 40  | basic   | Heartbeat:Belew    |</p>
+
+<p>| 41  | vintage | Les-wired1         |</p>
+
+<p>| 42  | vintage | Townshend Paul 1   |</p>
+
+<p>| 43  | vintage | Blues top boost    |</p>
+
+<p>| 44  | vintage | Blues top boost    |</p>
+
+<p>| 45  | vintage | Cant u hear me?    |</p>
+
+<p>| 46  | vintage | Strat Marshall     |</p>
+
+<p>| 47  | vintage | Blues top boost    |</p>
+
+<p>| 48  | vintage | Blues top boost    |</p>
+
+<p>| 49  | vintage | Joe&#39;s 1959 lead    |</p>
+
+<p>| 50  | vintage | Cant u hear me?    |</p>
+
+<p>| 51  | delay   | Eric high phase    |</p>
+
+<p>| 52  | vintage | Blues top boost    |</p>
+
+<p>| 53  | vintage | Jimmy Page= live   |</p>
+
+<p>| 54  | vintage | Wah wah two        |</p>
+
+<p>| 55  | vintage | Cant u hear me?    |</p>
+
+<p>| 56  | vintage | Only rock n roll   |</p>
+
+<p>| 57  | vintage | Rolling Stones     |</p>
+
+<p>| 58  | vintage | Blues top boost    |</p>
+
+<p>| 59  | vintage | Blues top boost    |</p>
+
+<p>| 60  | basic   | Chors cut echo     |</p>
+
+<p>| 61  | vintage | Start me up        |</p>
+
+<p>| 62  | vintage | Live at Leeds 1    |</p>
+
+<p>| 63  | vintage | Lead tube amp ==-  |</p>
+
+<p>| 64  | vintage | Wah wah two        |</p>
+
+<p>| 65  | delay   | Modulated phase    |</p>
+
+<p>| 66  | delay   | Modulated phase    |</p>
+
+<p>| 67  | vintage | Townshend Paul 1   |</p>
+
+<p>| 68  | vintage | Duane tremolo      |</p>
+
+<p>| 69  | vintage | Small amp          |</p>
+
+<p>| 70  | vintage | Les-clean¥         |</p>
+
+<p>| 71  | vintage | Les-blues¥         |</p>
+
+<p>| 72  | vintage | Les-wired1         |</p>
+
+<p>| 73  | vintage | Les-wired2         |</p>
+
+<p>| 74  | vintage | Wah wah two        |</p>
+
+<p>| 75  | basic   | Heartbeat:Belew    |</p>
+
+<p>| 76  | vintage | Les-wired2         |</p>
+
+<p>| 77  | basic   | Blow by blow dry   |</p>
+
+<p>| 78  | vintage | Les-wired2         |</p>
+
+<p>| 79  | vintage | Hadden=ed2         |</p>
+
+<p>| 80  | dual    | Van Halen brown    |</p>
+
+<p>| 81  | vintage | Jimmy Page vox     |</p>
+
+<p>| 82  | vintage | Joe&#39;s 1959 lead    |</p>
+
+<p>| 83  | dual    | Van Halen brown    |</p>
+
+<p>| 84  | vintage | Jimmy Page vox     |</p>
+
+<p>| 85  | basic   | Heartbeat:Belew    |</p>
+
+<p>| 86  | dual    | Too Rollinstoned   |</p>
+
+<p>| 87  | basic   | Robin Trower 1     |</p>
+
+<p>| 88  | vintage | Black Crowes=      |</p>
+
+<p>| 89  | delay   | Fripp echo         |</p>
+
+<p>| 90  | delay   | Montana lead       |</p>
+
+<p>| 91  | vintage | Townshend Paul 1   |</p>
+
+<p>| 92  | dual    | Too Rollinstoned   |</p>
+
+<p>| 93  | delay   | Lark&#39;s tongues II  |</p>
+
+<p>| 94  | vintage | Lead tube amp ==-  |</p>
+
+<p>| 95  | vintage | Jag-wired1         |</p>
+
+<p>| 96  | dual    | Super Butcher      |</p>
+
+<p>| 97  | basic   | Cutting comp       |</p>
+
+<p>| 98  | vintage | Blues top boost    |</p>
+
+<p>| 99  | basic   | Blues combo        |</p>
+
+<p>| 100 | dual    | Super sizzler      |</p>
+
+<p>| 101 | basic   | Bright twin        |</p>
+
+<p>| 102 | vintage | Mild jazz          |</p>
+
+<p>| 103 | delay   | Halen big bottom   |</p>
+
+<p>| 104 | vintage | Blues top boost    |</p>
+
+<p>| 105 | delay   | 70s fusion OD-1    |</p>
+
+<p>| 106 | basic   | Turbo cry baby     |</p>
+
+<p>| 107 | harmony | Major chord        |</p>
+
+<p>| 108 | delay   | Phasing chorus     |</p>
+
+<p>| 109 | vintage | Slow gear SG-1     |</p>
+
+<p>| 110 | delay   | Heavy drive        |</p>
+
+<p>| 111 | delay   | Brian echo         |</p>
+
+<p>| 112 | basic   | Mellow comp        |</p>
+
+<p>| 113 | basic   | Fat MS stack       |</p>
+
+<p>| 114 | basic   | Rockin tweed #1    |</p>
+
+<p>| 115 | delay   | West coast         |</p>
+
+<p>| 116 | delay   | Wah phase          |</p>
+
+<p>| 117 | basic   | Octave down        |</p>
+
+<p>| 118 | delay   | Modulated phase    |</p>
+
+<p>| 119 | basic   | Metal 5150 lead    |</p>
+
+<p>| 120 | basic   | Metal 5150 lead    |</p>
+
+<p>| 121 | delay   | Turbo OD-2 lead    |</p>
+
+<p>| 122 | basic   | Cutting comp       |</p>
+
+<p>| 123 | basic   | Fat echo stack     |</p>
+
+<p>| 124 | delay   | JC-120 clean       |</p>
+
+<p>| 125 | delay   | 60s back beat      |</p>
+
+<p>| 126 | basic   | Fuzz wah wah       |</p>
+
+<p>| 127 | harmony | Sizzlin harmony    |</p>
+
+<p>| 128 | delay   | Flanging phase     |</p>
+
+<p>| 129 | vintage | Vibrato VB-2       |</p>
+
+<p>| 130 | basic   | Turbo OD-2         |</p>
+
+<p>| 131 | basic   | Metallic dist      |</p>
+
+<p>| 132 | basic   | American twin      |</p>
+
+<p>| 133 | delay   | Fat super Satch    |</p>
+
+<p>| 134 | basic   | UK crunch-bright   |</p>
+
+<p>| 135 | basic   | Blues drive        |</p>
+
+<p>| 136 | delay   | Pedal phase 1      |</p>
+
+<p>| 137 | harmony | Detuned octave     |</p>
+
+<p>| 138 | delay   | Clean phase        |</p>
+
+<p>| 139 | vintage | Panning            |</p>
+
+<p>| 140 | delay   | Fuzz lead          |</p>
+
+<p>| 141 | delay   | Rock woman drive   |</p>
+
+<p>| 142 | delay   | Orange comp        |</p>
+
+<p>| 143 | vintage | Mild fuzz lead     |</p>
+
+<p>| 144 | basic   | JC-120 daydream    |</p>
+
+<p>| 145 | delay   | Venture lead       |</p>
+
+<p>| 146 | delay   | Mild wah twin      |</p>
+
+<p>| 147 | delay   | Pedal 2fret down   |</p>
+
+<p>| 148 | delay   | Hi band flanger    |</p>
+
+<p>| 149 | vintage | Auto wah           |</p>
+
+<p>| 150 | basic   | Woman tone         |</p>
+
+<p>| 151 | delay   | Metal backing      |</p>
+
+<p>| 152 | delay   | Ducking delay      |</p>
+
+<p>| 153 | delay   | Punk stack         |</p>
+
+<p>| 154 | delay   | Whacky pluck       |</p>
+
+<p>| 155 | basic   | Blues combo        |</p>
+
+<p>| 156 | vintage | Pedal VCF reso     |</p>
+
+<p>| 157 | harmony | Diminished pan     |</p>
+
+<p>| 158 | delay   | Flange drive       |</p>
+
+<p>| 159 | vintage | Pedal feedbacker   |</p>
+
+<p>| 160 | delay   | Stereo echo        |</p>
+
+<p>| 161 | basic   | Fat BG drive       |</p>
+
+<p>| 162 | delay   | Analog delay       |</p>
+
+<p>| 163 | delay   | Tempo drive        |</p>
+
+<p>| 164 | vintage | Rhythm master      |</p>
+
+<p>| 165 | basic   | Crunch SLDN        |</p>
+
+<p>| 166 | delay   | Flanging wah       |</p>
+
+<p>| 167 | harmony | Guitar soundtrack  |</p>
+
+<p>| 168 | vintage | Growling pan       |</p>
+
+<p>| 169 | vintage | Tremelo wah        |</p>
+
+<p>| 170 | delay   | Presence lead      |</p>
+
+<p>| 171 | delay   | Sweet turbo OD     |</p>
+
+<p>| 172 | basic   | Jazz tone          |</p>
+
+<p>| 173 | delay   | BG power stack     |</p>
+
+<p>| 174 | delay   | Acousticrisp       |</p>
+
+<p>| 175 | delay   | Detuned drive      |</p>
+
+<p>| 176 | delay   | JC clear pedal wah |</p>
+
+<p>| 177 | delay   | Twin lead in C     |</p>
+
+<p>| 178 | vintage | Vibrato wah        |</p>
+
+<p>| 179 | vintage | Metal vibro wah    |</p>
+
+<p>| 180 | basic   | Sweet distortion   |</p>
+
+<p>| 181 | delay   | No Quarter fuzz    |</p>
+
+<p>| 182 | vintage | Mild sustain       |</p>
+
+<p>| 183 | delay   | Metal distortion   |</p>
+
+<p>| 184 | delay   | Echoplex twin      |</p>
+
+<p>| 185 | basic   | MS 1959 crunch     |</p>
+
+<p>| 186 | delay   | Pedal phase 2      |</p>
+
+<p>| 187 | harmony | Reversed octave    |</p>
+
+<p>| 188 | delay   | Phasing echo       |</p>
+
+<p>| 189 | vintage | Metal vibro pan    |</p>
+
+<p>| 190 | basic   | Grange dist        |</p>
+
+<p>| 191 | vintage | Sweet 1969 lead    |</p>
+
+<p>| 192 | vintage | Mellow tone        |</p>
+
+<p>| 193 | delay   | Bridge of sighs    |</p>
+
+<p>| 194 | delay   | Tap delay twin     |</p>
+
+<p>| 195 | delay   | JC-120 drive       |</p>
+
+<p>| 196 | delay   | Comp wah drive     |</p>
+
+<p>| 197 | harmony | 4th pitch shift    |</p>
+
+<p>| 198 | vintage | Crying pan         |</p>
+
+<p>| 199 | harmony | Synth bass         |</p>
+
+<p>| 200 | dual    | Two Geddy overdr   |</p>
+
+<p>And yes, markdown tables don&#39;t work with https://metacpan.org/pod/Statocles#FEATURES - Ugh :(</p>
 
 <p><code>#Roland #GP100 #MIDI #SYSEX</code></p>
 
